@@ -219,7 +219,39 @@ animation:slide 7s infinite ease-in-out reverse;
 50%{transform:translateX(40px)}
 100%{transform:translateX(0)}
 }
+/* UPDATE NOTIFICATION */
 
+.update-notice{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#03324d;
+color:white;
+padding:18px 22px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+font-size:1rem;
+max-width:280px;
+z-index:999;
+animation:fadeIn .6s ease;
+}
+
+.update-notice button{
+margin-top:10px;
+background:white;
+border:none;
+padding:6px 12px;
+border-radius:6px;
+cursor:pointer;
+font-weight:600;
+color:#03324d;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(10px)}
+to{opacity:1;transform:translateY(0)}
+}
+  
 /* FOOTER */
 
 footer{
@@ -318,5 +350,12 @@ setInterval(rotateQuote,4000);
 
 </script>
 
+<div class="update-notice" id="updateNotice">
+Check out the updates to the new prank section!
+<br>
+<button onclick="document.getElementById('updateNotice').style.display='none'">
+Dismiss
+</button>
+</div>
 </body>
 </html>
