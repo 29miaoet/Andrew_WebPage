@@ -312,6 +312,7 @@ won the Nobel Prize for 5 years in the role, in 4 fields each time, making a tot
 
 <p><strong>Medals:</strong> <span id="medals">0</span></p>
 <p><strong>Nobel Prizes:</strong> <span id="nobel">0</span></p>
+<p><strong>Fields Medals:</strong> <span id="fields">0</span></p>
 <p><strong>Olympic Gold Medals:</strong> <span id="olympic">0</span></p>
 
 </div>
@@ -371,10 +372,12 @@ function updateAwards(){
 
   medals += Math.floor(Math.random()*5)+1;
   nobel += Math.floor(Math.random()*2);
+  fields += Math.floor(Math.random()*1.5);
   olympic += Math.floor(Math.random()*3);
 
   document.getElementById("medals").textContent = medals.toLocaleString();
   document.getElementById("nobel").textContent = nobel.toLocaleString();
+  document.getElementById("fields").textContent = fields.toLocaleString();
   document.getElementById("olympic").textContent = olympic.toLocaleString();
 
 }
