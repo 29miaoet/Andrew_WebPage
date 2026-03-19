@@ -7,15 +7,16 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
+            background: linear-gradient(135deg, #eef2f7, #dfe7f1);
             color: #333;
         }
 
         header {
             background-color: #0055A4;
             color: white;
-            padding: 20px;
+            padding: 18px;
             text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
 
         nav {
@@ -37,42 +38,66 @@
 
         .hero {
             background: url('https://cptdb.ca/wiki/images/thumb/0/0e/Winnipeg_Transit_198-a.jpg/1599px-Winnipeg_Transit_198-a.jpg?20220626205802') no-repeat center/cover;
-            height: 300px;
+            height: 260px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 2em;
+            font-size: 1.8em;
             font-weight: bold;
             text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
         }
 
         .container {
-            padding: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
 
         .card {
             background: white;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            padding: 18px;
+            margin: 18px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        h2 {
+            margin-top: 0;
         }
 
         footer {
             background-color: #0055A4;
             color: white;
             text-align: center;
-            padding: 10px;
-            margin-top: 20px;
+            padding: 12px;
+            margin-top: 30px;
+            font-size: 0.9em;
         }
 
         .bus-list li {
-            margin: 5px 0;
+            margin: 6px 0;
         }
-		.rounded {
-			border-radius: 25px;
-		}
+
+        .rounded {
+            border-radius: 18px;
+        }
+
+        figure {
+            margin: 15px 0;
+        }
+
+        figcaption {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -90,65 +115,65 @@
 
     <div class="card" id="about">
         <h2>About Andrew</h2>
-		
-			<p>
-				Andrew Stanish is a world-famous character, he is well known throughout the world. 
-				He has obtained <span id="doctorates">1000</span> doctorates so far, with <span id="transits">5</span> of them being related to transit and 
-				transportation planning.
-			</p>
-			<br>
-	</div>
-	<div class="card" id="about">
-		<h2>Most Recent Interview</h2>
-		<ul class="bus-list">
-			
-			<li style="font-weight: bold;">Words On the F6</li>
-			<p>
-			The F6, I I enjoy the F6, I enjoy it for a reason, it comes into the community of South Saint Vital,
-			it comes into the community, travels along the streets that have the least conjestion, allowing traffic 
-			to move freely and quicky, it's reasonably frequent, and It’s pretty much always on time. It has so many 
-			entry points, especially if you are looking at the central south part of the city.
-			</p>
-			<br>
-			<li style="font-weight: bold;">Words On the F8</li>
-			<p>
-			Route F8, oh what a great route it is, I love the route f8 for a few reasons, super frequent, long buses, 
-			guaranteed a spot, especially versatile, constantly long, only route in the city, shooting through downtown 
-			into Israeli bridge, really north of the city, shooting down really quickly. 
-			</p>
-			<br>
-			<li style="font-weight: bold;">Words On the Blue Downtown</li>
-			<p>
-			Route Blue, well, this is pretty self-explanatory, you're all going to get on the bus transitway, super frequent, 
-			goes to all the most important spaces in the city, blue line stations are super nice, buses run by hydrogen fuel cells, 
-			little bit crowded coming from downtown but always great. 
-			</p>
-			<br>
-			<li style="font-weight: bold;">Words On the FX3</li>
-			<p>
-			Route FX3... I haven’t really taken the FX3 really that much, goes kind of like an east west of 
-			the city, the part through downtown is extremely essential to the city. 
-			</p>
-			<br>
-			<li style="font-weight: bold;">Words On the 556</li>
-			<p>
-			I honestly don’t think the FX2 is a good bus; what is the sixth route? K, 556 goes ahead of that now I changed it. 
-			The 556 is potentially the best community route in the entire city, connecting to Pembina and plaza drive to 
-			St. Vital center, and to sage creek, which is massive for a couple of reasons. 556 is the only way to get from 
-			sage creek to St.Vital center, which is an extremely important route considering the increase of commercial traffic. 
-			A community route there helps a little bit, and it's...like...it's...It's just well...design I guess…, um.. 
-			err...it travels on streets, it’s never going to have a delay. 
-			</p>
-			<br>
-			<li style="font-weight: bold;">Words On the New Transit System</li>
-			<p>
-			Uh... the new route around the system is better for sure, at the end of the day, at 
-			the end of the day, I don't understand the thought process in saying that transfer is better I also think that 
-			there has to be a fundamental redesign in the F9, constant delays, blah blah blah very dislike, very bad needs 
-			to change, there needs to be a talk about Abinojii, it's just not... not as reliable as it needs to be, just a 
-			really bad line. And... Hey! Are you typing down everything I say! Wha-
-			</p>
-		</ul>
+        
+            <p>
+                Andrew Stanish is a world-famous character, he is well known throughout the world. 
+                He has obtained <span id="doctorates">1000</span> doctorates so far, with <span id="transits">5</span> of them being related to transit and 
+                transportation planning.
+            </p>
+            <br>
+    </div>
+    <div class="card" id="about">
+        <h2>Most Recent Interview</h2>
+        <ul class="bus-list">
+            
+            <li style="font-weight: bold;">Words On the F6</li>
+            <p>
+            The F6, I I enjoy the F6, I enjoy it for a reason, it comes into the community of South Saint Vital,
+            it comes into the community, travels along the streets that have the least conjestion, allowing traffic 
+            to move freely and quicky, it's reasonably frequent, and It’s pretty much always on time. It has so many 
+            entry points, especially if you are looking at the central south part of the city.
+            </p>
+            <br>
+            <li style="font-weight: bold;">Words On the F8</li>
+            <p>
+            Route F8, oh what a great route it is, I love the route f8 for a few reasons, super frequent, long buses, 
+            guaranteed a spot, especially versatile, constantly long, only route in the city, shooting through downtown 
+            into Israeli bridge, really north of the city, shooting down really quickly. 
+            </p>
+            <br>
+            <li style="font-weight: bold;">Words On the Blue Downtown</li>
+            <p>
+            Route Blue, well, this is pretty self-explanatory, you're all going to get on the bus transitway, super frequent, 
+            goes to all the most important spaces in the city, blue line stations are super nice, buses run by hydrogen fuel cells, 
+            little bit crowded coming from downtown but always great. 
+            </p>
+            <br>
+            <li style="font-weight: bold;">Words On the FX3</li>
+            <p>
+            Route FX3... I haven’t really taken the FX3 really that much, goes kind of like an east west of 
+            the city, the part through downtown is extremely essential to the city. 
+            </p>
+            <br>
+            <li style="font-weight: bold;">Words On the 556</li>
+            <p>
+            I honestly don’t think the FX2 is a good bus; what is the sixth route? K, 556 goes ahead of that now I changed it. 
+            The 556 is potentially the best community route in the entire city, connecting to Pembina and plaza drive to 
+            St. Vital center, and to sage creek, which is massive for a couple of reasons. 556 is the only way to get from 
+            sage creek to St.Vital center, which is an extremely important route considering the increase of commercial traffic. 
+            A community route there helps a little bit, and it's...like...it's...It's just well...design I guess…, um.. 
+            err...it travels on streets, it’s never going to have a delay. 
+            </p>
+            <br>
+            <li style="font-weight: bold;">Words On the New Transit System</li>
+            <p>
+            Uh... the new route around the system is better for sure, at the end of the day, at 
+            the end of the day, I don't understand the thought process in saying that transfer is better I also think that 
+            there has to be a fundamental redesign in the F9, constant delays, blah blah blah very dislike, very bad needs 
+            to change, there needs to be a talk about Abinojii, it's just not... not as reliable as it needs to be, just a 
+            really bad line. And... Hey! Are you typing down everything I say! Wha-
+            </p>
+        </ul>
     </div>
 
     <div class="card" id="routes">
@@ -158,31 +183,31 @@
             <li>Route F8 - University of Manitoba</li>
             <li>Route BLUE – Unicity Hub -- University of Manitoba / St.Norbert</li>
             <li>Route FX3 – Sturgeon at Mary Park</li>
-			<li>Route 556 - Sage Creek -- Plaza Drive</li>
-			<li>Route F7 - Broadway at Portage -- Creek Bend</li>
-			<li>Route D15 - Unicity Hub</li>
-			<li>Route 557 - Sage Creek -- Windermere</li>
-			<li>Route 676 - Bridgewater -- Creek Bend</li>
-			<li>Route 552 - Avalon Loop -- South St. Vital</li>
-			<li>Route 558 - Avalon Loop</li>
-			<li>Route F9 - Kildonan Place Hub -- Southdale</li>
-			<li>Route 91 - Baylor -- Killarney</li>
+            <li>Route 556 - Sage Creek -- Plaza Drive</li>
+            <li>Route F7 - Broadway at Portage -- Creek Bend</li>
+            <li>Route D15 - Unicity Hub</li>
+            <li>Route 557 - Sage Creek -- Windermere</li>
+            <li>Route 676 - Bridgewater -- Creek Bend</li>
+            <li>Route 552 - Avalon Loop -- South St. Vital</li>
+            <li>Route 558 - Avalon Loop</li>
+            <li>Route F9 - Kildonan Place Hub -- Southdale</li>
+            <li>Route 91 - Baylor -- Killarney</li>
         </ul>
     </div>
 
     <div class="card" id="gallery">
         <h2>Bus Gallery</h2>
         <p>Andrew's favorite bus photos: 
-		
-		</p>
-		<figure>
-        	<img src="https://29miaoet.github.io/Andrew_WebPage/Andrew_medal.png" alt="Winnipeg Bus" width="100%" class="rounded">
-			<figcaption>Andrew posing with his favorite transit bus after winning his 20th Nobel Prize</figcaption>
-		</figure>
-		<figure>
-			<img src="https://29miaoet.github.io/Andrew_WebPage/Andrew_bus.png" alt="Winnipeg Bus" width="100%" class="rounded">
-			<figcaption>Andrew's Wedding with Route F6</figcaption>
-		</figure>
+        
+        </p>
+        <figure>
+            <img src="https://29miaoet.github.io/Andrew_WebPage/Andrew_medal.png" alt="Winnipeg Bus" width="100%" class="rounded">
+            <figcaption>Andrew posing with his favorite transit bus after winning his 20th Nobel Prize</figcaption>
+        </figure>
+        <figure>
+            <img src="https://29miaoet.github.io/Andrew_WebPage/Andrew_bus.png" alt="Winnipeg Bus" width="100%" class="rounded">
+            <figcaption>Andrew's Wedding with Route F6</figcaption>
+        </figure>
     </div>
 
     <div class="card" id="contact">
@@ -219,4 +244,3 @@
 
 </body>
 </html>
-
