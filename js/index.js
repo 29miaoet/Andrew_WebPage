@@ -19,3 +19,17 @@ display.style.opacity = 1;
 }
 
 setInterval(rotateQuote,4000);
+
+const menu = document.getElementById("menu");
+const icon = document.querySelector(".menu-icon");
+
+function toggleMenu() {
+menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+// Close dropdown when clicking outside
+window.addEventListener("click", function(event) {
+if (!menu.contains(event.target) && !icon.contains(event.target)) {
+  menu.style.display = "none";
+}
+});
