@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <title>Andrew Stanish</title>
 
 <link rel="stylesheet" href="css/index.css">
@@ -31,7 +32,21 @@
 
 <div class="quote-box">
 <p id="quote-display"></p>
+
+<!-- Hamburger icon -->
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+<!-- Dropdown -->
+<div class="dropdown" id="menu">
+  <a href="index.html">Home</a>
+  <a href="Andrew_Stanish.html">Andrew's Formal Webpage</a>
+  <a href="Andrew_Stanish_Fake.html">Andrew's Prank Page</a>
+  <a href="Andrew_transit.html">Andrew's Transit Page</a>
+  <a href="https://en.wikipedia.org/wiki/User:29miaoet/sandbox">Andrew's Wikipedia Article</a>
+  <a href="#">Download The Offline Webpage</a>
+  <a href="images">Photo Gallery</a>
 </div>
+
 
 <!-- Quotes stored directly in HTML -->
 
@@ -77,12 +92,5 @@ Wikipedia Article
 
 <script src="js/index.js"></script>
 
-<div class="update-notice" id="updateNotice">
-Get ready! Visual upgrades ahead!
-<br>
-<button onclick="document.getElementById('updateNotice').style.display='none'">
-Dismiss
-</button>
-</div>
 </body>
 </html>
