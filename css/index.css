@@ -100,12 +100,17 @@ opacity:.25;
 
 /* BUTTONS */
 
-.button-container{
-margin-top:80px;
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:25px;
+.button-container {
+display: flex;
+justify-content: center;
+transform: translate(-22.5%, 30%);
+flex-wrap: wrap;
+gap: 20px;
+width: 180%;
+max-width: 1200px;
+margin: 80px auto 0;
+position: relative;
+z-index: 1;
 }
 
 .nav-button{
@@ -240,6 +245,46 @@ color:#03324d;
 from{opacity:0;transform:translateY(10px)}
 to{opacity:1;transform:translateY(0)}
 }
+
+/* Hamburger icon */
+.menu-icon {
+font-size: 26px;
+cursor: pointer;
+padding: 10px;
+position: absolute;
+top: 10px;
+left: 10px;
+z-index: 1000;
+user-select: none;
+}
+
+
+/* Dropdown menu */
+.dropdown {
+display: none;
+position: absolute;
+top: 70px;
+left: 10px;
+background: #f0f0f0;
+min-width: 120px;
+text-align: left; /* align links to left */
+}
+
+/* Links styling */
+.dropdown a {
+display: block;
+padding: 4px 12px;
+text-decoration: none;
+color: #222;
+font-weight: 380;
+font-size: 14px;
+transition: color 0.2s;
+}
+
+.dropdown a:hover {
+color: #007BFF; /* hover color */
+}
+
   
 /* FOOTER */
 
