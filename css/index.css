@@ -214,12 +214,12 @@ animation:slide 7s infinite ease-in-out reverse;
 100%{transform:translateX(0)}
 }
 /* UPDATE NOTIFICATION */
-
+/* Original color: #03324d */
 .update-notice{
 position:fixed;
 bottom:25px;
 right:25px;
-background:#03324d;
+background:#0f761f;
 color:white;
 padding:18px 22px;
 border-radius:10px;
@@ -238,7 +238,7 @@ padding:6px 12px;
 border-radius:6px;
 cursor:pointer;
 font-weight:600;
-color:#03324d;
+color:#0f761f;
 }
 
 @keyframes fadeIn{
