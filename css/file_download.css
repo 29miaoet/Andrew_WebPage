@@ -94,6 +94,12 @@ button:active{
     font-size:14px;
 }
 
+#statusText2{
+    margin-top:15px;
+    color:#555;
+    font-size:14px;
+}
+
 .info-section{
     margin-bottom:20px;
     padding:15px;
