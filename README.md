@@ -28,4 +28,4 @@
 ## Stats
 - ![Repo size](https://img.shields.io/github/repo-size/29miaoet/Andrew_WebPage)
 - ![Last commit](https://img.shields.io/github/last-commit/29miaoet/Andrew_WebPage)
-- ![Language count](https://img.shields.io/github/languages/count/29miaoet/Andrew_WebPageOWNER/REPO)
+- ![Language count](https://img.shields.io/github/languages/count/29miaoet/Andrew_WebPage)
