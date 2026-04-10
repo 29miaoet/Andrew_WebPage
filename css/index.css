@@ -301,10 +301,15 @@ opacity:.75;
   .button-container {
     flex-direction: column;
     align-items: center;
-	margin-top: -55px;
-	z-index: 500;
-    gap: 8px;
-	
+
+    transform: none;
+
+    margin-top: 20px;
+
+    gap: 12px;
+
+    width: 100%;
+    max-width: 100%;
   }
 
   .nav-button {
@@ -312,16 +317,9 @@ opacity:.75;
     max-width: 320px;
   }
 
-
   .stone {
     display: none;
   }
-
-
-  main {
-    min-height: auto;
-  }
-  
 
   header {
     padding: 30px 20px 10px;
@@ -336,8 +334,8 @@ opacity:.75;
     margin-bottom: 10px;
   }
 
-  main {
-    justify-content: flex-start;
+  footer {
+    display: none;
   }
 
 }
