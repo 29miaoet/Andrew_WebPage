@@ -31,7 +31,7 @@
 - ![Language count](https://img.shields.io/github/languages/count/29miaoet/Andrew_WebPage)
 - ![Repo size](https://img.shields.io/github/repo-size/29miaoet/Andrew_WebPage)
 - ![Top language](https://img.shields.io/github/languages/top/29miaoet/Andrew_WebPage)
-- ![Issues](https://img.shields.io/github/issues/OWNER/REPO)
+- ![Issues](https://img.shields.io/github/issues/29miaoet/Andrew_WebPage)
 - ![Pull requests](https://img.shields.io/github/issues-pr/29miaoet/Andrew_WebPage)
 - ![Closed issues](https://img.shields.io/github/issues-closed/29miaoet/Andrew_WebPage)
 
