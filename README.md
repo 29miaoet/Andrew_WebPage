@@ -34,5 +34,5 @@
 - ![Issues](https://img.shields.io/github/issues/OWNER/REPO)
 - ![Pull requests](https://img.shields.io/github/issues-pr/29miaoet/Andrew_WebPage)
 - ![Closed issues](https://img.shields.io/github/issues-closed/29miaoet/Andrew_WebPage)
-- ![License](https://img.shields.io/github/license/29miaoet/Andrew_WebPage)
+
 
