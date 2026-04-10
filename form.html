@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, follow">
+<title>Form</title>
+<link rel="stylesheet" href="css/form.css">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+</head>
+
+<body>
+
+<div class="form-container">
+  <h2>Andrew Stanish Website Form</h2>
+
+  <form action="https://formspree.io/f/mykbqqro" method="POST">
+
+    <label>
+      Name:
+      <input type="text" name="name" required>
+    </label>
+
+    <label>
+      Email Address:
+      <input type="email" name="_replyto" required>
+    </label>
+
+    <label>
+      Subject:
+      <input type="text" name="subject">
+    </label>
+
+    <label>
+      Reason for Contact:
+      <select name="reason" required>
+	    <option value="" disabled selected>Select a reason</option>
+        <option value="support">Feedback</option>
+        <option value="feedback">Report a Bug</option>
+        <option value="business">Legal Issues</option>
+        <option value="other">Other</option>
+      </select>
+    </label>
+
+    <label>
+      Your Message:
+      <textarea name="message" required></textarea>
+    </label>
+
+    <div class="confirmation">
+      <label>
+        <input type="checkbox" name="consent" required>
+        Confirm choices
+      </label>
+    </div>
+
+    <button type="submit">Submit</button>
+
+  </form>
+</div>
+
+<div id="popup">Message sent successfully!</div>
+
+</body>
+</html>
