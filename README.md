@@ -22,8 +22,8 @@
 - For issues or feedback, please contact me on teams.
 
 ## Download
-- [Source Code Download - Zip](https://github.com/29miaoet/Andrew_WebPage/blob/main/files/Andrew_Webpage.zip)
-- [Source Code Download - Tarball](https://github.com/29miaoet/Andrew_WebPage/blob/main/files/Andrew_Webpage.tar.gz)
+- [Source Code Download - Zip](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v26.1.4.zip)
+- [Source Code Download - Tarball](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v26.1.4.tar.gz)
   
 ## Stats
 - ![Repo size](https://img.shields.io/github/repo-size/29miaoet/Andrew_WebPage)
