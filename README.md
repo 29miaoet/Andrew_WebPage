@@ -17,10 +17,10 @@
 - ⚠️ Prioritizes frontend developement
 
 ## Newest Updates
-- ✅ Form page support with [Formspree](https://formspree.io/).
-[Contact Form](https://29miaoet.github.io/Andrew_WebPage/form.html)
-- ✅ Backend data logging with [Supabase](https://supabase.com/).
-[Wall of Signatures](https://29miaoet.github.io/Andrew_WebPage/signature_page.html)
+- ✅ Form page support with [Formspree](https://formspree.io/):
+  [Contact Form](https://29miaoet.github.io/Andrew_WebPage/form.html)
+- ✅ Backend data logging with [Supabase](https://supabase.com/):
+  [Wall of Signatures](https://29miaoet.github.io/Andrew_WebPage/signature_page.html)
 
 ## Requisites
 - Modern GUI Browser
