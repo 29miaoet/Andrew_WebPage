@@ -45,6 +45,8 @@
 - ![Closed issues](https://img.shields.io/github/issues-closed/29miaoet/Andrew_WebPage)
 
 ## Utilized Tools & Services
+- **We're proud to announce that Andrew's Website was created with a free budget!**
+- **All the tools used below are either free, or only the free tier was used.**
 - [GitHub](https://github.com/)
 - [GitHub Pages](https://docs.github.com/en/pages)
 - [Formspree](https://formspree.io/)
@@ -53,7 +55,7 @@
 - [Inkscape](https://inkscape.org/)
 - [Gimp](https://www.gimp.org/)
 - [OpenClaw](https://openclaw.ai/)
-- [Ollama](https://chatgpt.com/)
+- [Ollama](https://ollama.com/)
 - [SVG Conversion Tool](https://www.freeconvert.com/png-to-svg)
 - [GitHub Copilot](https://github.com/features/copilot)
 - [Microsoft Copilot](https://copilot.microsoft.com/)
