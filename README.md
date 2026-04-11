@@ -49,6 +49,7 @@
 **All the tools used below are either free, or only the free tier was used.**
 - [GitHub](https://github.com/)
 - [GitHub Pages](https://docs.github.com/en/pages)
+- [Git](https://git-scm.com/)
 - [Formspree](https://formspree.io/)
 - [Supabase](https://supabase.com/)
 - [Wikipedia](https://www.wikipedia.org/)
