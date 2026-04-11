@@ -13,6 +13,7 @@
 - 🌐 Tested on Chrome, Edge, Firefox, and Safari
 - ⚠️ Visual aesthetics may suffer on mobile devices
 - ⚠️ Please refrain from sharing this website without Andrew's permission
+- ⚠️ No server side support whatsoever
 
 ## Requisites
 - Modern GUI Browser
