@@ -45,7 +45,7 @@
 - ![Closed issues](https://img.shields.io/github/issues-closed/29miaoet/Andrew_WebPage)
 
 ## Utilized Tools & Services
-**We're proud to announce that Andrew's Website was created with a free budget!**
+**We're proud to announce that Andrew's Website was created with a free budget!**\n
 **All the tools used below are either free, or only the free tier was used.**
 - [GitHub](https://github.com/)
 - [GitHub Pages](https://docs.github.com/en/pages)
