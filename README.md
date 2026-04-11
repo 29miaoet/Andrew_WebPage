@@ -9,6 +9,7 @@
 - ✅ Multiple pages and features
 - ✅ Offline version and specialized desktop shortcuts
 - ✅ Indexed and validated by Google and Bing
+- ✅ Modern html, css and js code
 - 🌐 Tested on Chrome, Edge, Firefox, and Safari
 - ⚠️ Visual aesthetics may suffer on mobile devices
 - ⚠️ Please refrain from sharing this website without Andrew's permission
