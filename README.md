@@ -49,18 +49,23 @@ you can check out the sections below, otherwise, enjoy your journey!
 
 ## Compatibility
 - Platforms:
--- ✅ Fully responsive homepage and layout
-- ✅ Tested navigation menu and site structure
-- ✅ Polished styling and typography
-- ✅ Multiple pages and features
-- ✅ Offline version and specialized desktop shortcuts
-- ✅ Indexed and validated by Google and Bing
-- ✅ Modern html, css and js code
-- ✅ Stable backend support with Supabase
-- 🌐 Tested on Chrome, Edge, Firefox, and Safari
-- ⚠️ Visual aesthetics may suffer on mobile devices
-- ⚠️ Backend server logic and storage is limited
-- ⚠️ Please refrain from sharing this website without Andrew's permission
+  - ✅ Microsoft Windows
+  - ✅ Apple macOS
+  - ✅ Linux
+  - ✅ Apple IOS
+  - ✅ Android
+- Browsers:
+  - ✅ Google Chrome
+  - ✅ Microsoft Edge
+  - ✅ Mozilla Firefox
+  - ✅ Opera
+  - ✅ Brave
+  - ✅ Chromium
+- Search Engines:
+  - 🌐 Entire domain on Bing
+  - 🌐 Subpage on DuckDuckGo
+- Warnings:
+  - ⚠️ Text Based Browsers are not supported!
 
 ## Requisites
 - Modern GUI Browser
