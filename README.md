@@ -5,7 +5,7 @@
 <img src="https://29miaoet.github.io/Andrew_WebPage/images/favicon.svg" width="300" height="250">
 
 ## License
-Andrew's Website is distributed with ***No License or Warranty Whatsoever***!
+Andrew's Website is distributed with ***No License or Warranty Whatsoever***!  
 Please use it with responsibility and respect to the relevant parties.
 
 ## Attributes
