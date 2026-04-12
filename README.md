@@ -48,6 +48,7 @@
 ## Utilized Tools & Services
 **We're proud to announce that Andrew's Website was created with a 0$ budget!**  
 **All the tools used below are either free, or only the free tier was used.**  
+
 **✓** [GitHub](https://github.com/)  
 **✓** [GitHub Pages](https://docs.github.com/en/pages)  
 **✓** [Git](https://git-scm.com/)  
