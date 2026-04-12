@@ -28,6 +28,7 @@ Get started on your browsing journey through **Andrew's Website**
 you can check out the sections below, otherwise, enjoy your journey!
 <br><br>
 > ***Just go curl, it's so fun! - Andrew Stanish***
+<br>
 
 ## Attributes
 - ✅ Fully responsive homepage and layout
