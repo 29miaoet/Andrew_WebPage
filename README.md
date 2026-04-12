@@ -1,7 +1,8 @@
-<img src="https://29miaoet.github.io/Andrew_WebPage/images/favicon.svg" width="100" height="100">
 
 # Andrew's Website  
 🎉 Welcome to **[Andrew's Website](https://29miaoet.github.io/Andrew_WebPage/)**!
+
+<img src="https://29miaoet.github.io/Andrew_WebPage/images/favicon.svg" width="150" height="150">
 
 ## Attributes
 - ✅ Fully responsive homepage and layout
