@@ -73,4 +73,4 @@ Please use it with responsibility and respect to the relevant parties.
 **✓** [Microsoft Edge](https://www.microsoft.com/en-us/edge/)  
 **✓** [Mozilla Firefox](https://www.firefox.com/)  
 
-*<p align="center">©2026 No Rights Reserved</p>*
+*<p align="center"><sub>©2026 – No Rights Reserved</sub></p>*
