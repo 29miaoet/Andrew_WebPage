@@ -66,9 +66,11 @@ you can check out the sections below, otherwise, enjoy your journey!
   - ✅ Brave
   - ✅ Chromium
 
-- Search Engines:
-  - 🌐 Entire domain on Bing
-  - 🌐 Entire domain on DuckDuckGo
+- Search Engines:  
+*Where you can find the website just by searching `Andrew Stanish`*
+  - 🌐 Bing
+  - 🌐 DuckDuckGo
+  - 🌐 Yahoo
 
 - Warnings:
   - ⚠️ Text Based Browsers are not supported!
