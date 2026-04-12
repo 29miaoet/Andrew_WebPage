@@ -15,11 +15,16 @@ features have been added, including prank pages, Wikipedia articles, and even ba
 hosting with Supabase. I would like to thank everyone who contributed and supported this project, 
 and allowed it to progress to this level.  
 
-This Website combines solid HTML structure, rich CSS styling, and efficient and functional JavaScript
+This website combines solid HTML structure, rich CSS styling, and efficient and functional JavaScript
 scripts. It uses free tools with no time restrictions, so you can enjoy Andrew's Website for future 
-decades to come!  
+decades to come!  It has an organized structure and content, with classical and modern file types; 
+it supports a wide range of platforms, including Windows, macOS, Linux and mobile devices including IOS and Android. 
+Following classical file structure and formats, it can run smoothly on Chrome, Edge, Firefox, Safari, 
+Opera, Brave, Falkon, and more. Get started on your browsing journey through Andrew's Website 
+[now](https://29miaoet.github.io/Andrew_WebPage/), if you wish to view more information about the project, 
+you can check out the sections below, otherwise, enjoy your journey!  
 
->Just go curl, it's so fun! - Andrew Stanish
+> Just go curl, it's so fun! - Andrew Stanish
 
 ## Attributes
 - ✅ Fully responsive homepage and layout
