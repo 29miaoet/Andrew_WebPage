@@ -67,7 +67,7 @@ you can check out the sections below, otherwise, enjoy your journey!
   - ✅ Chromium
 
 - Search Engines:  
-*Where you can find the website just by searching `Andrew Stanish`*
+<sub>*Where you can find the website just by searching `Andrew Stanish`*</sub>
   - 🌐 Bing
   - 🌐 DuckDuckGo
   - 🌐 Yahoo
