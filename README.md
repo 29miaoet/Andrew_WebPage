@@ -68,7 +68,7 @@ you can check out the sections below, otherwise, enjoy your journey!
 
 - Search Engines:
   - 🌐 Entire domain on Bing
-  - 🌐 Subpage on DuckDuckGo
+  - 🌐 Entire domain on DuckDuckGo
 
 - Warnings:
   - ⚠️ Text Based Browsers are not supported!
