@@ -54,6 +54,7 @@ you can check out the sections below, otherwise, enjoy your journey!
   - ✅ Linux
   - ✅ Apple IOS
   - ✅ Android
+
 - Browsers:
   - ✅ Google Chrome
   - ✅ Microsoft Edge
@@ -61,9 +62,11 @@ you can check out the sections below, otherwise, enjoy your journey!
   - ✅ Opera
   - ✅ Brave
   - ✅ Chromium
+
 - Search Engines:
   - 🌐 Entire domain on Bing
   - 🌐 Subpage on DuckDuckGo
+
 - Warnings:
   - ⚠️ Text Based Browsers are not supported!
 
