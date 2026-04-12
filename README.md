@@ -72,3 +72,5 @@ Please use it with responsibility and respect to the relevant parties.
 **✓** [Microsoft Teams](https://teams.microsoft.com/)  
 **✓** [Microsoft Edge](https://www.microsoft.com/en-us/edge/)  
 **✓** [Mozilla Firefox](https://www.firefox.com/)  
+
+<p align="center"><small>©2026 No Rights Reserved</small></p>
