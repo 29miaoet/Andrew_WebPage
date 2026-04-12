@@ -4,6 +4,10 @@
 
 <img src="https://29miaoet.github.io/Andrew_WebPage/images/favicon.svg" width="300" height="250">
 
+## License
+Andrew's Website is distributed with ***No License or Warranty Whatsoever***!
+Please use it with responsibility and respect to the relevant parties.
+
 ## Attributes
 - ✅ Fully responsive homepage and layout
 - ✅ Tested navigation menu and site structure
@@ -68,5 +72,3 @@
 **✓** [Microsoft Teams](https://teams.microsoft.com/)  
 **✓** [Microsoft Edge](https://www.microsoft.com/en-us/edge/)  
 **✓** [Mozilla Firefox](https://www.firefox.com/)  
-
-
