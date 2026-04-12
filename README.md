@@ -17,9 +17,9 @@
 - ⚠️ Prioritizes frontend developement
 
 ## Newest Updates
-- ✅ Form page support with [Formspree](https://formspree.io/):  
+**✓** Form page support with [Formspree](https://formspree.io/):  
   [Contact Form](https://29miaoet.github.io/Andrew_WebPage/form.html)
-- ✅ Backend data logging with [Supabase](https://supabase.com/):  
+**✓** Backend data logging with [Supabase](https://supabase.com/):  
   [Wall of Signatures](https://29miaoet.github.io/Andrew_WebPage/signature_page.html)
 
 ## Requisites
@@ -38,7 +38,6 @@
 - ![Repo size](https://img.shields.io/github/repo-size/29miaoet/Andrew_WebPage)
 - ![Last commit](https://img.shields.io/github/last-commit/29miaoet/Andrew_WebPage)
 - ![Language count](https://img.shields.io/github/languages/count/29miaoet/Andrew_WebPage)
-- ![Repo size](https://img.shields.io/github/repo-size/29miaoet/Andrew_WebPage)
 - ![Top language](https://img.shields.io/github/languages/top/29miaoet/Andrew_WebPage)
 - ![Issues](https://img.shields.io/github/issues/29miaoet/Andrew_WebPage)
 - ![Pull requests](https://img.shields.io/github/issues-pr/29miaoet/Andrew_WebPage)
