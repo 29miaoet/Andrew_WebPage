@@ -9,7 +9,8 @@
 [global news article](https://globalnews.ca/news/11654725/winnipeg-youth-curlers-inspired-by-olympics/)
 on Andrew's curling career. This project was first inspired by fellow classmate Thomas Gan, who
 helped write Andrew's [Wikipedia Article](https://en.wikipedia.org/wiki/User:29miaoet/sandbox).  
-  
+
+
 
 Through the months, it has progressed greatly, from initial release 2.0.0, which only included
 a *mostly* truthful account of his life, to the multipage website we have today, many
@@ -17,6 +18,7 @@ features have been added, including prank pages, Wikipedia articles, and even ba
 hosting with Supabase. I would like to thank everyone who contributed and supported this project,
 and allowed it to progress to this level.  
   
+
 
 This website combines solid HTML structure, rich CSS styling, and efficient and functional JavaScript
 scripts. It uses free tools with no time restrictions, so you can enjoy **Andrew's Website** for future
@@ -28,6 +30,7 @@ Opera, Brave, Falkon, and more.
 Get started on your browsing journey through **Andrew's Website**
 [now](https://29miaoet.github.io/Andrew_WebPage/), if you wish to view more information about the project,
 you can check out the sections below, otherwise, enjoy your journey!  
+
   
 
 > ***Just go curl, it's so fun! - Andrew Stanish***
