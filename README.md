@@ -4,9 +4,13 @@
 
 <img src="https://29miaoet.github.io/Andrew_WebPage/images/favicon.svg" width="300" height="250">
 
-## License
-Andrew's Website is distributed with ***No License or Warranty Whatsoever***!  
-Please use it with responsibility and respect to the relevant parties.
+## Overview
+Andrew's Website was created back in February of 2026, following the 
+[global news article]("https://globalnews.ca/news/11654725/winnipeg-youth-curlers-inspired-by-olympics/") 
+on Andrew's curling career. This project was first inspired by fellow classmate Thomas Gan, who 
+helped write Andrew's [Wikipedia Article](https://en.wikipedia.org/wiki/User:29miaoet/sandbox).
+I would like to thank everyone who contributed and supported this project, and allowed it to progress 
+to this level.
 
 ## Attributes
 - ✅ Fully responsive homepage and layout
