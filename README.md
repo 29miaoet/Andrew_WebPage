@@ -11,6 +11,7 @@ on Andrew's curling career. This project was first inspired by fellow classmate 
 helped write Andrew's [Wikipedia Article](https://en.wikipedia.org/wiki/User:29miaoet/sandbox).
 I would like to thank everyone who contributed and supported this project, and allowed it to progress 
 to this level.  
+
 This Website combines solid HTML structure, rich CSS styling, and efficient and functional JavaScript
 scripts. It uses free tools with no time restrictions, so you can enjoy Andrew's Website for future 
 decades to come!
