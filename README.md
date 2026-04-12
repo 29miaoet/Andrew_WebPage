@@ -5,33 +5,32 @@
 <img src="https://29miaoet.github.io/Andrew_WebPage/images/favicon.svg" width="300" height="250">
 
 ## Overview
-**Andrew's Website** was created back in February of 2026, following the  
-[global news article](https://globalnews.ca/news/11654725/winnipeg-youth-curlers-inspired-by-olympics/)  
-on Andrew's curling career. This project was first inspired by fellow classmate Thomas Gan, who  
-helped write Andrew's [Wikipedia Article](https://en.wikipedia.org/wiki/User:29miaoet/sandbox).  
+**Andrew's Website** was created back in February of 2026, following the
+[global news article](https://globalnews.ca/news/11654725/winnipeg-youth-curlers-inspired-by-olympics/)
+on Andrew's curling career. This project was first inspired by fellow classmate Thomas Gan, who
+helped write Andrew's [Wikipedia Article](https://en.wikipedia.org/wiki/User:29miaoet/sandbox).
+
+---
+Through the months, it has progressed greatly, from initial release 2.0.0, which only included
+a *mostly* truthful account of his life, to the multipage website we have today, many
+features have been added, including prank pages, Wikipedia articles, and even backend
+hosting with Supabase. I would like to thank everyone who contributed and supported this project,
+and allowed it to progress to this level.
 
 ---
 
-Through the months, it has progressed greatly, from initial release 2.0.0, which only included  
-a *mostly* truthful account of his life, to the multipage website we have today, many  
-features have been added, including prank pages, Wikipedia articles, and even backend  
-hosting with Supabase. I would like to thank everyone who contributed and supported this project,  
-and allowed it to progress to this level.  
+This website combines solid HTML structure, rich CSS styling, and efficient and functional JavaScript
+scripts. It uses free tools with no time restrictions, so you can enjoy **Andrew's Website** for future
+decades to come!
 
----
+It has an organized structure and content, with classical and modern file types;
+it supports a wide range of platforms, including Windows, macOS, Linux and mobile devices including IOS and Android.
+Following classical file structure and formats, it can run smoothly on Chrome, Edge, Firefox, Safari,
+Opera, Brave, Falkon, and more.
 
-This website combines solid HTML structure, rich CSS styling, and efficient and functional JavaScript  
-scripts. It uses free tools with no time restrictions, so you can enjoy **Andrew's Website** for future  
-decades to come!  
-
-It has an organized structure and content, with classical and modern file types;  
-it supports a wide range of platforms, including Windows, macOS, Linux and mobile devices including IOS and Android.  
-Following classical file structure and formats, it can run smoothly on Chrome, Edge, Firefox, Safari,  
-Opera, Brave, Falkon, and more.  
-
-Get started on your browsing journey through **Andrew's Website**  
-[now](https://29miaoet.github.io/Andrew_WebPage/), if you wish to view more information about the project,  
-you can check out the sections below, otherwise, enjoy your journey!  
+Get started on your browsing journey through **Andrew's Website**
+[now](https://29miaoet.github.io/Andrew_WebPage/), if you wish to view more information about the project,
+you can check out the sections below, otherwise, enjoy your journey!
 
 ---
 
