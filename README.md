@@ -15,8 +15,8 @@
 - ✅ Stable backend support with Supabase
 - 🌐 Tested on Chrome, Edge, Firefox, and Safari
 - ⚠️ Visual aesthetics may suffer on mobile devices
-- ⚠️ Please refrain from sharing this website without Andrew's permission
 - ⚠️ Backend server logic and storage is limited
+- ⚠️ Please refrain from sharing this website without Andrew's permission
 
 ## Newest Updates
 **✓** Form page support with [Formspree](https://formspree.io/):  
