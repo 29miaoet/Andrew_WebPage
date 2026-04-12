@@ -17,9 +17,9 @@
 - ⚠️ Prioritizes frontend developement
 
 ## Newest Updates
-- ✅ Form page support with [Formspree](https://formspree.io/):
+- ✅ Form page support with [Formspree](https://formspree.io/):  
   [Contact Form](https://29miaoet.github.io/Andrew_WebPage/form.html)
-- ✅ Backend data logging with [Supabase](https://supabase.com/):
+- ✅ Backend data logging with [Supabase](https://supabase.com/):  
   [Wall of Signatures](https://29miaoet.github.io/Andrew_WebPage/signature_page.html)
 
 ## Requisites
@@ -46,24 +46,24 @@
 
 ## Utilized Tools & Services
 **We're proud to announce that Andrew's Website was created with a free budget!**  
-**All the tools used below are either free, or only the free tier was used.**
-- **✓**[GitHub](https://github.com/)
-- **✓**[GitHub Pages](https://docs.github.com/en/pages)
-- **✓**[Git](https://git-scm.com/)
-- **✓**[Formspree](https://formspree.io/)
-- [Supabase](https://supabase.com/)
-- [Wikipedia](https://www.wikipedia.org/)
-- [Inkscape](https://inkscape.org/)
-- [Gimp](https://www.gimp.org/)
-- [OpenClaw](https://openclaw.ai/)
-- [Ollama](https://ollama.com/)
-- [SVG Conversion Tool](https://www.freeconvert.com/png-to-svg)
-- [GitHub Copilot](https://github.com/features/copilot)
-- [Microsoft Copilot](https://copilot.microsoft.com/)
-- [ChatGPT](https://chatgpt.com/)
-- [Notepad++](https://notepad-plus-plus.org/)
-- [Microsoft Teams](https://teams.microsoft.com/)
-- [Microsoft Edge](https://www.microsoft.com/en-us/edge/)
-- [Mozilla Firefox](https://www.firefox.com/)
+**All the tools used below are either free, or only the free tier was used.**  
+**✓** [GitHub](https://github.com/)  
+**✓** [GitHub Pages](https://docs.github.com/en/pages)  
+**✓** [Git](https://git-scm.com/)  
+**✓** [Formspree](https://formspree.io/)  
+**✓** [Supabase](https://supabase.com/)  
+**✓** [Wikipedia](https://www.wikipedia.org/)  
+**✓** [Inkscape](https://inkscape.org/)  
+**✓** [Gimp](https://www.gimp.org/)  
+**✓** [OpenClaw](https://openclaw.ai/)  
+**✓** [Ollama](https://ollama.com/)  
+**✓** [SVG Conversion Tool](https://www.freeconvert.com/png-to-svg)  
+**✓** [GitHub Copilot](https://github.com/features/copilot)  
+**✓** [Microsoft Copilot](https://copilot.microsoft.com/)  
+**✓** [ChatGPT](https://chatgpt.com/)  
+**✓** [Notepad++](https://notepad-plus-plus.org/)  
+**✓** [Microsoft Teams](https://teams.microsoft.com/)  
+**✓** [Microsoft Edge](https://www.microsoft.com/en-us/edge/)  
+**✓** [Mozilla Firefox](https://www.firefox.com/)  
 
 
