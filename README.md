@@ -30,7 +30,7 @@ Get started on your browsing journey through **Andrew's Website**
 you can check out the sections below, otherwise, enjoy your journey!
 
 ---
-> *Just go curl, it's so fun! - Andrew Stanish*
+> ***Just go curl, it's so fun! - Andrew Stanish***
 
 ## Attributes
 - ✅ Fully responsive homepage and layout
