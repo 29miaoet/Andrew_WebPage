@@ -18,9 +18,9 @@
 
 ## Newest Updates
 **✓** Form page support with [Formspree](https://formspree.io/):  
--- [Contact Form](https://29miaoet.github.io/Andrew_WebPage/form.html)  
+-- *[Contact Form](https://29miaoet.github.io/Andrew_WebPage/form.html)*  
 **✓** Backend data logging with [Supabase](https://supabase.com/):  
--- [Wall of Signatures](https://29miaoet.github.io/Andrew_WebPage/signature_page.html)  
+-- *[Wall of Signatures](https://29miaoet.github.io/Andrew_WebPage/signature_page.html)*  
 
 ## Requisites
 - Modern GUI Browser
@@ -44,7 +44,7 @@
 - ![Closed issues](https://img.shields.io/github/issues-closed/29miaoet/Andrew_WebPage)
 
 ## Utilized Tools & Services
-**We're proud to announce that Andrew's Website was created with a free budget!**  
+**We're proud to announce that Andrew's Website was created with a 0$ budget!**  
 **All the tools used below are either free, or only the free tier was used.**  
 **✓** [GitHub](https://github.com/)  
 **✓** [GitHub Pages](https://docs.github.com/en/pages)  
