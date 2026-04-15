@@ -24,12 +24,24 @@ const menu = document.getElementById("menu");
 const icon = document.querySelector(".menu-icon");
 
 function toggleMenu() {
-menu.style.display = (menu.style.display === "block") ? "none" : "block";
+  const isOpen = menu.style.display === "block";
+  menu.style.display = isOpen ? "none" : "block";
+  icon.setAttribute("aria-expanded", !isOpen);
+  icon.setAttribute(
+    "aria-label",
+    !isOpen ? "Close menu" : "Open menu"
+  );
+
+  if (!isOpen) {
+    const firstLink = menu.querySelector("a");
+    if (firstLink) firstLink.focus();
+  }
 }
 
-// Close dropdown when clicking outside
 window.addEventListener("click", function(event) {
-if (!menu.contains(event.target) && !icon.contains(event.target)) {
-  menu.style.display = "none";
-}
+  if (!menu.contains(event.target) && !icon.contains(event.target)) {
+    menu.style.display = "none";
+    icon.setAttribute("aria-expanded", "false");
+    icon.setAttribute("aria-label", "Open menu");
+  }
 });
