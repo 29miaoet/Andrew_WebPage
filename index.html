@@ -14,11 +14,12 @@
 
 <body>
 
+
 <div class="wrapper">
 
-<div class="house"></div>
-<div class="stone left"></div>
-<div class="stone right"></div>
+<div class="house" aria-hidden="true"></div>
+<div class="stone left" aria-hidden="true"></div>
+<div class="stone right" aria-hidden="true"></div>
 
 <main>
 
@@ -28,27 +29,29 @@
 </header>
 
 <div class="profile-container">
-<img src="images/image.png" alt="Profile Photo of Andrew Stanish" class="profile-img">
+<img src="images/image.png" alt="Andrew Stanish - Elite Curling Athlete" class="profile-img">
 </div>
 
 <div class="quote-box">
-<p id="quote-display"></p>
+<p id="quote-display" aria-live="polite"></p>
 
 <!-- Hamburger icon -->
-<div class="menu-icon" onclick="toggleMenu()">☰</div>
+<button class="menu-icon" aria-expanded="false" aria-controls="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
 
 <!-- Dropdown -->
 <div class="dropdown" id="menu">
-  <a href="index.html" target="_blank">Home</a>
-  <a href="Andrew_Stanish.html" target="_blank">Andrew's Formal Webpage</a>
-  <a href="Andrew_Stanish_Fake.html" target="_blank">Andrew's Prank Page</a>
-  <a href="Andrew_transit.html" target="_blank">Andrew's Transit Page</a>
-  <a href="https://en.wikipedia.org/wiki/User:29miaoet/sandbox" target="_blank">Andrew's Wikipedia Article</a>
-  <a href="file_download.html" target="_blank">Download The Offline Version</a>
-  <a href="https://github.com/29miaoet/Andrew_WebPage" target="_blank">View Source Code</a>
-  <a href="photo_gallery.html" target="_blank">Photo Gallery</a>
-  <a href="form.html" target="_blank">Fill Out the Form</a>
-  <a href="signature_page.html" target="_blank">Leave Your Signature</a>
+	<ul>
+	  <li><a href="index.html" target="_blank">Home</a></li>
+	  <li><a href="Andrew_Stanish.html" target="_blank">Andrew's Formal Webpage</a></li>
+	  <li><a href="Andrew_Stanish_Fake.html" target="_blank">Andrew's Prank Page</a></li>
+	  <li><a href="Andrew_transit.html" target="_blank">Andrew's Transit Page</a></li>
+	  <li><a href="https://en.wikipedia.org/wiki/User:29miaoet/sandbox" target="_blank">Andrew's Wikipedia Article</a></li>
+	  <li><a href="file_download.html" target="_blank">Download The Offline Version</a></li>
+	  <li><a href="https://github.com/29miaoet/Andrew_WebPage" target="_blank">View Source Code</a></li>
+	  <li><a href="photo_gallery.html" target="_blank">Photo Gallery</a></li>
+	  <li><a href="form.html" target="_blank">Fill Out the Form</a></li>
+	  <li><a href="signature_page.html" target="_blank">Leave Your Signature</a></li>
+	</ul>
 </div>
 
 
@@ -66,7 +69,7 @@
 <span>"I am, without a doubt, the greatest human being that ever lived."</span>
 </div>
 
-<div class="button-container">
+<nav class="button-container" aria-label="Visual navigation">
 
 <a href="Andrew_Stanish.html" class="nav-button" target="_blank">
 Formal Webpage
@@ -84,7 +87,7 @@ Transit Webpage
 Wikipedia Article
 </a>
 
-</div>
+</nav>
 
 </main>
 
