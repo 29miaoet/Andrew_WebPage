@@ -6,7 +6,7 @@
 
 body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: linear-gradient(135deg, #5fbcff 0%, #9cd6ff 100%);
 	min-height: 100vh;
 	padding: 20px;
 }
@@ -99,7 +99,7 @@ textarea {
 
 button {
 	width: 100%;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: linear-gradient(135deg, #4cb1fa 0%, #9cd6ff 100%);
 	color: white;
 	padding: 14px;
 	border: none;
