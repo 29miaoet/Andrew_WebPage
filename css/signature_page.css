@@ -52,7 +52,7 @@ header p {
 }
 
 .card h2 {
-	color: #667eea;
+	color: #5fbcff;
 	font-size: 1.5em;
 	margin-bottom: 25px;
 	display: flex;
@@ -88,7 +88,7 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
 	outline: none;
-	border-color: #667eea;
+	border-color: #5fbcff;
 	box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -164,7 +164,7 @@ button:active {
 }
 
 .signatures-container::-webkit-scrollbar-thumb {
-	background: #667eea;
+	background: #5fbcff;
 	border-radius: 10px;
 }
 
@@ -176,7 +176,7 @@ button:active {
 	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 	padding: 15px 20px;
 	border-radius: 10px;
-	border-left: 4px solid #667eea;
+	border-left: 4px solid #5fbcff;
 	animation: slideIn 0.4s ease-out;
 	transition: all 0.3s;
 }
@@ -188,7 +188,7 @@ button:active {
 
 .signature-name {
 	font-weight: 600;
-	color: #667eea;
+	color: #5fbcff;
 	font-size: 1.05em;
 	margin-bottom: 4px;
 }
@@ -217,7 +217,7 @@ button:active {
 
 .loading {
 	text-align: center;
-	color: #667eea;
+	color: #5fbcff;
 	font-weight: 500;
 	padding: 20px;
 }
@@ -230,7 +230,7 @@ button:active {
 }
 
 .count {
-	background: #667eea;
+	background: #5fbcff;
 	color: white;
 	padding: 4px 12px;
 	border-radius: 20px;
@@ -238,47 +238,6 @@ button:active {
 	font-weight: 600;
 }
 
-@keyframes slideDown {
-	from {
-		opacity: 0;
-		transform: translateY(-30px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
-
-@keyframes slideUp {
-	from {
-		opacity: 0;
-		transform: translateY(10px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes slideIn {
-	from {
-		opacity: 0;
-		transform: translateX(-20px);
-	}
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
 
 @media (max-width: 768px) {
 	.main-content {

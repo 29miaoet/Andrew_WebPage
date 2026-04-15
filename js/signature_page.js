@@ -1,13 +1,9 @@
-// ============================================
+
 // SUPABASE CONFIGURATION
-// ============================================
 const SUPABASE_URL = 'https://hwmjqtydgkdifsdzvhjx.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_ZJ-LLQAbta2ePXScQdj9Mg_OnNGy51i';
 const TABLE_NAME = 'items';
 
-// ============================================
-// SUPABASE CLIENT
-// ============================================
 class SupabaseClient {
 	constructor(url, key) {
 		this.url = url;
@@ -51,9 +47,7 @@ class SupabaseClient {
 
 const supabase = new SupabaseClient(SUPABASE_URL, SUPABASE_KEY);
 
-// ============================================
-// DOM ELEMENTS
-// ============================================
+
 const form = document.getElementById('signatureForm');
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
@@ -62,9 +56,7 @@ const submitStatus = document.getElementById('submitStatus');
 const signaturesContainer = document.getElementById('signaturesContainer');
 const signatureCount = document.getElementById('signatureCount');
 
-// ============================================
-// UTILITY FUNCTIONS
-// ============================================
+
 function showStatus(message, type) {
 	submitStatus.textContent = message;
 	submitStatus.className = `status show ${type}`;
@@ -85,9 +77,7 @@ function formatDate(dateString) {
 	});
 }
 
-// ============================================
-// FETCH AND DISPLAY SIGNATURES
-// ============================================
+
 async function loadSignatures() {
 	try {
 		const data = await supabase.select(TABLE_NAME);
@@ -138,9 +128,6 @@ function escapeHtml(text) {
 	return div.innerHTML;
 }
 
-// ============================================
-// SUBMIT SIGNATURE
-// ============================================
 form.addEventListener('submit', async (e) => {
 	e.preventDefault();
 
@@ -168,7 +155,6 @@ form.addEventListener('submit', async (e) => {
 		showStatus('Signature added! Thank you!', 'success');
 		form.reset();
 
-		// Reload signatures
 		await loadSignatures();
 
 	} catch (error) {
@@ -180,16 +166,11 @@ form.addEventListener('submit', async (e) => {
 	}
 });
 
-// ============================================
-// AUTO-REFRESH SIGNATURES (Every 3 seconds)
-// ============================================
+
 async function startAutoRefresh() {
 	await loadSignatures();
 	setInterval(loadSignatures, 3000);
 }
 
-// ============================================
-// INITIALIZATION
-// ============================================
+
 startAutoRefresh();
-console.log('%cGuest Signature Page Loaded', 'color: #667eea; font-size: 16px; font-weight: bold;');
