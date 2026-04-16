@@ -15,8 +15,6 @@ button.addEventListener("click", () => {
         if(progress >= 100){
             clearInterval(interval);
             statusText.textContent = "Download complete";
-
-            // Replace with real file link
             const link = document.createElement("a");
             link.href = "files/Andrew_Webpage.zip";
             link.download = "";
@@ -44,8 +42,6 @@ button2.addEventListener("click", () => {
         if (progress2 >= 100) {
             clearInterval(interval2);
             statusText2.textContent = "Download complete";
-
-            // Replace with real file link
             const link2 = document.createElement("a");
             link2.href = "files/index.zip";
             link2.download = "";
@@ -73,8 +69,6 @@ button3.addEventListener("click", () => {
         if (progress3 >= 100) {
             clearInterval(interval3);
             statusText2.textContent = "Download complete";
-
-            // Replace with real file link
             const link3 = document.createElement("a");
             link3.href = "https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v26.0.4.zip";
             link3.download = "";
@@ -102,8 +96,6 @@ button4.addEventListener("click", () => {
         if (progress4 >= 100) {
             clearInterval(interval4);
             statusText2.textContent = "Download complete";
-
-            // Replace with real file link
             const link4 = document.createElement("a");
             link4.href = "https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v26.0.4.tar.gz";
             link4.download = "";
