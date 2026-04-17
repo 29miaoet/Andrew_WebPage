@@ -1,3 +1,4 @@
+// Quote rotation section
 const quoteElements = document.querySelectorAll("#quotes span");
 const quotes = Array.from(quoteElements).map(q => q.textContent);
 
@@ -20,6 +21,8 @@ display.style.opacity = 1;
 
 setInterval(rotateQuote,4000);
 
+
+// Dropdown menu section
 const menu = document.getElementById("menu");
 const icon = document.querySelector(".menu-icon");
 
