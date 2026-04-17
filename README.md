@@ -42,7 +42,6 @@ you can check out the sections below, otherwise, enjoy your journey!
 - 🌐 Tested on Chrome, Edge, Firefox, and Safari
 - ⚠️ Visual aesthetics may suffer on mobile devices
 - ⚠️ Backend server logic and storage is limited
-- ⚠️ Please refrain from sharing this website without Andrew's permission
 
 ## Newest Updates
 **✓** Form page support with [Formspree](https://formspree.io/):  
@@ -50,6 +49,9 @@ you can check out the sections below, otherwise, enjoy your journey!
 
 **✓** Backend data logging with [Supabase](https://supabase.com/):  
 -- *[Wall of Signatures](https://29miaoet.github.io/Andrew_WebPage/signature_page.html)*  
+
+**✓** Created home buttons on all pages:  
+-- *[Committed Home Buttons](https://github.com/29miaoet/Andrew_WebPage/commit/a63b40a72e626a7598a63dd827a921f263cc0fc0)*
 
 ## Compatibility
 - Platforms:
@@ -82,7 +84,7 @@ you can check out the sections below, otherwise, enjoy your journey!
 
 ## Notes
 - Future releases will add more pages, interactive features, and optimizations.
-- For issues or feedback, please contact me on teams.
+- For issues or feedback, please fill out and submit the [website form](https://29miaoet.github.io/Andrew_WebPage/form.html).
 
 ## Download
 - [Source Code Download - Zip](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v26.1.4.zip)
