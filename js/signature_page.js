@@ -1,5 +1,4 @@
-
-// SUPABASE CONFIGURATION
+// Supabase configuration
 const SUPABASE_URL = 'https://hwmjqtydgkdifsdzvhjx.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_ZJ-LLQAbta2ePXScQdj9Mg_OnNGy51i';
 const TABLE_NAME = 'items';

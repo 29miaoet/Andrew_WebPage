@@ -113,7 +113,7 @@ footer{
   transform: translateX(0);
 }
 
-/* subtle interaction */
+/* interaction */
 .mini-home-btn:hover {
   transform: scale(1.05);
 }
