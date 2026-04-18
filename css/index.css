@@ -168,13 +168,13 @@ inset 0 -4px 5px rgba(0,0,0,.35),
 .stone.left{
 top:40%;
 left:7%;
-animation:slide 6s infinite ease-in-out;
+animation:slide 4s infinite ease-in-out;
 }
 
 .stone.right{
 top:65%;
 right:7%;
-animation:slide 7s infinite ease-in-out reverse;
+animation:slide 5s infinite ease-in-out reverse;
 }
 
 @keyframes slide{
