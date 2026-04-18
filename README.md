@@ -76,7 +76,7 @@ you can check out the sections below, otherwise, enjoy your journey!
   - 🌐 Yahoo
 
 - Warnings:
-  - ⚠️ Text Based Browsers are not supported!
+  - ⚠️ Text Based Browsers are functional for simple navigation but not for complex interactions.
 
 ## Requisites
 - Modern GUI Browser
