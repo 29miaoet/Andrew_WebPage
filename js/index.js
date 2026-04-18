@@ -24,7 +24,9 @@ setInterval(rotateQuote,4000);
 
 // Dropdown menu section
 const menu = document.getElementById("menu");
-const icon = document.querySelector(".menu-icon");
+const icon = document.getElementById("toggle-menu");
+
+icon.addEventListener('click', toggleMenu);
 
 function toggleMenu() {
   const isOpen = menu.style.display === "block";
