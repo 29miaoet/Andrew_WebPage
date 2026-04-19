@@ -70,7 +70,7 @@ button3.addEventListener("click", () => {
             clearInterval(interval3);
             statusText2.textContent = "Download complete";
             const link3 = document.createElement("a");
-            link3.href = "https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v26.0.4.zip";
+            link3.href = "https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v27.0.1.zip";
             link3.download = "";
             link3.click();
         }
@@ -97,7 +97,7 @@ button4.addEventListener("click", () => {
             clearInterval(interval4);
             statusText2.textContent = "Download complete";
             const link4 = document.createElement("a");
-            link4.href = "https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v26.0.4.tar.gz";
+            link4.href = "https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v27.0.1.tar.gz";
             link4.download = "";
             link4.click();
         }
