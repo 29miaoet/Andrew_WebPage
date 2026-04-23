@@ -77,6 +77,7 @@ you can check out the sections below, otherwise, enjoy your journey!
 - Warnings:
   - ⚠️ Text Based Browsers are functional for simple navigation but not for complex interactions.
   - ⚠️ Some image loading times may be slow on cellular connections.
+  - ⚠️ Source code download is based on release, so it may lag behind the actual website state.
 
 ## Requisites
 - Modern GUI Browser
