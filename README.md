@@ -40,7 +40,6 @@ you can check out the sections below, otherwise, enjoy your journey!
 - ✅ Modern html, css and js code
 - ✅ Stable backend support with Supabase
 - 🌐 Tested on Chrome, Edge, Firefox, and Safari
-- ⚠️ Visual aesthetics may suffer on mobile devices
 - ⚠️ Backend server logic and storage is limited
 
 ## Newest Updates
@@ -77,6 +76,7 @@ you can check out the sections below, otherwise, enjoy your journey!
 
 - Warnings:
   - ⚠️ Text Based Browsers are functional for simple navigation but not for complex interactions.
+  - ⚠️ Some image loading times may be slow on cellular connections.
 
 ## Requisites
 - Modern GUI Browser
