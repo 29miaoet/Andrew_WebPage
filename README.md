@@ -94,6 +94,9 @@ you can check out the sections below, otherwise, enjoy your journey!
 - [Source Code Download - Tarball](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v27.0.1.tar.gz)
   
 ## Stats
+- ![Release](https://img.shields.io/github/v/release/29miaoet/Andrew_WebPage)
+- ![License](https://img.shields.io/badge/license-none-green)
+- ![Deployed](https://img.shields.io/badge/deployed-GitHub%20Pages-orange)
 - ![Repo size](https://img.shields.io/github/repo-size/29miaoet/Andrew_WebPage)
 - ![Last commit](https://img.shields.io/github/last-commit/29miaoet/Andrew_WebPage)
 - ![Language count](https://img.shields.io/github/languages/count/29miaoet/Andrew_WebPage)
