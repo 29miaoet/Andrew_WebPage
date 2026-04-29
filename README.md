@@ -78,6 +78,8 @@ you can check out the sections below, otherwise, enjoy your journey!
   - ⚠️ Text Based Browsers are functional for simple navigation but not for complex interactions.
   - ⚠️ Some image loading times may be slow on cellular connections.
   - ⚠️ Source code download is based on release, so it may lag behind the actual website state.
+  - ⚠️ If you ever plan to download the source code and view the website on your own computer, 
+  please note that `file_download.html` will not download files properly unless opened with a local server.
 
 ## Requisites
 - Modern GUI Browser
@@ -97,9 +99,9 @@ you can check out the sections below, otherwise, enjoy your journey!
 - ![Language count](https://img.shields.io/github/languages/count/29miaoet/Andrew_WebPage)
 - ![Top language](https://img.shields.io/github/languages/top/29miaoet/Andrew_WebPage)
 - ![Issues](https://img.shields.io/github/issues/29miaoet/Andrew_WebPage)
-- ![Pull requests](https://img.shields.io/github/issues-pr/29miaoet/Andrew_WebPage)
 - ![Closed issues](https://img.shields.io/github/issues-closed/29miaoet/Andrew_WebPage)
-
+- ![Pull requests](https://img.shields.io/github/issues-pr/29miaoet/Andrew_WebPage)
+- ![Closed Pull requests](https://img.shields.io/github/issues-pr-closed/29miaoet/Andrew_WebPage)
 
 ## Utilized Tools & Services
 **We're proud to announce that Andrew's Website was created with a 0$ budget!**  
