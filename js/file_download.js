@@ -78,10 +78,10 @@ document.getElementById("downloadBtn2").addEventListener("click", () => {
 
 // Source code download, zip archive.
 document.getElementById("downloadBtn3").addEventListener("click", () => {
-    downloadFile("https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v27.0.1.zip");
+    downloadFile("https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v27.1.1.zip");
 });
 
 // Source code download, tarball archive.
 document.getElementById("downloadBtn4").addEventListener("click", () => {
-    downloadFile("https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v27.0.1.tar.gz");
+    downloadFile("https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v27.1.1.tar.gz");
 });
