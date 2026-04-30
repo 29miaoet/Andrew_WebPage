@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
     background: linear-gradient(135deg, #eef2f7, #dfe7f1);
     color: #333;
 }
@@ -32,7 +32,7 @@ nav a:hover {
 }
 
 .hero {
-    background: url('https://cptdb.ca/wiki/images/thumb/0/0e/Winnipeg_Transit_198-a.jpg/1599px-Winnipeg_Transit_198-a.jpg?20220626205802') no-repeat center/cover;
+    background: url("../images/transit_bus.jpg") no-repeat center/cover;
     height: 280px;
     display: flex;
     align-items: center;
@@ -40,6 +40,7 @@ nav a:hover {
     color: white;
     font-size: 2em;
     font-weight: bold;
+    text-align: center;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
 }
 
