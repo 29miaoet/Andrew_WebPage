@@ -12,6 +12,7 @@ body{
     width:100%;
     max-width:640px;
     padding:20px;
+    margin: 0 auto;
 }
 
 .card{
@@ -66,47 +67,32 @@ h1{
     transition:width 0.3s ease;
 }
 
-button{
-    width:100%;
-    padding:14px;
-    font-size:16px;
-    border:none;
-    border-radius:10px;
-    background:linear-gradient(90deg,#4facfe,#00c6ff);
-    color:white;
-    cursor:pointer;
-    font-weight:600;
-    transition:0.2s;
+.card a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 10px;
+    background: linear-gradient(90deg,#4facfe,#00c6ff);
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.2s;
+    text-decoration: none;
+    text-align: center;
 }
 
-button:hover{
+.card a:hover{
     transform:translateY(-2px);
     box-shadow:0 5px 15px rgba(0,0,0,0.12);
 }
 
-button:active{
+.card a:active{
     transform:scale(0.98);
 }
 
-#statusText{
-    margin-top:15px;
-    color:#555;
-    font-size:14px;
-}
-
-#statusText2{
-    margin-top:15px;
-    color:#555;
-    font-size:14px;
-}
-
-#statusText3{
-    margin-top:15px;
-    color:#555;
-    font-size:14px;
-}
-
-#statusText4{
+.statusText{
     margin-top:15px;
     color:#555;
     font-size:14px;
