@@ -39,6 +39,7 @@ you can check out the sections below, otherwise, enjoy your journey!
 - ✅ Indexed and validated by Google and Bing
 - ✅ Modern html, css and js code
 - ✅ Stable backend support with Supabase
+- ✅ Text based browsers are supported
 - 🌐 Tested on Chrome, Edge, Firefox, and Safari
 - ⚠️ Backend server logic and storage is limited
 
@@ -75,11 +76,9 @@ you can check out the sections below, otherwise, enjoy your journey!
   - 🌐 Yahoo
 
 - Warnings:
-  - ⚠️ Text Based Browsers are functional for simple navigation but not for complex interactions.
+  - ⚠️ The [signature page](https://29miaoet.github.io/Andrew_WebPage/signature_page.html) requires JavaScript to run.
   - ⚠️ Some image loading times may be slow on cellular connections.
   - ⚠️ Source code download is based on release, so it may lag behind the actual website state.
-  - ⚠️ If you ever plan to download the source code and view the website on your own computer, 
-  please note that `file_download.html` will not download files properly unless opened with a local server.
 
 ## Requisites
 - Modern GUI Browser
