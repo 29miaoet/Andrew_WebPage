@@ -1,50 +1,44 @@
 // Download function for same-domain files, has a progress bar.
 async function downloadWithProgress(url, progressBar, statusText) {
-    try {
-        statusText.textContent = "Downloading...";
+	statusText.textContent = "Downloading...";
 
-        const response = await fetch(url);
+	const response = await fetch(url);
 
-        if (!response.ok) {
-            throw new Error("HTTP " + response.status);
-        }
+	if (!response.ok) {
+		throw new Error("HTTP " + response.status);
+	}
 
-        const contentLength = response.headers.get("Content-Length");
-        const total = contentLength ? parseInt(contentLength, 10) : null;
+	const contentLength = response.headers.get("Content-Length");
+	const total = contentLength ? parseInt(contentLength, 10) : null;
 
-        const reader = response.body.getReader();
-        let received = 0;
-        const chunks = [];
+	const reader = response.body.getReader();
+	let received = 0;
+	const chunks = [];
 
-        while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
+	while (true) {
+		const { done, value } = await reader.read();
+		if (done) break;
 
-            chunks.push(value);
-            received += value.length;
+		chunks.push(value);
+		received += value.length;
 
-            if (total) {
-                const percent = Math.round((received / total) * 100);
-                progressBar.style.width = percent + "%";
-            }
-        }
+		if (total) {
+			const percent = Math.round((received / total) * 100);
+			progressBar.style.width = percent + "%";
+		}
+	}
 
-        const blob = new Blob(chunks);
-        const downloadUrl = URL.createObjectURL(blob);
+	const blob = new Blob(chunks);
+	const downloadUrl = URL.createObjectURL(blob);
 
-        const a = document.createElement("a");
-        a.href = downloadUrl;
-        a.download = url.split("/").pop();
-        a.click();
+	const a = document.createElement("a");
+	a.href = downloadUrl;
+	a.download = url.split("/").pop();
+	a.click();
 
-        URL.revokeObjectURL(downloadUrl);
+	URL.revokeObjectURL(downloadUrl);
 
-        statusText.textContent = "Download complete";
-
-    } catch (err) {
-        console.error(err);
-        statusText.textContent = "Error: " + err.message;
-    }
+	statusText.textContent = "Download complete";
 }
 
 // Simple download function for external files.
