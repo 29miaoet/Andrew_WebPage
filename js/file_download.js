@@ -42,7 +42,14 @@ async function downloadWithProgress(url, progressBar, statusText) {
 		statusText.textContent = "Download complete";
 	} catch (err) {
 		console.warn(err);
-        statusText.textContent = "⚠️ JavaScript download failed.";
+        statusText.textContent = "⚠️ JavaScript download failed, using fallback.";
+        const a = document.createElement("a");
+        a.href = url;
+        a.setAttribute("download", "");
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
 	}
 }
 
