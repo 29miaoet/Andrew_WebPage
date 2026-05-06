@@ -1,4 +1,3 @@
-
 # Andrew's Website  
 🎉 Welcome to **[Andrew's Website](https://29miaoet.github.io/Andrew_WebPage/)**!
 
@@ -40,18 +39,18 @@ you can check out the sections below, otherwise, enjoy your journey!
 - ✅ Modern html, css and js code
 - ✅ Stable backend support with Supabase
 - ✅ Text based browsers are supported
-- 🌐 Tested on Chrome, Edge, Firefox, and Safari
+- 🌐 Tested on Chrome, Edge, Firefox, Safari, and Lynx
 - ⚠️ Backend server logic and storage is limited
 
 ## Newest Updates
-**✓** Form page support with [Formspree](https://formspree.io/):  
--- *[Contact Form](https://29miaoet.github.io/Andrew_WebPage/form.html)*  
+**✓** Website search engine with [MiniSearch](https://lucaong.github.io/minisearch/):  
+-- *[Search Engine](https://29miaoet.github.io/Andrew_WebPage/search_engine.html)*  
+
+**✓** Major upgrades to [File Download Page](https://29miaoet.github.io/Andrew_WebPage/file_download.html):  
+-- *[Committed Home Buttons](https://github.com/29miaoet/Andrew_WebPage/pull/6)*
 
 **✓** Backend data logging with [Supabase](https://supabase.com/):  
 -- *[Wall of Signatures](https://29miaoet.github.io/Andrew_WebPage/signature_page.html)*  
-
-**✓** Created home buttons on all pages:  
--- *[Committed Home Buttons](https://github.com/29miaoet/Andrew_WebPage/commit/a63b40a72e626a7598a63dd827a921f263cc0fc0)*
 
 ## Compatibility
 - Platforms:
@@ -68,6 +67,8 @@ you can check out the sections below, otherwise, enjoy your journey!
   - ✅ Opera
   - ✅ Brave
   - ✅ Chromium
+  - ✅ lynx
+  - ✅ w3m
 
 - Search Engines:  
 <sub>*Where you can find the website just by searching `Andrew Stanish`*</sub>
@@ -76,15 +77,17 @@ you can check out the sections below, otherwise, enjoy your journey!
   - 🌐 Yahoo
 
 - Warnings:
-  - ⚠️ The [signature page](https://29miaoet.github.io/Andrew_WebPage/signature_page.html) requires JavaScript to run.
+  - ⚠️ Some pages require JavaScript to run.
   - ⚠️ Some image loading times may be slow on cellular connections.
   - ⚠️ Source code download is based on release, so it may lag behind the actual website state.
 
 ## Requisites
-- Modern GUI Browser
-- Javascript Enabled
+- Modern GUI or text-based browser
+- **`recommended`** JavaScript enabled
+- **`recommended`** Internet connection
 
 ## Notes
+- Andrewbot, a smart AI assistant, is coming soon!
 - Future releases will add more pages, interactive features, and optimizations.
 - For issues or feedback, please fill out and submit the [website form](https://29miaoet.github.io/Andrew_WebPage/form.html).
 
@@ -114,6 +117,7 @@ you can check out the sections below, otherwise, enjoy your journey!
 **✓** [Git](https://git-scm.com/)  
 **✓** [Formspree](https://formspree.io/)  
 **✓** [Supabase](https://supabase.com/)  
+**✓** [MiniSearch](https://lucaong.github.io/minisearch/)  
 **✓** [Wikipedia](https://www.wikipedia.org/)  
 **✓** [Inkscape](https://inkscape.org/)  
 **✓** [Gimp](https://www.gimp.org/)  
