@@ -1,0 +1,153 @@
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #e8f6ff, #9cd6ff);
+      color: #03324d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 5px;
+      font-size: 2.5rem;
+    }
+
+    p {
+      margin-top: 0;
+      opacity: 0.85;
+    }
+
+    .search-box {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    button {
+      padding: 14px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #00b4ff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #0090cc;
+    }
+
+    .results {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255,255,255,0.35);
+      padding: 15px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      backdrop-filter: blur(6px);
+    }
+
+    .result-img {
+      width: 50%;
+      max-height: auto;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 10px auto;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .desc {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: 5px;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+    .mini-home-btn {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+
+      display: flex;
+      align-items: center;
+
+      text-decoration: none;
+      color: inherit;
+
+      background: transparent;
+      cursor: pointer;
+      z-index: 9999;
+
+      transition: transform 0.15s ease;
+    }
+
+    .home-icon {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    /* hidden by default */
+    .home-text {
+      font-size: 14px;
+      margin-left: 6px;
+      color: black;
+
+      opacity: 0;
+      transform: translateX(-6px);
+      pointer-events: none;
+
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+
+    /* reveal on hover */
+    .mini-home-btn:hover .home-text {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* interaction */
+    .mini-home-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .mini-home-btn:active {
+      transform: scale(0.95);
+    }
