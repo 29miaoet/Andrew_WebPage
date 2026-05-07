@@ -39,18 +39,20 @@ you can check out the sections below, otherwise, enjoy your journey!
 - ✅ Modern html, css and js code
 - ✅ Stable backend support with Supabase
 - ✅ Text based browsers are supported
+- ✅ Fast and efficient navigation with a search engine
+- ✅ Smart and simple AI assistant
 - 🌐 Tested on Chrome, Edge, Firefox, Safari, and Lynx
 - ⚠️ Backend server logic and storage is limited
 
 ## Newest Updates
+**✓** AI assistant with help from [transformers.js](https://github.com/huggingface/transformers.js):  
+-- *[AndrewBot](https://29miaoet.github.io/Andrew_WebPage/andrew_bot.html)*  
+
 **✓** Website search engine with [MiniSearch](https://lucaong.github.io/minisearch/):  
 -- *[Search Engine](https://29miaoet.github.io/Andrew_WebPage/search_engine.html)*  
 
 **✓** Major upgrades to [File Download Page](https://29miaoet.github.io/Andrew_WebPage/file_download.html):  
 -- *[Committed Home Buttons](https://github.com/29miaoet/Andrew_WebPage/pull/6)*
-
-**✓** Backend data logging with [Supabase](https://supabase.com/):  
--- *[Wall of Signatures](https://29miaoet.github.io/Andrew_WebPage/signature_page.html)*  
 
 ## Compatibility
 - Platforms:
@@ -87,7 +89,7 @@ you can check out the sections below, otherwise, enjoy your journey!
 - **`recommended`** Internet connection
 
 ## Notes
-- Andrewbot, a smart AI assistant, is coming soon!
+- Andrewbot, a smart AI assistant, is here, try it out now at [AndrewBot](https://29miaoet.github.io/Andrew_WebPage/andrew_bot.html)
 - Future releases will add more pages, interactive features, and optimizations.
 - For issues or feedback, please fill out and submit the [website form](https://29miaoet.github.io/Andrew_WebPage/form.html).
 
@@ -118,6 +120,7 @@ you can check out the sections below, otherwise, enjoy your journey!
 **✓** [Formspree](https://formspree.io/)  
 **✓** [Supabase](https://supabase.com/)  
 **✓** [MiniSearch](https://lucaong.github.io/minisearch/)  
+**✓** [transformers.js](https://github.com/huggingface/transformers.js)  
 **✓** [Wikipedia](https://www.wikipedia.org/)  
 **✓** [Inkscape](https://inkscape.org/)  
 **✓** [Gimp](https://www.gimp.org/)  
