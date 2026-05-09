@@ -6,36 +6,64 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   replace-version:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Determine versions and replace
+      - name: Determine versions
+        id: versions
         run: |
-          set -e
           NEW_TAG="${GITHUB_REF_NAME}"
           NEW_VERSION="${NEW_TAG#v}"
+          
           PREV_TAG=$(git tag --sort=-version:refname | grep -v "^${NEW_TAG}$" | head -n 1)
           
           if [ -z "$PREV_TAG" ]; then
-            echo "No previous tag, skipping"
+            echo "No previous tag"
             exit 0
           fi
           
           PREV_VERSION="${PREV_TAG#v}"
+          echo "PREV_VERSION=$PREV_VERSION" >> $GITHUB_ENV
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+
+      - name: Replace versions
+        run: |
+          sed -i "s/${{ env.PREV_VERSION }}/${{ env.NEW_VERSION }}/g" README.md file_download.html js/file_download.js
+
+      - name: Push changes via new branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Get back to main branch (leave detached HEAD)
+          git fetch origin main:main
+          git checkout main
           
-          # Replace versions
-          sed -i "s/$PREV_VERSION/$NEW_VERSION/g" README.md file_download.html js/file_download.js
+          # Now we're on main, create a new branch
+          BRANCH="chore/version-${{ env.NEW_VERSION }}"
+          git checkout -b "$BRANCH"
           
-          # Commit and push directly
+          # Configure git
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "chore: replace $PREV_VERSION with $NEW_VERSION" || echo "No changes"
-          git push
+          
+          # Commit
+          git add README.md file_download.html js/file_download.js
+          git commit -m "chore: replace ${{ env.PREV_VERSION }} with ${{ env.NEW_VERSION }}"
+          
+          # Push the NEW branch
+          git push -u origin "$BRANCH"
+          
+          # Create PR
+          gh pr create \
+            --base main \
+            --title "chore: replace ${{ env.PREV_VERSION }} with ${{ env.NEW_VERSION }}" \
+            --body "Automated version replacement"
