@@ -3,6 +3,31 @@
 
 <img src="https://29miaoet.github.io/Andrew_WebPage/images/favicon.svg" width="300" height="250">
 
+## Overview
+**Andrew's Website** was created back in March of 2026, following the
+[global news article](https://globalnews.ca/news/11654725/winnipeg-youth-curlers-inspired-by-olympics/)
+on Andrew's curling career. This project was first inspired by fellow classmate Thomas Gan, who
+helped write Andrew's [Wikipedia Article](https://en.wikipedia.org/wiki/User:29miaoet/sandbox).
+<br><br>
+Through the months, it has progressed greatly, from initial release 2.0.0, which only included
+a *mostly* truthful account of his life, to the multipage website we have today, many
+features have been added, including prank pages, Wikipedia articles, and even backend
+hosting with Supabase. I would like to thank everyone who contributed and supported this project,
+and allowed it to progress to this level.
+<br><br>
+This website combines solid HTML structure, rich CSS styling, and efficient and functional JavaScript
+scripts. It uses free tools with no time restrictions, so you can enjoy **Andrew's Website** for future
+decades to come!
+It has an organized structure and content, with classical and modern file types;
+and supports a wide range of platforms, including Windows, macOS, Linux and mobile OSes including IOS and Android.
+Following classical file structure and formats, it can run smoothly on Chrome, Edge, Firefox, Safari,
+Opera, Brave, Falkon, and more.
+Get started on your browsing journey through **Andrew's Website**
+[now](https://29miaoet.github.io/Andrew_WebPage/), if you wish to view more information about the project,
+you can check out the sections below, otherwise, enjoy your journey!
+<br><br>
+> ***Just go curl, it's so fun! - Andrew Stanish***
+<br>
 
 ## Attributes
 - ✅ Fully responsive homepage and layout
@@ -63,65 +88,10 @@
 - **`recommended`** JavaScript enabled
 - **`recommended`** Internet connection
 
-## Technology Stack
-
-| Layer | Technology | Notes |
-|-------|-----------|-------|
-| **Hosting** | GitHub Pages | Static site deployment |
-| **Frontend** | HTML5, CSS3, Vanilla JS | No frameworks required |
-| **Search** | MiniSearch | Client-side full-text search |
-| **AI** | transformers.js | Run ML models in browser |
-| **Backend** | Supabase | Form storage & authentication (optional) |
-| **Forms** | Formspree | Email form submissions |
-
-## Future Path
-- [ ] Modify all html files to be more accessible.
-- [ ] Harden JavaScript structure and logic.
-- [ ] Improve css by adding media elements and replacing bad practice sections (they're everywhere).
-- [ ] Help improve AndrewBot by adding more rules to intents.json.
-- [ ] Add more pages to the website.
-
-## Contributing
-
-**[Visit Andrew's Website](https://29miaoet.github.io/Andrew_WebPage/)**
-
-1. Clone & Run Locally
-
-```bash
-git clone https://github.com/29miaoet/Andrew_WebPage.git
-cd Andrew_WebPage
-# Start a local server with python
-python -m http.server 8000
-# or use node.js
-npx http-server
-# Navigate to http://localhost:8000/path/to/andrew/website/ in your browser
-```
-Note: Some features require JavaScript fetch. Direct file:// access won't work for all functionality.
-
-2. Make your changes
-
-```bash
-# Edit the file
-# Create a branch
-git checkout -b your-branch-name
-# Add changes and commit
-git add .
-git commit -m "describe your changes"
-# Push to GitHub
-git push -u origin your-branch-name
-# Open a pull request on GitHub
-```
-Note: You will need to create a personal access token for github [here](https://github.com/settings/personal-access-tokens/new)
-
-For more info, reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage?tab=contributing-ov-file)
-
-## Why Contribute?
-   
-   - 🎓 Learn vanilla web development without frameworks
-   - 🌍 Help an open-source personal project grow
-   - 🚀 Get featured in our contributors section
-   - 💡 Explore modern web patterns (AI, search, offline support)
-   - 🙂 Help make Andrew famous
+## Notes
+- Andrewbot, a smart AI assistant, is here, try it out now at [AndrewBot](https://29miaoet.github.io/Andrew_WebPage/andrew_bot.html)
+- Future releases will add more pages, interactive features, and optimizations.
+- For issues or feedback, please fill out and submit the [website form](https://29miaoet.github.io/Andrew_WebPage/form.html).
 
 ## Download
 - [Source Code Download - Zip](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v28.0.2.zip)
@@ -165,8 +135,4 @@ For more info, reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_We
 **✓** [Microsoft Edge](https://www.microsoft.com/en-us/edge/)  
 **✓** [Mozilla Firefox](https://www.firefox.com/)  
 
-## License
-This project is published under the MIT license, for more details, view the [LICENSE](https://github.com/29miaoet/Andrew_WebPage?tab=MIT-1-ov-file).
-
-## Footer
-This file contains a more technical overview for contributers, for more details and information, check out the [DETAILs.md](https://github.com/29miaoet/Andrew_WebPage/blob/main/.github/DETAILS.md)
+*<p align="center"><sub>©2026 – No Rights Reserved</sub></p>*
