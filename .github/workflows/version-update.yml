@@ -1,9 +1,13 @@
 name: Replace version numbers after release
+
 on:
   release:
     types: [published]
+
 permissions:
   contents: write
+  pull-requests: write
+
 jobs:
   replace-version:
     runs-on: ubuntu-latest
@@ -11,58 +15,38 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Fetch all history for tag detection
-      
-      - name: Determine previous and current versions
+          fetch-depth: 0
+
+      - name: Get version numbers
+        id: versions
         run: |
-          set -e
-          
-          # Current release tag
           NEW_TAG="${GITHUB_REF_NAME}"
           NEW_VERSION="${NEW_TAG#v}"
           
-          # Find previous release tag
           PREV_TAG=$(git tag --sort=-version:refname | grep -v "^${NEW_TAG}$" | head -n 1)
           
           if [ -z "$PREV_TAG" ]; then
-            echo "Error: Could not find previous tag" >&2
-            exit 1
+            echo "No previous tag found"
+            exit 0
           fi
           
           PREV_VERSION="${PREV_TAG#v}"
-          PREV_REGEX=$(printf '%s\n' "$PREV_VERSION" | sed 's/[][\.^$*+?{}|()]/\\&/g')
           
-          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
-          echo "PREV_VERSION=$PREV_VERSION" >> $GITHUB_ENV
-          echo "PREV_REGEX=$PREV_REGEX" >> $GITHUB_ENV
-          
-          echo "Replacing: $PREV_VERSION -> $NEW_VERSION"
-      
-      - name: Replace all occurrences
+          echo "prev_version=$PREV_VERSION" >> $GITHUB_OUTPUT
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "Replacing: $PREV_VERSION → $NEW_VERSION"
+
+      - name: Replace versions in files
+        if: steps.versions.outputs.prev_version != ''
         run: |
-          set -e
-          FILES=(README.md file_download.html js/file_download.js)
-          
-          for file in "${FILES[@]}"; do
-            if [ ! -f "$file" ]; then
-              echo "Warning: $file not found" >&2
-              continue
-            fi
-            sed -Ei "s/${PREV_REGEX}/${NEW_VERSION}/g" "$file"
-          done
-      
-      - name: Show diff
-        run: git diff
-      
-      - name: Commit and push changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore: replace ${PREV_VERSION} with ${NEW_VERSION}"
-            git push origin HEAD:${{ github.event.release.target_commitish }}
-          fi
+          sed -i "s/${{ steps.versions.outputs.prev_version }}/${{ steps.versions.outputs.new_version }}/g" README.md file_download.html js/file_download.js
+
+      - name: Create Pull Request
+        if: steps.versions.outputs.prev_version != ''
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: replace ${{ steps.versions.outputs.prev_version }} with ${{ steps.versions.outputs.new_version }}"
+          title: "chore: replace ${{ steps.versions.outputs.prev_version }} with ${{ steps.versions.outputs.new_version }}"
+          body: "Automated version replacement"
+          branch: "chore/version-${{ steps.versions.outputs.new_version }}"
