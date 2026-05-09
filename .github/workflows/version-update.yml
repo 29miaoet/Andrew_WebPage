@@ -1,55 +1,13 @@
-name: Replace version numbers after release
-
-on:
-  release:
-    types: [published]
-
-permissions:
-  contents: write
-  pull-requests: write
-
-jobs:
-  replace-version:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Determine versions
-        id: versions
-        run: |
-          NEW_TAG="${GITHUB_REF_NAME}"
-          NEW_VERSION="${NEW_TAG#v}"
-          
-          PREV_TAG=$(git tag --sort=-version:refname | grep -v "^${NEW_TAG}$" | head -n 1)
-          
-          if [ -z "$PREV_TAG" ]; then
-            echo "No previous tag"
-            exit 0
-          fi
-          
-          PREV_VERSION="${PREV_TAG#v}"
-          echo "PREV_VERSION=$PREV_VERSION" >> $GITHUB_ENV
-          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
-
-      - name: Replace versions
-        run: |
-          sed -i "s/${{ env.PREV_VERSION }}/${{ env.NEW_VERSION }}/g" README.md file_download.html js/file_download.js
-
       - name: Push changes via new branch
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Get back to main branch (leave detached HEAD)
+          # Fetch origin main
           git fetch origin main:main
-          git checkout main
           
-          # Now we're on main, create a new branch
+          # Create and checkout new branch from main
           BRANCH="chore/version-${{ env.NEW_VERSION }}"
-          git checkout -b "$BRANCH"
+          git checkout -b "$BRANCH" main
           
           # Configure git
           git config user.name "github-actions[bot]"
@@ -59,7 +17,7 @@ jobs:
           git add README.md file_download.html js/file_download.js
           git commit -m "chore: replace ${{ env.PREV_VERSION }} with ${{ env.NEW_VERSION }}"
           
-          # Push the NEW branch
+          # Push the new branch
           git push -u origin "$BRANCH"
           
           # Create PR
