@@ -1,4 +1,9 @@
-name: Replace version numbers after release
+# Delete old workflow
+git rm .github/workflows/replace-version.yml
+
+# Create NEW workflow with different name
+cat > .github/workflows/update-version.yml << 'EOF'
+name: Update Version After Release
 
 on:
   release:
@@ -9,44 +14,40 @@ permissions:
   pull-requests: write
 
 jobs:
-  replace-version:
+  update:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Get version numbers
+      - name: Determine versions
         id: versions
         run: |
           NEW_TAG="${GITHUB_REF_NAME}"
           NEW_VERSION="${NEW_TAG#v}"
-          
           PREV_TAG=$(git tag --sort=-version:refname | grep -v "^${NEW_TAG}$" | head -n 1)
-          
-          if [ -z "$PREV_TAG" ]; then
-            echo "No previous tag found"
-            exit 0
-          fi
-          
           PREV_VERSION="${PREV_TAG#v}"
-          
-          echo "prev_version=$PREV_VERSION" >> $GITHUB_OUTPUT
-          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
-          echo "Replacing: $PREV_VERSION → $NEW_VERSION"
+          echo "prev=$PREV_VERSION" >> $GITHUB_OUTPUT
+          echo "new=$NEW_VERSION" >> $GITHUB_OUTPUT
 
-      - name: Replace versions in files
-        if: steps.versions.outputs.prev_version != ''
+      - name: Update files
+        if: steps.versions.outputs.prev != ''
         run: |
-          sed -i "s/${{ steps.versions.outputs.prev_version }}/${{ steps.versions.outputs.new_version }}/g" README.md file_download.html js/file_download.js
+          sed -i "s/${{ steps.versions.outputs.prev }}/${{ steps.versions.outputs.new }}/g" README.md file_download.html js/file_download.js
 
-      - name: Create Pull Request
-        if: steps.versions.outputs.prev_version != ''
+      - name: Create PR
+        if: steps.versions.outputs.prev != ''
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore: replace ${{ steps.versions.outputs.prev_version }} with ${{ steps.versions.outputs.new_version }}"
-          title: "chore: replace ${{ steps.versions.outputs.prev_version }} with ${{ steps.versions.outputs.new_version }}"
-          body: "Automated version replacement"
-          branch: "chore/version-${{ steps.versions.outputs.new_version }}"
+          commit-message: "chore: v${{ steps.versions.outputs.prev }} → v${{ steps.versions.outputs.new }}"
+          title: "chore: v${{ steps.versions.outputs.prev }} → v${{ steps.versions.outputs.new }}"
+          body: "Automated version update"
+          branch: "chore/version-${{ steps.versions.outputs.new }}"
+EOF
+
+# Commit and push
+git add .github/workflows/update-version.yml
+git commit -m "fix: replace workflow with peter-evans version"
+git push origin main
