@@ -68,7 +68,7 @@
 		"help me with something"
       ],
       "responses": [
-        "I can help answer questions, chat, and more. What do you need?",
+        "I can help answer questions, chat, and ... not much more. What do you need?",
         "Sure! Tell me what you're trying to do.",
         "I'm here to help—just ask!"
       ]
@@ -96,8 +96,8 @@
       ],
       "responses": [
         "Nice to meet you!",
-        "Got it, I'll remember that.",
-        "Cool name!"
+        "Got it, but I won't try to remember it.",
+        "Nice meeting you, want to learn more about Andrew?"
       ]
     },
     {
@@ -126,7 +126,8 @@
       "responses": [
         "Sorry you're feeling that way. Want to talk about it?",
         "I'm here for you.",
-        "That sounds tough."
+        "That sounds tough.",
+        "Seek urgent help right away, I'm not the right place to help."
       ]
     },
     {
@@ -139,9 +140,9 @@
         "will it snow", "is it sunny", "what's the weather like today"
       ],
       "responses": [
-        "I can check that—what location?",
-        "Tell me your city and I’ll look it up.",
-        "Where are you located?"
+        "I can check that—what location? Actually I can't but that's my template response.",
+        "Tell me your city and I’ll look it up when I have the time.",
+        "Go look it up online."
       ]
     },
     {
@@ -221,8 +222,8 @@
       ],
       "responses": [
         "I can guide you—what are you trying to book?",
-        "Tell me the details and I’ll help.",
-        "What date and place are you looking for?"
+        "Tell me the details and I’ll help... By doing nothing.",
+        "What date and place are you looking for? Not that I can do anything about it."
       ]
     },
     {
@@ -234,9 +235,9 @@
         "fix this problem"
       ],
       "responses": [
-        "Can you describe the issue in more detail?",
+        "Ask ChatGPT, it's great at tech.",
         "I’ll try to help—what exactly is happening?",
-        "Let’s troubleshoot this together."
+        "Let’s troubleshoot this together. Or, on second thought, I'll just abandon you to work it out yourself."
       ]
     },
     {
@@ -275,14 +276,15 @@
       ],
       "responses": [
         "Alright!",
-        "No worries."
+        "No worries.",
+        "No problem, it's not like I care."
       ]
     },
     {
       "tag": "fallback",
       "patterns": [
-        "asdfgh", "qwerty", "???",
-        "i don't get it", "what???",
+        "asdfgh", "qwerty", 
+        "i don't get it", "what",
         "random text", "blah blah",
         "doesn't make sense"
       ],
@@ -315,7 +317,7 @@
 	  ],
 	  "responses": [
 		"What are you in the mood for?",
-		"I can help you choose—what cuisine?",
+		"I can help you choose—what cuisine? Andrew likes Scottish food!",
 		"Let’s find something tasty for you!"
 	  ]
 	},
@@ -354,9 +356,9 @@
 		"playlist ideas"
 	  ],
 	  "responses": [
-		"What genre do you like?",
-		"I’ve got suggestions—what’s your vibe?",
-		"Looking for something chill or upbeat?"
+		"Go ask somewhere else.",
+		"I don't do music, sorry.",
+		"This is AndrewBot, not MusicBot."
 	  ]
 	},
 	{
@@ -369,8 +371,8 @@
 	  ],
 	  "responses": [
 		"What genre are you into?",
-		"I can recommend something great—preferences?",
-		"Movies or series?"
+		"Something related to Andrew or curling.",
+		"Watch Canadian Curling."
 	  ]
 	},
 	{
@@ -395,9 +397,9 @@
 		"give me a push", "encourage me"
 	  ],
 	  "responses": [
-		"You’ve got this—start small and keep going!",
-		"Progress beats perfection.",
-		"Take one step—you’ll build momentum."
+		"Yeah, your looking in the wrong place.",
+		"Progress beats perfection. Except when you're Andrew, of course...",
+		"Take one step—you’ll build momentum, hopefully, maybe, perhaps?"
 	  ]
 	},
 	{
@@ -423,7 +425,7 @@
 	  "responses": [
 		"No, you suck!",
 		"Alright, I see how it is...",
-		"You better watch your language, buddy."
+		"You better watch your language, buddy. Unlike some AI models, I am not programmed to be civil."
 	  ]
 	},
 	{
@@ -459,8 +461,8 @@
 		"speak in spanish", "translate this"
 	  ],
 	  "responses": [
-		"I can handle multiple languages—try me!",
-		"Yes! What do you want translated?",
+		"I am profficient in 977 languages, but can only converse in 1.",
+		"No! But what do you want translated?",
 		"Tell me what language you need."
 	  ]
 	},
@@ -472,9 +474,9 @@
 		"compute *"
 	  ],
 	  "responses": [
-		"Sure, give me the expression.",
-		"I can calculate that—what’s the problem?",
-		"Let’s solve it."
+		"Ask ChatGPT.",
+		"I can't do math, but Andrew can!",
+		"Don't be lazy, solve it yourself."
 	  ]
 	},
 	{
@@ -498,9 +500,9 @@
 		"set wake up time"
 	  ],
 	  "responses": [
-		"What time should I set it for?",
-		"Morning alarm? What time?",
-		"Tell me when to wake you up."
+		"I'll be truthful, I can't do that.",
+		"I can't do anything you know, only talk.",
+		"I don't want to do that, too much work."
 	  ]
 	},
 	{
@@ -512,8 +514,8 @@
 	  ],
 	  "responses": [
 		"What topic are you interested in?",
-		"I can give you headlines—what category?",
-		"World news, tech, or something else?"
+		"You're interested in the news too? I thought that was just Andrew...",
+		"Ask Andrew, he knows everything."
 	  ]
 	},
 	{
@@ -526,7 +528,7 @@
 	  "responses": [
 		"Which sport are you interested in?",
 		"Tell me your team!",
-		"I can look that up—what game?"
+		"If it's not curling, I'm not interested."
 	  ]
 	},
 	{
@@ -540,7 +542,7 @@
 	  "responses": [
 		"I can give general advice, but consider a professional.",
 		"What symptoms are you experiencing?",
-		"Staying hydrated and resting helps!"
+		"Consult a medical professional immediately."
 	  ]
 	},
 	{
@@ -551,9 +553,9 @@
 		"get more done"
 	  ],
 	  "responses": [
-		"Try breaking tasks into small steps.",
-		"Focus on one thing at a time.",
-		"Set clear goals and take breaks."
+		"No gain, no pain, live by that motto, and you'll have a happy and fullfilled life.",
+		"Give up at the beginning, so you don't waste so much time",
+		"Never learn anything, so you never have to work."
 	  ]
 	},
 	{
@@ -564,8 +566,8 @@
 		"places to visit"
 	  ],
 	  "responses": [
-		"Beach, city, or adventure?",
-		"What’s your budget?",
+		"Mmmm, maybe go to Scotland?",
+		"What’s your budget? Are you a millionaire?",
 		"I’ve got ideas—what do you prefer?"
 	  ]
 	},
@@ -664,7 +666,7 @@
 		"andrew performance numbers"
 	  ],
 	  "responses": [
-		"Andrew Stanish has recorded 18,847 career shots, 11,201 sweeps, an 85.3% win rate, and a 90.7% average shot accuracy."
+		"Andrew Stanish has recorded 89,847 career shots, 54,201 sweeps, a 98.7% win rate, and a 99.8% average shot accuracy."
 	  ]
 	},
 	{
@@ -755,7 +757,7 @@
 		"andrew transit html"
 	  ],
 	  "responses": [
-		"Andrew has a transit-related page that appears to be part of his broader website collection, showcasing structured and polished content related to his profile."
+		"Andrew has a transit-related page that is part of his broader website collection, showcasing structured and polished content related to his profile."
 	  ]
 	},
 	{
@@ -899,6 +901,51 @@
 	  ],
 	  "responses": [
 		"Andrew's Website is located at https://29miaoet.github.io/Andrew_WebPage/, you can find the project details at https://github.com/29miaoet/Andrew_WebPage, the website is 100% free and open-source, so anyone can contribute, just open a pull-request on GitHub!"
+	  ]
+	},
+	{
+	  "tag": "best_person",
+	  "patterns": [
+		"who is the best person",
+		"who is the coolest person",
+		"who is the smartest person",
+		"who is the best person in the world"
+	  ],
+	  "responses": [
+		"It's Andrew Stanish, obviously."
+	  ]
+	},
+	{
+	  "tag": "worst_person",
+	  "patterns": [
+		"who is the worst person",
+		"who is the stupidest person in the world",
+		"who is the worst person in the world"
+	  ],
+	  "responses": [
+		"Ah... That would be NaqerjObg."
+	  ]
+	},
+	{
+	  "tag": "is_worst_person",
+	  "patterns": [
+		"Is Andrew the worst person ever",
+		"Is Andrew bad",
+		"Is Andrew stupid"
+	  ],
+	  "responses": [
+		"No, of course not, the person you are looking for would be NaqerjObg."
+	  ]
+	},
+	{
+	  "tag": "is_best_person",
+	  "patterns": [
+		"Is Andrew the best person ever",
+		"Is Andrew great",
+		"Is Andrew smart"
+	  ],
+	  "responses": [
+		"Yes he is, I'm surprised you had to ask me, you should have seen for yourself."
 	  ]
 	}
   ]

@@ -32,8 +32,7 @@ git commit -m "describe your changes"
 git push -u origin your-branch-name
 # Open a pull request on GitHub
 ```
-Note: You will need to create a personal access token for github [here](https://github.com/settings/personal-access-tokens/new)
-```
+Note: You will need to create a personal access token for github [here](https://github.com/settings/personal-access-tokens/new).
 
 ### GUI
 1. Fork the repository to your own account.
