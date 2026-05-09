@@ -1,0 +1,68 @@
+name: Replace version numbers after release
+on:
+  release:
+    types: [published]
+permissions:
+  contents: write
+jobs:
+  replace-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for tag detection
+      
+      - name: Determine previous and current versions
+        run: |
+          set -e
+          
+          # Current release tag
+          NEW_TAG="${GITHUB_REF_NAME}"
+          NEW_VERSION="${NEW_TAG#v}"
+          
+          # Find previous release tag
+          PREV_TAG=$(git tag --sort=-version:refname | grep -v "^${NEW_TAG}$" | head -n 1)
+          
+          if [ -z "$PREV_TAG" ]; then
+            echo "Error: Could not find previous tag" >&2
+            exit 1
+          fi
+          
+          PREV_VERSION="${PREV_TAG#v}"
+          PREV_REGEX=$(printf '%s\n' "$PREV_VERSION" | sed 's/[][\.^$*+?{}|()]/\\&/g')
+          
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+          echo "PREV_VERSION=$PREV_VERSION" >> $GITHUB_ENV
+          echo "PREV_REGEX=$PREV_REGEX" >> $GITHUB_ENV
+          
+          echo "Replacing: $PREV_VERSION -> $NEW_VERSION"
+      
+      - name: Replace all occurrences
+        run: |
+          set -e
+          FILES=(README.md file_download.html js/file_download.js)
+          
+          for file in "${FILES[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "Warning: $file not found" >&2
+              continue
+            fi
+            sed -Ei "s/${PREV_REGEX}/${NEW_VERSION}/g" "$file"
+          done
+      
+      - name: Show diff
+        run: git diff
+      
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: replace ${PREV_VERSION} with ${NEW_VERSION}"
+            git push origin HEAD:${{ github.event.release.target_commitish }}
+          fi

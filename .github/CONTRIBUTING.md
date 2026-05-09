@@ -5,22 +5,36 @@ Thanks for your interest in contributing to this project.
 ## Getting Started
 
 ### Command Line
-1. Clone your fork locally
-2. Make your changes
-3. Create a new branch
-4. Push changes to the new branch
-5. Open a pull request
 
+1. Clone & Run Locally
 
 ```shell
 git clone https://github.com/29miaoet/Andrew_WebPage.git
 cd Andrew_WebPage
-# Make your changes
-git checkout -b your-branch-name
-git add .
-git commit -m "Describe your changes."
-git push -u origin your-branch-name
+# Start a local server with python
+python -m http.server 8000
+# or use node.js
+npx http-server
+# Navigate to http://localhost:8000/path/to/andrew/website/ in your browser
 ```
+Note: Some features require JavaScript fetch. Direct file:// access won't work for all functionality.
+
+2. Make your changes
+
+```shell
+# Edit the file
+# Create a branch
+git checkout -b your-branch-name
+# Add changes and commit
+git add .
+git commit -m "describe your changes"
+# Push to GitHub
+git push -u origin your-branch-name
+# Open a pull request on GitHub
+```
+Note: You will need to create a personal access token for github [here](https://github.com/settings/personal-access-tokens/new)
+```
+
 ### GUI
 1. Fork the repository to your own account.
 2. Make your changes.
