@@ -1,9 +1,13 @@
 name: Replace version numbers after release
+
 on:
   release:
     types: [published]
+
 permissions:
   contents: write
+  pull-requests: write
+
 jobs:
   replace-version:
     runs-on: ubuntu-latest
@@ -12,8 +16,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Fetch all history for tag detection
-      
+
       - name: Determine previous and current versions
+        id: versions
         run: |
           set -e
           
@@ -21,48 +26,89 @@ jobs:
           NEW_TAG="${GITHUB_REF_NAME}"
           NEW_VERSION="${NEW_TAG#v}"
           
-          # Find previous release tag
+          echo "NEW_TAG=$NEW_TAG"
+          echo "NEW_VERSION=$NEW_VERSION"
+          
+          # Find previous release tag (exclude current tag)
           PREV_TAG=$(git tag --sort=-version:refname | grep -v "^${NEW_TAG}$" | head -n 1)
           
           if [ -z "$PREV_TAG" ]; then
-            echo "Error: Could not find previous tag" >&2
-            exit 1
+            echo "⚠️ Warning: No previous tag found. Skipping version replacement."
+            echo "SKIP_REPLACEMENT=true" >> $GITHUB_OUTPUT
+            exit 0
           fi
           
           PREV_VERSION="${PREV_TAG#v}"
-          PREV_REGEX=$(printf '%s\n' "$PREV_VERSION" | sed 's/[][\.^$*+?{}|()]/\\&/g')
           
+          # Escape regex special characters
+          PREV_REGEX=$(printf '%s\n' "$PREV_VERSION" | sed 's/[[\.*^$/]/\\&/g')
+          
+          echo "PREV_TAG=$PREV_TAG"
+          echo "PREV_VERSION=$PREV_VERSION"
+          echo "PREV_REGEX=$PREV_REGEX"
+          
+          # Export to environment for next steps
           echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
           echo "PREV_VERSION=$PREV_VERSION" >> $GITHUB_ENV
           echo "PREV_REGEX=$PREV_REGEX" >> $GITHUB_ENV
+          echo "SKIP_REPLACEMENT=false" >> $GITHUB_OUTPUT
           
-          echo "Replacing: $PREV_VERSION -> $NEW_VERSION"
-      
+          echo "Replacing: $PREV_VERSION → $NEW_VERSION"
+
       - name: Replace all occurrences
+        if: steps.versions.outputs.SKIP_REPLACEMENT == 'false'
         run: |
           set -e
-          FILES=(README.md file_download.html js/file_download.js)
+          
+          FILES=(
+            "README.md"
+            "file_download.html"
+            "js/file_download.js"
+          )
           
           for file in "${FILES[@]}"; do
             if [ ! -f "$file" ]; then
-              echo "Warning: $file not found" >&2
+              echo "⚠️ Warning: $file not found, skipping"
               continue
             fi
-            sed -Ei "s/${PREV_REGEX}/${NEW_VERSION}/g" "$file"
+            
+            if grep -q "$PREV_REGEX" "$file"; then
+              sed -i "s/$PREV_REGEX/$NEW_VERSION/g" "$file"
+              echo "✓ Updated: $file"
+            else
+              echo "⊘ No matches in: $file"
+            fi
           done
-      
+
       - name: Show diff
-        run: git diff
-      
-      - name: Commit and push changes
+        if: steps.versions.outputs.SKIP_REPLACEMENT == 'false'
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore: replace ${PREV_VERSION} with ${NEW_VERSION}"
-            git push origin HEAD:${{ github.event.release.target_commitish }}
-          fi
+          echo "=== Changes made ==="
+          git diff --color=never
+
+      - name: Create Pull Request
+        if: steps.versions.outputs.SKIP_REPLACEMENT == 'false'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: replace ${{ env.PREV_VERSION }} with ${{ env.NEW_VERSION }}"
+          title: "chore: replace ${{ env.PREV_VERSION }} with ${{ env.NEW_VERSION }}"
+          body: |
+            ## Version Update
+            
+            Automated version replacement after release of `${{ github.event.release.tag_name }}`.
+            
+            **Changes:**
+            - Updated version references from `${{ env.PREV_VERSION }}` to `${{ env.NEW_VERSION }}`
+            
+            Files modified:
+            - README.md
+            - file_download.html
+            - js/file_download.js
+            
+            ---
+            
+            This PR was automatically created by the [Replace Version Workflow](.github/workflows/replace-version.yml).
+          branch: "chore/version-${{ env.NEW_VERSION }}"
+          delete-branch: true
+          labels: "chore,automated"
