@@ -123,8 +123,8 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
    - 🙂 Help make Andrew famous
 
 ## Download
-- [Source Code Download - Zip](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v28.0.2.zip)
-- [Source Code Download - Tarball](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v28.0.2.tar.gz)
+- [Source Code Download - Zip](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v28.1.2.zip)
+- [Source Code Download - Tarball](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v28.1.2.tar.gz)
   
 ## Stats
 - ![Release](https://img.shields.io/github/v/release/29miaoet/Andrew_WebPage)
