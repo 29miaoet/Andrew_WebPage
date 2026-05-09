@@ -3,6 +3,14 @@ name: Update Version After Release
 on:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      prev_version:
+        description: 'Previous version'
+        required: true
+      new_version:
+        description: 'New version'
+        required: true
 
 permissions:
   contents: write
@@ -19,10 +27,15 @@ jobs:
       - name: Determine versions
         id: versions
         run: |
-          NEW_TAG="${GITHUB_REF_NAME}"
-          NEW_VERSION="${NEW_TAG#v}"
-          PREV_TAG=$(git tag --sort=-version:refname | grep -v "^${NEW_TAG}$" | head -n 1)
-          PREV_VERSION="${PREV_TAG#v}"
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            PREV_VERSION="${{ inputs.prev_version }}"
+            NEW_VERSION="${{ inputs.new_version }}"
+          else
+            NEW_TAG="${GITHUB_REF_NAME}"
+            NEW_VERSION="${NEW_TAG#v}"
+            PREV_TAG=$(git tag --sort=-version:refname | grep -v "^${NEW_TAG}$" | head -n 1)
+            PREV_VERSION="${PREV_TAG#v}"
+          fi
           echo "prev=$PREV_VERSION" >> $GITHUB_OUTPUT
           echo "new=$NEW_VERSION" >> $GITHUB_OUTPUT
 
