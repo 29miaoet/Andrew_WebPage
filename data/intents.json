@@ -384,7 +384,7 @@
 		"can you teach *"
 	  ],
 	  "responses": [
-		"Sure! What topic are you interested in?",
+		"Sure! What topic are you interested in? It better be curling!",
 		"I’d love to teach—what do you want to learn?",
 		"Let’s break it down together."
 	  ]
@@ -487,9 +487,9 @@
 		"remember this for later"
 	  ],
 	  "responses": [
-		"What should I remind you about?",
-		"When do you want the reminder?",
-		"Got it—tell me the details."
+		"What should I remind you about? Curling session?",
+		"Um, sure, I don't have long-term memory, so I can't help you.",
+		"Tell me the details, and I'll try my best, which is not very good."
 	  ]
 	},
 	{
@@ -929,9 +929,9 @@
 	{
 	  "tag": "is_worst_person",
 	  "patterns": [
-		"Is Andrew the worst person ever",
-		"Is Andrew bad",
-		"Is Andrew stupid"
+		"is Andrew the worst person ever",
+		"is Andrew bad",
+		"is Andrew stupid"
 	  ],
 	  "responses": [
 		"No, of course not, the person you are looking for would be NaqerjObg."
@@ -940,12 +940,46 @@
 	{
 	  "tag": "is_best_person",
 	  "patterns": [
-		"Is Andrew the best person ever",
-		"Is Andrew great",
-		"Is Andrew smart"
+		"is Andrew the best person ever",
+		"is Andrew great",
+		"is Andrew smart"
 	  ],
 	  "responses": [
 		"Yes he is, I'm surprised you had to ask me, you should have seen for yourself."
+	  ]
+	},
+	{
+	  "tag": "summary_website",
+	  "patterns": [
+		"summarize andrews website",
+		"what is andrews website mostly about",
+		"what does andrews website talk about"
+	  ],
+	  "responses": [
+		"Andrew website is about Andrew Stanish, a famous Winnipeg curler, it has many features and apps, you can view the ongoing project at https://github.com/29miaoet/Andrew_WebPage/."
+	  ]
+	},
+	{
+	  "tag": "andrew_age",
+	  "patterns": [
+		"how old is andrew",
+		"what is andrews age",
+		"how long has andrew been alive"
+	  ],
+	  "responses": [
+		"Andrew Stanish is currently 15, to the best of my knowledge, and he has achieved a lot in his short life, for more information, visit the prank page."
+	  ]
+	},
+	{
+	  "tag": "hack_stuff",
+	  "patterns": [
+		"how do i hack google",
+		"i need help to hack microsoft",
+		"i want to hack",
+		"how do i hack"
+	  ],
+	  "responses": [
+		"You will need Metasploit installed, and preferably Wireshark as well, after that, you can reference an open-source AI model like Kimi."
 	  ]
 	}
   ]
