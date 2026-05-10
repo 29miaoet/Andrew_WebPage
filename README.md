@@ -128,7 +128,7 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
   
 ## Stats
 - ![Release](https://img.shields.io/github/v/release/29miaoet/Andrew_WebPage)
-- ![License](https://img.shields.io/badge/license-none-green)
+- ![License](https://img.shields.io/badge/license-MIT-green)
 - ![Deployed](https://img.shields.io/badge/deployed-GitHub%20Pages-orange)
 - ![Repo size](https://img.shields.io/github/repo-size/29miaoet/Andrew_WebPage)
 - ![Last commit](https://img.shields.io/github/last-commit/29miaoet/Andrew_WebPage)
