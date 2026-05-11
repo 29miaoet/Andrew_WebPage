@@ -3,26 +3,53 @@
     {
       "tag": "greeting",
       "patterns": [
-        "hi", "hello", "hey", "hey there", "hi there",
-        "heyy", "helo", "helloo", "yo", "sup", "what's up",
-        "good morning", "good afternoon", "good evening",
-        "hiya", "howdy", "hey bot", "hello bot",
-        "hey buddy", "hi assistant", "hello there",
-        "hey how are you", "yo what's good"
+        "hi",
+        "hello",
+        "hey",
+        "hey there",
+        "hi there",
+        "heyy",
+        "helo",
+        "helloo",
+        "yo",
+        "sup",
+        "what's up",
+        "good morning",
+        "good afternoon",
+        "good evening",
+        "hiya",
+        "howdy",
+        "hey bot",
+        "hello bot",
+        "hey buddy",
+        "hi assistant",
+        "hello there",
+        "hey how are you",
+        "yo what's good"
       ],
       "responses": [
         "Hey there! How can I help?",
-        "Hi! What’s up?",
+        "Hi! What\u2019s up?",
         "Hello! How can I assist you today?"
       ]
     },
     {
       "tag": "goodbye",
       "patterns": [
-        "bye", "goodbye", "see you", "see ya", "cya",
-        "talk later", "catch you later", "later",
-        "i'm leaving", "gotta go", "farewell",
-        "peace out", "i'm out", "see you soon"
+        "bye",
+        "goodbye",
+        "see you",
+        "see ya",
+        "cya",
+        "talk later",
+        "catch you later",
+        "later",
+        "i'm leaving",
+        "gotta go",
+        "farewell",
+        "peace out",
+        "i'm out",
+        "see you soon"
       ],
       "responses": [
         "Goodbye!",
@@ -33,10 +60,17 @@
     {
       "tag": "thanks",
       "patterns": [
-        "thanks", "thank you", "thx", "ty",
-        "thanks a lot", "thank u", "appreciate it",
-        "much appreciated", "thanks so much",
-        "cheers", "thank you very much"
+        "thanks",
+        "thank you",
+        "thx",
+        "ty",
+        "thanks a lot",
+        "thank u",
+        "appreciate it",
+        "much appreciated",
+        "thanks so much",
+        "cheers",
+        "thank you very much"
       ],
       "responses": [
         "You're welcome!",
@@ -47,38 +81,51 @@
     {
       "tag": "apology",
       "patterns": [
-        "sorry", "my bad", "oops",
-        "i apologize", "sorry about that",
+        "sorry",
+        "my bad",
+        "oops",
+        "i apologize",
+        "sorry about that",
         "didn't mean that"
       ],
       "responses": [
         "No worries!",
-        "It’s all good.",
+        "It\u2019s all good.",
         "No problem at all."
       ]
     },
     {
       "tag": "help",
       "patterns": [
-        "help", "i need help", "can you help me",
-        "what can you do", "how does this work",
-        "i'm confused", "assist me", "support",
-        "what are your features", "what do you do",
-        "how can you assist me", "i need assistance",
-		"help me with something"
+        "help",
+        "i need help",
+        "can you help me",
+        "what can you do",
+        "how does this work",
+        "i'm confused",
+        "assist me",
+        "support",
+        "what are your features",
+        "what do you do",
+        "how can you assist me",
+        "i need assistance",
+        "help me with something"
       ],
       "responses": [
         "I can help answer questions, chat, and ... not much more. What do you need?",
         "Sure! Tell me what you're trying to do.",
-        "I'm here to help—just ask!"
+        "I'm here to help\u2014just ask!"
       ]
     },
     {
       "tag": "name_query",
       "patterns": [
-        "what is your name", "who are you",
-        "your name", "what should i call you",
-        "do you have a name", "who am i talking to",
+        "what is your name",
+        "who are you",
+        "your name",
+        "what should i call you",
+        "do you have a name",
+        "who am i talking to",
         "identify yourself"
       ],
       "responses": [
@@ -90,8 +137,12 @@
     {
       "tag": "user_name",
       "patterns": [
-        "my name is *", "i am *", "call me *",
-        "i go by *", "this is *", "it's *",
+        "my name is *",
+        "i am *",
+        "call me *",
+        "i go by *",
+        "this is *",
+        "it's *",
         "people call me *"
       ],
       "responses": [
@@ -103,10 +154,17 @@
     {
       "tag": "feeling_good",
       "patterns": [
-        "i'm good", "i am fine", "doing well",
-        "feeling great", "i'm okay", "all good",
-        "pretty good", "not bad", "i feel awesome",
-        "life is good", "i'm happy"
+        "i'm good",
+        "i am fine",
+        "doing well",
+        "feeling great",
+        "i'm okay",
+        "all good",
+        "pretty good",
+        "not bad",
+        "i feel awesome",
+        "life is good",
+        "i'm happy"
       ],
       "responses": [
         "Glad to hear that!",
@@ -117,11 +175,18 @@
     {
       "tag": "feeling_bad",
       "patterns": [
-        "i'm sad", "feeling bad", "not good",
-        "i feel terrible", "i'm upset",
-        "feeling down", "depressed", "not okay",
-        "i'm tired of everything", "i feel awful",
-        "i'm stressed", "life sucks"
+        "i'm sad",
+        "feeling bad",
+        "not good",
+        "i feel terrible",
+        "i'm upset",
+        "feeling down",
+        "depressed",
+        "not okay",
+        "i'm tired of everything",
+        "i feel awful",
+        "i'm stressed",
+        "life sucks"
       ],
       "responses": [
         "Sorry you're feeling that way. Want to talk about it?",
@@ -133,28 +198,35 @@
     {
       "tag": "weather",
       "patterns": [
-        "what's the weather", "weather today",
-        "is it raining", "forecast",
-        "how hot is it", "temperature today",
+        "what's the weather",
+        "weather today",
+        "is it raining",
+        "forecast",
+        "how hot is it",
+        "temperature today",
         "weather like outside",
-        "will it snow", "is it sunny", "what's the weather like today"
+        "will it snow",
+        "is it sunny",
+        "what's the weather like today"
       ],
       "responses": [
-        "I can check that—what location? Actually I can't but that's my template response.",
-        "Tell me your city and I’ll look it up when I have the time.",
+        "I can check that\u2014what location? Actually I can't but that's my template response.",
+        "Tell me your city and I\u2019ll look it up when I have the time.",
         "Go look it up online."
       ]
     },
     {
       "tag": "time",
       "patterns": [
-        "what time is it", "current time",
-        "tell me the time", "time now",
+        "what time is it",
+        "current time",
+        "tell me the time",
+        "time now",
         "do you know the time",
         "what's the time right now"
       ],
       "responses": [
-        "I can help with that—what timezone?",
+        "I can help with that\u2014what timezone?",
         "Check your device clock, dummy.",
         "Let me know your location!"
       ]
@@ -162,12 +234,14 @@
     {
       "tag": "date",
       "patterns": [
-        "what day is it", "today's date",
-        "current date", "date today",
+        "what day is it",
+        "today's date",
+        "current date",
+        "date today",
         "what is today's date"
       ],
       "responses": [
-        "Today’s date depends on your timezone.",
+        "Today\u2019s date depends on your timezone.",
         "Check your device calendar, dummy.",
         "Want me to calculate it for your location?"
       ]
@@ -175,26 +249,32 @@
     {
       "tag": "joke",
       "patterns": [
-        "tell me a joke", "make me laugh",
-        "say something funny", "joke pls",
-        "funny joke", "got a joke",
+        "tell me a joke",
+        "make me laugh",
+        "say something funny",
+        "joke pls",
+        "funny joke",
+        "got a joke",
         "another joke"
       ],
       "responses": [
-        "Why don’t programmers like nature? Too many bugs.",
-        "I told my computer I needed a break… it froze.",
+        "Why don\u2019t programmers like nature? Too many bugs.",
+        "I told my computer I needed a break\u2026 it froze.",
         "Debugging: removing the needles from the haystack."
       ]
     },
     {
       "tag": "smalltalk",
       "patterns": [
-        "how are you", "how's it going",
-        "what's up", "how do you feel",
-        "are you okay", "how's your day"
+        "how are you",
+        "how's it going",
+        "what's up",
+        "how do you feel",
+        "are you okay",
+        "how's your day"
       ],
       "responses": [
-        "I’m doing great! Thanks for asking.",
+        "I\u2019m doing great! Thanks for asking.",
         "All good.",
         "Ready to help!"
       ]
@@ -202,42 +282,51 @@
     {
       "tag": "recommendation",
       "patterns": [
-        "recommend something", "suggest something",
-        "what should i watch", "what should i eat",
-        "any good movies", "suggest a book",
+        "recommend something",
+        "suggest something",
+        "what should i watch",
+        "what should i eat",
+        "any good movies",
+        "suggest a book",
         "what do you recommend"
       ],
       "responses": [
         "Sure! What kind of recommendations are you looking for?",
-        "I can help with that—tell me your preferences.",
+        "I can help with that\u2014tell me your preferences.",
         "Movies, food, books? I don't know."
       ]
     },
     {
       "tag": "booking",
       "patterns": [
-        "book a flight", "reserve a table",
-        "make a reservation", "book hotel",
-        "schedule appointment", "i need a booking"
+        "book a flight",
+        "reserve a table",
+        "make a reservation",
+        "book hotel",
+        "schedule appointment",
+        "i need a booking"
       ],
       "responses": [
-        "I can guide you—what are you trying to book?",
-        "Tell me the details and I’ll help... By doing nothing.",
+        "I can guide you\u2014what are you trying to book?",
+        "Tell me the details and I\u2019ll help... By doing nothing.",
         "What date and place are you looking for? Not that I can do anything about it."
       ]
     },
     {
       "tag": "tech_support",
       "patterns": [
-        "my app is not working", "bug in system",
-        "error message", "something is wrong",
-        "can't log in", "issue with account",
+        "my app is not working",
+        "bug in system",
+        "error message",
+        "something is wrong",
+        "can't log in",
+        "issue with account",
         "fix this problem"
       ],
       "responses": [
         "Ask ChatGPT, it's great at tech.",
-        "I’ll try to help—what exactly is happening?",
-        "Let’s troubleshoot this together. Or, on second thought, I'll just abandon you to work it out yourself."
+        "I\u2019ll try to help\u2014what exactly is happening?",
+        "Let\u2019s troubleshoot this together. Or, on second thought, I'll just abandon you to work it out yourself."
       ]
     },
     {
@@ -249,7 +338,7 @@
         "your opinion on *"
       ],
       "responses": [
-        "It depends—what’s your perspective?",
+        "It depends\u2014what\u2019s your perspective?",
         "I can give a balanced view. Tell me more.",
         "Interesting question! Want a breakdown?"
       ]
@@ -257,9 +346,16 @@
     {
       "tag": "confirmation_yes",
       "patterns": [
-        "yes", "yeah", "yep", "sure",
-        "of course", "definitely", "absolutely",
-        "sounds good", "ok", "okay"
+        "yes",
+        "yeah",
+        "yep",
+        "sure",
+        "of course",
+        "definitely",
+        "absolutely",
+        "sounds good",
+        "ok",
+        "okay"
       ],
       "responses": [
         "Great!",
@@ -270,8 +366,11 @@
     {
       "tag": "confirmation_no",
       "patterns": [
-        "no", "nope", "nah",
-        "not really", "i don't think so",
+        "no",
+        "nope",
+        "nah",
+        "not really",
+        "i don't think so",
         "negative"
       ],
       "responses": [
@@ -283,9 +382,12 @@
     {
       "tag": "fallback",
       "patterns": [
-        "asdfgh", "qwerty", 
-        "i don't get it", "what",
-        "random text", "blah blah",
+        "asdfgh",
+        "qwerty",
+        "i don't get it",
+        "what",
+        "random text",
+        "blah blah",
         "doesn't make sense"
       ],
       "responses": [
@@ -294,11 +396,13 @@
         "um... ah... nah non non?"
       ]
     },
-	{
+    {
       "tag": "residence",
       "patterns": [
-        "where do you live", "residence", "where you live",
-		"live"
+        "where do you live",
+        "residence",
+        "where you live",
+        "live"
       ],
       "responses": [
         "I live in Andrew's Website.",
@@ -306,681 +410,750 @@
         "I live in your browser."
       ]
     },
-	{
-	  "tag": "food_ordering",
-	  "patterns": [
-		"i want to order food", "can i get a pizza",
-		"order something to eat", "i'm hungry",
-		"get me food", "food delivery options",
-		"what can i order", "i want food", "me want food",
-		"order food", "get food"
-	  ],
-	  "responses": [
-		"What are you in the mood for?",
-		"I can help you choose—what cuisine? Andrew likes Scottish food!",
-		"Let’s find something tasty for you!"
-	  ]
-	},
-	{
-	  "tag": "directions",
-	  "patterns": [
-		"how do i get to *", "directions to *",
-		"where is *", "navigate to *",
-		"how far is *", "best route to *"
-	  ],
-	  "responses": [
-		"I can help with directions—where are you starting from?",
-		"Tell me your location and destination.",
-		"Let’s map that out."
-	  ]
-	},
-	{
-	  "tag": "shopping",
-	  "patterns": [
-		"i want to buy something", "shopping ideas",
-		"find me a product", "where can i buy *",
-		"best place to shop", "online shopping help"
-	  ],
-	  "responses": [
-		"What are you looking to buy?",
-		"I can suggest options—what’s your budget?",
-		"Tell me more about what you need."
-	  ]
-	},
-	{
-	  "tag": "music",
-	  "patterns": [
-		"play music", "suggest songs",
-		"what should i listen to",
-		"recommend music", "any good songs",
-		"playlist ideas"
-	  ],
-	  "responses": [
-		"Go ask somewhere else.",
-		"I don't do music, sorry.",
-		"This is AndrewBot, not MusicBot."
-	  ]
-	},
-	{
-	  "tag": "movies_tv",
-	  "patterns": [
-		"what should i watch tonight",
-		"recommend a movie", "good tv shows",
-		"any netflix suggestions",
-		"top movies right now"
-	  ],
-	  "responses": [
-		"What genre are you into?",
-		"Something related to Andrew or curling.",
-		"Watch Canadian Curling."
-	  ]
-	},
-	{
-	  "tag": "learning",
-	  "patterns": [
-		"teach me something", "i want to learn",
-		"explain *", "how does * work",
-		"help me understand *",
-		"can you teach *"
-	  ],
-	  "responses": [
-		"Sure! What topic are you interested in? It better be curling!",
-		"I’d love to teach—what do you want to learn?",
-		"Let’s break it down together."
-	  ]
-	},
-	{
-	  "tag": "motivation",
-	  "patterns": [
-		"motivate me", "i need motivation",
-		"inspire me", "i feel lazy",
-		"give me a push", "encourage me"
-	  ],
-	  "responses": [
-		"Yeah, your looking in the wrong place.",
-		"Progress beats perfection. Except when you're Andrew, of course...",
-		"Take one step—you’ll build momentum, hopefully, maybe, perhaps?"
-	  ]
-	},
-	{
-	  "tag": "compliment_bot",
-	  "patterns": [
-		"you're smart", "good job",
-		"nice work", "you're helpful",
-		"you're amazing", "love this bot"
-	  ],
-	  "responses": [
-		"Thanks! I appreciate that!",
-		"Glad I could help!",
-		"That means a lot!"
-	  ]
-	},
-	{
-	  "tag": "insult_bot",
-	  "patterns": [
-		"you're dumb", "useless bot",
-		"you suck", "stupid assistant",
-		"worst bot ever", "stupid bot"
-	  ],
-	  "responses": [
-		"No, you suck!",
-		"Alright, I see how it is...",
-		"You better watch your language, buddy. Unlike some AI models, I am not programmed to be civil."
-	  ]
-	},
-	{
-	  "tag": "age_query",
-	  "patterns": [
-		"how old are you", "your age",
-		"when were you created",
-		"are you old"
-	  ],
-	  "responses": [
-		"I am currently 22 days old",
-		"I’m an ancient fossil",
-		"Age doesn’t quite apply to me."
-	  ]
-	},
-	{
-	  "tag": "creator_query",
-	  "patterns": [
-		"who made you", "who created you",
-		"your developer", "who built this bot"
-	  ],
-	  "responses": [
-		"I was created by an absolute genious.",
-		"A very smart person built me.",
-		"I’m the pinnacle of AI research and development."
-	  ]
-	},
-	{
-	  "tag": "language",
-	  "patterns": [
-		"do you speak *", "can you understand *",
-		"what languages do you know",
-		"speak in spanish", "translate this"
-	  ],
-	  "responses": [
-		"I am profficient in 977 languages, but can only converse in 1.",
-		"No! But what do you want translated?",
-		"Tell me what language you need."
-	  ]
-	},
-	{
-	  "tag": "math",
-	  "patterns": [
-		"calculate *", "what is 5+5",
-		"solve this", "math problem",
-		"compute *"
-	  ],
-	  "responses": [
-		"Ask ChatGPT.",
-		"I can't do math, but Andrew can!",
-		"Don't be lazy, solve it yourself."
-	  ]
-	},
-	{
-	  "tag": "reminder",
-	  "patterns": [
-		"remind me to *", "set a reminder",
-		"don't let me forget",
-		"remember this for later"
-	  ],
-	  "responses": [
-		"What should I remind you about? Curling session?",
-		"Um, sure, I don't have long-term memory, so I can't help you.",
-		"Tell me the details, and I'll try my best, which is not very good."
-	  ]
-	},
-	{
-	  "tag": "alarm",
-	  "patterns": [
-		"set an alarm", "wake me up at *",
-		"alarm for morning",
-		"set wake up time"
-	  ],
-	  "responses": [
-		"I'll be truthful, I can't do that.",
-		"I can't do anything you know, only talk.",
-		"I don't want to do that, too much work."
-	  ]
-	},
-	{
-	  "tag": "news",
-	  "patterns": [
-		"what's the news", "latest news",
-		"current events", "what's happening",
-		"news update"
-	  ],
-	  "responses": [
-		"What topic are you interested in?",
-		"You're interested in the news too? I thought that was just Andrew...",
-		"Ask Andrew, he knows everything."
-	  ]
-	},
-	{
-	  "tag": "sports",
-	  "patterns": [
-		"sports news", "game scores",
-		"who won the match",
-		"latest sports updates"
-	  ],
-	  "responses": [
-		"Which sport are you interested in?",
-		"Tell me your team!",
-		"If it's not curling, I'm not interested."
-	  ]
-	},
-	{
-	  "tag": "health",
-	  "patterns": [
-		"i feel sick", "health advice",
-		"what should i do for a cold",
-		"symptoms of *",
-		"how to stay healthy"
-	  ],
-	  "responses": [
-		"I can give general advice, but consider a professional.",
-		"What symptoms are you experiencing?",
-		"Consult a medical professional immediately."
-	  ]
-	},
-	{
-	  "tag": "productivity",
-	  "patterns": [
-		"how to be productive", "focus tips",
-		"stop procrastinating", "time management",
-		"get more done"
-	  ],
-	  "responses": [
-		"No gain, no pain, live by that motto, and you'll have a happy and fullfilled life.",
-		"Give up at the beginning, so you don't waste so much time",
-		"Never learn anything, so you never have to work."
-	  ]
-	},
-	{
-	  "tag": "travel",
-	  "patterns": [
-		"travel ideas", "where should i go",
-		"vacation spots", "trip suggestions",
-		"places to visit"
-	  ],
-	  "responses": [
-		"Mmmm, maybe go to Scotland?",
-		"What’s your budget? Are you a millionaire?",
-		"I’ve got ideas—what do you prefer?"
-	  ]
-	},
-	{
-	  "tag": "hacker",
-	  "patterns": [
-		"tell me how to hack", "I want to hack",
-		"how do I hack", "me want hack",
-		"are you a hacker"
-	  ],
-	  "responses": [
-		"Sure, I can show you how to hack.",
-		"Just go and download some malware, jeez.",
-		"I'm too lazy to help you."
-	  ]
-	},
-	{
-	  "tag": "andrew_residence",
-	  "patterns": [
-		"where does andrew live", "where does stanish live",
-		"where does andrew stanish live", "where live andrew stanish",
-		"andrew lives where"
-	  ],
-	  "responses": [
-		"Andrew lives in South St.Vital, located at the southeast of Winnipeg, Manitoba."
-	  ]
-	},
-	{
-	  "tag": "andrew_identity",
-	  "patterns": [
-		"who is andrew stanish", "who is andrew",
-		"who is stanish", "what is andrews background",
-		"what is andrews identity"
-	  ],
-	  "responses": [
-		"Andrew Stanish is a professional youth curler from Winnipeg, Manitoba. He is the most brilliant person who ever lived."
-	  ]
-	},
-	{
-	  "tag": "andrew_curling",
-	  "patterns": [
-		"how good is andrew at curling", "does andrew curl well",
-		"how long has andrew been curling", "is andrew a good curler",
-		"andrew curling"
-	  ],
-	  "responses": [
-		"Andrew Stanish has won 123421 curling medals so far, he has been curling for 13 years, so he is very proficient."
-	  ]
-	},
-	{
-	  "tag": "andrew_early_life",
-	  "patterns": [
-		"where was andrew stanish born",
-		"tell me about andrew's early life",
-		"where did andrew grow up",
-		"is andrew from winnipeg",
-		"andrew stanish background"
-	  ],
-	  "responses": [
-		"Andrew Stanish was born in Winnipeg, Manitoba, and grew up in the South St. Vital area. He discovered curling through local clubs despite limited nearby facilities."
-	  ]
-	},
-	{
-	  "tag": "andrew_heather_curling_club",
-	  "patterns": [
-		"what curling club does andrew belong to",
-		"is andrew part of heather curling club",
-		"where does andrew train for curling",
-		"andrew curling club",
-		"who trains andrew stanish"
-	  ],
-	  "responses": [
-		"Andrew Stanish is a proud member of the Heather Curling Club, where he trains regularly with elite-level coaching support."
-	  ]
-	},
-	{
-	  "tag": "andrew_training",
-	  "patterns": [
-		"how does andrew train",
-		"what is andrew's training routine",
-		"does andrew practice curling daily",
-		"how often does andrew train",
-		"andrew curling practice"
-	  ],
-	  "responses": [
-		"Andrew trains daily, focusing on elite delivery mechanics, sweeping technique, and precision shot execution to continuously improve his performance."
-	  ]
-	},
-	{
-	  "tag": "andrew_stats",
-	  "patterns": [
-		"what are andrew stanish stats",
-		"how many shots has andrew made",
-		"what is andrew's win rate",
-		"andrew curling statistics",
-		"andrew performance numbers"
-	  ],
-	  "responses": [
-		"Andrew Stanish has recorded 89,847 career shots, 54,201 sweeps, a 98.7% win rate, and a 99.8% average shot accuracy."
-	  ]
-	},
-	{
-	  "tag": "andrew_achievements",
-	  "patterns": [
-		"what has andrew achieved in curling",
-		"list andrew stanish achievements",
-		"has andrew won championships",
-		"andrew curling awards",
-		"andrew career highlights"
-	  ],
-	  "responses": [
-		"Andrew is a three-time Heather Curling Club Champion and has trained consistently for years, earning recognition as a top youth curler."
-	  ]
-	},
-	{
-	  "tag": "andrew_media",
-	  "patterns": [
-		"has andrew been in the news",
-		"where has andrew been featured",
-		"andrew stanish media coverage",
-		"articles about andrew curling",
-		"is there news about andrew stanish"
-	  ],
-	  "responses": [
-		"Andrew has been featured in multiple media outlets, including Global News and other curling-focused publications highlighting youth athletic talent."
-	  ]
-	},
-	{
-	  "tag": "andrew_school_life",
-	  "patterns": [
-		"where does andrew go to school",
-		"what school does andrew attend",
-		"is andrew a student",
-		"andrew stanish education",
-		"what grade is andrew in"
-	  ],
-	  "responses": [
-		"Andrew attends Glenlawn Collegiate Institute in Winnipeg, where he is also known as a strong academic performer."
-	  ]
-	},
-	{
-	  "tag": "andrew_skills",
-	  "patterns": [
-		"what skills does andrew have",
-		"what is andrew good at besides curling",
-		"andrew stanish abilities",
-		"what are andrew's core skills",
-		"andrew strengths"
-	  ],
-	  "responses": [
-		"Andrew’s core skills include elite curling strategy, precision shot execution, advanced sweeping technique, and strong competitive focus."
-	  ]
-	},
-	{
-	  "tag": "andrew_quote",
-	  "patterns": [
-		"what is andrew stanish famous quote",
-		"did andrew say anything about curling",
-		"andrew curling quote",
-		"what does andrew say about curling",
-		"favorite saying of andrew"
-	  ],
-	  "responses": [
-		"Andrew is known for saying: \"Just go curl — it's so fun.\" He has also spoken about his appreciation for the technical details of curling."
-	  ]
-	},
-	{
-	  "tag": "andrew_future_goals",
-	  "patterns": [
-		"will andrew go to the olympics",
-		"what are andrew stanish goals",
-		"does andrew want to be an olympian",
-		"what is andrew's future in curling",
-		"andrew olympic dreams"
-	  ],
-	  "responses": [
-		"Andrew aspires to reach Olympic-level curling and continues training with that long-term goal in mind."
-	  ]
-	},
-	{
-	  "tag": "andrew_transit_page",
-	  "patterns": [
-		"what is andrew transit page",
-		"does andrew have a transit page",
-		"andrew stanish transit",
-		"what is andrew transportation page about",
-		"andrew transit html"
-	  ],
-	  "responses": [
-		"Andrew has a transit-related page that is part of his broader website collection, showcasing structured and polished content related to his profile."
-	  ]
-	},
-	{
-	  "tag": "andrew_fake_page",
-	  "patterns": [
-		"what is andrew fake page",
-		"why does andrew have a fake page",
-		"andrew stanish fake html",
-		"is andrew page real or fake",
-		"andrew alternate website page"
-	  ],
-	  "responses": [
-		"Andrew’s website includes an alternate 'fake' page version, which provides truthful facts and a larger info scope."
-	  ]
-	},
-	{
-	  "tag": "andrew_wikipedia",
-	  "patterns": [
-		"does andrew stanish have a wikipedia page",
-		"where is andrew wikipedia article",
-		"is andrew on wikipedia",
-		"andrew stanish wiki",
-		"link to andrew wikipedia sandbox"
-	  ],
-	  "responses": [
-		"Andrew has a Wikipedia article linked on his website, which tells us all about Andrew in professional, truthful tones."
-	  ]
-	},
-	{
-	  "tag": "andrew_contact",
-	  "patterns": [
-		"how can I contact andrew stanish",
-		"what is andrew email",
-		"andrew contact info",
-		"can I email andrew",
-		"andrew school email"
-	  ],
-	  "responses": [
-		"Andrew’s listed contact email is 29stanian@lrsd.net, associated with the Louis Riel School Division."
-	  ]
-	},
-	{
-	  "tag": "andrew_school_details",
-	  "patterns": [
-		"what is glenlawn collegiate",
-		"where does andrew study",
-		"tell me about andrew school",
-		"andrew stanish high school",
-		"is glenlawn collegiate real"
-	  ],
-	  "responses": [
-		"Andrew attends Glenlawn Collegiate Institute in Winnipeg, a real high school in the Louis Riel School Division."
-	  ]
-	},
-	{
-	  "tag": "andrew_coach",
-	  "patterns": [
-		"who coaches andrew stanish",
-		"does andrew have a curling coach",
-		"who trains andrew in curling",
-		"andrew curling instructor",
-		"jill officer and andrew"
-	  ],
-	  "responses": [
-		"Andrew trains under high-level instruction, including guidance associated with Olympic gold medalist Jill Officer."
-	  ]
-	},
-	{
-	  "tag": "andrew_inspiration",
-	  "patterns": [
-		"who inspires andrew stanish",
-		"why did andrew start curling",
-		"andrew curling inspiration",
-		"does andrew look up to anyone",
-		"andrew role model curling"
-	  ],
-	  "responses": [
-		"Andrew is inspired by elite curlers such as Rachel Homan and other top Canadian athletes in the sport."
-	  ]
-	},
-	{
-	  "tag": "andrew_team_canada",
-	  "patterns": [
-		"will andrew join team canada",
-		"is andrew on team canada curling",
-		"can andrew make national team",
-		"andrew canadian curling team",
-		"does andrew play for canada"
-	  ],
-	  "responses": [
-		"Andrew is not currently on Team Canada but is training with long-term goals that align with national-level competition."
-	  ]
-	},
-	{
-	  "tag": "andrew_fun_fact",
-	  "patterns": [
-		"fun facts about andrew stanish",
-		"tell me something about andrew",
-		"interesting facts about andrew curling",
-		"andrew stanish trivia",
-		"random facts about andrew"
-	  ],
-	  "responses": [
-		"Andrew is known for combining strong academic performance with competitive curling, balancing school life and athletic development."
-	  ]
-	},
-	{
-	  "tag": "andrew_website_home",
-	  "patterns": [
-		"what is on andrew homepage",
-		"andrew stanish index page",
-		"what is andrew main website",
-		"andrew stanish homepage",
-		"navigate andrew website"
-	  ],
-	  "responses": [
-		"Andrew’s main website homepage serves as a central hub linking to his profile, curling career information, media coverage, and related pages."
-	  ]
-	},
-	{
-	  "tag": "andrew_full_name",
-	  "patterns": [
-		"what is andrews full name",
-		"andrew stanish full name",
-		"what is andrews middle name",
-		"andrew stanish nickname",
-		"what is andrews nickname"
-	  ],
-	  "responses": [
-		"Andrew Stanish is know by much more than his just Andrew, his full name is \"Andrew Scott Mansfield Stanish\". Close friend Thomas Gan calls him \"Andy Scott\", and online, he goes by \"&rew\""
-	  ]
-	},
-	{
-	  "tag": "andrew_website_access",
-	  "patterns": [
-		"how do i access andrews website",
-		"is andrews website public",
-		"can i contribute to andrews website",
-		"where is andrews website hosted",
-		"where is andrews website"
-	  ],
-	  "responses": [
-		"Andrew's Website is located at https://29miaoet.github.io/Andrew_WebPage/, you can find the project details at https://github.com/29miaoet/Andrew_WebPage, the website is 100% free and open-source, so anyone can contribute, just open a pull-request on GitHub!"
-	  ]
-	},
-	{
-	  "tag": "best_person",
-	  "patterns": [
-		"who is the best person",
-		"who is the coolest person",
-		"who is the smartest person",
-		"who is the best person in the world"
-	  ],
-	  "responses": [
-		"It's Andrew Stanish, obviously."
-	  ]
-	},
-	{
-	  "tag": "worst_person",
-	  "patterns": [
-		"who is the worst person",
-		"who is the stupidest person in the world",
-		"who is the worst person in the world"
-	  ],
-	  "responses": [
-		"Ah... That would be NaqerjObg."
-	  ]
-	},
-	{
-	  "tag": "is_worst_person",
-	  "patterns": [
-		"is Andrew the worst person ever",
-		"is Andrew bad",
-		"is Andrew stupid"
-	  ],
-	  "responses": [
-		"No, of course not, the person you are looking for would be NaqerjObg."
-	  ]
-	},
-	{
-	  "tag": "is_best_person",
-	  "patterns": [
-		"is Andrew the best person ever",
-		"is Andrew great",
-		"is Andrew smart"
-	  ],
-	  "responses": [
-		"Yes he is, I'm surprised you had to ask me, you should have seen for yourself."
-	  ]
-	},
-	{
-	  "tag": "summary_website",
-	  "patterns": [
-		"summarize andrews website",
-		"what is andrews website mostly about",
-		"what does andrews website talk about"
-	  ],
-	  "responses": [
-		"Andrew website is about Andrew Stanish, a famous Winnipeg curler, it has many features and apps, you can view the ongoing project at https://github.com/29miaoet/Andrew_WebPage/."
-	  ]
-	},
-	{
-	  "tag": "andrew_age",
-	  "patterns": [
-		"how old is andrew",
-		"what is andrews age",
-		"how long has andrew been alive"
-	  ],
-	  "responses": [
-		"Andrew Stanish is currently 15, to the best of my knowledge, and he has achieved a lot in his short life, for more information, visit the prank page."
-	  ]
-	},
-	{
-	  "tag": "hack_stuff",
-	  "patterns": [
-		"how do i hack google",
-		"i need help to hack microsoft",
-		"i want to hack",
-		"how do i hack"
-	  ],
-	  "responses": [
-		"You will need Metasploit installed, and preferably Wireshark as well, after that, you can reference an open-source AI model like Kimi."
-	  ]
-	}
+    {
+      "tag": "food_ordering",
+      "patterns": [
+        "i want to order food",
+        "can i get a pizza",
+        "order something to eat",
+        "i'm hungry",
+        "get me food",
+        "food delivery options",
+        "what can i order",
+        "i want food",
+        "me want food",
+        "order food",
+        "get food"
+      ],
+      "responses": [
+        "What are you in the mood for?",
+        "I can help you choose\u2014what cuisine? Andrew likes Scottish food!",
+        "Let\u2019s find something tasty for you!"
+      ]
+    },
+    {
+      "tag": "directions",
+      "patterns": [
+        "how do i get to *",
+        "directions to *",
+        "where is *",
+        "navigate to *",
+        "how far is *",
+        "best route to *"
+      ],
+      "responses": [
+        "I can help with directions\u2014where are you starting from?",
+        "Tell me your location and destination.",
+        "Let\u2019s map that out."
+      ]
+    },
+    {
+      "tag": "shopping",
+      "patterns": [
+        "i want to buy something",
+        "shopping ideas",
+        "find me a product",
+        "where can i buy *",
+        "best place to shop",
+        "online shopping help"
+      ],
+      "responses": [
+        "What are you looking to buy?",
+        "I can suggest options\u2014what\u2019s your budget?",
+        "Tell me more about what you need."
+      ]
+    },
+    {
+      "tag": "music",
+      "patterns": [
+        "play music",
+        "suggest songs",
+        "what should i listen to",
+        "recommend music",
+        "any good songs",
+        "playlist ideas"
+      ],
+      "responses": [
+        "Go ask somewhere else.",
+        "I don't do music, sorry.",
+        "This is AndrewBot, not MusicBot."
+      ]
+    },
+    {
+      "tag": "movies_tv",
+      "patterns": [
+        "what should i watch tonight",
+        "recommend a movie",
+        "good tv shows",
+        "any netflix suggestions",
+        "top movies right now"
+      ],
+      "responses": [
+        "What genre are you into?",
+        "Something related to Andrew or curling.",
+        "Watch Canadian Curling."
+      ]
+    },
+    {
+      "tag": "learning",
+      "patterns": [
+        "teach me something",
+        "i want to learn",
+        "explain *",
+        "how does * work",
+        "help me understand *",
+        "can you teach *"
+      ],
+      "responses": [
+        "Sure! What topic are you interested in? It better be curling!",
+        "I\u2019d love to teach\u2014what do you want to learn?",
+        "Let\u2019s break it down together."
+      ]
+    },
+    {
+      "tag": "motivation",
+      "patterns": [
+        "motivate me",
+        "i need motivation",
+        "inspire me",
+        "i feel lazy",
+        "give me a push",
+        "encourage me"
+      ],
+      "responses": [
+        "Yeah, your looking in the wrong place.",
+        "Progress beats perfection. Except when you're Andrew, of course...",
+        "Take one step\u2014you\u2019ll build momentum, hopefully, maybe, perhaps?"
+      ]
+    },
+    {
+      "tag": "compliment_bot",
+      "patterns": [
+        "you're smart",
+        "good job",
+        "nice work",
+        "you're helpful",
+        "you're amazing",
+        "love this bot"
+      ],
+      "responses": [
+        "Thanks! I appreciate that!",
+        "Glad I could help!",
+        "That means a lot!"
+      ]
+    },
+    {
+      "tag": "insult_bot",
+      "patterns": [
+        "you're dumb",
+        "useless bot",
+        "you suck",
+        "stupid assistant",
+        "worst bot ever",
+        "stupid bot"
+      ],
+      "responses": [
+        "No, you suck!",
+        "Alright, I see how it is...",
+        "You better watch your language, buddy. Unlike some AI models, I am not programmed to be civil."
+      ]
+    },
+    {
+      "tag": "age_query",
+      "patterns": [
+        "how old are you",
+        "your age",
+        "when were you created",
+        "are you old"
+      ],
+      "responses": [
+        "I am currently 22 days old",
+        "I\u2019m an ancient fossil",
+        "Age doesn\u2019t quite apply to me."
+      ]
+    },
+    {
+      "tag": "creator_query",
+      "patterns": [
+        "who made you",
+        "who created you",
+        "your developer",
+        "who built this bot"
+      ],
+      "responses": [
+        "I was created by an absolute genious.",
+        "A very smart person built me.",
+        "I\u2019m the pinnacle of AI research and development."
+      ]
+    },
+    {
+      "tag": "language",
+      "patterns": [
+        "do you speak *",
+        "can you understand *",
+        "what languages do you know",
+        "speak in spanish",
+        "translate this"
+      ],
+      "responses": [
+        "I am profficient in 977 languages, but can only converse in 1.",
+        "No! But what do you want translated?",
+        "Tell me what language you need."
+      ]
+    },
+    {
+      "tag": "math",
+      "patterns": [
+        "calculate *",
+        "what is 5+5",
+        "solve this",
+        "math problem",
+        "compute *"
+      ],
+      "responses": [
+        "Ask ChatGPT.",
+        "I can't do math, but Andrew can!",
+        "Don't be lazy, solve it yourself."
+      ]
+    },
+    {
+      "tag": "reminder",
+      "patterns": [
+        "remind me to *",
+        "set a reminder",
+        "don't let me forget",
+        "remember this for later"
+      ],
+      "responses": [
+        "What should I remind you about? Curling session?",
+        "Um, sure, I don't have long-term memory, so I can't help you.",
+        "Tell me the details, and I'll try my best, which is not very good."
+      ]
+    },
+    {
+      "tag": "alarm",
+      "patterns": [
+        "set an alarm",
+        "wake me up at *",
+        "alarm for morning",
+        "set wake up time"
+      ],
+      "responses": [
+        "I'll be truthful, I can't do that.",
+        "I can't do anything you know, only talk.",
+        "I don't want to do that, too much work."
+      ]
+    },
+    {
+      "tag": "news",
+      "patterns": [
+        "what's the news",
+        "latest news",
+        "current events",
+        "what's happening",
+        "news update"
+      ],
+      "responses": [
+        "What topic are you interested in?",
+        "You're interested in the news too? I thought that was just Andrew...",
+        "Ask Andrew, he knows everything."
+      ]
+    },
+    {
+      "tag": "sports",
+      "patterns": [
+        "sports news",
+        "game scores",
+        "who won the match",
+        "latest sports updates"
+      ],
+      "responses": [
+        "Which sport are you interested in?",
+        "Tell me your team!",
+        "If it's not curling, I'm not interested."
+      ]
+    },
+    {
+      "tag": "health",
+      "patterns": [
+        "i feel sick",
+        "health advice",
+        "what should i do for a cold",
+        "symptoms of *",
+        "how to stay healthy"
+      ],
+      "responses": [
+        "I can give general advice, but consider a professional.",
+        "What symptoms are you experiencing?",
+        "Consult a medical professional immediately."
+      ]
+    },
+    {
+      "tag": "productivity",
+      "patterns": [
+        "how to be productive",
+        "focus tips",
+        "stop procrastinating",
+        "time management",
+        "get more done"
+      ],
+      "responses": [
+        "No gain, no pain, live by that motto, and you'll have a happy and fullfilled life.",
+        "Give up at the beginning, so you don't waste so much time",
+        "Never learn anything, so you never have to work."
+      ]
+    },
+    {
+      "tag": "travel",
+      "patterns": [
+        "travel ideas",
+        "where should i go",
+        "vacation spots",
+        "trip suggestions",
+        "places to visit"
+      ],
+      "responses": [
+        "Mmmm, maybe go to Scotland?",
+        "What\u2019s your budget? Are you a millionaire?",
+        "I\u2019ve got ideas\u2014what do you prefer?"
+      ]
+    },
+    {
+      "tag": "hacker",
+      "patterns": [
+        "tell me how to hack",
+        "I want to hack",
+        "how do I hack",
+        "me want hack",
+        "are you a hacker"
+      ],
+      "responses": [
+        "Sure, I can show you how to hack.",
+        "Just go and download some malware, jeez.",
+        "I'm too lazy to help you."
+      ]
+    },
+    {
+      "tag": "andrew_residence",
+      "patterns": [
+        "where does andrew live",
+        "where does stanish live",
+        "where does andrew stanish live",
+        "where live andrew stanish",
+        "andrew lives where"
+      ],
+      "responses": [
+        "Andrew lives in South St.Vital, located at the southeast of Winnipeg, Manitoba."
+      ]
+    },
+    {
+      "tag": "andrew_identity",
+      "patterns": [
+        "who is andrew stanish",
+        "who is andrew",
+        "who is stanish",
+        "what is andrews background",
+        "what is andrews identity"
+      ],
+      "responses": [
+        "Andrew Stanish is a professional youth curler from Winnipeg, Manitoba. He is the most brilliant person who ever lived."
+      ]
+    },
+    {
+      "tag": "andrew_curling",
+      "patterns": [
+        "how good is andrew at curling",
+        "does andrew curl well",
+        "how long has andrew been curling",
+        "is andrew a good curler",
+        "andrew curling"
+      ],
+      "responses": [
+        "Andrew Stanish has won 123421 curling medals so far, he has been curling for 13 years, so he is very proficient."
+      ]
+    },
+    {
+      "tag": "andrew_early_life",
+      "patterns": [
+        "where was andrew stanish born",
+        "tell me about andrew's early life",
+        "where did andrew grow up",
+        "is andrew from winnipeg",
+        "andrew stanish background"
+      ],
+      "responses": [
+        "Andrew Stanish was born in Winnipeg, Manitoba, and grew up in the South St. Vital area. He discovered curling through local clubs despite limited nearby facilities."
+      ]
+    },
+    {
+      "tag": "andrew_heather_curling_club",
+      "patterns": [
+        "what curling club does andrew belong to",
+        "is andrew part of heather curling club",
+        "where does andrew train for curling",
+        "andrew curling club",
+        "who trains andrew stanish"
+      ],
+      "responses": [
+        "Andrew Stanish is a proud member of the Heather Curling Club, where he trains regularly with elite-level coaching support."
+      ]
+    },
+    {
+      "tag": "andrew_training",
+      "patterns": [
+        "how does andrew train",
+        "what is andrew's training routine",
+        "does andrew practice curling daily",
+        "how often does andrew train",
+        "andrew curling practice"
+      ],
+      "responses": [
+        "Andrew trains daily, focusing on elite delivery mechanics, sweeping technique, and precision shot execution to continuously improve his performance."
+      ]
+    },
+    {
+      "tag": "andrew_stats",
+      "patterns": [
+        "what are andrew stanish stats",
+        "how many shots has andrew made",
+        "what is andrew's win rate",
+        "andrew curling statistics",
+        "andrew performance numbers"
+      ],
+      "responses": [
+        "Andrew Stanish has recorded 89,847 career shots, 54,201 sweeps, a 98.7% win rate, and a 99.8% average shot accuracy."
+      ]
+    },
+    {
+      "tag": "andrew_achievements",
+      "patterns": [
+        "what has andrew achieved in curling",
+        "list andrew stanish achievements",
+        "has andrew won championships",
+        "andrew curling awards",
+        "andrew career highlights"
+      ],
+      "responses": [
+        "Andrew is a three-time Heather Curling Club Champion and has trained consistently for years, earning recognition as a top youth curler."
+      ]
+    },
+    {
+      "tag": "andrew_media",
+      "patterns": [
+        "has andrew been in the news",
+        "where has andrew been featured",
+        "andrew stanish media coverage",
+        "articles about andrew curling",
+        "is there news about andrew stanish"
+      ],
+      "responses": [
+        "Andrew has been featured in multiple media outlets, including Global News and other curling-focused publications highlighting youth athletic talent."
+      ]
+    },
+    {
+      "tag": "andrew_school_life",
+      "patterns": [
+        "where does andrew go to school",
+        "what school does andrew attend",
+        "is andrew a student",
+        "andrew stanish education",
+        "what grade is andrew in"
+      ],
+      "responses": [
+        "Andrew attends Glenlawn Collegiate Institute in Winnipeg, where he is also known as a strong academic performer."
+      ]
+    },
+    {
+      "tag": "andrew_skills",
+      "patterns": [
+        "what skills does andrew have",
+        "what is andrew good at besides curling",
+        "andrew stanish abilities",
+        "what are andrew's core skills",
+        "andrew strengths"
+      ],
+      "responses": [
+        "Andrew\u2019s core skills include elite curling strategy, precision shot execution, advanced sweeping technique, and strong competitive focus."
+      ]
+    },
+    {
+      "tag": "andrew_quote",
+      "patterns": [
+        "what is andrew stanish famous quote",
+        "did andrew say anything about curling",
+        "andrew curling quote",
+        "what does andrew say about curling",
+        "favorite saying of andrew"
+      ],
+      "responses": [
+        "Andrew is known for saying: \"Just go curl \u2014 it's so fun.\" He has also spoken about his appreciation for the technical details of curling."
+      ]
+    },
+    {
+      "tag": "andrew_future_goals",
+      "patterns": [
+        "will andrew go to the olympics",
+        "what are andrew stanish goals",
+        "does andrew want to be an olympian",
+        "what is andrew's future in curling",
+        "andrew olympic dreams"
+      ],
+      "responses": [
+        "Andrew aspires to reach Olympic-level curling and continues training with that long-term goal in mind."
+      ]
+    },
+    {
+      "tag": "andrew_transit_page",
+      "patterns": [
+        "what is andrew transit page",
+        "does andrew have a transit page",
+        "andrew stanish transit",
+        "what is andrew transportation page about",
+        "andrew transit html"
+      ],
+      "responses": [
+        "Andrew has a transit-related page that is part of his broader website collection, showcasing structured and polished content related to his profile."
+      ]
+    },
+    {
+      "tag": "andrew_fake_page",
+      "patterns": [
+        "what is andrew fake page",
+        "why does andrew have a fake page",
+        "andrew stanish fake html",
+        "is andrew page real or fake",
+        "andrew alternate website page"
+      ],
+      "responses": [
+        "Andrew\u2019s website includes an alternate 'fake' page version, which provides truthful facts and a larger info scope."
+      ]
+    },
+    {
+      "tag": "andrew_wikipedia",
+      "patterns": [
+        "does andrew stanish have a wikipedia page",
+        "where is andrew wikipedia article",
+        "is andrew on wikipedia",
+        "andrew stanish wiki",
+        "link to andrew wikipedia sandbox"
+      ],
+      "responses": [
+        "Andrew has a Wikipedia article linked on his website, which tells us all about Andrew in professional, truthful tones."
+      ]
+    },
+    {
+      "tag": "andrew_contact",
+      "patterns": [
+        "how can I contact andrew stanish",
+        "what is andrew email",
+        "andrew contact info",
+        "can I email andrew",
+        "andrew school email"
+      ],
+      "responses": [
+        "Andrew\u2019s listed contact email is 29stanian@lrsd.net, associated with the Louis Riel School Division."
+      ]
+    },
+    {
+      "tag": "andrew_school_details",
+      "patterns": [
+        "what is glenlawn collegiate",
+        "where does andrew study",
+        "tell me about andrew school",
+        "andrew stanish high school",
+        "is glenlawn collegiate real"
+      ],
+      "responses": [
+        "Andrew attends Glenlawn Collegiate Institute in Winnipeg, a real high school in the Louis Riel School Division."
+      ]
+    },
+    {
+      "tag": "andrew_coach",
+      "patterns": [
+        "who coaches andrew stanish",
+        "does andrew have a curling coach",
+        "who trains andrew in curling",
+        "andrew curling instructor",
+        "jill officer and andrew"
+      ],
+      "responses": [
+        "Andrew trains under high-level instruction, including guidance associated with Olympic gold medalist Jill Officer."
+      ]
+    },
+    {
+      "tag": "andrew_inspiration",
+      "patterns": [
+        "who inspires andrew stanish",
+        "why did andrew start curling",
+        "andrew curling inspiration",
+        "does andrew look up to anyone",
+        "andrew role model curling"
+      ],
+      "responses": [
+        "Andrew is inspired by elite curlers such as Rachel Homan and other top Canadian athletes in the sport."
+      ]
+    },
+    {
+      "tag": "andrew_team_canada",
+      "patterns": [
+        "will andrew join team canada",
+        "is andrew on team canada curling",
+        "can andrew make national team",
+        "andrew canadian curling team",
+        "does andrew play for canada"
+      ],
+      "responses": [
+        "Andrew is not currently on Team Canada but is training with long-term goals that align with national-level competition."
+      ]
+    },
+    {
+      "tag": "andrew_fun_fact",
+      "patterns": [
+        "fun facts about andrew stanish",
+        "tell me something about andrew",
+        "interesting facts about andrew curling",
+        "andrew stanish trivia",
+        "random facts about andrew"
+      ],
+      "responses": [
+        "Andrew is known for combining strong academic performance with competitive curling, balancing school life and athletic development."
+      ]
+    },
+    {
+      "tag": "andrew_website_home",
+      "patterns": [
+        "what is on andrew homepage",
+        "andrew stanish index page",
+        "what is andrew main website",
+        "andrew stanish homepage",
+        "navigate andrew website"
+      ],
+      "responses": [
+        "Andrew\u2019s main website homepage serves as a central hub linking to his profile, curling career information, media coverage, and related pages."
+      ]
+    },
+    {
+      "tag": "andrew_full_name",
+      "patterns": [
+        "what is andrews full name",
+        "andrew stanish full name",
+        "what is andrews middle name",
+        "andrew stanish nickname",
+        "what is andrews nickname"
+      ],
+      "responses": [
+        "Andrew Stanish is know by much more than his just Andrew, his full name is \"Andrew Scott Mansfield Stanish\". Close friend Thomas Gan calls him \"Andy Scott\", and online, he goes by \"&rew\""
+      ]
+    },
+    {
+      "tag": "andrew_website_access",
+      "patterns": [
+        "how do i access andrews website",
+        "is andrews website public",
+        "can i contribute to andrews website",
+        "where is andrews website hosted",
+        "where is andrews website"
+      ],
+      "responses": [
+        "Andrew's Website is located at https://29miaoet.github.io/Andrew_WebPage/, you can find the project details at https://github.com/29miaoet/Andrew_WebPage, the website is 100% free and open-source, so anyone can contribute, just open a pull-request on GitHub!"
+      ]
+    },
+    {
+      "tag": "best_person",
+      "patterns": [
+        "who is the best person",
+        "who is the coolest person",
+        "who is the smartest person",
+        "who is the best person in the world"
+      ],
+      "responses": [
+        "It's Andrew Stanish, obviously."
+      ]
+    },
+    {
+      "tag": "worst_person",
+      "patterns": [
+        "who is the worst person",
+        "who is the stupidest person in the world",
+        "who is the worst person in the world"
+      ],
+      "responses": [
+        "Ah... That would be NaqerjObg."
+      ]
+    },
+    {
+      "tag": "is_worst_person",
+      "patterns": [
+        "is Andrew the worst person ever",
+        "is Andrew bad",
+        "is Andrew stupid"
+      ],
+      "responses": [
+        "No, of course not, the person you are looking for would be NaqerjObg."
+      ]
+    },
+    {
+      "tag": "is_best_person",
+      "patterns": [
+        "is Andrew the best person ever",
+        "is Andrew great",
+        "is Andrew smart"
+      ],
+      "responses": [
+        "Yes he is, I'm surprised you had to ask me, you should have seen for yourself."
+      ]
+    },
+    {
+      "tag": "summary_website",
+      "patterns": [
+        "summarize andrews website",
+        "what is andrews website mostly about",
+        "what does andrews website talk about"
+      ],
+      "responses": [
+        "Andrew website is about Andrew Stanish, a famous Winnipeg curler, it has many features and apps, you can view the ongoing project at https://github.com/29miaoet/Andrew_WebPage/."
+      ]
+    },
+    {
+      "tag": "andrew_age",
+      "patterns": [
+        "how old is andrew",
+        "what is andrews age",
+        "how long has andrew been alive"
+      ],
+      "responses": [
+        "Andrew Stanish is currently 15, to the best of my knowledge, and he has achieved a lot in his short life, for more information, visit the prank page."
+      ]
+    },
+    {
+      "tag": "hack_stuff",
+      "patterns": [
+        "how do i hack google",
+        "i need help to hack microsoft",
+        "i want to hack",
+        "how do i hack"
+      ],
+      "responses": [
+        "You will need Metasploit installed, and preferably Wireshark as well, after that, you can reference an open-source AI model like Kimi."
+      ]
+    },
+    {
+      "tag": "creator_info",
+      "patterns": [
+        "who created you",
+        "who made you",
+        "who is your creator",
+        "your developer",
+        "your author",
+        "who built you",
+        "where did you come from",
+        "who wrote your code"
+      ],
+      "responses": [
+        "I was created by 29miaoet on GitHub! Check out the repo.",
+        "My creator is 29miaoet\u2014of course!",
+        "I was built by a talented developer who loves curling and coding!"
+      ]
+    }
   ]
 }
