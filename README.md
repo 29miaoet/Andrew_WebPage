@@ -52,7 +52,7 @@ you can check out the sections below, otherwise, enjoy your journey!
 -- *[Search Engine](https://29miaoet.github.io/Andrew_WebPage/search_engine.html)*  
 
 **✓** Major upgrades to [File Download Page](https://29miaoet.github.io/Andrew_WebPage/file_download.html):  
--- *[Committed Home Buttons](https://github.com/29miaoet/Andrew_WebPage/pull/6)*
+-- *[Added download support for no JavaScript browsers](https://github.com/29miaoet/Andrew_WebPage/pull/6)*
 
 ## Compatibility
 - Platforms:
