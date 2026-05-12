@@ -1154,6 +1154,46 @@
         "My creator is 29miaoet\u2014of course!",
         "I was built by a talented developer who loves curling and coding!"
       ]
+    },
+	{
+      "tag": "andrew_daily_life",
+      "patterns": [
+        "what is andrews daily life like",
+        "what is an average day for andrew",
+        "andrews daily life",
+        "daily activities of andrew",
+        "average andrew day"
+      ],
+      "responses": [
+        "Andrew starts his day at 3 AM, after 5 hours of curling, he goes to school, in school, he plays on curling.gg until school ends; then, he goes back to curling."
+      ]
+    },
+	{
+      "tag": "media_coverage",
+      "patterns": [
+        "andrew media coverage",
+        "what media coverage does he have",
+        "what media converage does andrew have",
+        "andrews media coverage",
+		"does andrew have media coverage"
+      ],
+      "responses": [
+        "Andrew is featured on multiple news articles, Wikipedia, and public forums.",
+        "As of now, there is only one public news article on Andrew, the global news article in his formal webpage"
+      ]
+    },
+	{
+      "tag": "curling_gg",
+      "patterns": [
+        "what is curlinggg",
+        "does andrew curl online",
+        "andrew curlinggg",
+        "where does andrew curl online",
+        "does andrew support curlinggg"
+      ],
+      "responses": [
+        "Curling.gg is a professional browser based curling simulation game, Andrew practices his curling there, and he has supported it since 2020."
+      ]
     }
   ]
 }
