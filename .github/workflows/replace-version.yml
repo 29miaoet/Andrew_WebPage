@@ -20,7 +20,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -52,3 +52,4 @@ jobs:
           title: "chore: version update"
           body: "Automated version replacement"
           branch: "chore/version-${{ steps.versions.outputs.new }}"
+          base: main
