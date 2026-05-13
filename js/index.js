@@ -55,3 +55,5 @@ window.addEventListener("click", function(event) {
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("js/service_worker.js");
 }
+
+
