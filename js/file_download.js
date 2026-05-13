@@ -64,6 +64,53 @@ function downloadFile(url) {
     document.body.removeChild(a);
 }
 
+// PWA install register
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("js/service_worker.js")
+    .catch((error) => {
+      console.error("Service Worker registration failed:", error);
+    });
+}
+
+let deferredPrompt;
+
+// Capture the beforeinstallprompt event
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  console.log("Install prompt is ready");
+});
+
+// Handle install button click
+const installBtn = document.getElementById("appInstallBtn");
+if (installBtn) {
+  installBtn.addEventListener("click", async () => {
+    if (!deferredPrompt) {
+      console.log("Install prompt not available");
+      return;
+    }
+
+    try {
+      deferredPrompt.prompt();
+      const choiceResult = await deferredPrompt.userChoice;
+      console.log("User choice:", choiceResult.outcome);
+      
+      if (choiceResult.outcome === "accepted") {
+        console.log("PWA installed");
+      } else {
+        console.log("PWA installation dismissed");
+      }
+    } catch (error) {
+      console.error("Installation prompt failed:", error);
+    } finally {
+      deferredPrompt = null;
+    }
+  });
+} else {
+  console.warn("Install button not found");
+}
+
 // Offline Website download.
 document.getElementById("downloadBtn").addEventListener("click", (e) => {
 	e.preventDefault();
