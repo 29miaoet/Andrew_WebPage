@@ -59,7 +59,7 @@ you can check out the sections below, otherwise, enjoy your journey!
   - ✅ Microsoft Windows
   - ✅ Apple macOS
   - ✅ Linux
-  - ✅ Apple iOS
+  - ✅ Apple IOS
   - ✅ Android
 
 - Browsers:
