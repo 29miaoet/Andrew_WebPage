@@ -36,7 +36,7 @@ you can check out the sections below, otherwise, enjoy your journey!
 - ✅ Multiple pages and features
 - ✅ Offline version and specialized desktop shortcuts
 - ✅ Indexed and validated by Google and Bing
-- ✅ Modern html, css and js code
+- ✅ Modern HTML, CSS and JS code
 - ✅ Stable backend support with Supabase
 - ✅ Text based browsers are supported
 - ✅ Fast and efficient navigation with a search engine
@@ -59,7 +59,7 @@ you can check out the sections below, otherwise, enjoy your journey!
   - ✅ Microsoft Windows
   - ✅ Apple macOS
   - ✅ Linux
-  - ✅ Apple IOS
+  - ✅ Apple iOS
   - ✅ Android
 
 - Browsers:
