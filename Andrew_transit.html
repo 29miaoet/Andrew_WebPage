@@ -2,18 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Andrew Stanish | Winnipeg Transit Fan</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex, follow">
+	<meta name="description" content="A webpage created to celebrate Andrew's fascination with transit buses">
+    <link rel="manifest" href="data/manifest.json">
+    <title>Andrew Stanish | Transit Page</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
     <link rel="stylesheet" href="css/andrew_transit.css">
 </head>
 <body>
+<a href="index.html" class="mini-home-btn" aria-label="Home">
+  <span class="home-icon">🏠</span>
+  <span class="home-text">Home</span>
+</a>
 
 <header>
     <h1>🚍 Winnipeg Transit | Andrew Stanish</h1>
-    <p>The "offical" Andrew Stanish transit site!</p>
+    <p>The "official" Andrew Stanish transit site!</p>
 </header>
 
 <div class="hero">
@@ -21,7 +28,7 @@
 </div>
 
 <div class="container">
-
+    <!-- Values are updated dynamically by JavaScript -->
     <div class="card" id="about">
         <h2>About Andrew</h2>
 
@@ -31,7 +38,6 @@
             transportation planning.
         </p>
 
-        <!-- NEW visual filler -->
         <div class="stats">
             <div class="stat-box">Doctorates<span id="doctorates-display">1000</span></div>
             <div class="stat-box">Transit Degrees<span id="transits-display">5</span></div>
@@ -142,12 +148,12 @@
         <p>Andrew's favorite bus photos:</p>
 
         <figure>
-            <img src="images/Andrew_medal.png" width="100%" class="rounded" alt="Andrew posing with his favorite transit bus after winning his 20th Nobel Prize">
+            <img src="images/Andrew_medal.png" width="100%" class="rounded">
             <figcaption>Andrew posing with his favorite transit bus after winning his 20th Nobel Prize</figcaption>
         </figure>
 
         <figure>
-            <img src="images/Andrew_bus.png" width="100%" class="rounded" alt="Andrew's Wedding with Route F6">
+            <img src="images/Andrew_bus.png" width="100%" class="rounded">
             <figcaption>Andrew's Wedding with Route F6</figcaption>
         </figure>
     </div>
@@ -165,6 +171,7 @@
 </footer>
 
 <script src="js/andrew_transit.js"></script>
+<script src="js/service_worker_register.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The photo gallery for Andrew's website, containing images of Andrew">
+<link rel="manifest" href="data/manifest.json">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+<title>Andrew Stanish | Photo Gallery</title>
+
+<link rel="stylesheet" href="css/photo_gallery.css">
+
+</head>
+
+<body>
+<a href="index.html" class="mini-home-btn" aria-label="Home">
+  <span class="home-icon">🏠</span>
+  <span class="home-text">Home</span>
+</a>
+
+<header>
+	<h1>Photo Gallery</h1>
+</header>
+
+<div class="gallery">
+
+<img src="images/favicon.svg" alt="Logo of Andrew's Website" onclick="openLightbox(this)">
+<img src="images/image.png" alt="Headshot of Andrew Stanish" onclick="openLightbox(this)">
+<img src="images/Andrew_bus.png" alt="Andrew posing with his favorite bus" onclick="openLightbox(this)">
+<img src="images/Andrew_medal.png" alt="Andrew's wedding with his favorite bus" onclick="openLightbox(this)">
+<img src="images/Andrew_curling.png" alt="A picture of Andrew curling" onclick="openLightbox(this)">
+
+
+</div>
+
+<div class="lightbox" id="lightbox">
+<span class="close" onclick="closeLightbox()">&times;</span>
+<img id="lightbox-img">
+</div>
+
+<footer>
+© 2026 Photo Gallery
+</footer>
+
+<script src="js/photo_gallery.js"></script>
+<script src="js/service_worker_register.js"></script>
+
+</body>
+</html>

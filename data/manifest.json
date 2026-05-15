@@ -1,0 +1,15 @@
+{
+  "name": "Andrew Website",
+  "short_name": "Andrew",
+  "start_url": "/Andrew_WebPage/",
+  "display": "standalone",
+  "background_color": "#e8f6ff",
+  "theme_color": "#9cd6ff",
+  "icons": [
+    {
+      "src": "../images/image.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

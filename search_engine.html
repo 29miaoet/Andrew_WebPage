@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <meta name="description" content="A search engine to help users navigate Andrew's Website">
+  <link rel="manifest" href="data/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="css/search_engine.css">
+  <title>Andrew Stanish | Search Engine</title>
+  <!-- MiniSearch JavaScript snippet, current version: 7.2.0 -->
+  <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js"></script>
+  <!-- End MiniSearch JavaScript snippet -->
+</head>
+
+<body>
+  <a href="index.html" class="mini-home-btn" aria-label="Home">
+    <span class="home-icon">🏠</span>
+    <span class="home-text">Home</span>
+  </a>
+  <header>
+    <h1>Andrew's Website Search Engine</h1>
+    <p>Fly across the many pages of Andrew's Website</p>
+  </header>
+  <div class="search-box">
+    <input id="searchInput" type="text" placeholder="Search items..." />
+    <button id="searchBtn">Search</button>
+  </div>
+  <div class="results" id="results"></div>
+  <footer>
+    Built with MiniSearch and JSON
+  </footer>
+
+<script src="js/search_engine.js"></script>
+<script src="js/service_worker_register.js"></script>
+
+</body>
+</html>

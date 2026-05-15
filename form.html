@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A form where users can give feedback to Andrew's Website">
+<link rel="manifest" href="data/manifest.json">
+<title>Andrew Stanish | Form</title>
+<link rel="stylesheet" href="css/form.css">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+</head>
+
+<body>
+<a href="index.html" class="mini-home-btn" aria-label="Home">
+  <span class="home-icon">🏠</span>
+  <span class="home-text">Home</span>
+</a>
+<div class="form-container">
+  <h1>Andrew Stanish Website Form</h1>
+
+  <form action="https://formspree.io/f/mykbqqro" method="POST">
+
+    <label>
+      Name:
+      <input type="text" name="name" required>
+    </label>
+
+    <label>
+      Email Address:
+      <input type="email" name="_replyto" required>
+    </label>
+
+    <label>
+      Subject:
+      <input type="text" name="subject">
+    </label>
+
+    <label>
+      Reason for Contact:
+      <select name="reason" required>
+	    <option value="" disabled selected>Select a reason</option>
+        <option value="support">Feedback</option>
+        <option value="feedback">Report a Bug</option>
+        <option value="business">Legal Issues</option>
+        <option value="other">Other</option>
+      </select>
+    </label>
+
+    <label>
+      Your Message:
+      <textarea name="message" required></textarea>
+    </label>
+
+    <div class="confirmation">
+      <label>
+        <input type="checkbox" name="consent" required>
+        Confirm choices
+      </label>
+    </div>
+
+    <button type="submit">Submit</button>
+
+  </form>
+</div>
+
+<div id="popup">Message sent successfully!</div>
+
+</body>
+</html>

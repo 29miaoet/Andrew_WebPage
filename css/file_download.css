@@ -1,0 +1,204 @@
+body{
+    margin:0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    background: linear-gradient(135deg,#e9eef7,#f8fbff);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:100%;
+    max-width:640px;
+    padding:20px;
+    margin: 0 auto;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    text-align:center;
+}
+
+h1 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+h2{
+    margin-top:0;
+    font-size:26px;
+    color:#2c3e50;
+}
+
+.file-info{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    margin:25px 0;
+}
+
+.file-icon{
+    font-size:40px;
+}
+
+.file-name{
+    font-weight:600;
+    font-size:18px;
+}
+
+.file-size{
+    color:#7f8c8d;
+    font-size:14px;
+}
+
+.progress-container{
+    width:100%;
+    height:10px;
+    background:#edf1f7;
+    border-radius:8px;
+    overflow:hidden;
+    margin-bottom:20px;
+}
+
+.progress-bar{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#4facfe,#00f2fe);
+    transition:width 0.3s ease;
+}
+
+.card a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 10px;
+    background: linear-gradient(90deg,#4facfe,#00c6ff);
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.2s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.card a:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.12);
+}
+
+.card a:active{
+    transform:scale(0.98);
+}
+
+.statusText{
+    margin-top:15px;
+    color:#555;
+    font-size:14px;
+}
+
+.info-section{
+    margin-bottom:20px;
+    padding:15px;
+    border-radius:12px;
+    background:#f7f9fc;
+    text-align:left;
+}
+
+.info-section h3{
+    margin-top:0;
+    font-size:16px;
+    color:#2c3e50;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin:10px 0;
+}
+
+.info-item{
+    display:flex;
+    flex-direction:column;
+    font-size:13px;
+}
+
+.info-label{
+    color:#7f8c8d;
+}
+
+.info-value{
+    font-weight:600;
+}
+
+.info-description{
+    font-size:13px;
+    color:#555;
+    margin-top:8px;
+}
+
+.mini-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+  color: inherit;
+
+  background: transparent;
+  cursor: pointer;
+  z-index: 9999;
+
+  transition: transform 0.15s ease;
+}
+
+.home-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* hidden by default */
+.home-text {
+  font-size: 14px;
+  margin-left: 6px;
+
+  opacity: 0;
+  transform: translateX(-6px);
+  pointer-events: none;
+
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+/* reveal on hover */
+.mini-home-btn:hover .home-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* interaction */
+.mini-home-btn:hover {
+  transform: scale(1.05);
+}
+
+.mini-home-btn:active {
+  transform: scale(0.95);
+}
+

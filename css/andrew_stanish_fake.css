@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(to bottom right, #f0f4ff, #ffffff);
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.profile-container {
+  max-width: 900px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.profile-photo {
+  width: 180px;
+  height: auto;
+  border-radius: 10px;
+  border: 5px solid #e5e7eb;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+.header p {
+  margin-top: 8px;
+  font-size: 1.2rem;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-bottom: 3px solid #e5e7eb;
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+
+.stats span {
+  display: inline-block;
+  background: #ecfeff;
+  color: #0f766e;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin: 6px 6px 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid #a5f3fc;
+}
+
+.section p {
+  margin: 10px 0;
+}
+
+.highlight {
+  font-weight: 600;
+  color: #1d4ed8;
+}
+
+.quote {
+  font-style: italic;
+  margin: 15px 0;
+  padding-left: 15px;
+  border-left: 4px solid #1d4ed8;
+  color: #374151;
+}
+
+.achievements ul {
+  padding-left: 20px;
+}
+
+.achievements li {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+a {
+  color: #1d4ed8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.skills span {
+  display: inline-block;
+  background: #eef2ff;
+  color: #3730a3;
+  padding: 7px 15px;
+  border-radius: 20px;
+  margin: 6px 6px 0 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.contact-info p {
+  margin: 6px 0;
+}
+
+footer{
+  text-align:center;
+  margin-top:40px;
+  font-size:0.85rem;
+  color:#6b7280;
+}
+
+.mini-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+  color: inherit;
+
+  background: transparent;
+  cursor: pointer;
+  z-index: 9999;
+
+  transition: transform 0.15s ease;
+}
+
+.home-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* hidden by default */
+.home-text {
+  font-size: 14px;
+  margin-left: 6px;
+
+  opacity: 0;
+  transform: translateX(-6px);
+  pointer-events: none;
+
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+/* reveal on hover */
+.mini-home-btn:hover .home-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* interaction */
+.mini-home-btn:hover {
+  transform: scale(1.05);
+}
+
+.mini-home-btn:active {
+  transform: scale(0.95);
+}
