@@ -150,6 +150,8 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
 **✓** [Supabase](https://supabase.com/)  
 **✓** [MiniSearch](https://lucaong.github.io/minisearch/)  
 **✓** [transformers.js](https://github.com/huggingface/transformers.js)  
+**✓** [Google Search Console](https://search.google.com/search-console/)  
+**✓** [Bing Webmaster Tools](https://www.bing.com/webmasters/)  
 **✓** [Wikipedia](https://www.wikipedia.org/)  
 **✓** [Inkscape](https://inkscape.org/)  
 **✓** [Gimp](https://www.gimp.org/)  
