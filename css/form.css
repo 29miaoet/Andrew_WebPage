@@ -18,10 +18,10 @@ body {
   animation: fadeIn 0.4s ease-in-out;
 }
 
-h2 {
+h1 {
   margin-bottom: 20px;
   text-align: center;
-  font-size: 20px;
+  font-size: 24px;
   color: #1f2d3d;
 }
 

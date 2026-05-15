@@ -25,10 +25,11 @@ body {
 }
 
 /* Title */
-h2 {
+h1 {
   text-align: center;
   color: #1976d2;
   margin: 0 0 10px;
+  font-size: 24px;
   font-weight: 700;
   letter-spacing: 0.3px;
 }
