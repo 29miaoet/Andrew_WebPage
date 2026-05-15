@@ -7,160 +7,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Inter', Arial, sans-serif;
-            background: linear-gradient(135deg, #eef2f7, #dfe7f1);
-            color: #333;
-        }
-
-        header {
-            background: linear-gradient(135deg, #0055A4, #003d73);
-            color: white;
-            padding: 25px 18px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        nav {
-            background-color: #003d73;
-            padding: 12px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 18px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.2s;
-        }
-
-        nav a:hover {
-            opacity: 0.7;
-        }
-
-        .hero {
-            background: url('https://cptdb.ca/wiki/images/thumb/0/0e/Winnipeg_Transit_198-a.jpg/1599px-Winnipeg_Transit_198-a.jpg?20220626205802') no-repeat center/cover;
-            height: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2em;
-            font-weight: bold;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 25px auto;
-            padding: 0 15px;
-        }
-
-        .card {
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(8px);
-            padding: 22px;
-            margin: 20px 0;
-            border-radius: 14px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: 1px solid rgba(255,255,255,0.4);
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 22px rgba(0,0,0,0.12);
-        }
-
-        h2 {
-            margin-top: 0;
-            border-bottom: 2px solid #0055A4;
-            padding-bottom: 6px;
-        }
-
-        footer {
-            background-color: #0055A4;
-            color: white;
-            text-align: center;
-            padding: 14px;
-            margin-top: 40px;
-            font-size: 0.9em;
-        }
-
-        .bus-list li {
-            margin: 6px 0;
-        }
-
-        .rounded {
-            border-radius: 18px;
-        }
-
-        figure {
-            margin: 20px 0;
-        }
-
-        figcaption {
-            font-size: 0.9em;
-            color: #555;
-            margin-top: 6px;
-            text-align: center;
-        }
-
-        /* NEW: stats grid to fill space */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .stat-box {
-            background: linear-gradient(135deg, #0055A4, #0077cc);
-            color: white;
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;
-            font-weight: 600;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-		
-		.stat-box-red {
-            background: linear-gradient(135deg, #ff0000, #ff0023);
-            color: white;
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;
-            font-weight: 600;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
-        .stat-box span {
-            display: block;
-            font-size: 1.6em;
-            margin-top: 5px;
-        }
-
-        /* NEW: divider */
-        .divider {
-            height: 2px;
-            background: linear-gradient(to right, transparent, #0055A4, transparent);
-            margin: 25px 0;
-        }
-
-        /* subtle fade-in animation */
-        .card {
-            animation: fadeIn 0.6s ease;
-        }
-
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(10px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/andrew_transit.css">
 </head>
 <body>
 
@@ -201,7 +48,7 @@
 			<p>
 			The F6, I I enjoy the F6, I enjoy it for a reason, it comes into the community of South Saint Vital,
 			it comes into the community, travels along the streets that have the least conjestion, allowing traffic 
-			to move freely and quicky, it's reasonably frequent, and It’s pretty much always on time. It has so many 
+			to move freely and quicky, it's reasonably frequent, and It's pretty much always on time. It has so many 
 			entry points, especially if you are looking at the central south part of the city.
 			</p>
 			<br>
@@ -221,18 +68,18 @@
 			<br>
 			<li style="font-weight: bold;">Words On the FX3</li>
 			<p>
-			Route FX3... I haven’t really taken the FX3 really that much, goes kind of like an east west of 
+			Route FX3... I haven't really taken the FX3 really that much, goes kind of like an east west of 
 			the city, the part through downtown is extremely essential to the city. 
 			</p>
 			<br>
 			<li style="font-weight: bold;">Words On the 556</li>
 			<p>
-			I honestly don’t think the FX2 is a good bus; what is the sixth route? K, 556 goes ahead of that now I changed it. 
+			I honestly don't think the FX2 is a good bus; what is the sixth route? K, 556 goes ahead of that now I changed it. 
 			The 556 is potentially the best community route in the entire city, connecting to Pembina and plaza drive to 
 			St. Vital center, and to sage creek, which is massive for a couple of reasons. 556 is the only way to get from 
 			sage creek to St.Vital center, which is an extremely important route considering the increase of commercial traffic. 
 			A community route there helps a little bit, and it's...like...it's...It's just well...design I guess…, um.. 
-			err...it travels on streets, it’s never going to have a delay. 
+			err...it travels on streets, it's never going to have a delay. 
 			</p>
 			<br>
 			<li style="font-weight: bold;">Words On the New Transit System</li>
@@ -295,12 +142,12 @@
         <p>Andrew's favorite bus photos:</p>
 
         <figure>
-            <img src="https://29miaoet.github.io/Andrew_WebPage/Andrew_medal.png" width="100%" class="rounded">
+            <img src="images/Andrew_medal.png" width="100%" class="rounded" alt="Andrew posing with his favorite transit bus after winning his 20th Nobel Prize">
             <figcaption>Andrew posing with his favorite transit bus after winning his 20th Nobel Prize</figcaption>
         </figure>
 
         <figure>
-            <img src="https://29miaoet.github.io/Andrew_WebPage/Andrew_bus.png" width="100%" class="rounded">
+            <img src="images/Andrew_bus.png" width="100%" class="rounded" alt="Andrew's Wedding with Route F6">
             <figcaption>Andrew's Wedding with Route F6</figcaption>
         </figure>
     </div>
@@ -317,29 +164,7 @@
     <p>© 2026 Andrew Stanish Transit Webpage -- Designed by Ethan Miao</p>
 </footer>
 
-<script>
-  let count = 1000;
-  const doctoratesEl = document.getElementById("doctorates");
-  const doctoratesDisplay = document.getElementById("doctorates-display");
-
-  setInterval(() => {
-    count++;
-    doctoratesEl.textContent = count;
-    doctoratesDisplay.textContent = count;
-  }, 0);
-</script>
-
-<script>
-  let countx = 5;
-  const transitsEl = document.getElementById("transits");
-  const transitsDisplay = document.getElementById("transits-display");
-
-  setInterval(() => {
-    countx++;
-    transitsEl.textContent = countx;
-    transitsDisplay.textContent = countx;
-  }, 100);
-</script>
+<script src="js/andrew_transit.js"></script>
 
 </body>
 </html>
