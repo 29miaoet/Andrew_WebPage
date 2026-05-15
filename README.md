@@ -74,6 +74,7 @@ you can check out the sections below, otherwise, enjoy your journey!
 
 - Search Engines:  
 <sub>*Where you can find the website just by searching `Andrew Stanish`*</sub>
+  - 🌐 Google
   - 🌐 Bing
   - 🌐 DuckDuckGo
   - 🌐 Yahoo
