@@ -146,6 +146,7 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
 
 **✓** [GitHub](https://github.com/)  
 **✓** [GitHub Pages](https://docs.github.com/en/pages)  
+**✓** [GitHub Actions](https://docs.github.com/en/actions)  
 **✓** [Git](https://git-scm.com/)  
 **✓** [Formspree](https://formspree.io/)  
 **✓** [Supabase](https://supabase.com/)  
