@@ -32,6 +32,7 @@ you can check out the sections below, otherwise, enjoy your journey!
 ## Structure
 <details>
 <summary>Andrew's Website</summary>
+<pre><code>
 Andrew_WebPage/
 ├── .github/
 │   ├── scripts/
@@ -48,15 +49,15 @@ Andrew_WebPage/
 │
 ├── css/
 │   ├── Andrew_Stanish.css
-│	├── Andrew_Stanish_Fake.css
-│	├── Andrew_transit.css
-│	├── andrew_bot.css
-│	├── file_download.css
-│	├── form.css
+│   ├── Andrew_Stanish_Fake.css
+│   ├── Andrew_transit.css
+│   ├── andrew_bot.css
+│   ├── file_download.css
+│   ├── form.css
 │   ├── index.css
-│	├── photo_gallery.css
-│	├── search_engine.css
-│	└── signature_page.css
+│   ├── photo_gallery.css
+│   ├── search_engine.css
+│   └── signature_page.css
 │
 ├── data/
 │   ├── intents.json
@@ -101,7 +102,8 @@ Andrew_WebPage/
 │
 ├── LICENSE
 └── README.md
-<details>
+</code></pre>
+</details>
 
 ## Attributes
 - ✅ Fully responsive homepage and layout
@@ -133,7 +135,7 @@ Andrew_WebPage/
   - ✅ Microsoft Windows
   - ✅ Apple macOS
   - ✅ Linux
-  - ✅ Apple IOS
+  - ✅ Apple iOS
   - ✅ Android
 
 - Browsers:
