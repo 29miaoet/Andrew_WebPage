@@ -29,6 +29,80 @@ you can check out the sections below, otherwise, enjoy your journey!
 > ***Just go curl, it's so fun! - Andrew Stanish***
 <br>
 
+## Structure
+<details>
+<summary>Andrew's Website</summary>
+Andrew_WebPage/
+├── .github/
+│   ├── scripts/
+│   │   └── check_html.py
+│   │
+│   ├── workflows/
+│   │   ├── accessibility_validator.yml
+│   │   └── replace-version.yml
+│   │
+│   ├── CODE_OF_CONDUCT.md
+│   ├── CONTRIBUTING.md
+│   ├── SECURITY.md
+│   └── dependabot.yml
+│
+├── css/
+│   ├── Andrew_Stanish.css
+│	├── Andrew_Stanish_Fake.css
+│	├── Andrew_transit.css
+│	├── andrew_bot.css
+│	├── file_download.css
+│	├── form.css
+│   ├── index.css
+│	├── photo_gallery.css
+│	├── search_engine.css
+│	└── signature_page.css
+│
+├── data/
+│   ├── intents.json
+│   ├── manifest.json
+│   ├── search_index.json
+│   └── sitemap.xml
+│
+├── files/
+│   ├── index.zip
+│   └── Andrew_Webpage.zip
+│
+├── images/
+│   ├── Andrew_bus.png
+│   ├── Andrew_curling.png
+│   ├── Andrew_medal.png
+│   ├── favicon.svg
+│   ├── image.png
+│   └── transit_bus.jpg
+│
+├── js/
+│   ├── andrew_bot.js
+│   ├── andrew_stanish_fake.js
+│   ├── andrew_transit.js
+│   ├── file_download.js
+│   ├── index.js
+│   ├── photo_gallery.js
+│   ├── search_engine.js
+│   ├── service_worker.js
+│   ├── service_worker_register.js
+│   └── signature_page.js
+│
+├── Andrew_Stanish.html
+├── Andrew_Stanish_Fake.html
+├── Andrew_transit.html
+├── andrew_bot.html
+├── file_download.html
+├── form.html
+├── index.html
+├── photo_gallery.html
+├── search_engine.html
+├── signature_page.html
+│
+├── LICENSE
+└── README.md
+<details>
+
 ## Attributes
 - ✅ Fully responsive homepage and layout
 - ✅ Tested navigation menu and site structure
