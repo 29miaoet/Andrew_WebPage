@@ -1,8 +1,15 @@
-function openLightbox(img){
-    document.getElementById("lightbox").style.display="flex";
-    document.getElementById("lightbox-img").src=img.src;
-}
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.getElementById("close-btn");
 
-function closeLightbox(){
-    document.getElementById("lightbox").style.display="none";
-}
+document.querySelectorAll(".gallery-image").forEach(img => {
+    img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+    });
+});
+
+closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
