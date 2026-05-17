@@ -2,12 +2,8 @@ name: HTML Accessibility & SEO Check
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '*.html'
-  pull_request:
-    paths:
-      - '*.html'
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 9:00 AM UTC
 
 jobs:
   check:
@@ -92,24 +88,3 @@ jobs:
               });
               console.log(`Filed issue: ${issue.title}`);
             }
-
-      - name: Comment on PR if issues found
-        if: github.event_name == 'pull_request' && steps.check.outputs.issues_found == 'true'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            
-            if (!fs.existsSync('html_issues.json')) {
-              return;
-            }
-            
-            const issues = JSON.parse(fs.readFileSync('html_issues.json', 'utf8'));
-            const summary = issues.map(i => `- **${i.file}**: ${i.title}`).join('\n');
-            
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `## ⚠️ Accessibility & SEO Issues Found\n\n${summary}`
-            });
