@@ -1,16 +1,18 @@
-# Andrew's Website  
+# Andrew's Website
+
 🎉 Welcome to **[Andrew's Website](https://29miaoet.github.io/Andrew_WebPage/)**!
 
 <img src="https://29miaoet.github.io/Andrew_WebPage/images/favicon.svg" width="300" height="250">
 
 ## Overview
+
 **Andrew's Website** was created back in March of 2026, following the
 [global news article](https://globalnews.ca/news/11654725/winnipeg-youth-curlers-inspired-by-olympics/)
 on Andrew's curling career. This project was first inspired by fellow classmate Thomas Gan, who
 helped write Andrew's [Wikipedia Article](https://en.wikipedia.org/wiki/User:29miaoet/sandbox).
 <br><br>
 Through the months, it has progressed greatly, from initial release 2.0.0, which only included
-a *mostly* truthful account of his life, to the multipage website we have today, many
+a _mostly_ truthful account of his life, to the multipage website we have today, many
 features have been added, including prank pages, Wikipedia articles, and even backend
 hosting with Supabase. I would like to thank everyone who contributed and supported this project,
 and allowed it to progress to this level.
@@ -26,10 +28,12 @@ Get started on your browsing journey through **Andrew's Website**
 [now](https://29miaoet.github.io/Andrew_WebPage/), if you wish to view more information about the project,
 you can check out the sections below, otherwise, enjoy your journey!
 <br><br>
-> ***Just go curl, it's so fun! - Andrew Stanish***
-<br>
+
+> **_Just go curl, it's so fun! - Andrew Stanish_**
+> <br>
 
 ## Structure
+
 <details>
 <summary>Andrew's Website</summary>
 <pre><code>
@@ -107,6 +111,7 @@ Andrew_WebPage/
 </details>
 
 ## Attributes
+
 - ✅ Fully responsive homepage and layout
 - ✅ Tested navigation menu and site structure
 - ✅ Polished styling and typography
@@ -122,16 +127,18 @@ Andrew_WebPage/
 - ⚠️ Backend server logic and storage is limited
 
 ## Newest Updates
+
 **✓** AI assistant with help from [transformers.js](https://github.com/huggingface/transformers.js):  
--- *[AndrewBot](https://29miaoet.github.io/Andrew_WebPage/andrew_bot.html)*  
+-- _[AndrewBot](https://29miaoet.github.io/Andrew_WebPage/andrew_bot.html)_
 
 **✓** Website search engine with [MiniSearch](https://lucaong.github.io/minisearch/):  
--- *[Search Engine](https://29miaoet.github.io/Andrew_WebPage/search_engine.html)*  
+-- _[Search Engine](https://29miaoet.github.io/Andrew_WebPage/search_engine.html)_
 
 **✓** Major upgrades to [File Download Page](https://29miaoet.github.io/Andrew_WebPage/file_download.html):  
--- *[Added download support for no JavaScript browsers](https://github.com/29miaoet/Andrew_WebPage/pull/6)*
+-- _[Added download support for no JavaScript browsers](https://github.com/29miaoet/Andrew_WebPage/pull/6)_
 
 ## Compatibility
+
 - Platforms:
   - ✅ Microsoft Windows
   - ✅ Apple macOS
@@ -150,7 +157,7 @@ Andrew_WebPage/
   - ✅ w3m
 
 - Search Engines:  
-<sub>*Where you can find the website just by searching `Andrew Stanish`*</sub>
+  <sub>_Where you can find the website just by searching `Andrew Stanish`_</sub>
   - 🌐 Google
   - 🌐 Bing
   - 🌐 DuckDuckGo
@@ -162,26 +169,30 @@ Andrew_WebPage/
   - ⚠️ Source code download is based on release, so it may lag behind the actual website state.
 
 ## Requisites
+
 - Modern GUI or text-based browser
 - **`recommended`** JavaScript enabled
 - **`recommended`** Internet connection
 
 ## Notes
+
 - Andrewbot, a smart AI assistant, is here, try it out now at [AndrewBot](https://29miaoet.github.io/Andrew_WebPage/andrew_bot.html)
 - Future releases will add more pages, interactive features, and optimizations.
 - For issues or feedback, please fill out and submit the [website form](https://29miaoet.github.io/Andrew_WebPage/form.html).
 
 ## Technology Stack
-| Layer | Technology | Notes |
-|-------|-----------|-------|
-| **Hosting** | GitHub Pages | Static site deployment |
-| **Frontend** | HTML5, CSS3, Vanilla JS | No frameworks required |
-| **Search** | MiniSearch | Client-side full-text search |
-| **AI** | transformers.js | Run ML models in browser |
-| **Backend** | Supabase | Form storage & authentication (optional) |
-| **Forms** | Formspree | Email form submissions |
+
+| Layer        | Technology              | Notes                                    |
+| ------------ | ----------------------- | ---------------------------------------- |
+| **Hosting**  | GitHub Pages            | Static site deployment                   |
+| **Frontend** | HTML5, CSS3, Vanilla JS | No frameworks required                   |
+| **Search**   | MiniSearch              | Client-side full-text search             |
+| **AI**       | transformers.js         | Run ML models in browser                 |
+| **Backend**  | Supabase                | Form storage & authentication (optional) |
+| **Forms**    | Formspree               | Email form submissions                   |
 
 ## Future Path
+
 - [ ] Modify all html files to be more accessible.
 - [ ] Harden JavaScript structure and logic.
 - [ ] Improve css by adding media elements and replacing bad practice sections (they're everywhere).
@@ -193,18 +204,20 @@ Andrew_WebPage/
 Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/blob/main/.github/CONTRIBUTING.md)
 
 ## Why Contribute?
-   
-   - 🎓 Learn vanilla web development without frameworks
-   - 🌍 Help an open-source personal project grow
-   - 🚀 Get featured in our contributors section
-   - 💡 Explore modern web patterns (AI, search, offline support)
-   - 🙂 Help make Andrew famous
+
+- 🎓 Learn vanilla web development without frameworks
+- 🌍 Help an open-source personal project grow
+- 🚀 Get featured in our contributors section
+- 💡 Explore modern web patterns (AI, search, offline support)
+- 🙂 Help make Andrew famous
 
 ## Download
+
 - [Source Code Download - Zip](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v28.2.3.zip)
 - [Source Code Download - Tarball](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v28.2.3.tar.gz)
-  
+
 ## Stats
+
 - ![Release](https://img.shields.io/github/v/release/29miaoet/Andrew_WebPage)
 - ![License](https://img.shields.io/badge/license-MIT-green)
 - ![Deployed](https://img.shields.io/badge/deployed-GitHub%20Pages-orange)
@@ -218,8 +231,9 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
 - ![Closed Pull requests](https://img.shields.io/github/issues-pr-closed/29miaoet/Andrew_WebPage)
 
 ## Utilized Tools & Services
+
 **We're proud to announce that Andrew's Website was created with a 0$ budget!**  
-**All the tools used below are either free, or only the free tier was used.**  
+**All the tools used below are either free, or only the free tier was used.**
 
 **✓** [GitHub](https://github.com/)  
 **✓** [GitHub Pages](https://docs.github.com/en/pages)  
@@ -243,9 +257,10 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
 **✓** [Notepad++](https://notepad-plus-plus.org/)  
 **✓** [Microsoft Teams](https://teams.microsoft.com/)  
 **✓** [Microsoft Edge](https://www.microsoft.com/en-us/edge/)  
-**✓** [Mozilla Firefox](https://www.firefox.com/)  
+**✓** [Mozilla Firefox](https://www.firefox.com/)
 
 ## License
+
 This project is published under the MIT license, for more details, view the [LICENSE](https://github.com/29miaoet/Andrew_WebPage/blob/main/LICENSE).
 
-*<p align="center"><sub>©2026 – Ethan Miao - MIT License</sub></p>*
+_<p align="center"><sub>©2026 – Ethan Miao - MIT License</sub></p>_
