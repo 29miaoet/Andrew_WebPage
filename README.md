@@ -39,7 +39,8 @@ Andrew_WebPage/
 │   │   └── check_html.py
 │   │
 │   ├── workflows/
-│   │   ├── accessibility_validator.yml
+│   │   ├── accessibility-validate.yml
+│   │   ├── prettify-files.yml
 │   │   └── replace-version.yml
 │   │
 │   ├── CODE_OF_CONDUCT.md
