@@ -1,51 +1,57 @@
 // Quote rotation section
 const quoteElements = document.querySelectorAll("#quotes span");
-const quotes = Array.from(quoteElements).map((q) => q.textContent);
+const quotes = Array.from(quoteElements, (q) => q.textContent).filter(Boolean);
 
-let index = 0;
 const display = document.getElementById("quote-display");
 
-display.textContent = quotes[0];
+if (display && quotes.length) {
+  let index = 0;
+  const FADE = 400;
+  const INTERVAL = 4000;
 
-function rotateQuote() {
-  display.style.opacity = 0;
+  display.textContent = quotes[0];
 
-  setTimeout(() => {
-    index = (index + 1) % quotes.length;
-    display.textContent = quotes[index];
-    display.style.opacity = 1;
-  }, 400);
+  function rotate() {
+    display.classList.add("fade");
+
+    setTimeout(() => {
+      index = (index + 1) % quotes.length;
+      display.textContent = quotes[index];
+      display.classList.remove("fade");
+    }, FADE);
+  }
+
+  setInterval(rotate, INTERVAL);
 }
-
-setInterval(rotateQuote, 4000);
 
 // Dropdown menu section
 const menu = document.getElementById("menu");
 const icon = document.getElementById("toggle-menu");
 
-icon.addEventListener("click", toggleMenu);
+function setMenu(open) {
+  menu.classList.toggle("open", open);
+  icon.setAttribute("aria-expanded", open);
+  icon.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  icon.classList.toggle("active", open);
 
-function toggleMenu() {
-  const isOpen = menu.style.display === "block";
-  menu.style.display = isOpen ? "none" : "block";
-  icon.setAttribute("aria-expanded", !isOpen);
-  icon.setAttribute("aria-label", !isOpen ? "Close menu" : "Open menu");
-
-  if (!isOpen) {
-    const firstLink = menu.querySelector("a");
-    if (firstLink) firstLink.focus();
-  }
+  if (open) menu.querySelector("a")?.focus();
 }
 
-window.addEventListener("click", function (event) {
-  if (!menu.contains(event.target) && !icon.contains(event.target)) {
-    menu.style.display = "none";
-    icon.setAttribute("aria-expanded", "false");
-    icon.setAttribute("aria-label", "Open menu");
+icon?.addEventListener("click", () => {
+  setMenu(!menu.classList.contains("open"));
+});
+
+document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !icon.contains(e.target)) {
+    setMenu(false);
   }
 });
 
-// Register service worker for offline app
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") setMenu(false);
+});
+
+// Service worker
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("js/service_worker.js");
 }
