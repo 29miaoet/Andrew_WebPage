@@ -550,7 +550,8 @@
         "you suck",
         "stupid assistant",
         "worst bot ever",
-        "stupid bot"
+        "stupid bot",
+        "are you retarded"
       ],
       "responses": [
         "No, you suck!",
@@ -1193,6 +1194,32 @@
       ],
       "responses": [
         "Curling.gg is a professional browser based curling simulation game, Andrew practices his curling there, and he has supported it since 2020."
+      ]
+    },
+	{
+      "tag": "website_install",
+      "patterns": [
+        "how do i install andrews website",
+        "how do i use andrews website offline",
+        "install instructions for andrews website",
+        "use andrews website offline",
+        "app for andrews website"
+      ],
+      "responses": [
+        "You can install the Andrew's Website app from the app store page, just click the install button on the first card! Otherwise, you can click the app install button on the right of the url bar."
+      ]
+    },
+	{
+      "tag": "website_size",
+      "patterns": [
+        "how large is andrews website",
+        "how big is the website",
+        "what is the size of andrews website",
+        "andrew website size",
+        "how many pages does andrews website have"
+      ],
+      "responses": [
+        "Andrew's Website currently has 10 pages, the repo size is currently 19.1MB, and the raw download size is 12MB, the total number of files is currently 52."
       ]
     }
   ]
