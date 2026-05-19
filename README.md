@@ -40,7 +40,7 @@ Andrew_WebPage/
 │   │
 │   ├── workflows/
 │   │   ├── accessibility-validate.yml
-│   │   ├── prettify-files.yml
+│   │   ├── files-prettify.yml
 │   │   └── replace-version.yml
 │   │
 │   ├── CODE_OF_CONDUCT.md
