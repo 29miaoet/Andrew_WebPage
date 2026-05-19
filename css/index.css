@@ -73,6 +73,14 @@ h1 {
   display: none;
 }
 
+#quote-display {
+  transition: opacity 0.4s ease;
+}
+
+.fade {
+  opacity: 0;
+}
+
 /* Buttons */
 .button-container {
   display: flex;
@@ -234,6 +242,14 @@ h1 {
   user-select: none;
 }
 
+.menu-icon:hover {
+  transform: scale(1.05);
+}
+
+.menu-icon.active {
+  transform: scale(1.05);
+}
+
 /* Dropdown menu */
 .dropdown {
   display: none;
@@ -243,6 +259,10 @@ h1 {
   background: #f0f0f0;
   min-width: 120px;
   text-align: left;
+}
+
+.dropdown.open {
+  display: block;
 }
 
 /* Links styling */
@@ -283,6 +303,7 @@ footer {
     gap: 12px;
     width: 100%;
     max-width: 100%;
+    padding-bottom: 10px;
   }
 
   h1 {
