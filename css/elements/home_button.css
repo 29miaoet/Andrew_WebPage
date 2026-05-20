@@ -26,6 +26,7 @@
 .home-text {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: 14px;
+  font-weight: normal;
   margin-left: 6px;
   color: black;
 
@@ -48,6 +49,7 @@
   opacity: 1;
   text-decoration: none;
   font-size: 14px;
+  font-weight: normal;
   transform: translateX(0);
 }
 

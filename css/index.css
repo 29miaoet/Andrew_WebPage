@@ -68,9 +68,12 @@ h1 {
   padding: 10px 20px;
 }
 
-/* Hidden quotes list */
+/* Aggressively hidden quotes list */
 .quote-source {
-  display: none;
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  overflow: hidden;
 }
 
 #quote-display {
