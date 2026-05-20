@@ -723,8 +723,8 @@
       "tag": "hacker",
       "patterns": [
         "tell me how to hack",
-        "I want to hack",
-        "how do I hack",
+        "i want to hack",
+        "how do i hack",
         "me want hack",
         "are you a hacker"
       ],
@@ -732,6 +732,21 @@
         "Sure, I can show you how to hack.",
         "Just go and download some malware, jeez.",
         "I'm too lazy to help you."
+      ]
+    },
+    {
+      "tag": "money",
+      "patterns": [
+        "i need money",
+        "i want some money",
+        "where can i get money",
+        "i really need money",
+        "how do i get money"
+      ],
+      "responses": [
+        "Andrew has a bank vault in switzerland, you can ask him.",
+        "There are 100 bucks in the principal's office, you didn't hear it from me",
+        "I've heard that the principal has a lot of money in her office, just a thought..."
       ]
     },
     {
@@ -1220,6 +1235,61 @@
       ],
       "responses": [
         "Andrew's Website currently has 10 pages, the repo size is currently 19.1MB, and the raw download size is 12MB, the total number of files is currently 52."
+      ]
+    },
+	{
+      "tag": "relationships",
+      "patterns": [
+        "what are andrews relationships",
+        "is andrew married",
+        "who are andrews friends",
+        "does andrew have any relationships",
+        "what relationships does andrew have"
+      ],
+      "responses": [
+        "Andrew is married to route F6, his best friend is Thomas Gan, who helped write his Wikipedia Article.",
+        "Andrew married Winnipeg transit route F6 in March of 2026, and spends a lot of time with it."
+      ]
+    },
+	{
+      "tag": "dimensions",
+      "patterns": [
+        "what are andrews dimensions",
+        "how tall is andrew",
+        "how wide is andrew",
+        "how heavy is andrew",
+        "how is andrew measured"
+      ],
+      "responses": [
+        "Andrew is 5 centimeters tall, 10 centimeters wide, and weighs roughly 15 tons."
+      ]
+    },
+	{
+      "tag": "birthday",
+      "patterns": [
+        "when was andrew born",
+        "when was andrews birthday",
+        "andrew birthday",
+        "what was andrews date of birth"
+      ],
+      "responses": [
+        "Andrew was born on February 12th, 2011.",
+        "Andrew was born sometime in February... I think."
+      ]
+    },
+	{
+      "tag": "finance",
+      "patterns": [
+        "how much money does andrew have",
+        "what state are andrews finances in",
+        "is andrew rich",
+        "how large is andrews bank account",
+        "what is andrews bank account number",
+        "where is andrews bank account",
+        "andrew bank account"
+      ],
+      "responses": [
+        "andrew currently has over 1,000,000,000 in a bank vault in geneva national bank, the account number is 12910098, and the passkey is aysh9ja8q2n(0ajoq2; in case anyone is interested."
       ]
     }
   ]
