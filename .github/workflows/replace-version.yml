@@ -1,111 +1,55 @@
-name: HTML Accessibility & SEO Check
+name: Update Version After Release
 
 on:
+  release:
+    types: [published]
   workflow_dispatch:
-  schedule:
-    - cron: '0 9 * * 1'  # Every Monday at 9:00 AM UTC
+    inputs:
+      prev_version:
+        description: 'Previous version'
+        required: true
+      new_version:
+        description: 'New version'
+        required: true
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
-  check:
+  update:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
-
-      - name: Set up Python
-        uses: actions/setup-python@v6
+      - uses: actions/checkout@v4
         with:
-          python-version: '3.11'
+          fetch-depth: 0
 
-      - name: Install dependencies
+      - name: Determine versions
+        id: versions
         run: |
-          pip install axe-selenium-python selenium beautifulsoup4 html5lib
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            PREV_VERSION="${{ inputs.prev_version }}"
+            NEW_VERSION="${{ inputs.new_version }}"
+          else
+            NEW_TAG="${GITHUB_REF_NAME}"
+            NEW_VERSION="${NEW_TAG#v}"
+            PREV_TAG=$(git tag --sort=-version:refname | grep -v "^${NEW_TAG}$" | head -n 1)
+            PREV_VERSION="${PREV_TAG#v}"
+          fi
+          echo "prev=$PREV_VERSION" >> $GITHUB_OUTPUT
+          echo "new=$NEW_VERSION" >> $GITHUB_OUTPUT
 
-      - name: Install Chrome and ChromeDriver
-        uses: browser-actions/setup-chrome@latest
+      - name: Update files
+        if: steps.versions.outputs.prev != ''
+        run: sed -i "s/${{ steps.versions.outputs.prev }}/${{ steps.versions.outputs.new }}/g" README.md file_download.html js/file_download.js
 
-      - name: Run accessibility and SEO checks
-        id: check
-        run: python .github/scripts/check_html.py
-        continue-on-error: true
-
-      - name: Check for duplicate issues
-        id: duplicate-check
-        if: steps.check.outputs.issues_found == 'true'
-        uses: actions/github-script@v9
+      - name: Create Pull Request
+        if: steps.versions.outputs.prev != ''
+        uses: peter-evans/create-pull-request@v5
         with:
-          script: |
-            const fs = require('fs');
-            const issues = JSON.parse(fs.readFileSync('html_issues.json', 'utf8'));
-            
-            const existingIssues = await github.rest.issues.listForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open',
-              labels: 'accessibility,seo'
-            });
-            
-            const newIssues = [];
-            
-            for (const issue of issues) {
-              const isDuplicate = existingIssues.data.some(existing => {
-                return existing.title === issue.title && 
-                       existing.body.includes(issue.file);
-              });
-              
-              if (!isDuplicate) {
-                newIssues.push(issue);
-              } else {
-                console.log(`Skipping duplicate: ${issue.title}`);
-              }
-            }
-            
-            fs.writeFileSync('new_issues.json', JSON.stringify(newIssues, null, 2));
-            console.log(`Found ${newIssues.length} new issues to file`);
-
-      - name: File GitHub issues
-        if: steps.check.outputs.issues_found == 'true'
-        uses: actions/github-script@v9
-        with:
-          script: |
-            const fs = require('fs');
-            
-            if (!fs.existsSync('new_issues.json')) {
-              console.log('No new issues to file');
-              return;
-            }
-            
-            const issues = JSON.parse(fs.readFileSync('new_issues.json', 'utf8'));
-            
-            for (const issue of issues) {
-              await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title: issue.title,
-                body: issue.body,
-                labels: issue.labels
-              });
-              console.log(`Filed issue: ${issue.title}`);
-            }
-
-      - name: Comment on PR if issues found
-        if: github.event_name == 'pull_request' && steps.check.outputs.issues_found == 'true'
-        uses: actions/github-script@v9
-        with:
-          script: |
-            const fs = require('fs');
-            
-            if (!fs.existsSync('html_issues.json')) {
-              return;
-            }
-            
-            const issues = JSON.parse(fs.readFileSync('html_issues.json', 'utf8'));
-            const summary = issues.map(i => `- **${i.file}**: ${i.title}`).join('\n');
-            
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `## ⚠️ Accessibility & SEO Issues Found\n\n${summary}`
-            });
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: version update"
+          title: "chore: version update"
+          body: "Automated version replacement"
+          branch: "chore/version-${{ steps.versions.outputs.new }}"
+          base: main
