@@ -235,7 +235,7 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
 - ![Closed issues](https://img.shields.io/github/issues-closed/29miaoet/Andrew_WebPage)
 - ![Pull requests](https://img.shields.io/github/issues-pr/29miaoet/Andrew_WebPage)
 - ![Closed Pull requests](https://img.shields.io/github/issues-pr-closed/29miaoet/Andrew_WebPage)
-- ![Contributers](https://img.shields.io/github/contributors/29miaoet/Andrew_WebPage)
+- ![Contributors](https://img.shields.io/github/contributors/29miaoet/Andrew_WebPage)
 
 ## Utilized Tools & Services
 
