@@ -1,4 +1,7 @@
-import { pipeline, env } from "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2";
+import {
+  pipeline,
+  env,
+} from "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2";
 
 env.allowLocalModels = false;
 env.useBrowserCache = true;
@@ -37,7 +40,7 @@ function addMessage(text, className, save = true) {
   const msg = {
     text,
     className,
-    time: Date.now()
+    time: Date.now(),
   };
 
   renderMessage(msg);
@@ -91,7 +94,7 @@ function levenshtein(a, b) {
         matrix[i][j] = Math.min(
           matrix[i - 1][j - 1] + 1,
           matrix[i][j - 1] + 1,
-          matrix[i - 1][j] + 1
+          matrix[i - 1][j] + 1,
         );
       }
     }
@@ -124,10 +127,7 @@ function regexMatch(input) {
 // -------------------- LOAD EMBEDDINGS --------------------
 addMessage("Loading model...", "bot", false);
 
-embedder = await pipeline(
-  "feature-extraction",
-  "Xenova/all-MiniLM-L6-v2"
-);
+embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
 
 addMessage("Building embeddings...", "bot", false);
 
@@ -137,7 +137,7 @@ for (let intent of intents) {
 
     patternVectors.push({
       tag: intent.tag,
-      embedding: output.data
+      embedding: output.data,
     });
   }
 }
@@ -146,7 +146,9 @@ addMessage("Bot ready!", "bot", false);
 
 // -------------------- COSINE SIMILARITY --------------------
 function cosine(a, b) {
-  let dot = 0, normA = 0, normB = 0;
+  let dot = 0,
+    normA = 0,
+    normB = 0;
 
   for (let i = 0; i < a.length; i++) {
     dot += a[i] * b[i];
@@ -214,7 +216,7 @@ async function getBotResponse(text) {
   const { best, bestScore } = await embeddingMatch(text);
 
   if (best) {
-    const intent = intents.find(i => i.tag === best.tag);
+    const intent = intents.find((i) => i.tag === best.tag);
     return randomResponse(intent.responses);
   }
 

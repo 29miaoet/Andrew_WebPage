@@ -10,7 +10,7 @@ async function init() {
 
   miniSearch = new MiniSearch({
     fields: ["title", "description", "image", "url"],
-    storeFields: ["title", "description", "image", "url"]
+    storeFields: ["title", "description", "image", "url"],
   });
 
   miniSearch.addAll(data);
@@ -24,7 +24,7 @@ function renderResults(results) {
     return;
   }
 
-  results.forEach(item => {
+  results.forEach((item) => {
     const a = document.createElement("a");
     a.className = "card";
     a.href = item.url;

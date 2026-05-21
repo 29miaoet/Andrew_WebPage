@@ -17,6 +17,7 @@ python -m http.server 8000
 npx http-server
 # Navigate to http://localhost:8000/path/to/andrew/website/ in your browser
 ```
+
 Note: Some features require JavaScript fetch. Direct file:// access won't work for all functionality.
 
 2. Make your changes
@@ -32,30 +33,34 @@ git commit -m "describe your changes"
 git push -u origin your-branch-name
 # Open a pull request on GitHub
 ```
+
 Note: You will need to create a personal access token for github [here](https://github.com/settings/personal-access-tokens/new).
 
 ### GUI
+
 1. Fork the repository to your own account.
 2. Make your changes.
 3. Click contribute.
 4. Create a pull request.
 
 ## Requirements for contribution
+
 Any contributions are always a help to this repository, even fixing a small typo can help improve this project.
 For a list of easy-beginner friendly contributions, see the [issues](https://github.com/29miaoet/Andrew_WebPage/issues).
 
 ## Guidelines
-You do not need to follow these guidelines when contributing, but please take a look at them and treat them as 
+
+You do not need to follow these guidelines when contributing, but please take a look at them and treat them as
 suggestions for contribution.
 
 ### General guidelines
+
 - New files or folders should be organized in the same fashion as the existing structure.
 - Prefer simple solutions over complex or complicated ones.
 - Prefer functional solutions over simple ones.
 
 ### Project specific guidelines
+
 - Prefer aria-labels for accessibility over direct `<label>` tags.
 - Use JavaScript event listeners instead of `onclick` attributes.
 - Background color schemes should be light blue, preferably between `#e8f6ff` and `#9cd6ff`.
-
-

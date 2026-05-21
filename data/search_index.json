@@ -2,97 +2,85 @@
   {
     "id": 1,
     "title": "Homepage",
-	"image": "images/favicon.svg",
-	"url": "index.html",
-    "description":
-		"The homepage to Andrew's Website, with rich css styling and a full navigation menu! If you are new to Andrew's Website, this is a good place to start! With a central curling-focused theme, this page tells you all about Andrew -- with as few words as possible."
+    "image": "images/favicon.svg",
+    "url": "index.html",
+    "description": "The homepage to Andrew's Website, with rich css styling and a full navigation menu! If you are new to Andrew's Website, this is a good place to start! With a central curling-focused theme, this page tells you all about Andrew -- with as few words as possible."
   },
   {
     "id": 2,
     "title": "Formal Webpage",
-	"image": "images/image.png",
-	"url": "Andrew_Stanish.html",
-    "description":
-		"The oldest page of Andrew's Website, created back in March 2nd, 2026. This is the place where it all began, inspired by a global news article featuring Andrew. If you are doing research on Andrew Stanish, or want to learn facts about him, start here!"
+    "image": "images/image.png",
+    "url": "Andrew_Stanish.html",
+    "description": "The oldest page of Andrew's Website, created back in March 2nd, 2026. This is the place where it all began, inspired by a global news article featuring Andrew. If you are doing research on Andrew Stanish, or want to learn facts about him, start here!"
   },
   {
     "id": 3,
     "title": "Prank Page",
-	"image": "images/Andrew_medal.png",
-	"url": "Andrew_Stanish_Fake.html",
-    "description":
-		"This page is all pranks and fun! It includes very truthful information about Andrew Stanish. From Nobel Prizes to Fields Medals, Andrew has won every major prize there exists, and they are all documented here, with dynamically updating displays and visually appealing photos."
+    "image": "images/Andrew_medal.png",
+    "url": "Andrew_Stanish_Fake.html",
+    "description": "This page is all pranks and fun! It includes very truthful information about Andrew Stanish. From Nobel Prizes to Fields Medals, Andrew has won every major prize there exists, and they are all documented here, with dynamically updating displays and visually appealing photos."
   },
   {
     "id": 4,
     "title": "Transit Page",
-	"image": "images/Andrew_bus.png",
-	"url": "Andrew_transit.html",
-    "description":
-		"What's Andrew's second favorite hobby? Riding transit buses of course! While this may seem like a strange pastime, Andrew has made is clear to us why he likes the transit system here. Featuring Andrew's latest interview, this page is up-to-date and polished, documenting Andrew's ongoing relationship with Winnipeg Transit and, of course, Route F6."
+    "image": "images/Andrew_bus.png",
+    "url": "Andrew_transit.html",
+    "description": "What's Andrew's second favorite hobby? Riding transit buses of course! While this may seem like a strange pastime, Andrew has made is clear to us why he likes the transit system here. Featuring Andrew's latest interview, this page is up-to-date and polished, documenting Andrew's ongoing relationship with Winnipeg Transit and, of course, Route F6."
   },
   {
     "id": 5,
     "title": "File Download Page",
-	"image": "images/favicon.svg",
-	"url": "file_download.html",
-    "description":
-		"Do you like Andrew's Website, do you want to access it 24/7? Then this page is for you! It includes the latest release of Andrew's Offline Website, which you can download and view without a network connection! It also includes the latest source code release, and dedicated desktop shortcuts, get your own copy of Andrew's Website now!"
+    "image": "images/favicon.svg",
+    "url": "file_download.html",
+    "description": "Do you like Andrew's Website, do you want to access it 24/7? Then this page is for you! It includes the latest release of Andrew's Offline Website, which you can download and view without a network connection! It also includes the latest source code release, and dedicated desktop shortcuts, get your own copy of Andrew's Website now!"
   },
   {
     "id": 6,
     "title": "Photo Gallery",
-	"image": "images/Andrew_curling.png",
-	"url": "photo_gallery.html",
-    "description":
-		"This photo gallery contains all the photos of Andrew Stanish we currently have, from his curling photos and portaits, to his wedding photo with Route F6, his favorite bus. This is a great place to contribute! Add your own photo of Andrew to the photo gallery!"
+    "image": "images/Andrew_curling.png",
+    "url": "photo_gallery.html",
+    "description": "This photo gallery contains all the photos of Andrew Stanish we currently have, from his curling photos and portaits, to his wedding photo with Route F6, his favorite bus. This is a great place to contribute! Add your own photo of Andrew to the photo gallery!"
   },
   {
     "id": 7,
     "title": "Website Form",
-	"image": "images/favicon.svg",
-	"url": "form.html",
-    "description":
-		"This Form was created specially for Andrew's Website, it includes feedback and bug report options. If you find something you don't like about Andrew's Website, please report it here, even if you don't. I would love to hear your opinions about Andrew's Website!"
+    "image": "images/favicon.svg",
+    "url": "form.html",
+    "description": "This Form was created specially for Andrew's Website, it includes feedback and bug report options. If you find something you don't like about Andrew's Website, please report it here, even if you don't. I would love to hear your opinions about Andrew's Website!"
   },
   {
     "id": 8,
     "title": "Signature Page",
-	"image": "images/favicon.svg",
-	"url": "signature_page.html",
-    "description":
-		"The guest book is a community feature of Andrew’s website where visitors sign their name and leave supportive messages, helping make the site feel active, personal, and connected to Andrew’s broader goal."
+    "image": "images/favicon.svg",
+    "url": "signature_page.html",
+    "description": "The guest book is a community feature of Andrew’s website where visitors sign their name and leave supportive messages, helping make the site feel active, personal, and connected to Andrew’s broader goal."
   },
   {
     "id": 9,
     "title": "Search Engine",
-	"image": "images/favicon.svg",
-	"url": "search_engine.html",
-    "description":
-		"This is actually the page you are viewing right now, it is a search engine built specially for Andrew's Website, where you can navigate and fly around Andrew's Website with a few keystrokes. This newest edition to Andrew's Website, thanks for trying it out!"
+    "image": "images/favicon.svg",
+    "url": "search_engine.html",
+    "description": "This is actually the page you are viewing right now, it is a search engine built specially for Andrew's Website, where you can navigate and fly around Andrew's Website with a few keystrokes. This newest edition to Andrew's Website, thanks for trying it out!"
   },
   {
     "id": 10,
     "title": "AndrewBot",
-	"image": "images/favicon.svg",
-	"url": "andrew_bot.html",
-    "description":
-		"Every website needs a FAQ bot, but AndrewBot goes a bit further, using transformers.js, fuzzy matching, and dynamic accuracy adjustion, it feels like a real AI model. Although it's not very smart, it is fun and helpful to talk to, and can resolve most of your issues!"
+    "image": "images/favicon.svg",
+    "url": "andrew_bot.html",
+    "description": "Every website needs a FAQ bot, but AndrewBot goes a bit further, using transformers.js, fuzzy matching, and dynamic accuracy adjustion, it feels like a real AI model. Although it's not very smart, it is fun and helpful to talk to, and can resolve most of your issues!"
   },
   {
     "id": 11,
     "title": "Wikipedia Article",
-	"image": "images/favicon.svg",
-	"url": "https://en.wikipedia.org/wiki/User:29miaoet/sandbox",
-    "description":
-		"This Wikipedia Article, while not in the main community space, is still a testiment on teamwork for the Andrew's Website project. It was created as a collaboration by all the original supporters of Andrew Stanish, and contains completely truthful information about Andrew."
+    "image": "images/favicon.svg",
+    "url": "https://en.wikipedia.org/wiki/User:29miaoet/sandbox",
+    "description": "This Wikipedia Article, while not in the main community space, is still a testiment on teamwork for the Andrew's Website project. It was created as a collaboration by all the original supporters of Andrew Stanish, and contains completely truthful information about Andrew."
   },
   {
     "id": 12,
     "title": "Source Code",
-	"image": "images/favicon.svg",
-	"url": "https://github.com/29miaoet/Andrew_WebPage",
-    "description":
-		"The source code for this project is hosted on GitHub, deployed by GitHub Pages. If you want to branch off Andrew's Website, or request your own changes, start here! We are always looking for contributors to the Andrew's Website Project!"
+    "image": "images/favicon.svg",
+    "url": "https://github.com/29miaoet/Andrew_WebPage",
+    "description": "The source code for this project is hosted on GitHub, deployed by GitHub Pages. If you want to branch off Andrew's Website, or request your own changes, start here! We are always looking for contributors to the Andrew's Website Project!"
   }
 ]
