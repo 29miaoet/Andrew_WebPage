@@ -42,7 +42,7 @@ h1 {
   height: 380px;
   overflow-y: auto;
   border-radius: 12px;
-  box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -62,8 +62,14 @@ h1 {
 
 /* Smooth message appearance */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* User messages */
@@ -104,7 +110,7 @@ h1 {
 
 #input:focus {
   border-color: #1e88e5;
-  box-shadow: 0 0 0 3px rgba(30,136,229,0.2);
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
 }
 
 /* Send button */
@@ -121,7 +127,7 @@ h1 {
 
 #send:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 16px rgba(30,136,229,0.25);
+  box-shadow: 0 8px 16px rgba(30, 136, 229, 0.25);
 }
 
 #send:active {
@@ -159,4 +165,3 @@ h1 {
   background: #ff1744;
   transform: translateY(-1px);
 }
-

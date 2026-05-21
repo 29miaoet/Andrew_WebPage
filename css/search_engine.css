@@ -67,7 +67,7 @@ button:hover {
   display: block;
   text-decoration: none;
   color: inherit;
-  background: rgba(255,255,255,0.35);
+  background: rgba(255, 255, 255, 0.35);
   padding: 15px;
   margin-bottom: 12px;
   border-radius: 10px;
@@ -101,4 +101,3 @@ footer {
   font-size: 12px;
   opacity: 0.7;
 }
-

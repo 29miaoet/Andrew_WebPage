@@ -1,7 +1,8 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-  background: linear-gradient(135deg, #eef2f7, #dfe9f3);
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  background: linear-gradient(135deg, #e8f6ff, #9cd6ff);
+  color: #03324d;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,22 +15,22 @@ body {
   border-radius: 14px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
   width: 100%;
-  max-width: 440px;
+  max-width: 640px;
+  margin: 20px;
   animation: fadeIn 0.4s ease-in-out;
 }
 
 h1 {
   margin-bottom: 20px;
   text-align: center;
-  font-size: 24px;
-  color: #1f2d3d;
+  font-size: 26px;
 }
 
 label {
   display: block;
   margin-top: 14px;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 15px;
   color: #2c3e50;
 }
 
@@ -56,6 +57,15 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
 }
 
+input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
+#check-box-text {
+  font-size: 16px;
+  margin: 20px;
+}
+
 textarea {
   resize: vertical;
   min-height: 110px;
@@ -64,7 +74,7 @@ textarea {
 .confirmation {
   margin-top: 12px;
   text-align: center;
-  font-size: 13px;
+  font-size: 16px;
   color: #2c3e50;
 }
 
@@ -84,7 +94,9 @@ button {
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
 }
 
 button:hover {
@@ -101,7 +113,7 @@ button:hover {
   padding: 12px 18px;
   border-radius: 10px;
   display: none;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   font-size: 14px;
 }
 
@@ -115,4 +127,3 @@ button:hover {
     transform: translateY(0);
   }
 }
-
