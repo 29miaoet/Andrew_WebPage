@@ -195,18 +195,19 @@ Andrew_WebPage/
 | **Forms**    | Formspree               | Email form submissions                   |
 
 ## Languages & Data exchange
-| Language         | Usage                                                              |
-| ---------------- | ------------------------------------------------------------------ |
-| **HTML**         | Main structure and base |
-| **CSS**          | Webpage stying and aesthetics |
-| **JavaScript**   | Programming logic and user interaction |
-| **Python**       | Large-scale find and replace scripts and GitHub automation |
-| **Bash**         | Managing Git from WSL |
-| **Powershell**   | Managing CLI tools like npm |
-| **JSON**         | Long term data storage and APIs |
-| **XML**          | Sitemaps for SEO optimization |
-| **YAML**         | GitHub Actions automation and Dependabot configuration |
-| **Markdown**     | GitHub project documentation |
+
+| Language       | Usage                                                      |
+| -------------- | ---------------------------------------------------------- |
+| **HTML**       | Main structure and base                                    |
+| **CSS**        | Webpage stying and aesthetics                              |
+| **JavaScript** | Programming logic and user interaction                     |
+| **Python**     | Large-scale find and replace scripts and GitHub automation |
+| **Bash**       | Managing Git from WSL                                      |
+| **Powershell** | Managing CLI tools like npm                                |
+| **JSON**       | Long term data storage and APIs                            |
+| **XML**        | Sitemaps for SEO optimization                              |
+| **YAML**       | GitHub Actions automation and Dependabot configuration     |
+| **Markdown**   | GitHub project documentation                               |
 
 ## Future Path
 
