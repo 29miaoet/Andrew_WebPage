@@ -21,9 +21,8 @@ This website combines solid HTML structure, rich CSS styling, and efficient and 
 scripts. It uses free tools with no time restrictions, so you can enjoy **Andrew's Website** for future
 decades to come!
 It has an organized structure and content, with classical and modern file types;
-and supports a wide range of platforms, including Windows, macOS, Linux and mobile OSes including IOS and Android.
-Following classical file structure and formats, it can run smoothly on Chrome, Edge, Firefox, Safari,
-Opera, Brave, Falkon, and more.
+and supports a wide range of platforms, including Windows, macOS, Linux and mobile OSes including iOS and Android.
+Following classical file structure and formats, it can run smoothly on every modern browser.
 Get started on your browsing journey through **Andrew's Website**
 [now](https://29miaoet.github.io/Andrew_WebPage/), if you wish to view more information about the project,
 you can check out the sections below, otherwise, enjoy your journey!
@@ -170,6 +169,7 @@ Andrew_WebPage/
   - ⚠️ Some pages require JavaScript to run.
   - ⚠️ Some image loading times may be slow on cellular connections.
   - ⚠️ Source code download is based on release, so it may lag behind the actual website state.
+  - ⚠️ Internet explorer is **_not_** supported
 
 ## Requisites
 
