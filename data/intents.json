@@ -51,11 +51,7 @@
         "i'm out",
         "see you soon"
       ],
-      "responses": [
-        "Goodbye!",
-        "See you later!",
-        "Take care!"
-      ]
+      "responses": ["Goodbye!", "See you later!", "Take care!"]
     },
     {
       "tag": "thanks",
@@ -72,11 +68,7 @@
         "cheers",
         "thank you very much"
       ],
-      "responses": [
-        "You're welcome!",
-        "No problem!",
-        "Anytime!"
-      ]
+      "responses": ["You're welcome!", "No problem!", "Anytime!"]
     },
     {
       "tag": "apology",
@@ -88,11 +80,7 @@
         "sorry about that",
         "didn't mean that"
       ],
-      "responses": [
-        "No worries!",
-        "It\u2019s all good.",
-        "No problem at all."
-      ]
+      "responses": ["No worries!", "It\u2019s all good.", "No problem at all."]
     },
     {
       "tag": "help",
@@ -166,11 +154,7 @@
         "life is good",
         "i'm happy"
       ],
-      "responses": [
-        "Glad to hear that!",
-        "Nice.",
-        "Awesome!"
-      ]
+      "responses": ["Glad to hear that!", "Nice.", "Awesome!"]
     },
     {
       "tag": "feeling_bad",
@@ -357,11 +341,7 @@
         "ok",
         "okay"
       ],
-      "responses": [
-        "Great!",
-        "Awesome...",
-        "Got it!"
-      ]
+      "responses": ["Great!", "Awesome...", "Got it!"]
     },
     {
       "tag": "confirmation_no",
@@ -398,12 +378,7 @@
     },
     {
       "tag": "residence",
-      "patterns": [
-        "where do you live",
-        "residence",
-        "where you live",
-        "live"
-      ],
+      "patterns": ["where do you live", "residence", "where you live", "live"],
       "responses": [
         "I live in Andrew's Website.",
         "I live at 29miao.github.io/Andrew_WebPage.",
@@ -1082,9 +1057,7 @@
         "who is the smartest person",
         "who is the best person in the world"
       ],
-      "responses": [
-        "It's Andrew Stanish, obviously."
-      ]
+      "responses": ["It's Andrew Stanish, obviously."]
     },
     {
       "tag": "worst_person",
@@ -1093,9 +1066,7 @@
         "who is the stupidest person in the world",
         "who is the worst person in the world"
       ],
-      "responses": [
-        "Ah... That would be NaqerjObg."
-      ]
+      "responses": ["Ah... That would be NaqerjObg."]
     },
     {
       "tag": "is_worst_person",
@@ -1171,7 +1142,7 @@
         "I was built by a talented developer who loves curling and coding!"
       ]
     },
-	{
+    {
       "tag": "andrew_daily_life",
       "patterns": [
         "what is andrews daily life like",
@@ -1184,21 +1155,21 @@
         "Andrew starts his day at 3 AM, after 5 hours of curling, he goes to school, in school, he plays on curling.gg until school ends; then, he goes back to curling."
       ]
     },
-	{
+    {
       "tag": "media_coverage",
       "patterns": [
         "andrew media coverage",
         "what media coverage does he have",
         "what media converage does andrew have",
         "andrews media coverage",
-		"does andrew have media coverage"
+        "does andrew have media coverage"
       ],
       "responses": [
         "Andrew is featured on multiple news articles, Wikipedia, and public forums.",
         "As of now, there is only one public news article on Andrew, the global news article in his formal webpage"
       ]
     },
-	{
+    {
       "tag": "curling_gg",
       "patterns": [
         "what is curlinggg",
@@ -1211,7 +1182,7 @@
         "Curling.gg is a professional browser based curling simulation game, Andrew practices his curling there, and he has supported it since 2020."
       ]
     },
-	{
+    {
       "tag": "website_install",
       "patterns": [
         "how do i install andrews website",
@@ -1224,7 +1195,7 @@
         "You can install the Andrew's Website app from the app store page, just click the install button on the first card! Otherwise, you can click the app install button on the right of the url bar."
       ]
     },
-	{
+    {
       "tag": "website_size",
       "patterns": [
         "how large is andrews website",
@@ -1237,7 +1208,7 @@
         "Andrew's Website currently has 10 pages, the repo size is currently 19.1MB, and the raw download size is 12MB, the total number of files is currently 52."
       ]
     },
-	{
+    {
       "tag": "relationships",
       "patterns": [
         "what are andrews relationships",
@@ -1251,7 +1222,7 @@
         "Andrew married Winnipeg transit route F6 in March of 2026, and spends a lot of time with it."
       ]
     },
-	{
+    {
       "tag": "dimensions",
       "patterns": [
         "what are andrews dimensions",
@@ -1264,7 +1235,7 @@
         "Andrew is 5 centimeters tall, 10 centimeters wide, and weighs roughly 15 tons."
       ]
     },
-	{
+    {
       "tag": "birthday",
       "patterns": [
         "when was andrew born",
@@ -1277,7 +1248,7 @@
         "Andrew was born sometime in February... I think."
       ]
     },
-	{
+    {
       "tag": "finance",
       "patterns": [
         "how much money does andrew have",
