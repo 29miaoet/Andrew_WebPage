@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   background: linear-gradient(to bottom right, #f0f4ff, #ffffff);
   color: #1f2937;
   line-height: 1.6;
@@ -12,7 +12,7 @@ body {
   background: #ffffff;
   padding: 50px;
   border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .header {
@@ -116,10 +116,9 @@ a:hover {
   margin: 6px 0;
 }
 
-footer{
-  text-align:center;
-  margin-top:40px;
-  font-size:0.85rem;
-  color:#6b7280;
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #6b7280;
 }
-

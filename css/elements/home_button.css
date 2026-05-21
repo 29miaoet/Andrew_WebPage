@@ -34,7 +34,9 @@
   transform: translateX(-6px);
   pointer-events: none;
 
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
   white-space: nowrap;
 }
 
@@ -59,9 +61,7 @@
   transform: scale(1.05);
 }
 
-
 .mini-home-btn:active {
   text-decoration: none;
   transform: scale(0.95);
 }
-
