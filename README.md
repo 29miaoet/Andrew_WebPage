@@ -224,14 +224,18 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
 - ![Release](https://img.shields.io/github/v/release/29miaoet/Andrew_WebPage)
 - ![License](https://img.shields.io/badge/license-MIT-green)
 - ![Deployed](https://img.shields.io/badge/deployed-GitHub%20Pages-orange)
+- ![Website status](https://img.shields.io/website?url=https://29miaoet.github.io/Andrew_WebPage/)
 - ![Repo size](https://img.shields.io/github/repo-size/29miaoet/Andrew_WebPage)
+- ![Total commits](https://img.shields.io/github/commit-activity/t/29miaoet/Andrew_WebPage)
 - ![Last commit](https://img.shields.io/github/last-commit/29miaoet/Andrew_WebPage)
+- ![Average commit activity](https://img.shields.io/github/commit-activity/m/29miaoet/Andrew_WebPage)
 - ![Language count](https://img.shields.io/github/languages/count/29miaoet/Andrew_WebPage)
 - ![Top language](https://img.shields.io/github/languages/top/29miaoet/Andrew_WebPage)
 - ![Issues](https://img.shields.io/github/issues/29miaoet/Andrew_WebPage)
 - ![Closed issues](https://img.shields.io/github/issues-closed/29miaoet/Andrew_WebPage)
 - ![Pull requests](https://img.shields.io/github/issues-pr/29miaoet/Andrew_WebPage)
 - ![Closed Pull requests](https://img.shields.io/github/issues-pr-closed/29miaoet/Andrew_WebPage)
+- ![Contributers](https://img.shields.io/github/contributors/29miaoet/Andrew_WebPage)
 
 ## Utilized Tools & Services
 
