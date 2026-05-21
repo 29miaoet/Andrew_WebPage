@@ -6,10 +6,10 @@ on:
   workflow_dispatch:
     inputs:
       prev_version:
-        description: 'Previous version'
+        description: "Previous version"
         required: true
       new_version:
-        description: 'New version'
+        description: "New version"
         required: true
 
 permissions:
