@@ -255,23 +255,38 @@ h1 {
 
 /* Dropdown menu */
 .dropdown {
-  display: none;
   position: absolute;
   top: 70px;
   left: 10px;
   background: #f0f0f0;
   min-width: 120px;
   text-align: left;
+  border-radius: 5px;
+  padding: 5px;
+  opacity: 0;
+  transform: translateY(-15px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
 }
 
 .dropdown.open {
-  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-/* Links styling */
+/* Links and list styling */
+.dropdown ul {
+  list-style-type: none;
+}
+
 .dropdown ul li a {
   display: block;
-  padding: 2px 12px;
+  padding: 2px 5px;
+  margin: 7px;
   text-decoration: none;
   color: #222;
   font-weight: 380;
