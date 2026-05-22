@@ -58,6 +58,7 @@ suggestions for contribution.
 - New files or folders should be organized in the same fashion as the existing structure.
 - Prefer simple solutions over complex or complicated ones.
 - Prefer functional solutions over simple ones.
+- Use LF line returns instead of CRLF or CR whenever possible.
 
 ### Project specific guidelines
 
