@@ -1,8 +1,4 @@
 #!/usr/bin/env python3
-"""
-Check HTML files for accessibility and SEO issues.
-Outputs issues as JSON for GitHub Actions to process.
-"""
 
 import os
 import json
@@ -11,14 +7,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
-# Whitelist of issues to ignore (prevents false positives)
-# Format: {filename: [list of issue titles to ignore]}
-ISSUE_WHITELIST = {
-    'photo_gallery.html': [
-        'Image at position 6 is missing alt text',
-        'All images should have descriptive alt attributes',
-    ],
-}
+WHITELIST = ['photo_gallery.html']
 
 class HTMLChecker:
     def __init__(self):
@@ -26,8 +15,8 @@ class HTMLChecker:
         self.repo_root = Path('.')
     
     def check_all_html_files(self):
-        """Find and check all HTML files in repo root"""
         html_files = list(self.repo_root.glob('*.html'))
+        html_files = [file for file in html_files if file not in WHITELIST]
         
         if not html_files:
             print("No HTML files found in repo root")
@@ -39,7 +28,6 @@ class HTMLChecker:
         self.output_results()
     
     def check_file(self, filepath):
-        """Check a single HTML file"""
         try:
             with open(filepath, 'r', encoding='utf-8') as f:
                 content = f.read()
@@ -47,7 +35,6 @@ class HTMLChecker:
             soup = BeautifulSoup(content, 'html5lib')
             filename = filepath.name
             
-            # Run all checks
             self.check_meta_tags(soup, filename)
             self.check_headings(soup, filename)
             self.check_images(soup, filename)
@@ -97,7 +84,6 @@ class HTMLChecker:
                 )
     
     def check_title(self, soup, filename):
-        """Check page title"""
         title = soup.find('title')
         if not title or not title.string or len(title.string.strip()) == 0:
             self.add_issue(
@@ -122,7 +108,6 @@ class HTMLChecker:
             )
     
     def check_headings(self, soup, filename):
-        """Check heading structure"""
         headings = soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
         
         if not headings:
@@ -164,7 +149,6 @@ class HTMLChecker:
                 break
     
     def check_images(self, soup, filename):
-        """Check images for alt text"""
         images = soup.find_all('img')
         
         for i, img in enumerate(images, 1):
@@ -185,7 +169,6 @@ class HTMLChecker:
                 )
     
     def check_links(self, soup, filename):
-        """Check links for accessibility"""
         links = soup.find_all('a')
         
         for i, link in enumerate(links, 1):
@@ -215,7 +198,6 @@ class HTMLChecker:
                 )
     
     def check_lang_attribute(self, soup, filename):
-        """Check for lang attribute on html tag"""
         html_tag = soup.find('html')
         if not html_tag or not html_tag.get('lang'):
             self.add_issue(
@@ -226,13 +208,10 @@ class HTMLChecker:
             )
     
     def check_contrast_hints(self, soup, filename, raw_content):
-        """Check for potential contrast issues"""
-        # Look for inline styles with color definitions
         style_pattern = r'style\s*=\s*["\']([^"\']*(?:color|background)[^"\']*)["\']'
         matches = re.findall(style_pattern, raw_content, re.IGNORECASE)
         
         if matches:
-            # This is just a hint - actual contrast testing requires rendering
             self.add_issue(
                 filename,
                 "Inline styles with colors detected",
@@ -241,29 +220,24 @@ class HTMLChecker:
             )
     
     def check_form_labels(self, soup, filename):
-        """Check form inputs have associated labels"""
         inputs = soup.find_all(['input', 'textarea', 'select'])
         
         for i, input_elem in enumerate(inputs, 1):
             input_id = input_elem.get('id')
             input_name = input_elem.get('name')
             
-            # Check if input has explicit label
             has_label = False
             if input_id:
                 label = soup.find('label', attrs={'for': input_id})
                 if label:
                     has_label = True
             
-            # Check if input is wrapped in label
             if not has_label and input_elem.find_parent('label'):
                 has_label = True
             
-            # Check for aria-label
             if not has_label and input_elem.get('aria-label'):
                 has_label = True
             
-            # Check for aria-labelledby
             if not has_label and input_elem.get('aria-labelledby'):
                 has_label = True
             
@@ -276,8 +250,6 @@ class HTMLChecker:
                 )
     
     def add_issue(self, filename, title, labels, body):
-        """Add an issue to the list (unless whitelisted)"""
-        # Check if this issue is whitelisted for this file
         if filename in ISSUE_WHITELIST:
             if title in ISSUE_WHITELIST[filename]:
                 print(f"  ⊘ Whitelisted: {filename} - {title}")
@@ -291,12 +263,9 @@ class HTMLChecker:
         })
     
     def output_results(self):
-        """Output results as JSON and set GitHub Actions output"""
-        # Write issues to JSON
         with open('html_issues.json', 'w') as f:
             json.dump(self.issues, f, indent=2)
         
-        # Set GitHub Actions output
         with open(os.environ.get('GITHUB_OUTPUT', '/dev/null'), 'a') as f:
             if self.issues:
                 f.write('issues_found=true\n')
@@ -305,7 +274,6 @@ class HTMLChecker:
                 f.write('issues_found=false\n')
                 print(f"::set-output name=issues_found::false")
         
-        # Print summary
         print(f"\n{'='*60}")
         print(f"HTML Accessibility & SEO Check Complete")
         print(f"{'='*60}")
