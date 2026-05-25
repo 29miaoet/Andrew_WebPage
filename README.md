@@ -96,6 +96,11 @@ Andrew_WebPage/
 │   ├── service_worker_register.js
 │   └── signature_page.js
 │
+├── tools/
+│   ├── bulk_action.ps1
+│   ├── test_connection.ps1
+│   └── mass_replace.py
+│
 ├── Andrew_Stanish.html
 ├── Andrew_Stanish_Fake.html
 ├── Andrew_transit.html
