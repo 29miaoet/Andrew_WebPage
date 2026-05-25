@@ -39,7 +39,7 @@ $files = Get-ChildItem -Path $CurrentPath -File -Filter $Pattern -ErrorAction Si
 Write-Host "Found $($files.Count) files"
 
 foreach ($file in $files) {
-    Write-Host "Processing: $($file.FullName)"
+    Write-Host "Processing: $file"
 
     try {
         & $Actions $file
