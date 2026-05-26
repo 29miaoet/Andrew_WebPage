@@ -46,9 +46,7 @@ Andrew_WebPage/
 │   │   ├── files-prettify.yml
 │   │   └── replace-version.yml
 │   │
-│   ├── ISSUE_TEMPLATE/
-│   │   └── issue_template.md
-│   │
+│   ├── issue_template.md
 │   ├── pull_request_template.md
 │   ├── CODE_OF_CONDUCT.md
 │   ├── CONTRIBUTING.md
