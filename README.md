@@ -268,6 +268,7 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
 **✓** [Git](https://git-scm.com/)  
 **✓** [Formspree](https://formspree.io/)  
 **✓** [Supabase](https://supabase.com/)  
+**✓** [npm](https://www.npmjs.com/)  
 **✓** [MiniSearch](https://lucaong.github.io/minisearch/)  
 **✓** [transformers.js](https://github.com/huggingface/transformers.js)  
 **✓** [Google Search Console](https://search.google.com/search-console/)  
