@@ -46,6 +46,10 @@ Andrew_WebPage/
 │   │   ├── files-prettify.yml
 │   │   └── replace-version.yml
 │   │
+│   ├── ISSUE_TEMPLATE/
+│   │   └── issue_template.md
+│   │
+│   ├── pull_request_template.md
 │   ├── CODE_OF_CONDUCT.md
 │   ├── CONTRIBUTING.md
 │   ├── SECURITY.md
@@ -269,6 +273,7 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
 **✓** [Formspree](https://formspree.io/)  
 **✓** [Supabase](https://supabase.com/)  
 **✓** [npm](https://www.npmjs.com/)  
+**✓** [prettier](https://www.npmjs.com/package/prettier)  
 **✓** [MiniSearch](https://lucaong.github.io/minisearch/)  
 **✓** [transformers.js](https://github.com/huggingface/transformers.js)  
 **✓** [Google Search Console](https://search.google.com/search-console/)  
