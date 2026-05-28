@@ -1,0 +1,91 @@
+name: Bug / Issue Report
+description: Report a bug, accessibility issue, or other problem with the site.
+title: "[Issue]: "
+labels: []
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Issue Description
+      description: A clear and concise description of the issue.
+      placeholder: Describe the issue...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Type of Issue
+      description: Select the category that best fits your issue.
+      options:
+        - Bug
+        - Accessibility
+        - SEO
+        - Best Practices
+        - Documentation
+        - Performance
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce (if applicable)
+      description: Step-by-step instructions to reproduce the issue.
+      placeholder: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / Logs
+      description: If applicable, add screenshots or logs to help explain the problem.
+      placeholder: Paste logs or drag and drop screenshots here...
+    validations:
+      required: false
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      placeholder: e.g. Windows 11, macOS Ventura, Ubuntu 22.04
+    validations:
+      required: false
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser (if applicable)
+      placeholder: e.g. Chrome 124, Firefox 115, Safari 17
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: e.g. 1.2.3
+    validations:
+      required: false
+
+  - type: input
+    id: device
+    attributes:
+      label: Device (if applicable)
+      placeholder: e.g. iPhone 15, Samsung Galaxy S24, Desktop
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any other context, ideas, or notes about the issue.
+      placeholder: Anything else worth mentioning...
+    validations:
+      required: false
