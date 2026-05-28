@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       file_path:
-        description: 'File path to validate (e.g., src/index.html)'
+        description: 'File path to validate (e.g., js/index.js)'
         required: false
 
 permissions:
@@ -63,17 +63,17 @@ jobs:
           echo "$FILES"
 
       - name: Make validation script executable
-        run: chmod +x scripts/lint_files.py
+        run: chmod +x .github/scripts/lint_files.py
 
       - name: Run file validation
         id: validation
         run: |
-          python3 scripts/lint_files.py ${{ steps.modified_files.outputs.files }} 2>&1 | tee /tmp/validation_output.txt
+          python3 .github/scripts/lint_files.py ${{ steps.modified_files.outputs.files }} 2>&1 | tee /tmp/validation_output.txt
         continue-on-error: true
 
       - name: Check validation result
         run: |
-          python3 scripts/lint_files.py ${{ steps.modified_files.outputs.files }} > /dev/null
+          python3 .github/scripts/lint_files.py ${{ steps.modified_files.outputs.files }} > /dev/null
           if [ $? -ne 0 ]; then
             echo "VALIDATION_FAILED=true" >> $GITHUB_ENV
           else
