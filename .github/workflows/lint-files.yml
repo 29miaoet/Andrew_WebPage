@@ -58,10 +58,16 @@ jobs:
             FILES=$(git diff --name-only HEAD~1 HEAD)
           fi
 
-          echo "files=$FILES" >> $GITHUB_OUTPUT
+          # Use EOF delimiter for multiline output
+          {
+            echo "files<<EOF"
+            echo "$FILES"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+          
           echo "Files to validate:"
           echo "$FILES"
-
+        
       - name: Make validation script executable
         run: chmod +x .github/scripts/lint_files.py
 
