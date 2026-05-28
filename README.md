@@ -39,14 +39,18 @@ you can check out the sections below, otherwise, enjoy your journey!
 Andrew_WebPage/
 ├── .github/
 │   ├── scripts/
+│   │   ├── lint_files.py
 │   │   └── check_html.py
 │   │
 │   ├── workflows/
 │   │   ├── accessibility-validate.yml
 │   │   ├── files-prettify.yml
+│   │   ├── lint-files.yml
 │   │   └── replace-version.yml
 │   │
-│   ├── issue_template.md
+│   ├── ISSUE_TEMPLATE/
+│   │   └── issue_template.yml
+│   │
 │   ├── pull_request_template.md
 │   ├── CODE_OF_CONDUCT.md
 │   ├── CONTRIBUTING.md
