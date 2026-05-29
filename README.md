@@ -74,6 +74,7 @@ Andrew_WebPage/
 │
 ├── data/
 │   ├── intents.json
+│   ├── commands.json
 │   ├── manifest.json
 │   ├── search_index.json
 │   └── sitemap.xml
