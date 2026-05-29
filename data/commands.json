@@ -1,0 +1,628 @@
+{
+  "commands": [
+    {
+      "tag": "download_website",
+      "patterns": [
+	    "download andrews website",
+	    "save this website for later",
+	    "i want to keep andrews website locally"
+	  ],
+      "responses": [
+	    "OK, I have triggered the download.",
+	    "The download should start any moment now.",
+		"I will download the website package."
+	  ],
+      "command": [
+        "const a = document.createElement('a');",
+        "a.href = 'https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v28.4.4.zip';",
+        "a.download = 'Andrew_Website.zip';",
+        "a.click();"
+      ]
+    },
+	{
+      "tag": "open_google",
+      "patterns": [
+	    "open google search engine",
+	    "open a search engine",
+	    "i want to search stuff",
+		"look up something for me",
+		"google"
+	  ],
+      "responses": [
+	    "Tab opened!",
+	    "Opened a new tab, Google."
+	  ],
+      "command": [
+        "window.open('https://www.google.com/', 'Google');"
+      ]
+    },
+	{
+      "tag": "open_home_page",
+      "patterns": [
+	    "send me to the home page",
+	    "send me to andrews website home",
+	    "i want to go to the index",
+		"send me home",
+		"index home page"
+	  ],
+      "responses": [
+	    "I will open a new tab and send you home.",
+	    "Sending you to Andrew's Website home.",
+		"Returning home..."
+	  ],
+      "command": [
+        "window.open('https://29miaoet.github.io/Andrew_WebPage/');"
+      ]
+    },
+	{
+      "tag": "open_andrew_stanish_page",
+      "patterns": [
+        "open the andrew stanish page",
+        "take me to andrew stanish",
+        "show me the andrew stanish html",
+        "go to andrew stanish",
+        "andrew stanish page"
+      ],
+      "responses": [
+        "Opening the Andrew Stanish page now.",
+        "Taking you to Andrew Stanish.",
+        "Navigating to Andrew Stanish..."
+      ],
+      "command": [
+        "window.open('https://29miaoet.github.io/Andrew_WebPage/Andrew_Stanish.html');"
+      ]
+    },
+    {
+      "tag": "open_andrew_stanish_fake_page",
+      "patterns": [
+        "open the fake andrew stanish page",
+        "take me to the fake andrew page",
+        "show me andrew stanish fake",
+        "go to the fake version",
+        "andrew stanish fake page"
+      ],
+      "responses": [
+        "Opening the fake Andrew Stanish page.",
+        "Taking you to the Andrew Stanish Fake page.",
+        "Navigating to Andrew Stanish Fake..."
+      ],
+      "command": [
+        "window.open('https://29miaoet.github.io/Andrew_WebPage/Andrew_Stanish_Fake.html');"
+      ]
+    },
+    {
+      "tag": "open_transit_page",
+      "patterns": [
+        "open the transit page",
+        "take me to andrew transit",
+        "show me the transit page",
+        "go to the bus transit page",
+        "andrew transit"
+      ],
+      "responses": [
+        "Opening the Andrew Transit page.",
+        "Taking you to the transit page.",
+        "Navigating to Andrew Transit..."
+      ],
+      "command": [
+        "window.open('https://29miaoet.github.io/Andrew_WebPage/Andrew_transit.html');"
+      ]
+    },
+    {
+      "tag": "open_bot_page",
+      "patterns": [
+        "open the bot page",
+        "take me to the chatbot page",
+        "go to andrew bot",
+        "show me the bot html",
+        "andrew bot page"
+      ],
+      "responses": [
+        "Opening the Andrew Bot page.",
+        "Taking you to the bot page.",
+        "Navigating to Andrew Bot..."
+      ],
+      "command": [
+        "window.open('https://29miaoet.github.io/Andrew_WebPage/andrew_bot.html');"
+      ]
+    },
+    {
+      "tag": "open_file_download_page",
+      "patterns": [
+        "open the file download page",
+        "take me to file downloads",
+        "show me the downloads page",
+        "go to file download",
+        "i want to download files"
+      ],
+      "responses": [
+        "Opening the file download page.",
+        "Taking you to the downloads page.",
+        "Navigating to file downloads..."
+      ],
+      "command": [
+        "window.open('https://29miaoet.github.io/Andrew_WebPage/file_download.html');"
+      ]
+    },
+    {
+      "tag": "open_form_page",
+      "patterns": [
+        "open the form page",
+        "take me to the form",
+        "show me the contact form",
+        "go to the form",
+        "i want to fill out a form"
+      ],
+      "responses": [
+        "Opening the form page.",
+        "Taking you to the form.",
+        "Navigating to the form page..."
+      ],
+      "command": [
+        "window.open('https://29miaoet.github.io/Andrew_WebPage/form.html');"
+      ]
+    },
+    {
+      "tag": "open_photo_gallery_page",
+      "patterns": [
+        "open the photo gallery",
+        "take me to the gallery",
+        "show me andrews photos",
+        "go to photo gallery",
+        "i want to see the pictures"
+      ],
+      "responses": [
+        "Opening the photo gallery.",
+        "Taking you to the gallery.",
+        "Navigating to the photo gallery..."
+      ],
+      "command": [
+        "window.open('https://29miaoet.github.io/Andrew_WebPage/photo_gallery.html');"
+      ]
+    },
+    {
+      "tag": "open_search_engine_page",
+      "patterns": [
+        "open the search engine",
+        "take me to the search page",
+        "show me the search engine",
+        "go to the search page",
+        "i want to search the site"
+      ],
+      "responses": [
+        "Opening the search engine page.",
+        "Taking you to the search page.",
+        "Navigating to the search engine..."
+      ],
+      "command": [
+        "window.open('https://29miaoet.github.io/Andrew_WebPage/search_engine.html');"
+      ]
+    },
+    {
+      "tag": "open_signature_page",
+      "patterns": [
+        "open the signature page",
+        "take me to the signature page",
+        "show me the signature html",
+        "go to signature page",
+        "i want to see the signature"
+      ],
+      "responses": [
+        "Opening the signature page.",
+        "Taking you to the signature page.",
+        "Navigating to the signature page..."
+      ],
+      "command": [
+        "window.open('https://29miaoet.github.io/Andrew_WebPage/signature_page.html');"
+      ]
+    },
+    {
+      "tag": "download_index_zip",
+      "patterns": [
+        "download the index zip",
+        "give me the index zip file",
+        "i want to download index zip",
+        "save the index zip",
+        "download index.zip"
+      ],
+      "responses": [
+        "Downloading the index zip file now.",
+        "Starting the index.zip download.",
+        "Fetching index.zip for you..."
+      ],
+      "command": [
+        "const a = document.createElement('a');",
+        "a.href = 'https://29miaoet.github.io/Andrew_WebPage/files/index.zip';",
+        "a.download = 'index.zip';",
+        "a.click();"
+      ]
+    },
+    {
+      "tag": "download_andrew_webpage_zip",
+      "patterns": [
+        "download the andrew webpage zip",
+        "give me the full website zip",
+        "i want to download the whole site",
+        "save the andrew webpage zip",
+        "download Andrew_Webpage.zip"
+      ],
+      "responses": [
+        "Downloading the Andrew Webpage zip now.",
+        "Starting the Andrew_Webpage.zip download.",
+        "Fetching the full site zip for you..."
+      ],
+      "command": [
+        "const a = document.createElement('a');",
+        "a.href = 'https://29miaoet.github.io/Andrew_WebPage/files/Andrew_Webpage.zip';",
+        "a.download = 'Andrew_Webpage.zip';",
+        "a.click();"
+      ]
+    },
+    {
+      "tag": "open_readme",
+      "patterns": [
+        "show me the readme",
+        "open the readme file",
+        "take me to the readme",
+        "i want to read the readme",
+        "show me the project readme"
+      ],
+      "responses": [
+        "Opening the README on GitHub.",
+        "Taking you to the README.",
+        "Navigating to the README..."
+      ],
+      "command": [
+        "window.open('https://github.com/29miaoet/Andrew_WebPage/blob/main/README.md');"
+      ]
+    },
+    {
+      "tag": "open_license",
+      "patterns": [
+        "show me the license",
+        "open the license file",
+        "what is the license",
+        "take me to the license",
+        "i want to see the project license"
+      ],
+      "responses": [
+        "Opening the LICENSE file on GitHub.",
+        "Taking you to the license.",
+        "Navigating to the LICENSE..."
+      ],
+      "command": [
+        "window.open('https://github.com/29miaoet/Andrew_WebPage/blob/main/LICENSE');"
+      ]
+    },
+	{
+      "tag": "refresh_page",
+      "patterns": [
+        "refresh the page",
+        "reload the page",
+        "can you refresh this",
+        "refresh please",
+        "reload please"
+      ],
+      "responses": [
+        "Refreshing the page now.",
+        "Reloading...",
+        "Sure, refreshing the page!"
+      ],
+      "command": [
+        "window.location.reload();"
+      ]
+    },
+    {
+      "tag": "go_back",
+      "patterns": [
+        "go back",
+        "take me back",
+        "previous page",
+        "go to the last page",
+        "navigate back"
+      ],
+      "responses": [
+        "Going back.",
+        "Navigating to the previous page.",
+        "Heading back..."
+      ],
+      "command": [
+        "window.history.back();"
+      ]
+    },
+    {
+      "tag": "go_forward",
+      "patterns": [
+        "go forward",
+        "next page",
+        "navigate forward",
+        "go to the next page",
+        "move forward"
+      ],
+      "responses": [
+        "Going forward.",
+        "Navigating to the next page.",
+        "Heading forward..."
+      ],
+      "command": [
+        "window.history.forward();"
+      ]
+    },
+    {
+      "tag": "print_page",
+      "patterns": [
+        "print this page",
+        "open print dialog",
+        "i want to print",
+        "print the page",
+        "can you print this"
+      ],
+      "responses": [
+        "Opening the print dialog.",
+        "Sure, opening print now.",
+        "Launching the print dialog..."
+      ],
+      "command": [
+        "window.print();"
+      ]
+    },
+    {
+      "tag": "scroll_to_top",
+      "patterns": [
+        "scroll to the top",
+        "take me to the top",
+        "go to the top of the page",
+        "back to top",
+        "scroll up to the top"
+      ],
+      "responses": [
+        "Scrolling to the top.",
+        "Taking you to the top of the page.",
+        "Heading to the top..."
+      ],
+      "command": [
+        "window.scrollTo({ top: 0, behavior: 'smooth' });"
+      ]
+    },
+    {
+      "tag": "scroll_to_bottom",
+      "patterns": [
+        "scroll to the bottom",
+        "take me to the bottom",
+        "go to the bottom of the page",
+        "scroll down to the bottom",
+        "jump to the bottom"
+      ],
+      "responses": [
+        "Scrolling to the bottom.",
+        "Taking you to the bottom of the page.",
+        "Heading to the bottom..."
+      ],
+      "command": [
+        "window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });"
+      ]
+    },
+    {
+      "tag": "copy_page_url",
+      "patterns": [
+        "copy the page url",
+        "copy this url",
+        "copy the link to this page",
+        "i want to copy the url",
+        "copy current url"
+      ],
+      "responses": [
+        "Copied the page URL to your clipboard.",
+        "Page URL copied!",
+        "Done, the URL is in your clipboard."
+      ],
+      "command": [
+        "navigator.clipboard.writeText(window.location.href);"
+      ]
+    },
+    {
+      "tag": "increase_font_size",
+      "patterns": [
+        "make the text bigger",
+        "increase font size",
+        "i cant read the text",
+        "make the font larger",
+        "bigger text please"
+      ],
+      "responses": [
+        "Increasing the font size.",
+        "Making the text bigger.",
+        "Font size increased!"
+      ],
+      "command": [
+        "const current = parseFloat(getComputedStyle(document.body).fontSize);",
+        "document.body.style.fontSize = (current + 2) + 'px';"
+      ]
+    },
+    {
+      "tag": "decrease_font_size",
+      "patterns": [
+        "make the text smaller",
+        "decrease font size",
+        "reduce the font size",
+        "make the font smaller",
+        "smaller text please"
+      ],
+      "responses": [
+        "Decreasing the font size.",
+        "Making the text smaller.",
+        "Font size decreased!"
+      ],
+      "command": [
+        "const current = parseFloat(getComputedStyle(document.body).fontSize);",
+        "document.body.style.fontSize = Math.max(10, current - 2) + 'px';"
+      ]
+    },
+    {
+      "tag": "reset_font_size",
+      "patterns": [
+        "reset the font size",
+        "restore default text size",
+        "reset text size",
+        "default font size",
+        "put the font back to normal"
+      ],
+      "responses": [
+        "Font size reset to default.",
+        "Restoring the default text size.",
+        "Text size back to normal!"
+      ],
+      "command": [
+        "document.body.style.fontSize = '';"
+      ]
+    },
+    {
+      "tag": "request_notifications",
+      "patterns": [
+        "enable notifications",
+        "turn on notifications",
+        "i want to get notifications",
+        "allow notifications",
+        "request notification permission"
+      ],
+      "responses": [
+        "Requesting notification permission.",
+        "Asking for notification access.",
+        "Prompting for notification permission..."
+      ],
+      "command": [
+        "Notification.requestPermission().then(p => console.log('Notification permission:', p));"
+      ]
+    },
+    {
+      "tag": "enter_fullscreen",
+      "patterns": [
+        "go fullscreen",
+        "enter fullscreen",
+        "make the page fullscreen",
+        "fullscreen mode",
+        "expand to fullscreen"
+      ],
+      "responses": [
+        "Entering fullscreen.",
+        "Going fullscreen now.",
+        "Switching to fullscreen mode..."
+      ],
+      "command": [
+        "document.documentElement.requestFullscreen().catch(e => console.error(e));"
+      ]
+    },
+    {
+      "tag": "exit_fullscreen",
+      "patterns": [
+        "exit fullscreen",
+        "leave fullscreen",
+        "get out of fullscreen",
+        "close fullscreen",
+        "go back to normal view"
+      ],
+      "responses": [
+        "Exiting fullscreen.",
+        "Leaving fullscreen mode.",
+        "Switching back to normal view..."
+      ],
+      "command": [
+        "if (document.fullscreenElement) document.exitFullscreen();"
+      ]
+    },
+    {
+      "tag": "clear_local_storage",
+      "patterns": [
+        "clear local storage",
+        "wipe local storage",
+        "clear all saved data",
+        "reset local storage",
+        "delete all site data"
+      ],
+      "responses": [
+        "Local storage cleared.",
+        "All saved site data has been wiped.",
+        "Local storage has been reset."
+      ],
+      "command": [
+        "localStorage.clear();"
+      ]
+    },
+    {
+      "tag": "clear_chat_history",
+      "patterns": [
+        "clear the chat history",
+        "wipe the chat",
+        "delete chat history",
+        "clear my chat",
+        "reset the chat history"
+      ],
+      "responses": [
+        "Chat history cleared.",
+        "Wiping the chat history now.",
+        "Done, chat history has been deleted."
+      ],
+      "command": [
+        "localStorage.removeItem('andrewbot_chat_history');",
+        "document.getElementById('chat').innerHTML = '';"
+      ]
+    },
+    {
+      "tag": "show_device_info",
+      "patterns": [
+        "show my device info",
+        "what browser am i using",
+        "tell me my user agent",
+        "what is my screen size",
+        "show browser information"
+      ],
+      "responses": [
+        "Here is your device info:",
+        "Fetching your browser details...",
+        "Sure, here is what I can see:"
+      ],
+      "command": [
+        "const info = `Browser: ${navigator.userAgent}\\nScreen: ${screen.width}x${screen.height}\\nLanguage: ${navigator.language}`;",
+        "alert(info);"
+      ]
+    },
+    {
+      "tag": "play_video",
+      "patterns": [
+        "play the video",
+        "start the video",
+        "resume the video",
+        "play video on the page",
+        "can you play the video"
+      ],
+      "responses": [
+        "Playing the video.",
+        "Starting the video now.",
+        "Resuming the video..."
+      ],
+      "command": [
+        "const v = document.querySelector('video');",
+        "if (v) v.play(); else console.warn('No video found on this page.');"
+      ]
+    },
+    {
+      "tag": "pause_video",
+      "patterns": [
+        "pause the video",
+        "stop the video",
+        "can you pause the video",
+        "pause video on the page",
+        "halt the video"
+      ],
+      "responses": [
+        "Pausing the video.",
+        "Video paused.",
+        "Sure, pausing the video now."
+      ],
+      "command": [
+        "const v = document.querySelector('video');",
+        "if (v) v.pause(); else console.warn('No video found on this page.');"
+      ]
+    }
+  ]
+}
