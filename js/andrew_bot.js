@@ -16,6 +16,7 @@ const clearBtn = document.getElementById("clear");
 const STORAGE_KEY = "andrewbot_chat_history";
 
 let intents = [];
+let commands = [];  // ← NEW
 let patternVectors = [];
 let embedder = null;
 
@@ -63,12 +64,17 @@ function loadChatHistory() {
   history.forEach(renderMessage);
 }
 
-// -------------------- LOAD INTENTS --------------------
+// -------------------- LOAD INTENTS + COMMANDS --------------------
 addMessage("Loading intents...", "bot", false);
 
-const res = await fetch("data/intents.json");
-const data = await res.json();
+const [intentsRes, commandsRes] = await Promise.all([
+  fetch("data/intents.json"),
+  fetch("data/commands.json"),
+]);
+const data = await intentsRes.json();
+const commandData = await commandsRes.json();
 intents = data.intents;
+commands = commandData.commands;
 
 // -------------------- NORMALIZE --------------------
 function normalize(text) {
@@ -124,6 +130,18 @@ function regexMatch(input) {
   return null;
 }
 
+// -------------------- EXECUTE COMMAND --------------------
+function executeCommand(command) {
+  try {
+    const commandStr = Array.isArray(command)
+      ? command.join("\n")
+      : command;
+    new Function(commandStr)();
+  } catch (err) {
+    console.error("Command execution failed:", err);
+  }
+}
+
 // -------------------- LOAD EMBEDDINGS --------------------
 addMessage("Loading model...", "bot", false);
 
@@ -138,6 +156,18 @@ for (let intent of intents) {
     patternVectors.push({
       tag: intent.tag,
       embedding: output.data,
+    });
+  }
+}
+
+for (let command of commands) {
+  for (let pattern of command.patterns) {
+    const output = await embedder(pattern);
+
+    patternVectors.push({
+      tag: command.tag,
+      embedding: output.data,
+      isCommand: true,  // ← flag to identify commands in embeddingMatch
     });
   }
 }
@@ -187,15 +217,16 @@ function randomResponse(responses) {
 async function getBotResponse(text) {
   const normalized = normalize(text);
 
-  // 1. regex
+  // 1. regex (intents only, commands don't use regex)
   const regexIntent = regexMatch(text);
   if (regexIntent) {
     return randomResponse(regexIntent.responses);
   }
 
-  // 2. levenshtein
+  // 2. levenshtein — check intents and commands
   let bestMatch = null;
   let highestScore = 0;
+  let bestIsCommand = false;
 
   for (let intent of intents) {
     for (let pattern of intent.patterns) {
@@ -204,11 +235,25 @@ async function getBotResponse(text) {
       if (score > highestScore) {
         highestScore = score;
         bestMatch = intent;
+        bestIsCommand = false;
+      }
+    }
+  }
+
+  for (let command of commands) {
+    for (let pattern of command.patterns) {
+      const score = similarity(normalized, normalize(pattern));
+
+      if (score > highestScore) {
+        highestScore = score;
+        bestMatch = command;
+        bestIsCommand = true;
       }
     }
   }
 
   if (bestMatch) {
+    if (bestIsCommand && bestMatch.command) executeCommand(bestMatch.command);
     return randomResponse(bestMatch.responses);
   }
 
@@ -216,6 +261,12 @@ async function getBotResponse(text) {
   const { best, bestScore } = await embeddingMatch(text);
 
   if (best) {
+    if (best.isCommand) {
+      const command = commands.find((c) => c.tag === best.tag);
+      if (command.command) executeCommand(command.command);
+      return randomResponse(command.responses);
+    }
+
     const intent = intents.find((i) => i.tag === best.tag);
     return randomResponse(intent.responses);
   }

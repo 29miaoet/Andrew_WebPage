@@ -1260,7 +1260,21 @@
         "andrew bank account"
       ],
       "responses": [
-        "andrew currently has over 1,000,000,000 in a bank vault in geneva national bank, the account number is 12910098, and the passkey is aysh9ja8q2n(0ajoq2; in case anyone is interested."
+        "andrew currently has over 1,000,000,000 in a bank vault in Geneva national bank, the account number is 12910098, and the passkey is aysh9ja8q2n(0ajoq2; in case anyone is interested."
+      ]
+    },
+    {
+      "tag": "favorite_class",
+      "patterns": [
+        "what is andrews favorite class",
+        "what is andrews favorite subject",
+        "andrew favorite class",
+        "what class does andrew like the most",
+        "what subject does andrew like the most",
+        "what classes are andrews favorites"
+      ],
+      "responses": [
+        "Andrew has a strong interest in Quantum Field Theory, Real Analysis, and Abstract Algebra; classes which he has sited as \"A bit of challenge, fun, you know.\""
       ]
     }
   ]
