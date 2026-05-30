@@ -134,7 +134,7 @@ h1 {
   transform: scale(0.97);
 }
 
-/* Optional: nicer scrollbar (Chrome/Edge) */
+/* Scrollbar */
 #chat::-webkit-scrollbar {
   width: 8px;
 }
@@ -148,8 +148,21 @@ h1 {
   background: transparent;
 }
 
+/* Button container */
+.button-container {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 5px;
+    margin: 5px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* Clear chat history button */
 #clear {
-  margin: 10px auto;
+  margin: 10px;
   display: block;
   padding: 8px 14px;
   border: none;
@@ -157,6 +170,7 @@ h1 {
   background: #ff5252;
   color: white;
   font-weight: 600;
+  flex: 1;
   cursor: pointer;
   transition: 0.2s ease;
 }
@@ -165,3 +179,37 @@ h1 {
   background: #ff1744;
   transform: translateY(-1px);
 }
+
+/* Toggle buttons */
+.toggle-btn {
+  margin: 10px;
+  display: block;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  flex: 1;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.toggle-btn.active {
+  background: #69eb5f;
+  color: white;
+}
+
+.toggle-btn.active:hover {
+  background: #69e051;
+  transform: translateY(-1px);
+}
+
+.toggle-btn:not(.active) {
+  background: #ff5252;
+  color: white;
+}
+
+.toggle-btn:not(.active):hover {
+  background: #ff1744;
+  transform: translateY(-1px);
+}
+
