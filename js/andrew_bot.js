@@ -6,21 +6,31 @@ import {
 env.allowLocalModels = false;
 env.useBrowserCache = true;
 
-// -------------------- DOM --------------------
+//  Dom 
 const chat = document.getElementById("chat");
 const input = document.getElementById("input");
 const button = document.getElementById("send");
 const clearBtn = document.getElementById("clear");
+const toggleCommandsBtn = document.getElementById("toggleCommands");
+const toggleTrainingBtn = document.getElementById("toggleTraining");
 
-// -------------------- STATE --------------------
+//  Supabase config 
+const SUPABASE_URL = "https://hwmjqtydgkdifsdzvhjx.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_ZJ-LLQAbta2ePXScQdj9Mg_OnNGy51i";
+
+//  State 
 const STORAGE_KEY = "andrewbot_chat_history";
 
 let intents = [];
-let commands = [];  // ← NEW
+let commands = [];
 let patternVectors = [];
 let embedder = null;
+let commandsEnabled = true;
+let trainingEnabled = true;
+let currentUserId = null;
+let currentSessionId = null;
 
-// -------------------- STORAGE HELPERS --------------------
+//  Storage helpers 
 function getHistory() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 }
@@ -36,7 +46,7 @@ function clearHistory() {
   chat.innerHTML = "";
 }
 
-// -------------------- UI --------------------
+//  Ui 
 function addMessage(text, className, save = true) {
   const msg = {
     text,
@@ -58,13 +68,119 @@ function renderMessage(msg) {
   chat.scrollTop = chat.scrollHeight;
 }
 
-// -------------------- LOAD CHAT HISTORY --------------------
+//  Load chat history 
 function loadChatHistory() {
   const history = getHistory();
   history.forEach(renderMessage);
 }
 
-// -------------------- LOAD INTENTS + COMMANDS --------------------
+//  Toggles 
+toggleCommandsBtn.onclick = () => {
+  commandsEnabled = !commandsEnabled;
+  toggleCommandsBtn.textContent = `Commands: ${commandsEnabled ? "ON" : "OFF"}`;
+  toggleCommandsBtn.classList.toggle("active", commandsEnabled);
+};
+
+toggleTrainingBtn.onclick = () => {
+  trainingEnabled = !trainingEnabled;
+  toggleTrainingBtn.textContent = `Training: ${trainingEnabled ? "ON" : "OFF"}`;
+  toggleTrainingBtn.classList.toggle("active", trainingEnabled);
+};
+
+//  Fingerprint 
+function getFingerprint() {
+  const raw = [
+    navigator.userAgent,
+    navigator.language,
+    screen.width,
+    screen.height,
+    Intl.DateTimeFormat().resolvedOptions().timeZone,
+  ].join("|");
+
+  let hash = 0;
+  for (let i = 0; i < raw.length; i++) {
+    hash = (Math.imul(31, hash) + raw.charCodeAt(i)) | 0;
+  }
+
+  return Math.abs(hash).toString(36);
+}
+
+//  Supabase helpers 
+async function supabaseInsert(table, payload) {
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_ANON_KEY,
+        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+        "Prefer": "return=representation",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await res.json();
+    return data?.[0] ?? null;
+  } catch (err) {
+    console.error(`Supabase insert into ${table} failed:`, err);
+    return null;
+  }
+}
+
+async function supabaseUpdate(table, match, payload) {
+  try {
+    const params = new URLSearchParams(match).toString();
+    await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_ANON_KEY,
+        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+        "Prefer": "return=minimal",
+      },
+      body: JSON.stringify(payload),
+    });
+  } catch (err) {
+    console.error(`Supabase update on ${table} failed:`, err);
+  }
+}
+
+//  User + session init 
+async function initUserAndSession() {
+  const fingerprint = getFingerprint();
+
+  // upsert user by fingerprint
+  const user = await supabaseInsert("bot_users", {
+    fingerprint,
+    last_seen: new Date().toISOString(),
+  });
+
+  if (user) currentUserId = user.id;
+
+  // create a new session
+  const session = await supabaseInsert("bot_sessions", {
+    user_id: currentUserId,
+    started_at: new Date().toISOString(),
+  });
+
+  if (session) currentSessionId = session.id;
+}
+
+//  Log to supabase 
+async function logToSupabase(userMessage, botResponse, matchedTag, matchMethod) {
+  await supabaseInsert("bot_logs", {
+    user_id: currentUserId,
+    session_id: currentSessionId,
+    user_message: userMessage,
+    bot_response: botResponse,
+    matched_tag: matchedTag,
+    match_method: matchMethod,
+    commands_enabled: commandsEnabled,
+    training_enabled: trainingEnabled,
+  });
+}
+
+//  Load intents + commands 
 addMessage("Loading intents...", "bot", false);
 
 const [intentsRes, commandsRes] = await Promise.all([
@@ -76,7 +192,7 @@ const commandData = await commandsRes.json();
 intents = data.intents;
 commands = commandData.commands;
 
-// -------------------- NORMALIZE --------------------
+//  Normalize 
 function normalize(text) {
   return text
     .toLowerCase()
@@ -85,7 +201,7 @@ function normalize(text) {
     .trim();
 }
 
-// -------------------- LEVENSHTEIN --------------------
+//  Levenshtein 
 function levenshtein(a, b) {
   const matrix = [];
 
@@ -114,7 +230,7 @@ function similarity(a, b) {
   return 1 - distance / Math.max(a.length, b.length);
 }
 
-// -------------------- REGEX MATCH --------------------
+//  Regex match 
 function regexMatch(input) {
   const text = normalize(input);
 
@@ -130,7 +246,7 @@ function regexMatch(input) {
   return null;
 }
 
-// -------------------- EXECUTE COMMAND --------------------
+//  Execute command 
 function executeCommand(command) {
   try {
     const commandStr = Array.isArray(command)
@@ -142,7 +258,7 @@ function executeCommand(command) {
   }
 }
 
-// -------------------- LOAD EMBEDDINGS --------------------
+//  Load embeddings 
 addMessage("Loading model...", "bot", false);
 
 embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
@@ -167,14 +283,14 @@ for (let command of commands) {
     patternVectors.push({
       tag: command.tag,
       embedding: output.data,
-      isCommand: true,  // ← flag to identify commands in embeddingMatch
+      isCommand: true,
     });
   }
 }
 
 addMessage("Bot ready!", "bot", false);
 
-// -------------------- COSINE SIMILARITY --------------------
+//  Cosine similarity 
 function cosine(a, b) {
   let dot = 0,
     normA = 0,
@@ -189,7 +305,7 @@ function cosine(a, b) {
   return dot / (Math.sqrt(normA) * Math.sqrt(normB));
 }
 
-// -------------------- EMBEDDING MATCH --------------------
+//  Embedding match 
 async function embeddingMatch(text) {
   const output = await embedder(text);
   const userVec = output.data;
@@ -209,7 +325,7 @@ async function embeddingMatch(text) {
   return { best, bestScore };
 }
 
-// -------------------- BOT LOGIC --------------------
+//  Bot logic 
 function randomResponse(responses) {
   return responses[Math.floor(Math.random() * responses.length)];
 }
@@ -217,13 +333,13 @@ function randomResponse(responses) {
 async function getBotResponse(text) {
   const normalized = normalize(text);
 
-  // 1. regex (intents only, commands don't use regex)
+  // 1. regex
   const regexIntent = regexMatch(text);
   if (regexIntent) {
-    return randomResponse(regexIntent.responses);
+    return { response: randomResponse(regexIntent.responses), tag: regexIntent.tag, method: "regex" };
   }
 
-  // 2. levenshtein — check intents and commands
+  // 2. levenshtein
   let bestMatch = null;
   let highestScore = 0;
   let bestIsCommand = false;
@@ -231,7 +347,6 @@ async function getBotResponse(text) {
   for (let intent of intents) {
     for (let pattern of intent.patterns) {
       const score = similarity(normalized, normalize(pattern));
-
       if (score > highestScore) {
         highestScore = score;
         bestMatch = intent;
@@ -240,21 +355,22 @@ async function getBotResponse(text) {
     }
   }
 
-  for (let command of commands) {
-    for (let pattern of command.patterns) {
-      const score = similarity(normalized, normalize(pattern));
-
-      if (score > highestScore) {
-        highestScore = score;
-        bestMatch = command;
-        bestIsCommand = true;
+  if (commandsEnabled) {
+    for (let command of commands) {
+      for (let pattern of command.patterns) {
+        const score = similarity(normalized, normalize(pattern));
+        if (score > highestScore) {
+          highestScore = score;
+          bestMatch = command;
+          bestIsCommand = true;
+        }
       }
     }
   }
 
   if (bestMatch) {
-    if (bestIsCommand && bestMatch.command) executeCommand(bestMatch.command);
-    return randomResponse(bestMatch.responses);
+    if (commandsEnabled && bestIsCommand && bestMatch.command) executeCommand(bestMatch.command);
+    return { response: randomResponse(bestMatch.responses), tag: bestMatch.tag, method: "levenshtein" };
   }
 
   // 3. embeddings
@@ -262,19 +378,23 @@ async function getBotResponse(text) {
 
   if (best) {
     if (best.isCommand) {
-      const command = commands.find((c) => c.tag === best.tag);
-      if (command.command) executeCommand(command.command);
-      return randomResponse(command.responses);
+      if (commandsEnabled) {
+        const command = commands.find((c) => c.tag === best.tag);
+        if (command.command) executeCommand(command.command);
+        return { response: randomResponse(command.responses), tag: command.tag, method: "embedding" };
+      } else {
+        return { response: "Commands are currently disabled.", tag: null, method: "none" };
+      }
     }
 
     const intent = intents.find((i) => i.tag === best.tag);
-    return randomResponse(intent.responses);
+    return { response: randomResponse(intent.responses), tag: intent.tag, method: "embedding" };
   }
 
-  return "I don't understand yet.";
+  return { response: "I don't understand yet.", tag: null, method: "none" };
 }
 
-// -------------------- SEND MESSAGE --------------------
+//  Send message 
 button.onclick = async () => {
   const text = input.value.trim();
   if (!text) return;
@@ -282,21 +402,26 @@ button.onclick = async () => {
   addMessage("You: " + text, "user");
   input.value = "";
 
-  const reply = await getBotResponse(text);
-  addMessage("Bot: " + reply, "bot");
+  const { response, tag, method } = await getBotResponse(text);
+  addMessage("Bot: " + response, "bot");
+
+  if (trainingEnabled) {
+    logToSupabase(text, response, tag, method);
+  }
 };
 
-// -------------------- ENTER KEY --------------------
+//  Enter key 
 input.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     button.click();
   }
 });
 
-// ----------------- CLEAR HISTORY -----------------
+//  Clear history 
 clearBtn.onclick = () => {
   clearHistory();
 };
 
-// -------------------- INIT --------------------
+//  Init 
 loadChatHistory();
+initUserAndSession();
