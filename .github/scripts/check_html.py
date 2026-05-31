@@ -53,7 +53,7 @@ class HTMLChecker:
             )
     
     def check_meta_tags(self, soup, filename):
-        """Check for essential meta tags"""
+        """Check for essential meta tags."""
         meta_description = soup.find('meta', attrs={'name': 'description'})
         if not meta_description:
             self.add_issue(

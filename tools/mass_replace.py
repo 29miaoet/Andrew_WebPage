@@ -2,14 +2,14 @@
 
 """
 This is a python script designed to automate replacement
-among a large number of files in the current directory, usage: 
+among a large number of files in the current directory. Usage: 
 
 python path/to/mass_replace.py filetype
 
 It will then prompt you for the string to replace and what 
 to replace it with.
 
-example:
+Example:
 
 python tools/mass_replace.py *.html
 
