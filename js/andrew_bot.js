@@ -6,7 +6,55 @@ import {
 env.allowLocalModels = false;
 env.useBrowserCache = true;
 
-//  Dom 
+// -------------------- SUPABASE CONFIG --------------------
+const SUPABASE_URL = "https://hwmjqtydgkdifsdzvhjx.supabase.co";
+const SUPABASE_KEY = "sb_publishable_ZJ-LLQAbta2ePXScQdj9Mg_OnNGy51i";
+
+class SupabaseClient {
+  constructor(url, key) {
+    this.url = url;
+    this.key = key;
+  }
+
+  async request(method, path, body = null, extraHeaders = {}) {
+    const fullUrl = `${this.url}/rest/v1${path}`;
+    const headers = {
+      "Content-Type": "application/json",
+      apikey: this.key,
+      Authorization: `Bearer ${this.key}`,
+      ...extraHeaders,
+    };
+
+    const options = { method, headers };
+    if (body) options.body = JSON.stringify(body);
+
+    try {
+      const response = await fetch(fullUrl, options);
+      const responseText = await response.text();
+
+      if (!response.ok) {
+        throw new Error(`Supabase Error (${response.status}): ${responseText}`);
+      }
+
+      return responseText ? JSON.parse(responseText) : null;
+    } catch (error) {
+      console.error("API Error:", error);
+      throw error;
+    }
+  }
+
+  async insert(table, data) {
+    return this.request("POST", `/${table}`, data, {
+      "Prefer": "return=representation",
+    });
+  }
+
+
+}
+
+const supabase = new SupabaseClient(SUPABASE_URL, SUPABASE_KEY);
+
+// -------------------- DOM --------------------
 const chat = document.getElementById("chat");
 const input = document.getElementById("input");
 const button = document.getElementById("send");
@@ -14,11 +62,7 @@ const clearBtn = document.getElementById("clear");
 const toggleCommandsBtn = document.getElementById("toggleCommands");
 const toggleTrainingBtn = document.getElementById("toggleTraining");
 
-//  Supabase config 
-const SUPABASE_URL = "https://hwmjqtydgkdifsdzvhjx.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_ZJ-LLQAbta2ePXScQdj9Mg_OnNGy51i";
-
-//  State 
+// -------------------- STATE --------------------
 const STORAGE_KEY = "andrewbot_chat_history";
 
 let intents = [];
@@ -27,10 +71,8 @@ let patternVectors = [];
 let embedder = null;
 let commandsEnabled = true;
 let trainingEnabled = true;
-let currentUserId = null;
-let currentSessionId = null;
 
-//  Storage helpers 
+// -------------------- STORAGE HELPERS --------------------
 function getHistory() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 }
@@ -46,7 +88,7 @@ function clearHistory() {
   chat.innerHTML = "";
 }
 
-//  Ui 
+// -------------------- UI --------------------
 function addMessage(text, className, save = true) {
   const msg = {
     text,
@@ -68,13 +110,13 @@ function renderMessage(msg) {
   chat.scrollTop = chat.scrollHeight;
 }
 
-//  Load chat history 
+// -------------------- LOAD CHAT HISTORY --------------------
 function loadChatHistory() {
   const history = getHistory();
   history.forEach(renderMessage);
 }
 
-//  Toggles 
+// -------------------- TOGGLES --------------------
 toggleCommandsBtn.onclick = () => {
   commandsEnabled = !commandsEnabled;
   toggleCommandsBtn.textContent = `Commands: ${commandsEnabled ? "ON" : "OFF"}`;
@@ -87,100 +129,21 @@ toggleTrainingBtn.onclick = () => {
   toggleTrainingBtn.classList.toggle("active", trainingEnabled);
 };
 
-//  Fingerprint 
-function getFingerprint() {
-  const raw = [
-    navigator.userAgent,
-    navigator.language,
-    screen.width,
-    screen.height,
-    Intl.DateTimeFormat().resolvedOptions().timeZone,
-  ].join("|");
-
-  let hash = 0;
-  for (let i = 0; i < raw.length; i++) {
-    hash = (Math.imul(31, hash) + raw.charCodeAt(i)) | 0;
-  }
-
-  return Math.abs(hash).toString(36);
-}
-
-//  Supabase helpers 
-async function supabaseInsert(table, payload) {
-  try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": SUPABASE_ANON_KEY,
-        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-        "Prefer": "return=representation",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const data = await res.json();
-    return data?.[0] ?? null;
-  } catch (err) {
-    console.error(`Supabase insert into ${table} failed:`, err);
-    return null;
-  }
-}
-
-async function supabaseUpdate(table, match, payload) {
-  try {
-    const params = new URLSearchParams(match).toString();
-    await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": SUPABASE_ANON_KEY,
-        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-        "Prefer": "return=minimal",
-      },
-      body: JSON.stringify(payload),
-    });
-  } catch (err) {
-    console.error(`Supabase update on ${table} failed:`, err);
-  }
-}
-
-//  User + session init 
-async function initUserAndSession() {
-  const fingerprint = getFingerprint();
-
-  // upsert user by fingerprint
-  const user = await supabaseInsert("bot_users", {
-    fingerprint,
-    last_seen: new Date().toISOString(),
-  });
-
-  if (user) currentUserId = user.id;
-
-  // create a new session
-  const session = await supabaseInsert("bot_sessions", {
-    user_id: currentUserId,
-    started_at: new Date().toISOString(),
-  });
-
-  if (session) currentSessionId = session.id;
-}
-
-//  Log to supabase 
+// -------------------- LOG TO SUPABASE --------------------
 async function logToSupabase(userMessage, botResponse, matchedTag, matchMethod) {
-  await supabaseInsert("bot_logs", {
-    user_id: currentUserId,
-    session_id: currentSessionId,
-    user_message: userMessage,
-    bot_response: botResponse,
-    matched_tag: matchedTag,
-    match_method: matchMethod,
-    commands_enabled: commandsEnabled,
-    training_enabled: trainingEnabled,
-  });
+  try {
+    await supabase.insert("chat_logs", {
+      user_message: userMessage,
+      bot_response: botResponse,
+      matched_tag: matchedTag,
+      match_method: matchMethod,
+    });
+  } catch (error) {
+    console.error("logToSupabase failed:", error);
+  }
 }
 
-//  Load intents + commands 
+// -------------------- LOAD INTENTS + COMMANDS --------------------
 addMessage("Loading intents...", "bot", false);
 
 const [intentsRes, commandsRes] = await Promise.all([
@@ -192,7 +155,7 @@ const commandData = await commandsRes.json();
 intents = data.intents;
 commands = commandData.commands;
 
-//  Normalize 
+// -------------------- NORMALIZE --------------------
 function normalize(text) {
   return text
     .toLowerCase()
@@ -201,7 +164,7 @@ function normalize(text) {
     .trim();
 }
 
-//  Levenshtein 
+// -------------------- LEVENSHTEIN --------------------
 function levenshtein(a, b) {
   const matrix = [];
 
@@ -230,7 +193,7 @@ function similarity(a, b) {
   return 1 - distance / Math.max(a.length, b.length);
 }
 
-//  Regex match 
+// -------------------- REGEX MATCH --------------------
 function regexMatch(input) {
   const text = normalize(input);
 
@@ -246,7 +209,7 @@ function regexMatch(input) {
   return null;
 }
 
-//  Execute command 
+// -------------------- EXECUTE COMMAND --------------------
 function executeCommand(command) {
   try {
     const commandStr = Array.isArray(command)
@@ -258,7 +221,7 @@ function executeCommand(command) {
   }
 }
 
-//  Load embeddings 
+// -------------------- LOAD EMBEDDINGS --------------------
 addMessage("Loading model...", "bot", false);
 
 embedder = await pipeline("feature-extraction", "Xenova/all-MiniLM-L6-v2");
@@ -290,7 +253,7 @@ for (let command of commands) {
 
 addMessage("Bot ready!", "bot", false);
 
-//  Cosine similarity 
+// -------------------- COSINE SIMILARITY --------------------
 function cosine(a, b) {
   let dot = 0,
     normA = 0,
@@ -305,7 +268,7 @@ function cosine(a, b) {
   return dot / (Math.sqrt(normA) * Math.sqrt(normB));
 }
 
-//  Embedding match 
+// -------------------- EMBEDDING MATCH --------------------
 async function embeddingMatch(text) {
   const output = await embedder(text);
   const userVec = output.data;
@@ -325,7 +288,7 @@ async function embeddingMatch(text) {
   return { best, bestScore };
 }
 
-//  Bot logic 
+// -------------------- BOT LOGIC --------------------
 function randomResponse(responses) {
   return responses[Math.floor(Math.random() * responses.length)];
 }
@@ -394,7 +357,7 @@ async function getBotResponse(text) {
   return { response: "I don't understand yet.", tag: null, method: "none" };
 }
 
-//  Send message 
+// -------------------- SEND MESSAGE --------------------
 button.onclick = async () => {
   const text = input.value.trim();
   if (!text) return;
@@ -410,18 +373,18 @@ button.onclick = async () => {
   }
 };
 
-//  Enter key 
+// -------------------- ENTER KEY --------------------
 input.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     button.click();
   }
 });
 
-//  Clear history 
+// -------------------- CLEAR HISTORY --------------------
 clearBtn.onclick = () => {
   clearHistory();
 };
 
-//  Init 
+// -------------------- INIT --------------------
 loadChatHistory();
-initUserAndSession();
+
