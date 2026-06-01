@@ -304,7 +304,7 @@ class FileValidator:
 
 def get_modified_files() -> List[str]:
     try:
-        # Get modified files from git
+        # Get modified files from Git
         result = subprocess.run(
             ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD'],
             capture_output=True,
@@ -313,7 +313,7 @@ def get_modified_files() -> List[str]:
         files = [f for f in result.stdout.strip().split('\n') if f.strip()]
         return files
     except Exception as e:
-        print(f"Warning: Could not get modified files from git: {e}")
+        print(f"Warning: Could not get modified files from Git: {e}")
         return []
 
 
