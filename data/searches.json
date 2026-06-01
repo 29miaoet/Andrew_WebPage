@@ -1,0 +1,89 @@
+{
+  "searches": [
+    {
+      "tag": "google_search",
+      "patterns": [
+        "search google for something",
+        "google something for me",
+        "can you search google",
+        "do a google search",
+        "search google for"
+      ],
+      "responses": [
+        "Opening Google search for you.",
+        "Searching Google now.",
+        "On it, searching Google..."
+      ],
+      "regex": [
+        "^google\\s+(.+)$",
+        "^search google(?:\\s+for)?\\s+(.+)$",
+        "^look up on google\\s+(.+)$"
+      ],
+      "url": "https://www.google.com/search?q="
+    },
+    {
+      "tag": "youtube_search",
+      "patterns": [
+        "search youtube for something",
+        "find a video on youtube",
+        "look up a youtube video",
+        "search for a video on youtube",
+        "find me a youtube video"
+      ],
+      "responses": [
+        "Opening YouTube search for you.",
+        "Searching YouTube now.",
+        "On it, searching YouTube..."
+      ],
+      "regex": [
+        "^youtube\\s+(.+)$",
+        "^search youtube(?:\\s+for)?\\s+(.+)$",
+        "^find(?:\\s+a)?(?:\\s+me)? youtube video(?:\\s+(?:of|about))?\\s+(.+)$"
+      ],
+      "url": "https://www.youtube.com/results?search_query="
+    },
+    {
+      "tag": "wikipedia_search",
+      "patterns": [
+        "search wikipedia for something",
+        "look something up on wikipedia",
+        "find a wikipedia article",
+        "wikipedia search",
+        "look up on wikipedia"
+      ],
+      "responses": [
+        "Opening Wikipedia search for you.",
+        "Searching Wikipedia now.",
+        "On it, searching Wikipedia..."
+      ],
+      "regex": [
+        "^wikipedia\\s+(.+)$",
+        "^search wikipedia(?:\\s+for)?\\s+(.+)$",
+        "^look up(?:\\s+on)? wikipedia\\s+(.+)$",
+        "^find(?:\\s+a)? wikipedia article(?:\\s+(?:about|on))?\\s+(.+)$"
+      ],
+      "url": "https://en.wikipedia.org/wiki/Special:Search?search="
+    },
+    {
+      "tag": "github_search",
+      "patterns": [
+        "search github for something",
+        "find a github repo",
+        "look something up on github",
+        "github search",
+        "search for a repository on github"
+      ],
+      "responses": [
+        "Opening GitHub search for you.",
+        "Searching GitHub now.",
+        "On it, searching GitHub..."
+      ],
+      "regex": [
+        "^github\\s+(.+)$",
+        "^search github(?:\\s+for)?\\s+(.+)$",
+        "^find(?:\\s+a)? (?:github )?repo(?:sitory)?(?:\\s+(?:for|about|called))?\\s+(.+)$"
+      ],
+      "url": "https://github.com/search?q="
+    }
+  ]
+}

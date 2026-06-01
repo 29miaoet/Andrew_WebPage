@@ -436,8 +436,7 @@
         "Font size increased!"
       ],
       "command": [
-        "const current = parseFloat(getComputedStyle(document.body).fontSize);",
-        "document.body.style.fontSize = (current + 2) + 'px';"
+        "document.querySelectorAll('.msg').forEach(el => { const current = parseFloat(getComputedStyle(el).fontSize); el.style.fontSize = (current + 2) + 'px'; });"
       ]
     },
     {
@@ -455,8 +454,7 @@
         "Font size decreased!"
       ],
       "command": [
-        "const current = parseFloat(getComputedStyle(document.body).fontSize);",
-        "document.body.style.fontSize = Math.max(10, current - 2) + 'px';"
+        "document.querySelectorAll('.msg').forEach(el => { const current = parseFloat(getComputedStyle(el).fontSize); el.style.fontSize = Math.max(10, current - 2) + 'px'; });"
       ]
     },
     {
@@ -474,7 +472,7 @@
         "Text size back to normal!"
       ],
       "command": [
-        "document.body.style.fontSize = '';"
+        "document.querySelectorAll('.msg').forEach(el => { el.style.fontSize = ''; });"
       ]
     },
     {
@@ -623,6 +621,363 @@
       "command": [
         "const v = document.querySelector('video');",
         "if (v) v.pause(); else console.warn('No video found on this page.');"
+      ]
+    },
+    {
+      "tag": "toggle_chat_border",
+      "patterns": [
+        "toggle the chat border",
+        "hide the chat border",
+        "show the chat border",
+        "remove the chat box border",
+        "add the chat box border"
+      ],
+      "responses": [
+        "Toggling the chat border.",
+        "Sure, toggling the chat box border.",
+        "Done!"
+      ],
+      "command": [
+        "const chat = document.getElementById('chat');",
+        "chat.style.border = chat.style.border === 'none' ? '1px solid #d6ebff' : 'none';"
+      ]
+    },
+    {
+      "tag": "toggle_shadow",
+      "patterns": [
+        "toggle the shadow",
+        "hide the box shadow",
+        "remove the container shadow",
+        "show the shadow",
+        "toggle container shadow"
+      ],
+      "responses": [
+        "Toggling the container shadow.",
+        "Sure, toggling the shadow.",
+        "Done!"
+      ],
+      "command": [
+        "const container = document.querySelector('.container');",
+        "container.style.boxShadow = container.style.boxShadow === 'none' ? '0 12px 35px rgba(0, 120, 200, 0.18)' : 'none';"
+      ]
+    },
+    {
+      "tag": "expand_chat_box",
+      "patterns": [
+        "expand the chat box",
+        "make the chat box bigger",
+        "increase chat height",
+        "make the chat taller",
+        "expand chat"
+      ],
+      "responses": [
+        "Expanding the chat box.",
+        "Making the chat box taller.",
+        "Chat box expanded!"
+      ],
+      "command": [
+        "const chat = document.getElementById('chat');",
+        "const current = parseInt(getComputedStyle(chat).height);",
+        "chat.style.height = (current + 100) + 'px';"
+      ]
+    },
+    {
+      "tag": "shrink_chat_box",
+      "patterns": [
+        "shrink the chat box",
+        "make the chat box smaller",
+        "decrease chat height",
+        "make the chat shorter",
+        "shrink chat"
+      ],
+      "responses": [
+        "Shrinking the chat box.",
+        "Making the chat box shorter.",
+        "Chat box shrunk!"
+      ],
+      "command": [
+        "const chat = document.getElementById('chat');",
+        "const current = parseInt(getComputedStyle(chat).height);",
+        "chat.style.height = Math.max(150, current - 100) + 'px';"
+      ]
+    },
+    {
+      "tag": "reset_chat_box",
+      "patterns": [
+        "reset the chat box size",
+        "restore chat box",
+        "default chat height",
+        "reset chat size",
+        "put the chat box back to normal"
+      ],
+      "responses": [
+        "Chat box reset to default.",
+        "Restoring the chat box size.",
+        "Done!"
+      ],
+      "command": [
+        "document.getElementById('chat').style.height = '380px';"
+      ]
+    },
+    {
+      "tag": "expand_container",
+      "patterns": [
+        "expand the container",
+        "make the page wider",
+        "increase container width",
+        "widen the container",
+        "make the container bigger"
+      ],
+      "responses": [
+        "Expanding the container.",
+        "Making the page wider.",
+        "Container expanded!"
+      ],
+      "command": [
+        "const container = document.querySelector('.container');",
+        "const current = parseInt(getComputedStyle(container).maxWidth);",
+        "container.style.maxWidth = (current + 100) + 'px';"
+      ]
+    },
+    {
+      "tag": "shrink_container",
+      "patterns": [
+        "shrink the container",
+        "make the page narrower",
+        "decrease container width",
+        "narrow the container",
+        "make the container smaller"
+      ],
+      "responses": [
+        "Shrinking the container.",
+        "Making the page narrower.",
+        "Container shrunk!"
+      ],
+      "command": [
+        "const container = document.querySelector('.container');",
+        "const current = parseInt(getComputedStyle(container).maxWidth);",
+        "container.style.maxWidth = Math.max(300, current - 100) + 'px';"
+      ]
+    },
+    {
+      "tag": "reset_container",
+      "patterns": [
+        "reset the container size",
+        "restore container width",
+        "default container size",
+        "reset page width",
+        "put the container back to normal"
+      ],
+      "responses": [
+        "Container reset to default.",
+        "Restoring the container width.",
+        "Done!"
+      ],
+      "command": [
+        "document.querySelector('.container').style.maxWidth = '650px';"
+      ]
+    },
+    {
+      "tag": "change_background",
+      "patterns": [
+        "change the background",
+        "switch the background color",
+        "change the page background",
+        "make the background dark",
+        "dark background"
+      ],
+      "responses": [
+        "Changing the background.",
+        "Switching the background color.",
+        "Background changed!"
+      ],
+      "command": [
+        "document.body.style.background = 'linear-gradient(135deg, #1a1a2e, #16213e)';"
+      ]
+    },
+    {
+      "tag": "reset_background",
+      "patterns": [
+        "reset the background",
+        "restore the background",
+        "default background",
+        "put the background back to normal",
+        "restore background color"
+      ],
+      "responses": [
+        "Background reset to default.",
+        "Restoring the background.",
+        "Done!"
+      ],
+      "command": [
+        "document.body.style.background = 'linear-gradient(135deg, #dff3ff, #f5fbff)';"
+      ]
+    },
+    {
+      "tag": "change_title_color",
+      "patterns": [
+        "change the title color",
+        "change the heading color",
+        "make the title a different color",
+        "switch the title color",
+        "change h1 color"
+      ],
+      "responses": [
+        "Changing the title color.",
+        "Switching the heading color.",
+        "Title color changed!"
+      ],
+      "command": [
+        "document.querySelector('h1').style.color = '#e91e63';"
+      ]
+    },
+    {
+      "tag": "reset_title_color",
+      "patterns": [
+        "reset the title color",
+        "restore the heading color",
+        "default title color",
+        "put the title color back",
+        "restore h1 color"
+      ],
+      "responses": [
+        "Title color reset to default.",
+        "Restoring the heading color.",
+        "Done!"
+      ],
+      "command": [
+        "document.querySelector('h1').style.color = '#1976d2';"
+      ]
+    },
+    {
+      "tag": "hide_title",
+      "patterns": [
+        "hide the title",
+        "hide the heading",
+        "remove the title",
+        "make the title disappear",
+        "hide h1"
+      ],
+      "responses": [
+        "Hiding the title.",
+        "Title hidden.",
+        "Done!"
+      ],
+      "command": [
+        "document.querySelector('h1').style.display = 'none';"
+      ]
+    },
+    {
+      "tag": "show_title",
+      "patterns": [
+        "show the title",
+        "show the heading",
+        "bring back the title",
+        "make the title appear",
+        "show h1"
+      ],
+      "responses": [
+        "Showing the title.",
+        "Title restored.",
+        "Done!"
+      ],
+      "command": [
+        "document.querySelector('h1').style.display = '';"
+      ]
+    },
+    {
+      "tag": "round_container",
+      "patterns": [
+        "make the container more round",
+        "increase border radius",
+        "rounder corners",
+        "make the corners more round",
+        "increase container roundness"
+      ],
+      "responses": [
+        "Making the container rounder.",
+        "Increasing the border radius.",
+        "Corners rounded!"
+      ],
+      "command": [
+        "const container = document.querySelector('.container');",
+        "const current = parseInt(getComputedStyle(container).borderRadius);",
+        "container.style.borderRadius = (current + 8) + 'px';"
+      ]
+    },
+    {
+      "tag": "reset_container_radius",
+      "patterns": [
+        "reset the container corners",
+        "restore border radius",
+        "default corner radius",
+        "put the corners back to normal",
+        "reset roundness"
+      ],
+      "responses": [
+        "Container corners reset to default.",
+        "Restoring the border radius.",
+        "Done!"
+      ],
+      "command": [
+        "document.querySelector('.container').style.borderRadius = '16px';"
+      ]
+    },
+    {
+      "tag": "highlight_input",
+      "patterns": [
+        "highlight the input",
+        "focus the input box",
+        "select the input field",
+        "highlight the text box",
+        "focus the message box"
+      ],
+      "responses": [
+        "Focusing the input field.",
+        "Input highlighted.",
+        "Done!"
+      ],
+      "command": [
+        "const input = document.getElementById('input');",
+        "input.focus();",
+        "input.style.boxShadow = '0 0 0 3px rgba(233, 30, 99, 0.4)';",
+        "setTimeout(() => { input.style.boxShadow = ''; }, 2000);"
+      ]
+    },
+    {
+      "tag": "change_send_button_color",
+      "patterns": [
+        "change the send button color",
+        "make the send button a different color",
+        "switch the send button color",
+        "change send button",
+        "recolor the send button"
+      ],
+      "responses": [
+        "Changing the send button color.",
+        "Send button color changed!",
+        "Done!"
+      ],
+      "command": [
+        "document.getElementById('send').style.background = 'linear-gradient(135deg, #ab47bc, #8e24aa)';"
+      ]
+    },
+    {
+      "tag": "reset_send_button_color",
+      "patterns": [
+        "reset the send button color",
+        "restore the send button",
+        "default send button color",
+        "put the send button back to normal",
+        "restore send button"
+      ],
+      "responses": [
+        "Send button reset to default.",
+        "Restoring the send button color.",
+        "Done!"
+      ],
+      "command": [
+        "document.getElementById('send').style.background = 'linear-gradient(135deg, #42a5f5, #1e88e5)';"
       ]
     }
   ]
