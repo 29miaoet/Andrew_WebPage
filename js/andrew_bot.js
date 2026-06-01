@@ -67,6 +67,7 @@ const STORAGE_KEY = "andrewbot_chat_history";
 
 let intents = [];
 let commands = [];
+let searches = [];
 let patternVectors = [];
 let embedder = null;
 let commandsEnabled = true;
@@ -146,14 +147,17 @@ async function logToSupabase(userMessage, botResponse, matchedTag, matchMethod) 
 // -------------------- LOAD INTENTS + COMMANDS --------------------
 addMessage("Loading intents...", "bot", false);
 
-const [intentsRes, commandsRes] = await Promise.all([
+const [intentsRes, commandsRes, searchesRes] = await Promise.all([
   fetch("data/intents.json"),
   fetch("data/commands.json"),
+  fetch("data/searches.json"),
 ]);
 const data = await intentsRes.json();
 const commandData = await commandsRes.json();
+const searchData = await searchesRes.json();
 intents = data.intents;
 commands = commandData.commands;
+searches = searchData.searches;
 
 // -------------------- NORMALIZE --------------------
 function normalize(text) {
@@ -209,13 +213,30 @@ function regexMatch(input) {
   return null;
 }
 
+// -------------------- SEARCH MATCH --------------------
+function searchMatch(input) {
+  const text = normalize(input);
+
+  for (let search of searches) {
+    for (let pattern of search.regex) {
+      const re = new RegExp(pattern, "i");
+      const match = re.exec(text);
+      if (match && match[1]) {
+        return { search, query: match[1].trim() };
+      }
+    }
+  }
+
+  return null;
+}
+
 // -------------------- EXECUTE COMMAND --------------------
 function executeCommand(command) {
   try {
     const commandStr = Array.isArray(command)
       ? command.join("\n")
       : command;
-    new Function(commandStr)();
+    eval(commandStr);
   } catch (err) {
     console.error("Command execution failed:", err);
   }
@@ -296,7 +317,15 @@ function randomResponse(responses) {
 async function getBotResponse(text) {
   const normalized = normalize(text);
 
-  // 1. regex
+  // 1. search
+  const searchResult = searchMatch(text);
+  if (searchResult) {
+    const { search, query } = searchResult;
+    window.open(search.url + encodeURIComponent(query));
+    return { response: randomResponse(search.responses), tag: search.tag, method: "search" };
+  }
+
+  // 2. regex
   const regexIntent = regexMatch(text);
   if (regexIntent) {
     return { response: randomResponse(regexIntent.responses), tag: regexIntent.tag, method: "regex" };
@@ -387,4 +416,3 @@ clearBtn.onclick = () => {
 
 // -------------------- INIT --------------------
 loadChatHistory();
-
