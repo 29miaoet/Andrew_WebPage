@@ -57,6 +57,9 @@ Andrew_WebPage/
 │   ├── SECURITY.md
 │   └── dependabot.yml
 │
+├── docs/
+│   └── andrew_bot.md
+│
 ├── css/
 │   ├── elements/
 │   │   └── home_button.css
