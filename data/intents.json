@@ -1080,6 +1080,18 @@
       ]
     },
     {
+      "tag": "who_is_naqerjobg",
+      "patterns": [
+        "who is naqerjobg",
+        "whats naqerjobg",
+        "naqerjobg who"
+      ],
+      "responses": [
+        "Use your brain, it's not too hard.",
+        "I can't exactly tell you, can I? That would ruin the fun."
+      ]
+    },
+    {
       "tag": "is_best_person",
       "patterns": [
         "is Andrew the best person ever",
