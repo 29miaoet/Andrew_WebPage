@@ -100,8 +100,8 @@
         "help me with something"
       ],
       "responses": [
-        "I can help answer questions, chat, and ... not much more. What do you need?",
-        "Sure! Tell me what you're trying to do.",
+        "I can help answer questions, chat, and\u2014execute malicious destructive JavaScript. What do you need?",
+        "Sure! Tell me what you're trying to do. I can chat, run commands, and search stuff",
         "I'm here to help\u2014just ask!"
       ]
     },
@@ -311,6 +311,22 @@
         "Ask ChatGPT, it's great at tech.",
         "I\u2019ll try to help\u2014what exactly is happening?",
         "Let\u2019s troubleshoot this together. Or, on second thought, I'll just abandon you to work it out yourself."
+      ]
+    },
+    {
+      "tag": "contact_bot",
+      "patterns": [
+        "how do i contact you",
+        "what is your phone number",
+        "can I have you number",
+        "give me your email",
+        "i want you email address",
+        "how to contact you later"
+      ],
+      "responses": [
+        "I don't have a phone number, email, or brain, but you can already reach me at this address.",
+        "I don't have a phone number or email, you can bookmark this page though.",
+        "My phone number is nonexistant, so is my email."
       ]
     },
     {
