@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A chat forum for Andrew's Website, where users can chat with Andrew himself.">
+    <title>Andrew Stanish | Chat Forum</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<link rel="stylesheet" href="css/chat_forum.css">
+    <link rel="manifest" href="data/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="canonical" href="https://29miaoet.github.io/Andrew_WebPage/chat_forum.html">
+</head>
+<body>
+    <div class="container">
+        <div class="modal-overlay" id="nameModal">
+            <div class="modal">
+                <div class="modal-title">Choose a username</div>
+                <input type="text" id="nameInput" class="modal-input" placeholder="Enter your name..." maxlength="30" />
+                <div class="password-row" id="passwordRow">
+                <input type="password" id="passwordInput" class="modal-input" placeholder="Password for this username..." autocomplete="off" />
+                </div>
+                <span class="modal-error" id="modalError"></span>
+                <button class="modal-btn" id="nameSubmit">Join</button>
+            </div>
+        </div>
+        <div class="header">
+            <h1 class="header-title">Andrew's Website Forum</h1>
+        </div>
+        <div id="errorContainer"></div>
+        <div class="messages-container" id="messagesContainer">
+        </div>
+        <div class="input-section">
+            <div class="input-row">
+                <textarea
+                    id="messageInput"
+                    class="message-input"
+                    placeholder="Write a message..."
+                    rows="1"
+                ></textarea>
+                <button class="send-btn" id="sendBtn">Send</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/chat_forum.js"></script>
+    <script src="js/service_worker_register.js"></script>
+</body>
+</html>
