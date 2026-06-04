@@ -68,6 +68,7 @@ Andrew_WebPage/
 │   ├── Andrew_Stanish_Fake.css
 │   ├── Andrew_transit.css
 │   ├── andrew_bot.css
+│   ├── chat_forum.css
 │   ├── file_download.css
 │   ├── form.css
 │   ├── index.css
@@ -99,6 +100,7 @@ Andrew_WebPage/
 │   ├── andrew_bot.js
 │   ├── andrew_stanish_fake.js
 │   ├── andrew_transit.js
+│   ├── chat_forum.js
 │   ├── file_download.js
 │   ├── index.js
 │   ├── photo_gallery.js
@@ -116,6 +118,7 @@ Andrew_WebPage/
 ├── Andrew_Stanish_Fake.html
 ├── Andrew_transit.html
 ├── andrew_bot.html
+├── chat_forum.html
 ├── file_download.html
 ├── form.html
 ├── index.html
@@ -146,14 +149,14 @@ Andrew_WebPage/
 
 ## Newest Updates
 
+**✓** Chat forum built using [Supabase](https://supabase.com/):  
+-- _[Chat Forum](https://29miaoet.github.io/Andrew_WebPage/chat_forum.html)_
+
 **✓** AI assistant with help from [transformers.js](https://github.com/huggingface/transformers.js):  
 -- _[AndrewBot](https://29miaoet.github.io/Andrew_WebPage/andrew_bot.html)_
 
 **✓** Website search engine with [MiniSearch](https://lucaong.github.io/minisearch/):  
 -- _[Search Engine](https://29miaoet.github.io/Andrew_WebPage/search_engine.html)_
-
-**✓** Major upgrades to [File Download Page](https://29miaoet.github.io/Andrew_WebPage/file_download.html):  
--- _[Added download support for no JavaScript browsers](https://github.com/29miaoet/Andrew_WebPage/pull/6)_
 
 ## Compatibility
 
@@ -256,6 +259,7 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
 - ![License](https://img.shields.io/badge/license-MIT-green)
 - ![Deployed](https://img.shields.io/badge/deployed-GitHub%20Pages-orange)
 - ![Website status](https://img.shields.io/website?url=https://29miaoet.github.io/Andrew_WebPage/)
+- ![Code style](https://img.shields.io/badge/code_style-prettier-pink)
 - ![Repo size](https://img.shields.io/github/repo-size/29miaoet/Andrew_WebPage)
 - ![Total commits](https://img.shields.io/github/commit-activity/t/29miaoet/Andrew_WebPage)
 - ![Last commit](https://img.shields.io/github/last-commit/29miaoet/Andrew_WebPage)
