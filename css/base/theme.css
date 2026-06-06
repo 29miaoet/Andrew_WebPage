@@ -1,0 +1,29 @@
+:root {
+  --color-text: #03324d;
+  --color-primary: #4a90e2;
+  --color-primary-dark: #357abd;
+  --color-accent: #00b4ff;
+  --color-glass: rgba(255, 255, 255, 0.35);
+
+  --bg-color-lighta: #dff3ff;
+  --bg-color-lightb: #f5fbff;
+  --bg-color-lightc: #e8f6ff;
+  --bg-color-mid: #9cd6ff;
+  --bg-color-darka: #0055a4;
+  --bg-color-darkb: #003d73;
+
+
+
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(to bottom, var(--bg-color-lightc), var(--bg-color-mid));
+  margin: 0;
+  min-height: 100vh;
+}
