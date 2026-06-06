@@ -1,12 +1,9 @@
 body {
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
   background: linear-gradient(135deg, #e8f6ff, #9cd6ff);
   color: #03324d;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
 
 .form-container {

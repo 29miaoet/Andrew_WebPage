@@ -15,7 +15,6 @@
 html,
 body {
   height: 100%;
-  font-family: "Segoe UI", Arial, sans-serif;
   background: linear-gradient(
     to bottom,
     var(--background-light),
