@@ -23,7 +23,7 @@
 
 
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Segoe UI", Helvetica, Arial, Roboto, "DejaVu Sans", sans-serif;
   background: linear-gradient(to bottom, var(--bg-color-lightc), var(--bg-color-mid));
   min-height: 100vh;
   margin: 0;
