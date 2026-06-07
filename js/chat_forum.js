@@ -237,7 +237,7 @@ function addMessageToUI(username, text, timestamp) {
             <span class="message-username">${escapeHtml(username)}</span>
             <span class="message-timestamp">${time}</span>
         </div>
-        <div class="message-content">${linkify(escapeHtml(text))}</div>
+        <div class="message-content">${linkify(text)}</div>
     `;
 
     messagesContainer.appendChild(el);

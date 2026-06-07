@@ -1,7 +1,7 @@
 :root {
-  --font-color: #03324d;
-  --background-light: #e8f6ff;
-  --background-dark: #9cd6ff;
+  --font-color: var(--color-text, #03324d);
+  --background-light: var(--bg-color-lightc, #e8f6ff);
+  --background-dark: var(--bg-color-mid, #9cd6ff);
   --profile-size: 220px;
   --transition-style: 0.4s ease;
 }
@@ -15,7 +15,6 @@
 html,
 body {
   height: 100%;
-  font-family: "Segoe UI", Arial, sans-serif;
   background: linear-gradient(
     to bottom,
     var(--background-light),
