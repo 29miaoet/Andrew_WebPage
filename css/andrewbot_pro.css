@@ -4,20 +4,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 40px 20px;
+    padding: 30px 15px;
 }
 
 .container {
-    width: min(100%, 1000px);
+    width: 100%;
+    max-width: 1000px;
+    margin: 15px;
 
     background: var(--color-glass);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
     border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 24px;
-
-    padding: 28px;
+    border-radius: 16px;
+    padding: 24px;
 
     box-shadow:
         0 20px 40px rgba(0, 61, 115, 0.12),
@@ -48,8 +46,7 @@ label {
     color: var(--bg-color-darkb);
 }
 
-input,
-select {
+.input-field {
     width: 100%;
 
     padding: 12px 14px;
@@ -65,8 +62,7 @@ select {
     transition: all 0.2s ease;
 }
 
-input:focus,
-select:focus {
+.input-field:hover {
     outline: none;
 
     border-color: var(--color-primary);
@@ -77,19 +73,14 @@ select:focus {
 }
 
 /* Chat */
-
 #chat {
-    margin-top: 20px;
-
-    height: 500px;
+    height: 400px;
     overflow-y: auto;
-
     padding: 18px;
-
     background: rgba(255, 255, 255, 0.45);
-
     border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 18px;
+    border-radius: 10px;
+    margin-top: 15px;
 
     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
 }
@@ -143,38 +134,41 @@ button:active {
     transform: translateY(0);
 }
 
-/* Chat Messages */
-
-.message {
-    margin-bottom: 12px;
-    padding: 12px 14px;
-
-    border-radius: 14px;
-
-    line-height: 1.5;
-    word-break: break-word;
-}
-
-.message.user {
+/* User Messages */
+.msg.user {
     margin-left: auto;
     max-width: 80%;
-
-    background: linear-gradient(
-        135deg,
-        var(--color-primary),
-        var(--color-accent)
-    );
-
-    color: white;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 12px 14px;
+    border-radius: 14px;
 }
 
-.message.assistant,
-.message.bot {
-    max-width: 80%;
+/* Bot messages */
+.msg.bot {
+  max-width: 80%;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(74, 144, 226, 0.15);
+  padding: 12px 14px;
+  border-radius: 14px;
+}
 
-    background: rgba(255, 255, 255, 0.8);
+.response {
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+}
 
-    border: 1px solid rgba(74, 144, 226, 0.1);
+.thinking {
+  margin-top: 8px;
+  color: black;
+  font-size: 12px;
+  opacity: 0.85;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 6px;
+}
+
+.thinking summary {
+  cursor: pointer;
+  font-weight: 600;
 }
 
 /* Scrollbar */
