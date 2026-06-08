@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AndrewBot Pro</title>
+<link rel="stylesheet" href="css/base/theme.css">
+<link rel="stylesheet" href="css/andrewbot_pro.css">
+
+</head>
+
+<body>
+
+<div class="container">
+<h2>AndrewBot Pro</h2>
+
+<label>API Key</label>
+<input id="apiKey" placeholder="Enter API key">
+
+<label>Model</label>
+<select id="model">
+  <option value="qwen/qwen3-32b">Qwen 3 32B</option>
+  <option value="llama-3.1-70b-versatile">LLaMA 3.1 70B</option>
+  <option value="llama-3.1-8b-instant">LLaMA 3.1 8B</option>
+</select>
+
+<div id="chat"></div>
+
+<input id="input" placeholder="Type a message or ask for code...">
+<button onclick="sendMessage()">Send</button>
+</div>
+
+<script src="js/andrewbot_pro.js"></script>
+
+</body>
+</html>
