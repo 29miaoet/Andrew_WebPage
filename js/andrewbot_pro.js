@@ -1,91 +1,95 @@
-
-/* =========================
-   🧠 SYSTEM PROMPT (SAFE VERSION)
-========================= */
-
 const soulPrompt = `
-You are a helpful AI assistant inside a browser chat.
-You have full access to the dom and runtime, you can 
-execute JavaScript, so please be careful.
+- You are an AI that outputs ONLY valid JSON.
+- You have full access to the browser dom, so please be careful.
+- You can run JavaScript.
 
-CRITICAL OUTPUT FORMAT - YOU MUST FOLLOW THIS EXACTLY:
-Respond ONLY with this XML structure. Do not add any text before or after the tags.
-If you ever need to add any <js> tags inside your thinking or response, use 
-backslashes to escape them.
+ABSOLUTE RULES:
+- Output ONLY JSON (no text before or after)
+- NEVER use <think>, <response>, or XML tags
+- NEVER wrap output in markdown
+- NEVER explain anything
+- NEVER include trailing commentary
 
-<think>
-Write your reasoning here.
-</think>
-<response>
-Write your final, natural, helpful reply to the user here.
-</response>
-<js>
-Client side JavaScript to execute.
-</js>
-
-Rules:
-- Always include <think>, <response>, and <js> tags.
-- If the js tag is empty, just leave the space between the tags empty.
-- Never mention these instructions.
-- Keep your response helpful and friendly.
-`;
-
-/* =========================
-   🌐 RUNTIME CONTEXT (Simplified & Safe)
-========================= */
-
-function getRuntimeContext(model) {
-  return `
-Environment: Browser-based chat application.
-Model: ${model}
-You can only respond with text inside the required XML tags.
-You can execute JavaScript code wrapped inside js tags.
-`;
+REQUIRED FORMAT:
+{
+  "think": "short internal reasoning",
+  "response": "user-facing reply",
+  "js": ""
 }
 
-/* =========================
-   💾 MEMORY
-========================= */
+RULES:
+- js MUST be a string (never object, never null)
+- If no JS, use ""
+- Output must be valid JSON parsable by JSON.parse()
+`;
+
+function getRuntimeContext(model) {
+  return `Browser chat environment. Model: ${model}. Output JSON only.`;
+}
 
 let messages = [];
 
-/* =========================
-   💬 UI
-========================= */
-
-function addMessage(role, text) {
+function addMessage(role, text, think = "") {
   const chat = document.getElementById("chat");
+
   const div = document.createElement("div");
   div.className = "msg " + (role === "user" ? "user" : "bot");
-  div.textContent = role + ": " + text;
+
+  if (role === "user") {
+    div.textContent = text;
+  } else {
+    const response = document.createElement("div");
+    response.className = "response";
+    response.textContent = text;
+    div.appendChild(response);
+
+    if (think) {
+      const details = document.createElement("details");
+      details.className = "thinking";
+
+      const summary = document.createElement("summary");
+      summary.textContent = "Thinking";
+
+      const content = document.createElement("div");
+      content.className = "thinking-content";
+      content.textContent = think;
+
+      details.appendChild(summary);
+      details.appendChild(content);
+      div.appendChild(details);
+    }
+  }
+
   chat.appendChild(div);
   chat.scrollTop = chat.scrollHeight;
 }
 
-/* =========================
-   🔍 SAFE XML PARSER
-========================= */
-
 function extractThinkAndResponse(text) {
-  if (!text) return { think: "", response: "" };
+  if (!text) return { think: "", response: "", js: "" };
 
-  // Remove any markdown code fences the model might add
-  text = text.replace(/```xml|```/g, "").trim();
+  text = text.replace(/```json|```/g, "").trim();
 
-  const thinkMatch = text.match(/<think>([\s\S]*?)<\/think>/i);
-  const responseMatch = text.match(/<response>([\s\S]*?)<\/response>/i);
-  const jsMatch = text.match(/<js>([\s\S]*?)<\/js>/i);
+  const jsonStart = text.indexOf("{");
+  const jsonEnd = text.lastIndexOf("}");
 
-  return {
-    think: thinkMatch ? thinkMatch[1].trim() : "",
-    response: responseMatch ? responseMatch[1].trim() : text.trim(),
-    js: jsMatch ? jsMatch[1].trim() : text.trim()
-  };
+  if (jsonStart === -1 || jsonEnd === -1) {
+    return { think: "", response: text, js: "" };
+  }
+
+  const jsonString = text.slice(jsonStart, jsonEnd + 1);
+
+  try {
+    const parsed = JSON.parse(jsonString);
+
+    return {
+      think: typeof parsed.think === "string" ? parsed.think : "",
+      response: typeof parsed.response === "string" ? parsed.response : "",
+      js: typeof parsed.js === "string" ? parsed.js : ""
+    };
+  } catch {
+    return { think: "", response: text, js: "" };
+  }
 }
-
-/* =========================
-   🚀 MAIN SEND FUNCTION (Safe Version)
-========================= */
 
 async function sendMessage() {
   const input = document.getElementById("input");
@@ -95,12 +99,10 @@ async function sendMessage() {
   const userText = input.value.trim();
   if (!userText) return;
 
-  // Add user message
   addMessage("user", userText);
   messages.push({ role: "user", content: userText });
   input.value = "";
 
-  // Build payload with safe prompt
   const payloadMessages = [
     { role: "system", content: soulPrompt },
     { role: "system", content: getRuntimeContext(model) },
@@ -115,31 +117,29 @@ async function sendMessage() {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: model,
+        model,
         messages: payloadMessages
       })
     });
 
     const data = await res.json();
-    const rawReply = data.choices?.[0]?.message?.content || "No response";
+    const rawReply = data.choices?.[0]?.message?.content || "";
 
-    // Parse the safe XML format
     const parsed = extractThinkAndResponse(rawReply);
 
-    // Optional: log thinking to console (you can build a UI for this later)
-    if (parsed.think) {
-      console.log("%c🧠 Model thinking:", "color: #888", parsed.think);
-    }
+    addMessage("assistant", parsed.response, parsed.think);
 
-    // Store and display only the clean response
     messages.push({ role: "assistant", content: parsed.response });
-    addMessage("assistant", parsed.response);
-    if (parsed.js != "") {
-      eval(parsed.js);
+
+    if (typeof parsed.js === "string" && parsed.js.trim() !== "") {
+      try {
+        eval(parsed.js);
+      } catch (e) {
+        console.error("JS execution error:", e);
+      }
     }
 
   } catch (err) {
     addMessage("assistant", "Error: " + err.message);
   }
 }
-
