@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A frontend AI chat app that can execute browser actions, powered by Groq API.">
+<link rel="manifest" href="data/manifest.json">
+
+<title>Andrew Stanish | AndrewBot Pro</title>
+<link rel="stylesheet" href="css/base/theme.css">
+<link rel="stylesheet" href="css/elements/home_button.css">
+<link rel="stylesheet" href="css/andrewbot_pro.css">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="canonical" href="https://29miaoet.github.io/Andrew_WebPage/form.html">
+</head>
+
+<body>
+<a href="./" class="mini-home-btn" aria-label="Home">
+  <span class="home-icon">🏠</span>
+  <span class="home-text">Home</span>
+</a>
+
+<div class="container">
+<h2>AndrewBot Pro</h2>
+
+<label>API Key</label>
+<div class="input-row">
+<input id="apiKey" class="input-field" placeholder="Enter API key">
+</div>
+
+<label>Model</label>
+<select id="model" class="input-field">
+  <option value="qwen/qwen3-32b">Qwen 3 32B (recommended)</option>
+  <option value="llama-3.1-70b-versatile">LLaMA 3.1 70B</option>
+  <option value="llama-3.1-8b-instant">LLaMA 3.1 8B</option>
+  <option value="llama-3.3-70b-versatile">LLaMA 3.3 70B</option>
+  <option value="meta-llama/llama-4-scout-17b-16e-instruct">LLaMA 4 Scout</option>
+  <option value="groq/compound">Groq Compound</option>
+  <option value="groq/compound-mini">Groq Compound Mini</option>
+</select>
+
+<div id="chat"></div>
+
+<div class="input-row">
+<input id="input" class="input-field" placeholder="Type a message...">
+<button id="sendBtn">Send</button>
+</div>
+</div>
+
+<script src="js/andrewbot_pro.js"></script>
+
+</body>
+</html>
