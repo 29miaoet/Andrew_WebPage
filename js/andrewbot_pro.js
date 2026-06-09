@@ -143,3 +143,18 @@ async function sendMessage() {
     addMessage("assistant", "Error: " + err.message);
   }
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("input");
+  const btn = document.getElementById("sendBtn");
+
+  btn.addEventListener("click", sendMessage);
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+});

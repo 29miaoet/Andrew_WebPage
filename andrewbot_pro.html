@@ -14,10 +14,12 @@
 <h2>AndrewBot Pro</h2>
 
 <label>API Key</label>
-<input id="apiKey" placeholder="Enter API key">
+<div class="input-row">
+<input id="apiKey" class="input-field" placeholder="Enter API key">
+</div>
 
 <label>Model</label>
-<select id="model">
+<select id="model" class="input-field">
   <option value="qwen/qwen3-32b">Qwen 3 32B</option>
   <option value="llama-3.1-70b-versatile">LLaMA 3.1 70B</option>
   <option value="llama-3.1-8b-instant">LLaMA 3.1 8B</option>
@@ -25,8 +27,10 @@
 
 <div id="chat"></div>
 
-<input id="input" placeholder="Type a message or ask for code...">
-<button onclick="sendMessage()">Send</button>
+<div class="input-row">
+<input id="input" class="input-field" placeholder="Type a message...">
+<button id="sendBtn">Send</button>
+</div>
 </div>
 
 <script src="js/andrewbot_pro.js"></script>
