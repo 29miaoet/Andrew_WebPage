@@ -134,8 +134,10 @@ Reference [docs/structure.md](https://github.com/29miaoet/Andrew_WebPage/blob/ma
 
 ## Future Path
 
-- [ ] Modify all html files to be more accessible.
+- [X] Modify all html files to be more accessible.
+- [X] Unify CSS stylesheets with base themes and element styles.
 - [ ] Harden JavaScript structure and logic.
+- [ ] Modify JavaScript to catch and handle errors better.
 - [ ] Improve css by adding media elements and replacing bad practice sections (they're everywhere).
 - [ ] Help improve AndrewBot by adding more rules to intents.json.
 - [ ] Add more pages to the website.
@@ -178,31 +180,50 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
 
 ## Utilized Tools & Services
 
-**We're proud to announce that Andrew's Website was created with a 0$ budget!**  
+**Andrew's Website was created with a 0$ budget!**  
 **All the tools used below are either free, or only the free tier was used.**
 
+- **Hosting & Deployment**  
 **✓** [GitHub](https://github.com/)  
 **✓** [GitHub Pages](https://docs.github.com/en/pages)  
 **✓** [GitHub Actions](https://docs.github.com/en/actions)  
 **✓** [Git](https://git-scm.com/)  
 **✓** [Formspree](https://formspree.io/)  
 **✓** [Supabase](https://supabase.com/)  
+
+- **Command Line Tools**  
 **✓** [npm](https://www.npmjs.com/)  
 **✓** [prettier](https://www.npmjs.com/package/prettier)  
+**✓** [neovim](https://github.com/neovim/neovim)  
+
+- **Dependencies**  
 **✓** [MiniSearch](https://lucaong.github.io/minisearch/)  
+**✓** [Groq API](https://console.groq.com/keys)  
 **✓** [transformers.js](https://github.com/huggingface/transformers.js)  
+
+- **Search Engine & Accessibility**  
 **✓** [Google Search Console](https://search.google.com/search-console/)  
 **✓** [Bing Webmaster Tools](https://www.bing.com/webmasters/)  
-**✓** [Wikipedia](https://www.wikipedia.org/)  
+**✓** [Google Lighthouse](https://pagespeed.web.dev/)  
+**✓** [WAVE Accessibility Checker](https://wave.webaim.org/)  
+
+- **GUI Tools**  
 **✓** [Inkscape](https://inkscape.org/)  
 **✓** [Gimp](https://www.gimp.org/)  
-**✓** [OpenClaw](https://openclaw.ai/)  
-**✓** [Ollama](https://ollama.com/)  
 **✓** [SVG Conversion Tool](https://www.freeconvert.com/png-to-svg)  
-**✓** [GitHub Copilot](https://github.com/features/copilot)  
-**✓** [Microsoft Copilot](https://copilot.microsoft.com/)  
-**✓** [ChatGPT](https://chatgpt.com/)  
 **✓** [Notepad++](https://notepad-plus-plus.org/)  
+
+- **AI**  
+**✓** [OpenClaw](https://openclaw.ai)  
+**✓** [Ollama](https://ollama.com)  
+**✓** [GitHub Copilot](https://github.com/features/copilot)  
+**✓** [Microsoft Copilot](https://copilot.microsoft.com)  
+**✓** [ChatGPT](https://chatgpt.com)  
+**✓** [Claude](https://claude.com)  
+**✓** [Gemini](https://gemini.google.com)  
+**✓** [Qwen](https://qwen.ai)  
+
+- **Testing**  
 **✓** [Microsoft Teams](https://teams.microsoft.com/)  
 **✓** [Microsoft Edge](https://www.microsoft.com/en-us/edge/)  
 **✓** [Mozilla Firefox](https://www.firefox.com/)
