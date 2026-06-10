@@ -32,3 +32,21 @@ window.SafeHTML = {
     return DOMPurify.sanitize(html, config);
   }
 };
+
+function escapeHtml(text) {
+    const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+    return text.replace(/[&<>"']/g, (m) => map[m]);
+}
+
+function renderContent(text) {
+  return text.replace(
+    /https?:\/\/[^\s<>"']+/gi,
+    (url) => {
+      if (/\.(png|jpe?g|gif|webp|avif|svg)$/i.test(url)) {
+        return `<img class="chat-image" src="${url}">`;
+      }
+
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+    }
+  );
+}

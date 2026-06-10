@@ -40,28 +40,6 @@ function isReserved(name) {
     return Object.prototype.hasOwnProperty.call(RESERVED, name.toLowerCase());
 }
 
-function linkify(text) {
-    return text.replace(
-        /https?:\/\/[^\s<>"']+[^\s<>"'.,;:!?)\]]/g,
-        (url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
-    );
-}
-
-
-function imageify(text) {
-  const imageRegex = /(https?:\/\/[^\s]+?\.(png|jpg|jpeg|gif|webp|svg))/gi;
-
-  return text.replace(imageRegex, (url) => {
-    return `<img class="chat-image" src="${url}">`;
-  });
-}
-
-
-function escapeHtml(text) {
-    const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
-    return text.replace(/[&<>"']/g, (m) => map[m]);
-}
-
 // ── Supabase ──────────────────────────────────────────────────────────────────
 const { createClient } = supabase;
 const supabaseClient   = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -247,7 +225,7 @@ function addMessageToUI(username, text, timestamp) {
             <span class="message-username">${escapeHtml(username)}</span>
             <span class="message-timestamp">${time}</span>
         </div>
-        <div class="message-content">${SafeHTML.sanitize(imageify(linkify(text)))}</div>
+        <div class="message-content">${SafeHTML.sanitize(renderContent(text))}</div>
     `;
 
     messagesContainer.appendChild(el);
