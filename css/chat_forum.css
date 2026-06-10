@@ -355,6 +355,15 @@ body {
   cursor: not-allowed;
 }
 
+/* Chat Image */
+.chat-image {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin-top: 5px;
+}
+
 /* Mobile */
 @media (max-width: 600px) {
   .container {

@@ -47,6 +47,16 @@ function linkify(text) {
     );
 }
 
+
+function imageify(text) {
+  const imageRegex = /(https?:\/\/[^\s]+?\.(png|jpg|jpeg|gif|webp|svg))/gi;
+
+  return text.replace(imageRegex, (url) => {
+    return `<img class="chat-image" src="${url}">`;
+  });
+}
+
+
 function escapeHtml(text) {
     const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
     return text.replace(/[&<>"']/g, (m) => map[m]);
@@ -237,7 +247,7 @@ function addMessageToUI(username, text, timestamp) {
             <span class="message-username">${escapeHtml(username)}</span>
             <span class="message-timestamp">${time}</span>
         </div>
-        <div class="message-content">${linkify(text)}</div>
+        <div class="message-content">${SafeHTML.sanitize(imageify(linkify(text)))}</div>
     `;
 
     messagesContainer.appendChild(el);
