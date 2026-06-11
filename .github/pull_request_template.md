@@ -16,6 +16,7 @@ Please delete options that are not relevant, or leave them empty.
 - [ ] Documentation update
 - [ ] Refactor
 - [ ] Performance improvement
+- [ ] UI/UX improvement
 - [ ] Test update
 
 
