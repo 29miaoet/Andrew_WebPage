@@ -62,6 +62,7 @@ Andrew_WebPage/
 │   ├── Andrew_medal.png
 │   ├── favicon.svg
 │   ├── image.png
+│   ├── robot.png
 │   └── transit_bus.jpg
 │
 ├── js/
