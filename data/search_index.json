@@ -65,22 +65,64 @@
   {
     "id": 10,
     "title": "AndrewBot",
-    "image": "images/favicon.svg",
+    "image": "images/robot.png",
     "url": "andrew_bot.html",
-    "description": "Every website needs a FAQ bot, but AndrewBot goes a bit further, using transformers.js, fuzzy matching, and dynamic accuracy adjustion, it feels like a real AI model. Although it's not very smart, it is fun and helpful to talk to, and can resolve most of your issues!"
+    "description": "Every website needs a FAQ bot, but AndrewBot goes a bit further, using transformers.js, fuzzy matching, and dynamic accuracy adjustion, it feels like a real AI model. Although it's not very smart, it is fun and helpful to talk to, and can resolve most of your issues! Now, after recent upgrades, it can even Google Search and run JavaScript!"
   },
   {
     "id": 11,
+    "title": "Chat Forum",
+    "image": "images/favicon.svg",
+    "url": "chat_forum.html",
+    "description": "Want to see all the behind-the-scenes action, want to join the Andrew's Website community? Check out this page, regular upgrades will be posted in this forum, and anyone can join, just enter a username and start chatting! Who knows, you may even meet Andrew Stanish himself!"
+  },
+  {
+    "id": 12,
+    "title": "AndrewBot Pro",
+    "image": "images/robot.png",
+    "url": "andrewbot_pro.html",
+    "description": "Are you getting bored of AndrewBot, think he's not smart enough, then this page is for you, it is powered by a real, smart AI model, and has all the skills AndrewBot has, including JavaScript, Google search, and more, just enter a Groq API key and start chatting!"
+  },
+  {
+    "id": 13,
     "title": "Wikipedia Article",
     "image": "images/favicon.svg",
     "url": "https://en.wikipedia.org/wiki/User:29miaoet/sandbox",
     "description": "This Wikipedia Article, while not in the main community space, is still a testiment on teamwork for the Andrew's Website project. It was created as a collaboration by all the original supporters of Andrew Stanish, and contains completely truthful information about Andrew."
   },
   {
-    "id": 12,
+    "id": 14,
     "title": "Source Code",
     "image": "images/favicon.svg",
     "url": "https://github.com/29miaoet/Andrew_WebPage",
     "description": "The source code for this project is hosted on GitHub, deployed by GitHub Pages. If you want to branch off Andrew's Website, or request your own changes, start here! We are always looking for contributors to the Andrew's Website Project!"
+  },
+  {
+    "id": 15,
+    "title": "Global News Article",
+    "image": "https://globalnews.ca/wp-content/themes/shaw-globalnews/assets/dist/images/logo-morty.svg",
+    "url": "https://globalnews.ca/news/11654725/winnipeg-youth-curlers-inspired-by-olympics/",
+    "description": "This is where it all started, the Global News article for Andrew, this article summarizes an interview with Andrew, prior to the 2026 Winter Olympics, highlighting his involvement in Curling. It is 100% truthful, and has been redistributed by news vendors like MSN and Fav of Canada."
+  },
+  {
+    "id": 17,
+    "title": "Everybody Wiki",
+    "image": "https://everybodywiki.org/resources/assets/logo.png",
+    "url": "https://en.everybodywiki.com/Andrew_Stanish",
+    "description": "This is a rip-off article to Andrew's unpublished Wikipedia article, although it is covered with ads, it can be found on Google, and provides a general overview of Andrew's life."
+  },
+  {
+    "id": 18,
+    "title": "School Newspaper",
+    "image": "https://media.lrsd.net/media/Default/fgg/gci-web-icon.331d9a69895.png",
+    "url": "https://www.lrsd.net/gci/glenlawn-gazette",
+    "description": "Andrew Stanish has long been know as an active participant in school affairs, and has helped co-author many school newspaper editions, you can find Andrew Stanish in the contributers section of school newspapers released after 2026."
+  },
+  {
+    "id": 19,
+    "title": "Badminton",
+    "image": "https://media.lrsd.net/media/Default/fgg/gci-web-icon.331d9a69895.png",
+    "url": "https://www.mhsaa.ca/schools/view/view-team/117569/glenlawn-lions-aaaa-junior-varsity-boys-badminton/",
+    "description": "Andrew has participated in various high school badminton tournaments, and you can find his name in the participants section over here."
   }
 ]
