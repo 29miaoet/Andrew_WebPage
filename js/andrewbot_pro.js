@@ -12,7 +12,7 @@ ABSOLUTE RULES:
 
 REQUIRED FORMAT:
 {
-  "think": "short internal reasoning",
+  "think": "internal reasoning",
   "response": "user-facing reply",
   "js": ""
 }
