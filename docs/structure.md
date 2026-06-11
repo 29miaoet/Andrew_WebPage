@@ -76,6 +76,7 @@ Andrew_WebPage/
 │   ├── search_engine.js
 │   ├── service_worker.js
 │   ├── service_worker_register.js
+│   ├── chat_render.js
 │   └── signature_page.js
 │
 ├── tools/
