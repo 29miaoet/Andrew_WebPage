@@ -28,6 +28,77 @@ function getRuntimeContext(model) {
 }
 
 let messages = [];
+let retryCount = 0;
+
+const MAX_RETRIES = 3;
+const RETRY_DELAY = 1000;
+
+const STORAGE_KEY = "chat_autosave";
+let autosaveTimer = null;
+
+function triggerAutosave() {
+  clearTimeout(autosaveTimer);
+
+  autosaveTimer = setTimeout(() => {
+    autosave();
+  }, 800);
+}
+
+function autosave() {
+  try {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        timestamp: new Date().toISOString(),
+        messages: structuredClone(messages)
+      })
+    );
+  } catch (err) {
+    console.error("[AUTOSAVE_ERROR]", err.message);
+  }
+}
+
+function autoload() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+
+    const data = JSON.parse(raw);
+    if (!Array.isArray(data.messages)) return;
+
+    messages = structuredClone(data.messages);
+
+    const chat = document.getElementById("chat");
+    chat.innerHTML = "";
+
+    messages.forEach(msg => {
+      if (msg.role === "user") {
+        addMessage("user", msg.content);
+      } else {
+        const parsed = tryParseStoredMessage(msg.content);
+        addMessage("assistant", parsed.response, parsed.think);
+      }
+    });
+  } catch (err) {
+    console.error("[AUTOLOAD_ERROR]", err.message);
+  }
+}
+
+function savePrompt(name, promptText) {
+  const prompts = JSON.parse(localStorage.getItem("chat_prompts") || "[]");
+
+  prompts.push({
+    name,
+    content: promptText,
+    timestamp: new Date().toISOString()
+  });
+
+  localStorage.setItem("chat_prompts", JSON.stringify(prompts));
+}
+
+function getPromptsList() {
+  return JSON.parse(localStorage.getItem("chat_prompts") || "[]");
+}
 
 function addMessage(role, text, think = "") {
   const chat = document.getElementById("chat");
@@ -45,8 +116,6 @@ function addMessage(role, text, think = "") {
 
     if (think) {
       const details = document.createElement("details");
-      details.className = "thinking";
-
       const summary = document.createElement("summary");
       summary.textContent = "Thinking";
 
@@ -64,31 +133,37 @@ function addMessage(role, text, think = "") {
   chat.scrollTop = chat.scrollHeight;
 }
 
-function extractThinkAndResponse(text) {
-  if (!text) return { think: "", response: "", js: "" };
+function tryParseStoredMessage(content) {
+  try {
+    const parsed = JSON.parse(content);
+    if (parsed.response) {
+      return {
+        think: parsed.think || "",
+        response: parsed.response
+      };
+    }
+  } catch {}
 
+  return { think: "", response: content };
+}
+
+function extractThinkAndResponse(text) {
   text = text.replace(/```json|```/g, "").trim();
 
-  const jsonStart = text.indexOf("{");
-  const jsonEnd = text.lastIndexOf("}");
+  const start = text.indexOf("{");
+  const end = text.lastIndexOf("}");
 
-  if (jsonStart === -1 || jsonEnd === -1) {
-    return { think: "", response: text, js: "" };
+  if (start === -1 || end === -1) {
+    throw new Error("No JSON found");
   }
 
-  const jsonString = text.slice(jsonStart, jsonEnd + 1);
+  const json = JSON.parse(text.slice(start, end + 1));
 
-  try {
-    const parsed = JSON.parse(jsonString);
-
-    return {
-      think: typeof parsed.think === "string" ? parsed.think : "",
-      response: typeof parsed.response === "string" ? parsed.response : "",
-      js: typeof parsed.js === "string" ? parsed.js : ""
-    };
-  } catch {
-    return { think: "", response: text, js: "" };
-  }
+  return {
+    think: json.think || "",
+    response: json.response || "",
+    js: json.js || ""
+  };
 }
 
 async function sendMessage() {
@@ -101,9 +176,11 @@ async function sendMessage() {
 
   addMessage("user", userText);
   messages.push({ role: "user", content: userText });
+  triggerAutosave();
+
   input.value = "";
 
-  const payloadMessages = [
+  const payload = [
     { role: "system", content: soulPrompt },
     { role: "system", content: getRuntimeContext(model) },
     ...messages
@@ -116,45 +193,57 @@ async function sendMessage() {
         "Authorization": "Bearer " + apiKey,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        model,
-        messages: payloadMessages
-      })
+      body: JSON.stringify({ model, messages: payload })
     });
 
     const data = await res.json();
-    const rawReply = data.choices?.[0]?.message?.content || "";
+    const raw = data.choices?.[0]?.message?.content || "";
 
-    const parsed = extractThinkAndResponse(rawReply);
+    const parsed = extractThinkAndResponse(raw);
 
     addMessage("assistant", parsed.response, parsed.think);
 
-    messages.push({ role: "assistant", content: parsed.response });
+    messages.push({
+      role: "assistant",
+      content: JSON.stringify({
+        think: parsed.think,
+        response: parsed.response
+      })
+    });
 
-    if (typeof parsed.js === "string" && parsed.js.trim() !== "") {
+    triggerAutosave();
+
+    if (parsed.js && parsed.js.trim()) {
       try {
         eval(parsed.js);
       } catch (e) {
-        console.error("JS execution error:", e);
+        console.error("[JS_ERROR]", e);
       }
     }
-
   } catch (err) {
-    addMessage("assistant", "Error: " + err.message);
+    console.error("[SEND_ERROR]", err);
   }
 }
 
+function clearHistory() {
+  localStorage.removeItem(STORAGE_KEY);
+  messages = [];
+
+  const chat = document.getElementById("chat");
+  chat.innerHTML = "";
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-  const input = document.getElementById("input");
-  const btn = document.getElementById("sendBtn");
+  document.getElementById("sendBtn").addEventListener("click", sendMessage);
+  document.getElementById("clearBtn").addEventListener("click", clearHistory);
 
-  btn.addEventListener("click", sendMessage);
-
-  input.addEventListener("keydown", (e) => {
+  document.getElementById("input").addEventListener("keydown", e => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
     }
   });
+
+  autoload();
 });
+
