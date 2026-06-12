@@ -81,6 +81,14 @@ footer {
   font-size: 0.9em;
 }
 
+.card ul {
+  list-style: none;
+}
+
+.card ul li {
+    font-weight: bold;
+}
+
 .bus-list li {
   margin: 6px 0;
 }
