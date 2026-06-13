@@ -24,12 +24,12 @@
 <div class="container">
 <h2>AndrewBot Pro</h2>
 
-<label>API Key</label>
+<label for="apiKey">API Key</label>
 <div class="input-row">
 <input id="apiKey" class="input-field" placeholder="Enter API key">
 </div>
 
-<label>Model</label>
+<label for="model">Model</label>
 <select id="model" class="input-field">
   <option value="qwen/qwen3-32b">Qwen 3 32B (recommended)</option>
   <option value="openai/gpt-oss-120b">GPT OSS 120B (smartest)</option>
@@ -45,9 +45,9 @@
 <div id="chat"></div>
 
 <div class="input-row">
-<textarea id="input" class="input-field" rows="1" placeholder="Type a message..."></textarea>
-<button id="sendBtn">Send</button>
-<button id="clearBtn">Clear History</button>
+<textarea id="input" class="input-field" rows="1" placeholder="Type a message..." aria-label="Chat input"></textarea>
+<button id="sendBtn" type="button">Send</button>
+<button id="clearBtn" type="button">Clear History</button>
 </div>
 <footer>AndrewBot Pro - Created by Ethan Miao</footer>
 </div>
