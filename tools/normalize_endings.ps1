@@ -1,3 +1,13 @@
+<#
+This script normalizes line endings from 
+crlf or cr to lf, which is particularly 
+helpful if you work on Windows or Mac, or 
+if your device cannot handle lf line endings.
+
+Usage:
+./tools.normalize_endings.ps1 file.txt
+#>
+
 param (
     [Parameter(Mandatory = $true)]
     [string]$FilePath
