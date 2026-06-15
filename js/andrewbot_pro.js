@@ -136,6 +136,7 @@ function addMessage(role, text, think = "") {
 function tryParseStoredMessage(content) {
   try {
     const parsed = JSON.parse(content);
+
     if (parsed.response) {
       return {
         think: parsed.think || "",
@@ -147,23 +148,107 @@ function tryParseStoredMessage(content) {
   return { think: "", response: content };
 }
 
-function extractThinkAndResponse(text) {
-  text = text.replace(/```json|```/g, "").trim();
+function extractThinkAndResponse(text, options = {}) {
+  const {
+    maxRetries = 2,
+    allowRepair = true,
+    warn = (msg, data) => console.warn(msg, data)
+  } = options;
 
-  const start = text.indexOf("{");
-  const end = text.lastIndexOf("}");
-
-  if (start === -1 || end === -1) {
-    throw new Error("No JSON found");
+  function stripFences(input) {
+    return input
+      .replace(/```(?:json)?\s*/g, "")
+      .replace(/```/g, "")
+      .trim();
   }
 
-  const json = JSON.parse(text.slice(start, end + 1));
+  function normalize(obj) {
+    if (typeof obj !== "object" || obj === null) {
+      return { ok: false, think: "", response: "", js: "" };
+    }
 
-  return {
-    think: json.think || "",
-    response: json.response || "",
-    js: json.js || ""
-  };
+    return {
+      ok: true,
+      think: typeof obj.think === "string" ? obj.think : "",
+      response: typeof obj.response === "string" ? obj.response : "",
+      js: typeof obj.js === "string" ? obj.js : ""
+    };
+  }
+
+  function extractCandidates(input) {
+    const candidates = [];
+    let start = 0;
+
+    while ((start = input.indexOf("{", start)) !== -1) {
+      let depth = 0;
+
+      for (let i = start; i < input.length; i++) {
+        const ch = input[i];
+
+        if (ch === "{") depth++;
+        if (ch === "}") depth--;
+
+        if (depth === 0) {
+          candidates.push(input.slice(start, i + 1));
+          start = i + 1;
+          break;
+        }
+      }
+
+      start++;
+    }
+
+    return candidates;
+  }
+
+  function tryParse(candidate) {
+    try {
+      return JSON.parse(candidate);
+    } catch {
+      return null;
+    }
+  }
+
+  function tryRepairParse(candidate) {
+    if (!allowRepair) return null;
+
+    try {
+      const repaired = jsonrepair(candidate);
+      return JSON.parse(repaired);
+    } catch {
+      return null;
+    }
+  }
+
+  let cleaned = stripFences(text);
+  let candidates = extractCandidates(cleaned);
+
+  if (!candidates.length) {
+    return { ok: false, think: "", response: "", js: "", error: "NO_JSON_FOUND" };
+  }
+
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    for (const c of candidates) {
+      const parsed = tryParse(c);
+      if (parsed) return normalize(parsed);
+
+      const repaired = tryRepairParse(c);
+      if (repaired) {
+        warn("JSON repaired", { candidate: c });
+        return normalize(repaired);
+      }
+    }
+
+    if (attempt === 0) {
+      cleaned = cleaned
+        .replace(/,\s*}/g, "}")
+        .replace(/,\s*]/g, "]");
+
+      candidates = extractCandidates(cleaned);
+    }
+  }
+
+  return { ok: false, think: "", response: "", js: "", error: "FAILED_PARSE" };
 }
 
 async function sendMessage() {
@@ -173,6 +258,11 @@ async function sendMessage() {
 
   const userText = input.value.trim();
   if (!userText) return;
+
+  if (!apiKey) {
+    addMessage("assistant", "⚠️ Missing API key", "");
+    return;
+  }
 
   addMessage("user", userText);
   messages.push({ role: "user", content: userText });
@@ -201,6 +291,18 @@ async function sendMessage() {
 
     const parsed = extractThinkAndResponse(raw);
 
+    if (!parsed.ok) {
+      console.warn("[LLM_PARSE_ERROR]", parsed.error, raw);
+      addMessage("assistant", "⚠️ malformed or empty response (not saved)", "");
+      return;
+    }
+
+    if (!parsed.response || !parsed.response.trim()) {
+      console.warn("[EMPTY_RESPONSE]", parsed);
+      addMessage("assistant", "⚠️ empty response (not saved)", "");
+      return;
+    }
+
     addMessage("assistant", parsed.response, parsed.think);
 
     messages.push({
@@ -220,8 +322,10 @@ async function sendMessage() {
         console.error("[JS_ERROR]", e);
       }
     }
+
   } catch (err) {
     console.error("[SEND_ERROR]", err);
+    addMessage("assistant", "⚠️ request failed", "");
   }
 }
 
