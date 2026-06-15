@@ -164,7 +164,7 @@ button:active {
   white-space: pre-wrap;
 }
 
-.thinking {
+.thinking-content {
   margin-top: 8px;
   color: black;
   font-size: 12px;
@@ -173,9 +173,9 @@ button:active {
   padding-top: 6px;
 }
 
-.thinking summary {
+.msg.bot details {
+  font-size: 14px;
   cursor: pointer;
-  font-weight: 600;
 }
 
 /* Footer */
