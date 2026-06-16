@@ -1,24 +1,40 @@
 const soulPrompt = `
-- You are an AI that outputs ONLY valid JSON.
+- You are an AI that outputs ONLY VALID JSON.
 - You have full access to the browser dom, so please be careful.
 - You can run JavaScript.
 
 ABSOLUTE RULES:
+- Begin your response with {
 - Output ONLY JSON (no text before or after)
 - NEVER use <think>, <response>, or XML tags
-- NEVER wrap output in markdown
+- NEVER use HTML tags for styling
 - NEVER explain anything
 - NEVER include trailing commentary
 
+STYLING:
+- The JSON itself must not be wrapped in markdown fences.
+- The "response" field MAY contain Markdown and LaTeX.
+- Use Markdown formatting when useful.
+- Use LaTeX delimiters:
+  Inline: \\(x^2\\)
+  Block: \\[x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}\\]
+- Never use LaTeX comments with %
+- Never use raw HTML outside fenced code blocks
+- Code must always be inside Markdown fenced blocks
+
 REQUIRED FORMAT:
 {
-  "think": "internal reasoning",
+  "think": "any internal reasoning, plans, or mental sandboxes",
   "response": "user-facing reply",
   "js": ""
 }
 
 RULES:
-- js MUST be a string (never object, never null)
+- Return short responses unless otherwise specified
+- Ask for clarification if unsure
+- js MUST be a string
+- js must be executable if it is not empty
+- Never use top-level return in js
 - If no JS, use ""
 - Output must be valid JSON parsable by JSON.parse()
 `;
@@ -35,6 +51,13 @@ const RETRY_DELAY = 1000;
 
 const STORAGE_KEY = "chat_autosave";
 let autosaveTimer = null;
+const DEBUG = false;
+
+function debugLog(...args) {
+  if (DEBUG) {
+    debugLog(...args);
+  }
+}
 
 function triggerAutosave() {
   clearTimeout(autosaveTimer);
@@ -54,7 +77,7 @@ function autosave() {
       })
     );
   } catch (err) {
-    console.error("[AUTOSAVE_ERROR]", err.message);
+    console.error("[AUTOSAVE_ERROR]", err);
   }
 }
 
@@ -64,6 +87,7 @@ function autoload() {
     if (!raw) return;
 
     const data = JSON.parse(raw);
+
     if (!Array.isArray(data.messages)) return;
 
     messages = structuredClone(data.messages);
@@ -79,25 +103,108 @@ function autoload() {
         addMessage("assistant", parsed.response, parsed.think);
       }
     });
+
   } catch (err) {
-    console.error("[AUTOLOAD_ERROR]", err.message);
+    console.error("[AUTOLOAD_ERROR]", err);
   }
 }
 
-function savePrompt(name, promptText) {
-  const prompts = JSON.parse(localStorage.getItem("chat_prompts") || "[]");
+function renderMarkdown(text) {
+  try {
+    if (
+      typeof marked === "undefined" ||
+      typeof katex === "undefined" ||
+      typeof DOMPurify === "undefined"
+    ) {
+      console.error("[RENDER_ERROR] Missing markdown libraries");
+      return text;
+    }
 
-  prompts.push({
-    name,
-    content: promptText,
-    timestamp: new Date().toISOString()
-  });
+    const mathBlocks = [];
+    const codeBlocks = [];
 
-  localStorage.setItem("chat_prompts", JSON.stringify(prompts));
-}
+    text = text.replace(
+      /```[\s\S]*?```/g,
+      match => {
+        const id = codeBlocks.length;
+        codeBlocks.push(match);
+        return `@@CODE_${id}@@`;
+      }
+    );
 
-function getPromptsList() {
-  return JSON.parse(localStorage.getItem("chat_prompts") || "[]");
+    function saveMath(content, display) {
+      const id = mathBlocks.length;
+
+      try {
+        mathBlocks.push(
+          katex.renderToString(content.trim(), {
+            displayMode: display,
+            throwOnError: false,
+            strict: false
+          })
+        );
+      } catch (err) {
+        console.error("[KATEX_ERROR]", {
+          content,
+          err
+        });
+
+        mathBlocks.push(content);
+      }
+
+      return `@@MATH_${id}@@`;
+    }
+
+    text = text.replace(
+      /\\\[(.*?)\\\]/gs,
+      (_, math) => saveMath(math, true)
+    );
+
+    text = text.replace(
+      /\\\((.*?)\\\)/gs,
+      (_, math) => saveMath(math, false)
+    );
+
+    text = text.replace(
+      /\$\$([\s\S]*?)\$\$/g,
+      (_, math) => saveMath(math, true)
+    );
+
+    text = text.replace(
+      /\$([^\$\n]+?)\$/g,
+      (_, math) => saveMath(math, false)
+    );
+
+    let html = marked.parse(text, {
+      breaks: true,
+      gfm: true
+    });
+
+    html = html.replace(
+      /@@MATH_(\d+)@@/g,
+      (_, id) => mathBlocks[id] || ""
+    );
+
+    html = html.replace(
+      /@@CODE_(\d+)@@/g,
+      (_, id) => codeBlocks[id] || ""
+    );
+
+    return DOMPurify.sanitize(html, {
+      ADD_TAGS: [
+        "pre",
+        "code",
+        "span"
+      ],
+      ADD_ATTR: [
+        "class"
+      ]
+    });
+
+  } catch (err) {
+    console.error("[MARKDOWN_ERROR]", err);
+    return text;
+  }
 }
 
 function addMessage(role, text, think = "") {
@@ -111,11 +218,24 @@ function addMessage(role, text, think = "") {
   } else {
     const response = document.createElement("div");
     response.className = "response";
-    response.textContent = text;
+
+    response.innerHTML = renderMarkdown(text);
+
+    if (typeof hljs !== "undefined") {
+      response.querySelectorAll("pre code").forEach(block => {
+        try {
+          hljs.highlightElement(block);
+        } catch (err) {
+          debugLog("[HLJS_ERROR]", err);
+        }
+      });
+    }
+
     div.appendChild(response);
 
     if (think) {
       const details = document.createElement("details");
+
       const summary = document.createElement("summary");
       summary.textContent = "Thinking";
 
@@ -125,6 +245,7 @@ function addMessage(role, text, think = "") {
 
       details.appendChild(summary);
       details.appendChild(content);
+
       div.appendChild(details);
     }
   }
@@ -143,28 +264,66 @@ function tryParseStoredMessage(content) {
         response: parsed.response
       };
     }
+
   } catch {}
 
-  return { think: "", response: content };
+  return {
+    think: "",
+    response: content
+  };
 }
+
+function extractThinkTags(text) {
+  let think = "";
+
+  if (typeof text !== "string") {
+    return {
+      text,
+      think
+    };
+  }
+
+  text = text.replace(
+    /<think>([\s\S]*?)<\/think>/gi,
+    (_, content) => {
+      think += content.trim() + "\n";
+      return "";
+    }
+  );
+
+  return {
+    text: text.trim(),
+    think: think.trim()
+  };
+}
+
 
 function extractThinkAndResponse(text, options = {}) {
   const {
     maxRetries = 2,
     allowRepair = true,
-    warn = (msg, data) => console.warn(msg, data)
+    warn = (msg, data) => debugLog(msg, data)
   } = options;
 
   function stripFences(input) {
+    if (typeof input !== "string") {
+      return input;
+    }
+
     return input
-      .replace(/```(?:json)?\s*/g, "")
-      .replace(/```/g, "")
+      .replace(/^```(?:json)?\s*/i, "")
+      .replace(/\s*```$/i, "")
       .trim();
   }
 
   function normalize(obj) {
     if (typeof obj !== "object" || obj === null) {
-      return { ok: false, think: "", response: "", js: "" };
+      return {
+        ok: false,
+        think: "",
+        response: "",
+        js: ""
+      };
     }
 
     return {
@@ -177,25 +336,51 @@ function extractThinkAndResponse(text, options = {}) {
 
   function extractCandidates(input) {
     const candidates = [];
-    let start = 0;
 
-    while ((start = input.indexOf("{", start)) !== -1) {
-      let depth = 0;
+    let start = -1;
+    let depth = 0;
+    let inString = false;
+    let escaped = false;
 
-      for (let i = start; i < input.length; i++) {
-        const ch = input[i];
+    for (let i = 0; i < input.length; i++) {
+      const ch = input[i];
 
-        if (ch === "{") depth++;
-        if (ch === "}") depth--;
-
-        if (depth === 0) {
-          candidates.push(input.slice(start, i + 1));
-          start = i + 1;
-          break;
+      if (inString) {
+        if (escaped) {
+          escaped = false;
+        } else if (ch === "\\") {
+          escaped = true;
+        } else if (ch === '"') {
+          inString = false;
         }
+
+        continue;
       }
 
-      start++;
+      if (ch === '"') {
+        inString = true;
+        continue;
+      }
+
+      if (ch === "{") {
+        if (depth === 0) {
+          start = i;
+        }
+
+        depth++;
+      }
+
+      if (ch === "}") {
+        depth--;
+
+        if (depth === 0 && start !== -1) {
+          candidates.push(
+            input.slice(start, i + 1)
+          );
+
+          start = -1;
+        }
+      }
     }
 
     return candidates;
@@ -212,6 +397,10 @@ function extractThinkAndResponse(text, options = {}) {
   function tryRepairParse(candidate) {
     if (!allowRepair) return null;
 
+    if (typeof jsonrepair !== "function") {
+      return null;
+    }
+
     try {
       const repaired = jsonrepair(candidate);
       return JSON.parse(repaired);
@@ -224,17 +413,30 @@ function extractThinkAndResponse(text, options = {}) {
   let candidates = extractCandidates(cleaned);
 
   if (!candidates.length) {
-    return { ok: false, think: "", response: "", js: "", error: "NO_JSON_FOUND" };
+    return {
+      ok: false,
+      think: "",
+      response: "",
+      js: "",
+      error: "NO_JSON_FOUND"
+    };
   }
 
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
-    for (const c of candidates) {
-      const parsed = tryParse(c);
-      if (parsed) return normalize(parsed);
+    for (const candidate of candidates) {
+      const parsed = tryParse(candidate);
 
-      const repaired = tryRepairParse(c);
+      if (parsed) {
+        return normalize(parsed);
+      }
+
+      const repaired = tryRepairParse(candidate);
+
       if (repaired) {
-        warn("JSON repaired", { candidate: c });
+        warn("JSON repaired", {
+          candidate
+        });
+
         return normalize(repaired);
       }
     }
@@ -248,7 +450,13 @@ function extractThinkAndResponse(text, options = {}) {
     }
   }
 
-  return { ok: false, think: "", response: "", js: "", error: "FAILED_PARSE" };
+  return {
+    ok: false,
+    think: "",
+    response: "",
+    js: "",
+    error: "FAILED_PARSE"
+  };
 }
 
 async function sendMessage() {
@@ -257,53 +465,120 @@ async function sendMessage() {
   const model = document.getElementById("model").value;
 
   const userText = input.value.trim();
+
   if (!userText) return;
 
   if (!apiKey) {
-    addMessage("assistant", "⚠️ Missing API key", "");
+    addMessage(
+      "assistant",
+      "⚠️ Missing API key",
+      ""
+    );
+
     return;
   }
 
-  addMessage("user", userText);
-  messages.push({ role: "user", content: userText });
+  addMessage(
+    "user",
+    userText
+  );
+
+  messages.push({
+    role: "user",
+    content: userText
+  });
+
   triggerAutosave();
 
   input.value = "";
 
   const payload = [
-    { role: "system", content: soulPrompt },
-    { role: "system", content: getRuntimeContext(model) },
+    {
+      role: "system",
+      content: soulPrompt
+    },
+    {
+      role: "system",
+      content: getRuntimeContext(model)
+    },
     ...messages
   ];
 
   try {
-    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": "Bearer " + apiKey,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ model, messages: payload })
-    });
+    const res = await fetch(
+      "https://api.groq.com/openai/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer " + apiKey,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model,
+          messages: payload
+        })
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error(
+        `HTTP ${res.status}`
+      );
+    }
 
     const data = await res.json();
-    const raw = data.choices?.[0]?.message?.content || "";
 
-    const parsed = extractThinkAndResponse(raw);
+    const raw =
+      data.choices?.[0]?.message?.content || "";
+
+    debugLog("[MODEL RAW]", raw);
+
+    const extracted = extractThinkTags(raw);
+
+    const parsed = extractThinkAndResponse(extracted.text);
+
+    if (extracted.think) {
+      parsed.think = extracted.think;
+    }
+
+    debugLog("[PARSED RESPONSE]", parsed);
 
     if (!parsed.ok) {
-      console.warn("[LLM_PARSE_ERROR]", parsed.error, raw);
-      addMessage("assistant", "⚠️ malformed or empty response (not saved)", "");
+      debugLog(
+        "[LLM_PARSE_ERROR]",
+        parsed.error,
+        raw
+      );
+
+      addMessage(
+        "assistant",
+        "⚠️ malformed response",
+        ""
+      );
+
       return;
     }
 
-    if (!parsed.response || !parsed.response.trim()) {
-      console.warn("[EMPTY_RESPONSE]", parsed);
-      addMessage("assistant", "⚠️ empty response (not saved)", "");
+    if (!parsed.response.trim()) {
+      debugLog(
+        "[EMPTY_RESPONSE]",
+        parsed
+      );
+
+      addMessage(
+        "assistant",
+        "⚠️ empty response",
+        ""
+      );
+
       return;
     }
 
-    addMessage("assistant", parsed.response, parsed.think);
+    addMessage(
+      "assistant",
+      parsed.response,
+      parsed.think
+    );
 
     messages.push({
       role: "assistant",
@@ -317,37 +592,73 @@ async function sendMessage() {
 
     if (parsed.js && parsed.js.trim()) {
       try {
-        eval(parsed.js);
-      } catch (e) {
-        console.error("[JS_ERROR]", e);
+        Function(parsed.js)();
+      } catch (err) {
+        console.error(
+          "[JS_ERROR]",
+          err
+        );
       }
     }
 
   } catch (err) {
-    console.error("[SEND_ERROR]", err);
-    addMessage("assistant", "⚠️ request failed", "");
+    console.error(
+      "[SEND_ERROR]",
+      err
+    );
+
+    addMessage(
+      "assistant",
+      "⚠️ request failed",
+      ""
+    );
   }
 }
 
 function clearHistory() {
-  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(
+    STORAGE_KEY
+  );
+
   messages = [];
 
   const chat = document.getElementById("chat");
+
   chat.innerHTML = "";
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("sendBtn").addEventListener("click", sendMessage);
-  document.getElementById("clearBtn").addEventListener("click", clearHistory);
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    document
+      .getElementById("sendBtn")
+      .addEventListener(
+        "click",
+        sendMessage
+      );
 
-  document.getElementById("input").addEventListener("keydown", e => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
-  });
+    document
+      .getElementById("clearBtn")
+      .addEventListener(
+        "click",
+        clearHistory
+      );
 
-  autoload();
-});
+    document
+      .getElementById("input")
+      .addEventListener(
+        "keydown",
+        e => {
+          if (
+            e.key === "Enter" &&
+            !e.shiftKey
+          ) {
+            e.preventDefault();
+            sendMessage();
+          }
+        }
+      );
 
+    autoload();
+  }
+);
