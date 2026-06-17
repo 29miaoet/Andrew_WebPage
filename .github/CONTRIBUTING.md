@@ -62,3 +62,4 @@ You do not need to follow these guidelines when contributing, but please take a 
 - Prefer aria-labels for accessibility over direct `<label>` tags.
 - Use JavaScript event listeners instead of `onclick` attributes.
 - Background color schemes should be light blue, preferably between `#e8f6ff` and `#9cd6ff`.
+- Use normal HTML syntax instead of XHTML syntax.
