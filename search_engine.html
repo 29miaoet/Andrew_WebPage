@@ -1,43 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, follow">
-  <meta name="description" content="A search engine to help users navigate Andrew's Website">
-  <link rel="manifest" href="data/manifest.webmanifest">
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <meta name="description" content="A search engine to help users navigate Andrew's Website">
+    <link rel="manifest" href="data/manifest.webmanifest">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
-  <link rel="stylesheet" href="css/base/theme.css">
-  <link rel="stylesheet" href="css/elements/home_button.css">
-  <link rel="stylesheet" href="css/search_engine.css">
-  <title>Andrew Stanish | Search Engine</title>
-  <link rel="canonical" href="https://29miaoet.github.io/Andrew_WebPage/search_engine.html">
+    <link rel="stylesheet" href="css/base/theme.css">
+    <link rel="stylesheet" href="css/elements/home_button.css">
+    <link rel="stylesheet" href="css/search_engine.css">
+    <title>Andrew Stanish | Search Engine</title>
+    <link rel="canonical" href="https://29miaoet.github.io/Andrew_WebPage/search_engine.html">
+  </head>
 
-</head>
+  <body>
+    <a href="./" class="mini-home-btn" aria-label="Home">
+      <span class="home-icon">🏠</span>
+      <span class="home-text">Home</span>
+    </a>
+    <header>
+      <h1>Andrew's Website Search Engine</h1>
+      <p>Everything Andrew Related</p>
+    </header>
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="Search items..." aria-label="Search string input">
+      <button id="searchBtn">Search</button>
+    </div>
+    <div class="results" id="results"></div>
+    <footer>Created by Ethan Miao - built with MiniSearch</footer>
 
-<body>
-  <a href="./" class="mini-home-btn" aria-label="Home">
-    <span class="home-icon">🏠</span>
-    <span class="home-text">Home</span>
-  </a>
-  <header>
-    <h1>Andrew's Website Search Engine</h1>
-    <p>Everything Andrew Related</p>
-  </header>
-  <div class="search-box">
-    <input id="searchInput" type="text" placeholder="Search items..." aria-label="Search string input">
-    <button id="searchBtn">Search</button>
-  </div>
-  <div class="results" id="results"></div>
-  <footer>
-    Created by Ethan Miao - built with MiniSearch
-  </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js"></script>
-<script src="js/search_engine.js"></script>
-<script src="js/service_worker_register.js"></script>
-
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js"></script>
+    <script src="js/search_engine.js"></script>
+    <script src="js/service_worker_register.js"></script>
+  </body>
 </html>
-
