@@ -154,6 +154,12 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
 - 💡 Explore modern web patterns (AI, search, offline support)
 - 🙂 Help make Andrew famous
 
+## Contributers
+
+Thanks to everyone who has contributed to this project!
+
+[![Contributers](https://contrib.rocks/image?repo=29miaoet/Andrew_WebPage)](https://api.star-history.com/svg?repos=openclaw/openclaw&type=date&legend=top-left)
+
 ## Download
 
 - [Source Code Download - Zip](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v28.7.4.zip)
@@ -194,7 +200,8 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
 - **Command Line Tools**  
   **✓** [npm](https://www.npmjs.com/)  
   **✓** [prettier](https://www.npmjs.com/package/prettier)  
-  **✓** [neovim](https://github.com/neovim/neovim)
+  **✓** [neovim](https://github.com/neovim/neovim)  
+  **✓** [dos2unix](https://dos2unix.sourceforge.io/)
 
 - **Dependencies**  
   **✓** [Groq API](https://console.groq.com/keys)  
