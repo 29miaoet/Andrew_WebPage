@@ -197,9 +197,14 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
   **✓** [neovim](https://github.com/neovim/neovim)
 
 - **Dependencies**  
-  **✓** [MiniSearch](https://lucaong.github.io/minisearch/)  
   **✓** [Groq API](https://console.groq.com/keys)  
-  **✓** [transformers.js](https://github.com/huggingface/transformers.js)
+  **✓** [MiniSearch](https://lucaong.github.io/minisearch/)  
+  **✓** [transformers.js](https://github.com/huggingface/transformers.js)  
+  **✓** [Marked](https://github.com/markedjs/marked)  
+  **✓** [DOMPurify](https://github.com/cure53/DOMPurify)  
+  **✓** [KaTeX](https://github.com/KaTeX/KaTeX)  
+  **✓** [highlight.js](https://github.com/highlightjs/highlight.js)  
+  **✓** [jsonrepair](https://github.com/josdejong/jsonrepair)
 
 - **Search Engine & Accessibility**  
   **✓** [Google Search Console](https://search.google.com/search-console/)  
