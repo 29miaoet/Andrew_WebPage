@@ -16,12 +16,6 @@
 
 html,
 body {
-    margin: 0;
-    overflow-x: hidden;
-}
-
-body {
-    min-height: 100vh;
     background-color: #e0e0e0;
     display: flex;
     justify-content: center;
@@ -76,14 +70,12 @@ p {
     margin-top: 20px;
 }
 
-.button-container a {
-    font-weight: 600;
-    display: inline-block;
-
-    padding: 12px 28px;
+a {
+    padding: 12px 24px;
+    border: none;
     border-radius: 10px;
-
     background-color: #00b4ff;
+    text-decoration: none;
     color: white;
     text-decoration: none;
 
@@ -114,11 +106,18 @@ p {
         The page you requested does not exist.
     </p>
 
-    <p>
-        Either it was moved recently, never existed,
-        or was mysteriously hidden by the browser.
-        (Probably the latter).
-    </p>
+</head>
+<body>
+<div class=container>
+<h1>404</h1>
+<img src="https://29miaoet.github.io/Andrew_WebPage/images/favicon.svg" alt="Logo and favicon of Andrew's Website">
+<p class="bold">The page you requested does not exist.</p>
+<p>Either it was moved recently, never existed, or was mysteriously hidden by the browser. (Probably the latter).</p>
+<p>Please try one of the links below.</p>
+<nav class="button-container">
+<a href="https://29miaoet.github.io/Andrew_WebPage/">Home</a>
+<a href="https://29miaoet.github.io/Andrew_WebPage/search_engine.html">Search</a>
+</nav>
 
     <p>
         Please try one of the links below.
