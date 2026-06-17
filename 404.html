@@ -15,54 +15,49 @@
     box-sizing: border-box;
 }
 
+html,
 body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #e0e0e0;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 20px;
-    margin: 0;
-}
-
-h1 {
-    font-size: 60px;
-    font-weight: 600;
-}
-
-img {
-    width: 40%;
-    height: auto;
+    font-family: system-ui, sans-serif;
 }
 
 .container {
-    margin-top: 40px;
+    width: 100%;
+    max-width: 600px;
     text-align: center;
-    width: 600px;
+
+    padding: 2rem;
+    border-radius: 20px;
+
 }
 
-.button-container {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+h1 {
+    margin: 0;
+    font-size: clamp(5rem, 15vw, 8rem);
+    line-height: 1;
+    font-weight: 400;
 }
 
-a {
-    padding: 12px 24px;
-    border: none;
-    border-radius: var(--radius-md);
-    background-color: var(--color-accent);
-    text-decoration: none;
-    color: white;
+img {
+    width: min(200px, 50%);
+    height: auto;
+    margin: 10px 0;
+}
+
+.error-code {
+    margin-top: 8px;
+    color: #666;
     font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    margin: 10px;
-}
-
-a:hover {
-    transform: translateY(-2px);
-}
-
-p {
-    font-size: 16px;
 }
 
 .bold {
@@ -70,23 +65,72 @@ p {
     font-size: 18px;
 }
 
+p {
+    font-size: 16px;
+}
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.button-container a {
+    font-weight: 600;
+    display: inline-block;
+
+    padding: 12px 28px;
+    border-radius: 10px;
+
+    background-color: #00b4ff;
+    color: white;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        transform .15s ease,
+        background-color .15s ease;
+}
+
+.button-container a:hover {
+    transform: translateY(-2px);
+    background-color: #009fe0;
+}
 </style>
 
 </head>
 <body>
-<div class=container>
-<h1>404</h1>
-<img src="images/favicon.svg" alt="Logo and favicon of Andrew's Website">
-<p class="bold">The page you requested does not exist.</p>
-<p>Either it was moved recently, never existed, or was mysteriously hidden by the browser. (Probably the latter).</p>
-<p>Please try one of the links below.</p>
-<nav class="button-container">
-<a href="./">Home</a>
-<a href="search_engine.html">Search</a>
-</nav>
+<div class="container">
+
+    <h1>404</h1>
+    <p class="error-code">Page Not Found</p>
+
+    <img src="images/favicon.svg" alt="Logo and favicon of Andrew's Website">
+
+    <p class="bold">
+        The page you requested does not exist.
+    </p>
+
+    <p>
+        Either it was moved recently, never existed,
+        or was mysteriously hidden by the browser.
+        (Probably the latter).
+    </p>
+
+    <p>
+        Please try one of the links below.
+    </p>
+
+    <nav class="button-container">
+        <a href="/">Home</a>
+        <a href="/search_engine.html">Search</a>
+        <a href="#" onclick="history.back(); return false;">Go Back</a>
+    </nav>
 
 </div>
-
 </body>
 </html>
