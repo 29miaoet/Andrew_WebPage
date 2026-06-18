@@ -1097,11 +1097,7 @@
     },
     {
       "tag": "who_is_naqerjobg",
-      "patterns": [
-        "who is naqerjobg",
-        "whats naqerjobg",
-        "naqerjobg who"
-      ],
+      "patterns": ["who is naqerjobg", "whats naqerjobg", "naqerjobg who"],
       "responses": [
         "Use your brain, it's not too hard.",
         "I can't exactly tell you, can I? That would ruin the fun."
@@ -1303,6 +1299,233 @@
       ],
       "responses": [
         "Andrew has a strong interest in Quantum Field Theory, Real Analysis, and Abstract Algebra; classes which he has sited as \"A bit of challenge, fun, you know.\""
+      ]
+    },
+
+    {
+      "tag": "unknown_or_confused",
+      "patterns": [
+        "asdfgh",
+        "random text",
+        "blah blah",
+        "i don't know what to say",
+        "nothing",
+        "just testing",
+        "test message",
+        "ignore this",
+        "........",
+        "????",
+        "what even is this",
+        "i typed random words",
+        "this makes no sense"
+      ],
+      "responses": [
+        "I’m not sure I understood that. Could you rephrase it?",
+        "I may need a clearer question to help you properly.",
+        "That seems unclear. Try asking me in a different way."
+      ]
+    },
+    {
+      "tag": "bot_capabilities",
+      "patterns": [
+        "what can you do",
+        "how can you help me",
+        "what are your features",
+        "what are you able to do",
+        "tell me your abilities",
+        "what questions can i ask",
+        "how do i use this bot",
+        "what is your purpose",
+        "what do you support"
+      ],
+      "responses": [
+        "I can answer questions, explain things, chat with you, and help with basic guidance.",
+        "You can ask me questions, request explanations, or tell me what you need help with.",
+        "I’m here to help with conversations, information, and simple assistance."
+      ]
+    },
+    {
+      "tag": "clarification_request",
+      "patterns": [
+        "what do you mean",
+        "can you explain",
+        "explain that",
+        "i don't understand",
+        "make it simpler",
+        "say that again",
+        "can you clarify",
+        "explain in simple words",
+        "i am confused",
+        "please elaborate"
+      ],
+      "responses": [
+        "Sure. I can explain it more simply.",
+        "Of course. Tell me which part confused you.",
+        "No problem, I’ll try to make it clearer."
+      ]
+    },
+    {
+      "tag": "repeat_request",
+      "patterns": [
+        "repeat that",
+        "say again",
+        "can you repeat",
+        "tell me again",
+        "repeat your answer",
+        "i missed that",
+        "come again",
+        "say it once more"
+      ],
+      "responses": [
+        "Sure, I can repeat it.",
+        "Of course. Here it is again.",
+        "No problem, I’ll say it again."
+      ]
+    },
+    {
+      "tag": "negative_feedback",
+      "patterns": [
+        "that is wrong",
+        "wrong answer",
+        "you are wrong",
+        "not correct",
+        "that's incorrect",
+        "bad answer",
+        "this is not helpful",
+        "you misunderstood",
+        "that doesn't answer my question"
+      ],
+      "responses": [
+        "Sorry about that. Could you tell me what I should correct?",
+        "Thanks for pointing that out. Let me try again.",
+        "I may have misunderstood. Please rephrase or give me more context."
+      ]
+    },
+    {
+      "tag": "positive_feedback",
+      "patterns": [
+        "good answer",
+        "nice answer",
+        "great job",
+        "well done",
+        "that's correct",
+        "perfect",
+        "awesome",
+        "nice work",
+        "you are helpful",
+        "that makes sense"
+      ],
+      "responses": [
+        "Thanks! Glad it helped.",
+        "Happy to help!",
+        "Great! Let me know what else you need."
+      ]
+    },
+
+    {
+      "tag": "human_request",
+      "patterns": [
+        "are you human",
+        "am i talking to a human",
+        "are you a real person",
+        "who am i talking to",
+        "are you a bot",
+        "are you ai",
+        "are you artificial intelligence"
+      ],
+      "responses": [
+        "I’m AndrewBot, an AI chatbot.",
+        "I’m not human, but I’ll do my best to help.",
+        "I’m a bot designed to assist you."
+      ]
+    },
+    {
+      "tag": "non_english_language",
+      "patterns": [
+        "hola",
+        "bonjour",
+        "salut",
+        "gracias",
+        "merci",
+        "ciao",
+        "guten tag",
+        "danke",
+        "namaste",
+        "dhanyavad",
+        "vanakkam",
+        "salaam",
+        "assalamu alaikum",
+        "marhaba",
+        "shukran",
+        "ni hao",
+        "xie xie",
+        "konnichiwa",
+        "arigato",
+        "annyeong",
+        "gamsahamnida",
+        "olá",
+        "obrigado",
+        "privet",
+        "spasibo",
+        "hej",
+        "tack",
+        "xin chào",
+        "kamusta",
+        "halo",
+        "selamat pagi",
+        "سلام",
+        "مرحبا",
+        "नमस्ते",
+        "धन्यवाद",
+        "こんにちは",
+        "ありがとう",
+        "안녕하세요",
+        "감사합니다",
+        "你好",
+        "谢谢",
+        "hola amigo",
+        "como estas",
+        "que tal",
+        "buenos dias",
+        "buenas noches"
+      ],
+      "responses": [
+        "Sorry, I currently support English only. Please ask your question in English.",
+        "I can only understand English at the moment. Please rephrase your message in English.",
+        "English is currently the only supported language. Try asking again in English."
+      ]
+    },
+    {
+      "tag": "mixed_language",
+      "patterns": [
+        "hola how are you",
+        "bonjour friend",
+        "namaste bot",
+        "salaam how are you",
+        "hola can you help me",
+        "你好 hello",
+        "こんにちは hello"
+      ],
+      "responses": [
+        "Please use English only so I can help accurately.",
+        "I currently support English conversations only.",
+        "For the best results, please write your message in English."
+      ]
+    },
+    {
+      "tag": "translation_request",
+      "patterns": [
+        "translate this",
+        "translate for me",
+        "can you translate",
+        "translate to english",
+        "convert to english",
+        "what does this mean in english"
+      ],
+      "responses": [
+        "Translation support is currently unavailable.",
+        "Sorry, I can only process English conversations right now.",
+        "Please provide your request in English."
       ]
     }
   ]
