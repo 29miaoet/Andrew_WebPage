@@ -78,25 +78,16 @@ Reference [docs/structure.md](https://github.com/29miaoet/Andrew_WebPage/blob/ma
   - ✅ Opera
   - ✅ Brave
   - ✅ Chromium
-  - ✅ lynx
-  - ✅ w3m
-
-- Search Engines:  
-  <sub>_Where you can find the website just by searching `Andrew Stanish`_</sub>
-  - 🌐 Google
-  - 🌐 Bing
-  - 🌐 DuckDuckGo
-  - 🌐 Yahoo
 
 - Warnings:
-  - ⚠️ Some pages require JavaScript to run.
+  - ⚠️ Most pages require JavaScript to run.
   - ⚠️ Some image loading times may be slow on cellular connections.
   - ⚠️ Source code download is based on release, so it may lag behind the actual website state.
   - ⚠️ Internet explorer is **_not_** supported
 
 ## Requisites
 
-- Modern GUI or text-based browser
+- Modern GUI browser
 - **`recommended`** JavaScript enabled
 - **`recommended`** Internet connection
 
@@ -132,6 +123,19 @@ Reference [docs/structure.md](https://github.com/29miaoet/Andrew_WebPage/blob/ma
 | **YAML**       | GitHub Actions automation and Dependabot configuration     |
 | **Markdown**   | GitHub project documentation                               |
 
+## AI
+
+Andrew's website offers 2 AI models, AndrewBot and AndrewBot Pro.
+
+| AndrewBot               | AndrewBot Pro                |
+| ----------------------- | ---------------------------- |
+| Rule-based matching bot | AI model through Groq API    |
+| Works offline           | Requires internet connection |
+| No API key required     | Requires Groq API key        |
+| No rate limits          | May be rate-limited          |
+| Can run JavaScript      | Can run JavaScript           |
+| Not very smart          | Fairly smart                 |
+
 ## Future Path
 
 - [x] Modify all html files to be more accessible.
@@ -158,7 +162,7 @@ Please reference [CONTRIBUTING.md](https://github.com/29miaoet/Andrew_WebPage/bl
 
 Thanks to everyone who has contributed to this project!
 
-[![Contributers](https://contrib.rocks/image?repo=29miaoet/Andrew_WebPage)](https://api.star-history.com/svg?repos=openclaw/openclaw&type=date&legend=top-left)
+![Contributers](https://contrib.rocks/image?repo=29miaoet/Andrew_WebPage)
 
 ## Download
 
