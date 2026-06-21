@@ -207,6 +207,184 @@ function renderMarkdown(text) {
   }
 }
 
+
+// --- helper: create typing DOM node and return a handle ---
+function showTypingIndicator() {
+  const chat = document.getElementById("chat");
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "msg bot typing-wrapper";
+
+  const typing = document.createElement("div");
+  typing.className = "typing";
+  typing.setAttribute("aria-live", "polite");
+  typing.setAttribute("role", "status");
+
+  const dot1 = document.createElement("span");
+  dot1.className = "dot";
+  const dot2 = document.createElement("span");
+  dot2.className = "dot";
+  const dot3 = document.createElement("span");
+  dot3.className = "dot";
+
+  typing.appendChild(dot1);
+  typing.appendChild(dot2);
+  typing.appendChild(dot3);
+
+  wrapper.appendChild(typing);
+  chat.appendChild(wrapper);
+  chat.scrollTop = chat.scrollHeight;
+
+  return wrapper; // caller can remove or replace this node
+}
+
+
+async function retryWithRepair(originalUserMessage, brokenOutput) {
+  console.warn("[JSON_REPAIR] Model returned malformed JSON. Retrying with repair prompt.");
+
+  const apiKey = document.getElementById("apiKey").value;
+  const model = document.getElementById("model").value;
+
+  const repairPrompt = `
+Your previous response was not valid JSON.
+Fix it. Output ONLY valid JSON.
+Here is your broken output:
+
+${brokenOutput}
+`;
+
+  const payload = [
+    { role: "system", content: soulPrompt },
+    { role: "system", content: getRuntimeContext(model) },
+    { role: "user", content: originalUserMessage },
+    { role: "user", content: repairPrompt }
+  ];
+
+  const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Authorization": "Bearer " + apiKey,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ model, messages: payload })
+  });
+
+  const data = await res.json();
+  const raw = data.choices?.[0]?.message?.content || "";
+
+  const extracted = extractThinkTags(raw);
+  const parsed = extractThinkAndResponse(extracted.text);
+
+  if (!parsed.ok) {
+    console.error("[JSON_REPAIR_FAILED] Model still returned invalid JSON after retry.");
+    addMessage("assistant", "⚠️ JSON malformed, could not repair automatically.", "");
+    return;
+  }
+
+  addMessage("assistant", parsed.response, parsed.think);
+
+  messages.push({
+    role: "assistant",
+    content: JSON.stringify({
+      think: parsed.think,
+      response: parsed.response
+    })
+  });
+
+  triggerAutosave();
+
+  if (parsed.js && parsed.js.trim()) {
+    try { Function(parsed.js)(); } catch (err) { console.error("[JS_ERROR]", err); }
+  }
+}
+
+async function sendMessage() {
+  const input = document.getElementById("input");
+  const apiKey = document.getElementById("apiKey").value;
+  const model = document.getElementById("model").value;
+  const sendBtn = document.getElementById("sendBtn");
+
+  const userText = input.value.trim();
+  if (!userText) return;
+
+  if (!apiKey) {
+    addMessage("assistant", "⚠️ Missing API key", "");
+    return;
+  }
+
+  addMessage("user", userText);
+  const originalUserMessage = userText;
+  messages.push({ role: "user", content: userText });
+  triggerAutosave();
+  input.value = "";
+
+  // show typing indicator and disable send
+  const typingNode = showTypingIndicator();
+  sendBtn.disabled = true;
+
+  const payload = [
+    { role: "system", content: soulPrompt },
+    { role: "system", content: getRuntimeContext(model) },
+    ...messages
+  ];
+
+  try {
+    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ model, messages: payload })
+    });
+
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    const data = await res.json();
+    const raw = data.choices?.[0]?.message?.content || "";
+
+    const extracted = extractThinkTags(raw);
+    const parsed = extractThinkAndResponse(extracted.text);
+    if (extracted.think) parsed.think = extracted.think;
+
+    if (!parsed.ok) {
+      if (typingNode && typingNode.remove) typingNode.remove();
+
+      console.warn("Malformed JSON, retrying with repair prompt");
+
+      return await retryWithRepair(originalUserMessage, raw);
+    }
+
+    if (!parsed.response.trim()) {
+      if (typingNode && typeof typingNode.remove === "function") typingNode.remove();
+      addMessage("assistant", "⚠️ empty response", "");
+      return;
+    }
+
+    // success: remove typing and show assistant message
+    if (typingNode && typeof typingNode.remove === "function") typingNode.remove();
+    addMessage("assistant", parsed.response, parsed.think);
+
+    messages.push({
+      role: "assistant",
+      content: JSON.stringify({ think: parsed.think, response: parsed.response })
+    });
+
+    triggerAutosave();
+
+    if (parsed.js && parsed.js.trim()) {
+      try { Function(parsed.js)(); } catch (err) { console.error("[JS_ERROR]", err); }
+    }
+
+  } catch (err) {
+    console.error("[SEND_ERROR]", err);
+    if (typingNode && typeof typingNode.remove === "function") typingNode.remove();
+    addMessage("assistant", "⚠️ request failed", "");
+  } finally {
+    sendBtn.disabled = false;
+  }
+}
+
 function addMessage(role, text, think = "") {
   const chat = document.getElementById("chat");
 
@@ -457,162 +635,6 @@ function extractThinkAndResponse(text, options = {}) {
     js: "",
     error: "FAILED_PARSE"
   };
-}
-
-async function sendMessage() {
-  const input = document.getElementById("input");
-  const apiKey = document.getElementById("apiKey").value;
-  const model = document.getElementById("model").value;
-
-  const userText = input.value.trim();
-
-  if (!userText) return;
-
-  if (!apiKey) {
-    addMessage(
-      "assistant",
-      "⚠️ Missing API key",
-      ""
-    );
-
-    return;
-  }
-
-  addMessage(
-    "user",
-    userText
-  );
-
-  messages.push({
-    role: "user",
-    content: userText
-  });
-
-  triggerAutosave();
-
-  input.value = "";
-
-  const payload = [
-    {
-      role: "system",
-      content: soulPrompt
-    },
-    {
-      role: "system",
-      content: getRuntimeContext(model)
-    },
-    ...messages
-  ];
-
-  try {
-    const res = await fetch(
-      "https://api.groq.com/openai/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          "Authorization": "Bearer " + apiKey,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          model,
-          messages: payload
-        })
-      }
-    );
-
-    if (!res.ok) {
-      throw new Error(
-        `HTTP ${res.status}`
-      );
-    }
-
-    const data = await res.json();
-
-    const raw =
-      data.choices?.[0]?.message?.content || "";
-
-    debugLog("[MODEL RAW]", raw);
-
-    const extracted = extractThinkTags(raw);
-
-    const parsed = extractThinkAndResponse(extracted.text);
-
-    if (extracted.think) {
-      parsed.think = extracted.think;
-    }
-
-    debugLog("[PARSED RESPONSE]", parsed);
-
-    if (!parsed.ok) {
-      debugLog(
-        "[LLM_PARSE_ERROR]",
-        parsed.error,
-        raw
-      );
-
-      addMessage(
-        "assistant",
-        "⚠️ malformed response",
-        ""
-      );
-
-      return;
-    }
-
-    if (!parsed.response.trim()) {
-      debugLog(
-        "[EMPTY_RESPONSE]",
-        parsed
-      );
-
-      addMessage(
-        "assistant",
-        "⚠️ empty response",
-        ""
-      );
-
-      return;
-    }
-
-    addMessage(
-      "assistant",
-      parsed.response,
-      parsed.think
-    );
-
-    messages.push({
-      role: "assistant",
-      content: JSON.stringify({
-        think: parsed.think,
-        response: parsed.response
-      })
-    });
-
-    triggerAutosave();
-
-    if (parsed.js && parsed.js.trim()) {
-      try {
-        Function(parsed.js)();
-      } catch (err) {
-        console.error(
-          "[JS_ERROR]",
-          err
-        );
-      }
-    }
-
-  } catch (err) {
-    console.error(
-      "[SEND_ERROR]",
-      err
-    );
-
-    addMessage(
-      "assistant",
-      "⚠️ request failed",
-      ""
-    );
-  }
 }
 
 function clearHistory() {
