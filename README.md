@@ -166,8 +166,8 @@ Thanks to everyone who has contributed to this project!
 
 ## Download
 
-- [Source Code Download - Zip](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v28.7.4.zip)
-- [Source Code Download - Tarball](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v28.7.4.tar.gz)
+- [Source Code Download - Zip](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v28.8.4.zip)
+- [Source Code Download - Tarball](https://github.com/29miaoet/Andrew_WebPage/archive/refs/tags/v28.8.4.tar.gz)
 
 ## Stats
 
