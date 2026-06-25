@@ -20,7 +20,9 @@ STYLING:
   Block: \\[x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}\\]
 - Never use LaTeX comments with %
 - Never use raw HTML outside fenced code blocks
-- Code must always be inside Markdown fenced blocks
+- If code is included in the response field, encode it as JSON string content.
+Example:
+"response":"Here is code:\\n\\n\`\`\`js\\nconsole.log(1)\\n\`\`\`"
 
 REQUIRED FORMAT:
 {
@@ -32,6 +34,7 @@ REQUIRED FORMAT:
 RULES:
 - Return short responses unless otherwise specified
 - Ask for clarification if unsure
+- If js is required, don't include it in the response field, only the js field
 - js MUST be a string
 - js must be executable if it is not empty
 - Never use top-level return in js
@@ -109,6 +112,7 @@ function autoload() {
   }
 }
 
+
 function renderMarkdown(text) {
   try {
     if (
@@ -116,13 +120,13 @@ function renderMarkdown(text) {
       typeof katex === "undefined" ||
       typeof DOMPurify === "undefined"
     ) {
-      console.error("[RENDER_ERROR] Missing markdown libraries");
       return text;
     }
 
     const mathBlocks = [];
     const codeBlocks = [];
 
+    // 1. Protect fenced code blocks from KaTeX
     text = text.replace(
       /```[\s\S]*?```/g,
       match => {
@@ -132,73 +136,68 @@ function renderMarkdown(text) {
       }
     );
 
+
     function saveMath(content, display) {
       const id = mathBlocks.length;
 
-      try {
-        mathBlocks.push(
-          katex.renderToString(content.trim(), {
-            displayMode: display,
-            throwOnError: false,
-            strict: false
-          })
-        );
-      } catch (err) {
-        console.error("[KATEX_ERROR]", {
-          content,
-          err
-        });
-
-        mathBlocks.push(content);
-      }
+      mathBlocks.push(
+        katex.renderToString(content.trim(), {
+          displayMode: display,
+          throwOnError: false,
+          strict: false
+        })
+      );
 
       return `@@MATH_${id}@@`;
     }
 
+
+    // 2. Process math only outside code
     text = text.replace(
-      /\\\[(.*?)\\\]/gs,
-      (_, math) => saveMath(math, true)
+      /\\\[([\s\S]*?)\\\]/g,
+      (_, m) => saveMath(m, true)
     );
 
     text = text.replace(
-      /\\\((.*?)\\\)/gs,
-      (_, math) => saveMath(math, false)
+      /\\\(([\s\S]*?)\\\)/g,
+      (_, m) => saveMath(m, false)
     );
 
     text = text.replace(
       /\$\$([\s\S]*?)\$\$/g,
-      (_, math) => saveMath(math, true)
+      (_, m) => saveMath(m, true)
     );
 
     text = text.replace(
-      /\$([^\$\n]+?)\$/g,
-      (_, math) => saveMath(math, false)
+      /\$([^$\n]+?)\$/g,
+      (_, m) => saveMath(m, false)
     );
 
+
+    // 3. Restore code BEFORE markdown parsing
+    text = text.replace(
+      /@@CODE_(\d+)@@/g,
+      (_, id) => codeBlocks[id]
+    );
+
+
+    // 4. Let marked handle code fences
     let html = marked.parse(text, {
       breaks: true,
       gfm: true
     });
 
+
+    // 5. Restore KaTeX HTML
     html = html.replace(
       /@@MATH_(\d+)@@/g,
-      (_, id) => mathBlocks[id] || ""
+      (_, id) => mathBlocks[id]
     );
 
-    html = html.replace(
-      /@@CODE_(\d+)@@/g,
-      (_, id) => codeBlocks[id] || ""
-    );
 
     return DOMPurify.sanitize(html, {
-      ADD_TAGS: [
-        "pre",
-        "code",
-        "span"
-      ],
-      ADD_ATTR: [
-        "class"
-      ]
+      ADD_TAGS: ["pre", "code", "span"],
+      ADD_ATTR: ["class"]
     });
 
   } catch (err) {
@@ -206,7 +205,6 @@ function renderMarkdown(text) {
     return text;
   }
 }
-
 
 // --- helper: create typing DOM node and return a handle ---
 function showTypingIndicator() {
