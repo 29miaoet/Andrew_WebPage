@@ -46,72 +46,148 @@ function getRuntimeContext(model) {
   return `Browser chat environment. Model: ${model}. Output JSON only.`;
 }
 
+// State Management
 let messages = [];
-let retryCount = 0;
-
-const MAX_RETRIES = 3;
-const RETRY_DELAY = 1000;
-
-const STORAGE_KEY = "chat_autosave";
+let allChats = [];
+let activeChatId = null;
 let autosaveTimer = null;
 const DEBUG = false;
 
+const STORAGE_KEY = "chat_autosave_multi";
+
 function debugLog(...args) {
   if (DEBUG) {
-    debugLog(...args);
+    console.log("[DEBUG]", ...args); // Fixed infinite recursion bug
+  }
+}
+
+// --- Chat History & Storage ---
+
+function loadAllChatsFromStorage() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const data = JSON.parse(raw);
+    return Array.isArray(data) ? data : [];
+  } catch (err) {
+    console.error("[LOAD_CHATS_ERROR]", err);
+    return [];
+  }
+}
+
+function saveAllChatsToStorage() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(allChats));
+  } catch (err) {
+    console.error("[SAVE_CHATS_ERROR]", err);
   }
 }
 
 function triggerAutosave() {
   clearTimeout(autosaveTimer);
-
   autosaveTimer = setTimeout(() => {
-    autosave();
+    const chatIndex = allChats.findIndex(c => c.id === activeChatId);
+    if (chatIndex !== -1) {
+      allChats[chatIndex].messages = structuredClone(messages);
+      allChats[chatIndex].timestamp = new Date().toISOString();
+      
+      // Auto-generate title from first user message
+      if ((!allChats[chatIndex].title || allChats[chatIndex].title === "New Chat") && messages.length > 0) {
+        const firstUserMsg = messages.find(m => m.role === 'user');
+        if (firstUserMsg) allChats[chatIndex].title = firstUserMsg.content.substring(0, 30) + (firstUserMsg.content.length > 30 ? "..." : "");
+      }
+      
+      saveAllChatsToStorage();
+      renderSidebar();
+    }
   }, 800);
 }
 
-function autosave() {
-  try {
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify({
-        timestamp: new Date().toISOString(),
-        messages: structuredClone(messages)
-      })
-    );
-  } catch (err) {
-    console.error("[AUTOSAVE_ERROR]", err);
-  }
+function startNewChat() {
+  const newChat = {
+    id: "chat_" + Date.now(),
+    title: "New Chat",
+    timestamp: new Date().toISOString(),
+    messages: []
+  };
+  allChats.push(newChat);
+  activeChatId = newChat.id;
+  messages = [];
+
+  const chat = document.getElementById("chat");
+  chat.innerHTML = "";
+
+  saveAllChatsToStorage();
+  renderSidebar();
 }
 
-function autoload() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return;
+function loadChat(chatId) {
+  const chat = allChats.find(c => c.id === chatId);
+  if (!chat) return;
 
-    const data = JSON.parse(raw);
+  activeChatId = chatId;
+  messages = structuredClone(chat.messages);
 
-    if (!Array.isArray(data.messages)) return;
+  const chatEl = document.getElementById("chat");
+  chatEl.innerHTML = "";
 
-    messages = structuredClone(data.messages);
+  messages.forEach(msg => {
+    if (msg.role === "user") {
+      addMessage("user", msg.content);
+    } else {
+      const parsed = tryParseStoredMessage(msg.content);
+      addMessage("assistant", parsed.response, parsed.think);
+    }
+  });
 
-    const chat = document.getElementById("chat");
-    chat.innerHTML = "";
-
-    messages.forEach(msg => {
-      if (msg.role === "user") {
-        addMessage("user", msg.content);
-      } else {
-        const parsed = tryParseStoredMessage(msg.content);
-        addMessage("assistant", parsed.response, parsed.think);
-      }
-    });
-
-  } catch (err) {
-    console.error("[AUTOLOAD_ERROR]", err);
-  }
+  renderSidebar();
 }
 
+function deleteChat(chatId, event) {
+  event.stopPropagation();
+  allChats = allChats.filter(c => c.id !== chatId);
+  
+  if (activeChatId === chatId) {
+    if (allChats.length > 0) {
+      loadChat(allChats[allChats.length - 1].id);
+    } else {
+      startNewChat(); // Always have at least one chat
+    }
+  }
+  saveAllChatsToStorage();
+  renderSidebar();
+}
+
+function renderSidebar() {
+  const historyEl = document.getElementById("chatHistory");
+  if (!historyEl) return;
+
+  historyEl.innerHTML = "";
+
+  // Sort by most recent
+  const sortedChats = [...allChats].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+  sortedChats.forEach(chat => {
+    const item = document.createElement("div");
+    item.className = "chat-history-item" + (chat.id === activeChatId ? " active" : "");
+    item.addEventListener("click", () => loadChat(chat.id));
+
+    const title = document.createElement("div");
+    title.className = "title";
+    title.textContent = chat.title || "New Chat";
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = "delete-btn";
+    deleteBtn.innerHTML = "&times;";
+    deleteBtn.addEventListener("click", (e) => deleteChat(chat.id, e));
+
+    item.appendChild(title);
+    item.appendChild(deleteBtn);
+    historyEl.appendChild(item);
+  });
+}
+
+// --- Markdown & Rendering ---
 
 function renderMarkdown(text) {
   try {
@@ -636,49 +712,33 @@ function extractThinkAndResponse(text, options = {}) {
 }
 
 function clearHistory() {
-  localStorage.removeItem(
-    STORAGE_KEY
-  );
-
-  messages = [];
-
-  const chat = document.getElementById("chat");
-
-  chat.innerHTML = "";
+  if (!confirm("Are you sure you want to delete ALL chats? This cannot be undone.")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  allChats = [];
+  startNewChat();
 }
 
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
-    document
-      .getElementById("sendBtn")
-      .addEventListener(
-        "click",
-        sendMessage
-      );
+// --- Initialization ---
 
-    document
-      .getElementById("clearBtn")
-      .addEventListener(
-        "click",
-        clearHistory
-      );
-
-    document
-      .getElementById("input")
-      .addEventListener(
-        "keydown",
-        e => {
-          if (
-            e.key === "Enter" &&
-            !e.shiftKey
-          ) {
-            e.preventDefault();
-            sendMessage();
-          }
-        }
-      );
-
-    autoload();
+document.addEventListener("DOMContentLoaded", () => {
+  allChats = loadAllChatsFromStorage();
+  if (allChats.length === 0) {
+    startNewChat();
+  } else {
+    allChats.sort((a,b) => new Date(b.timestamp) - new Date(a.timestamp));
+    loadChat(allChats[0].id);
   }
-);
+  renderSidebar();
+
+  document.getElementById("sendBtn").addEventListener("click", sendMessage);
+  document.getElementById("clearBtn").addEventListener("click", clearHistory);
+  document.getElementById("newChatBtn").addEventListener("click", startNewChat);
+  
+  document.getElementById("input").addEventListener("keydown", e => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+});
+

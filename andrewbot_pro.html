@@ -25,35 +25,47 @@
   <span class="home-text">Home</span>
 </a>
 
-<div class="container">
-<h2>AndrewBot Pro</h2>
+<div class="app-layout">
+  <!-- Sidebar Addition -->
+  <div id="sidebar">
+    <button id="newChatBtn">+ New Chat</button>
+    <div id="chatHistory"></div>
+  </div>
 
-<label for="apiKey">API Key</label>
-<div class="input-row">
-<input id="apiKey" class="input-field" placeholder="Enter API key">
+  <!-- Main Content Wrapper -->
+  <div class="main-content">
+    <div class="container">
+      <h2>AndrewBot Pro</h2>
+
+      <label for="apiKey">API Key</label>
+      <div class="input-row">
+        <input id="apiKey" class="input-field" placeholder="Enter API key">
+      </div>
+
+      <label for="model">Model</label>
+      <select id="model" class="input-field">
+        <option value="openai/gpt-oss-120b">GPT OSS 120B (recommended)</option>
+        <option value="groq/compound">Groq Compound (smart)</option>
+        <option value="qwen/qwen3.6-27b">Qwen 3.6 27B</option>
+        <option value="groq/compound-mini">Groq Compound Mini</option>
+        <option value="openai/gpt-oss-20b">GPT OSS 20B</option>
+        <option value="qwen/qwen3-32b">Qwen 3 32B</option>
+        <option value="llama-3.1-8b-instant">LLaMA 3.1 8B</option>
+        <option value="llama-3.3-70b-versatile">LLaMA 3.3 70B</option>
+      </select>
+
+      <div id="chat"></div>
+
+      <div class="input-row">
+        <textarea id="input" class="input-field" rows="1" placeholder="Type a message..." aria-label="Chat input"></textarea>
+        <button id="sendBtn" type="button">Send</button>
+        <button id="clearBtn" type="button">Clear All History</button>
+      </div>
+      <footer>AndrewBot Pro - Created by Ethan Miao</footer>
+    </div>
+  </div>
 </div>
 
-<label for="model">Model</label>
-<select id="model" class="input-field">
-  <option value="openai/gpt-oss-120b">GPT OSS 120B (recommended)</option>
-  <option value="groq/compound">Groq Compound (smart)</option>
-  <option value="qwen/qwen3.6-27b">Qwen 3.6 27B</option>
-  <option value="groq/compound-mini">Groq Compound Mini</option>
-  <option value="openai/gpt-oss-20b">GPT OSS 20B</option>
-  <option value="qwen/qwen3-32b">Qwen 3 32B</option>
-  <option value="llama-3.1-8b-instant">LLaMA 3.1 8B</option>
-  <option value="llama-3.3-70b-versatile">LLaMA 3.3 70B</option>
-</select>
-
-<div id="chat"></div>
-
-<div class="input-row">
-<textarea id="input" class="input-field" rows="1" placeholder="Type a message..." aria-label="Chat input"></textarea>
-<button id="sendBtn" type="button">Send</button>
-<button id="clearBtn" type="button">Clear History</button>
-</div>
-<footer>AndrewBot Pro - Created by Ethan Miao</footer>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/marked@18.0.5/lib/marked.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.4.10/dist/purify.min.js"></script>
